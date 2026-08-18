@@ -204,7 +204,7 @@ else:
 PY
 fi
 
-# Versioned Forecast API under static/api/ (v1 federal, v2 state + Stimmung).
+# Versioned Forecast API under static/api/ (v1 legacy federal, v2 federal + state + Stimmung).
 echo "Building versioned Forecast API ..."
 python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
   --out "${WEBSITE_DIR}/static" \

@@ -6,6 +6,8 @@ Writes:
   api/openapi.json
   api/v1/federal/{index,forecast,pred_probabilities,forecast_districts?}.json
   api/v1/federal/archive/{index,YYYY-MM-DD}.json
+  api/v2/federal/{index,forecast,districts,draws?}.json
+  api/v2/federal/archive/{index,YYYY-MM-DD}.json
   api/v2/state/{index,st,be,…}.json
   api/v2/state/archive/{index,st_YYYY-MM-DD}.json
   api/v2/stimmung/federal.json
@@ -13,6 +15,9 @@ Writes:
   api/v2/stimmung/state/index.json
   api/v2/stimmung/state/{st,…}.json
   api/v2/stimmung/state/{st,…}/current.json
+
+v1 is the legacy federal-only contract. v2 is the current contract
+(federal + state + Stimmung). Unversioned root files alias v1.
 
 Also (unless --no-legacy-aliases):
   _redirects (301 root → /api/v1/federal/…)
@@ -243,19 +248,7 @@ def _resolve_federal_election(
                 date_is_estimated=federal.get("date_is_estimated"),
             )
 
-    # Legacy root BTW artifacts (last_updated near Feb 2025).
-    last_updated = None
-    for d in legacy_dirs + data_dirs:
-        lu = _load_json(d / "last_updated.json")
-        if isinstance(lu, dict) and lu.get("last_updated"):
-            last_updated = str(lu["last_updated"])
-            break
-        # also check parent of data/
-        if d.name == "data":
-            lu = _load_json(d.parent / "last_updated.json")
-            if isinstance(lu, dict) and lu.get("last_updated"):
-                last_updated = str(lu["last_updated"])
-                break
+    last_updated = _federal_last_updated_raw(data_dirs, legacy_dirs)
 
     cal_fed = _federal_from_calendar(calendar)
     lu_date = _parse_date(last_updated)
@@ -270,6 +263,35 @@ def _resolve_federal_election(
     if cal_fed:
         return cal_fed
     return dict(_LEGACY_BTW_2025)
+
+
+def _federal_last_updated_raw(
+    data_dirs: list[Path], legacy_dirs: list[Path]
+) -> str | None:
+    for d in legacy_dirs + data_dirs:
+        lu = _load_json(d / "last_updated.json")
+        if isinstance(lu, dict) and lu.get("last_updated"):
+            return str(lu["last_updated"])
+        if d.name == "data":
+            lu = _load_json(d.parent / "last_updated.json")
+            if isinstance(lu, dict) and lu.get("last_updated"):
+                return str(lu["last_updated"])
+    return None
+
+
+def _iso_datetime_loose(value: str | None) -> str | None:
+    if not value:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    if "T" in text:
+        return text
+    try:
+        dt = datetime.strptime(text[:19], "%Y-%m-%d %H:%M:%S")
+        return dt.strftime("%Y-%m-%dT%H:%M:%S")
+    except ValueError:
+        return text
 
 
 def _envelope(
@@ -437,7 +459,12 @@ def build_v1_federal(
             "v1",
             election,
             {
-                "description": "Federal (Bundestag) forecast endpoints",
+                "description": (
+                    "Legacy federal-only contract from when the API published "
+                    "Bundestag forecasts only. Prefer /api/v2/federal/."
+                ),
+                "status": "legacy",
+                "successor": "/api/v2/federal/index.json",
                 "endpoints": endpoints,
                 "archive_index": "/api/v1/federal/archive/index.json",
                 "archive_count": len(archive_items),
@@ -445,9 +472,10 @@ def build_v1_federal(
                     old: new for old, new in LEGACY_FEDERAL_REDIRECTS
                 },
                 "note": (
-                    "Canonical paths are /api/v1/federal/*. "
-                    "Root /forecast.json etc. redirect (or content-alias) here. "
-                    "Active federal forecasts only within the 90-day window."
+                    "Unchanged compatibility layer. Root /forecast.json etc. "
+                    "still alias these files. New clients should use "
+                    "/api/v2/federal/ (same data, improved contract, plus "
+                    "state and Stimmung under /api/v2/)."
                 ),
             },
         ),
@@ -473,6 +501,278 @@ def write_legacy_root_aliases(out_root: Path, root_aliases: dict[str, Any]) -> N
 
     for fname, payload in root_aliases.items():
         _write_json(out_root / fname, payload)
+
+
+def _federal_source_metadata(data_dirs: list[Path]) -> dict[str, Any]:
+    src = _find_first("forecast_federal.json", data_dirs)
+    if not src:
+        return {}
+    loaded = _load_json(src)
+    if isinstance(loaded, dict) and isinstance(loaded.get("metadata"), dict):
+        return dict(loaded["metadata"])
+    return {}
+
+
+def _federal_parties_v2(rows: Any) -> list[dict[str, Any]]:
+    if isinstance(rows, dict) and isinstance(rows.get("parties"), list):
+        rows = rows["parties"]
+    if not isinstance(rows, list):
+        return []
+    out: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        if row.get("party_code") is not None and row.get("fit") is not None:
+            out.append(dict(row))
+            continue
+        fit = row.get("value")
+        if fit is None:
+            fit = row.get("y")
+        party: dict[str, Any] = {
+            "party": row.get("name") or row.get("party"),
+            "party_code": row.get("_row") or row.get("party_code"),
+            "fit": fit,
+            "low": row.get("low"),
+            "high": row.get("high"),
+        }
+        for key in ("name_eng", "low95", "high95", "color"):
+            if row.get(key) is not None:
+                party[key] = row[key]
+        out.append(party)
+    return out
+
+
+def _federal_probabilities_v2(pred: Any) -> dict[str, Any] | None:
+    if pred is None:
+        return None
+    if isinstance(pred, list):
+        if pred and isinstance(pred[0], dict):
+            return pred[0]
+        return None
+    if isinstance(pred, dict):
+        return pred
+    return None
+
+
+def _federal_metadata(
+    election: dict[str, Any],
+    *,
+    extra: dict[str, Any] | None = None,
+    last_update: str | None = None,
+) -> dict[str, Any]:
+    meta: dict[str, Any] = dict(extra or {})
+    meta.setdefault("scope", "federal")
+    meta.setdefault("election_id", election.get("id"))
+    meta.setdefault("election_name", election.get("name"))
+    meta.setdefault("election_date", election.get("date"))
+    if last_update:
+        meta.setdefault("last_update", last_update)
+        meta.setdefault("asof_date", str(last_update)[:10])
+    return {k: v for k, v in meta.items() if v is not None}
+
+
+def _load_federal_draws_payload(
+    data_dirs: list[Path], legacy_dirs: list[Path]
+) -> dict[str, Any] | None:
+    src = _find_first("forecast_federal_draws.json", data_dirs)
+    if src:
+        parsed = _state_draws_from_file(src)
+        if parsed:
+            return parsed
+    for d in legacy_dirs:
+        path = d / "draws.json"
+        loaded = _load_json(path)
+        raw = _unwrap_api_payload(loaded)
+        if isinstance(raw, list) and raw and isinstance(raw[0], dict):
+            parties = [k for k in raw[0].keys() if k != "draw"]
+            return {
+                "n_draws": len(raw),
+                "unit": "share",
+                "parties": parties,
+                "draws": raw,
+            }
+        if isinstance(raw, dict) and isinstance(raw.get("draws"), list):
+            parsed = _state_draws_from_file(path)
+            if parsed:
+                return parsed
+    return None
+
+
+def build_v2_federal_archive(
+    api_root: Path,
+    data_dirs: list[Path],
+    *,
+    last_update: str | None = None,
+) -> list[dict[str, Any]]:
+    archive_dir = api_root / "v2" / "federal" / "archive"
+    items: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    paths: list[Path] = []
+    for d in data_dirs:
+        paths.extend(sorted(d.glob("archive/forecast_federal_*.json")))
+        if (d / "archive").is_dir():
+            paths.extend(sorted((d / "archive").glob("forecast_federal_*.json")))
+
+    for path in paths:
+        m = re.match(r"forecast_federal_(\d{4}-\d{2}-\d{2})\.json$", path.name)
+        if not m:
+            continue
+        ed = m.group(1)
+        if ed in seen:
+            continue
+        seen.add(ed)
+        raw = _unwrap_api_payload(_load_json(path))
+        if raw is None:
+            continue
+        source_meta: dict[str, Any] = {}
+        if isinstance(raw, dict) and "parties" in raw and "metadata" in raw:
+            parties_raw = raw.get("parties")
+            source_meta = dict(raw.get("metadata") or {})
+            ed = str(source_meta.get("election_date") or ed)
+            name = str(source_meta.get("election_name") or "Bundestagswahl")
+        else:
+            parties_raw = raw
+            name = "Bundestagswahl"
+        election = _election_obj(
+            election_id=f"bund_{ed}",
+            name=name,
+            election_date=ed,
+            scope="federal",
+            state_code=None,
+        )
+        data = {
+            "metadata": _federal_metadata(
+                election, extra=source_meta, last_update=last_update
+            ),
+            "parties": _federal_parties_v2(parties_raw),
+        }
+        rel = f"{ed}.json"
+        _write_json(
+            archive_dir / rel,
+            _envelope("v2", election, data, extra={"archived": True}),
+        )
+        items.append(
+            {
+                "election": election,
+                "path": f"/api/v2/federal/archive/{rel}",
+                "archived": True,
+            }
+        )
+
+    _write_json(
+        archive_dir / "index.json",
+        {
+            "api_version": "v2",
+            "generated_at": _now_iso(),
+            "description": (
+                "Archived federal forecasts after election day. "
+                "Only elections archived by the pipeline from now on (no backfill)."
+            ),
+            "forecasts": items,
+        },
+    )
+    return items
+
+
+def build_v2_federal(
+    api_root: Path,
+    election: dict[str, Any],
+    data_dirs: list[Path],
+    legacy_dirs: list[Path],
+) -> list[str]:
+    """Current federal contract: metadata + parties (fit/low/high), plus districts/draws."""
+    endpoints: list[str] = []
+    fed_dir = api_root / "v2" / "federal"
+    last_update = _iso_datetime_loose(
+        _federal_last_updated_raw(data_dirs, legacy_dirs)
+    )
+    source_meta = _federal_source_metadata(data_dirs)
+    parties = _federal_parties_v2(
+        _load_federal_forecast_data(data_dirs, legacy_dirs)
+    )
+
+    pred = None
+    src = _find_first("pred_probabilities.json", data_dirs + legacy_dirs)
+    if src:
+        pred = _federal_probabilities_v2(_unwrap_api_payload(_load_json(src)))
+
+    districts = None
+    src = _find_first("forecast_districts.json", data_dirs + legacy_dirs)
+    if src:
+        districts = _unwrap_api_payload(_load_json(src))
+
+    draws_payload = _load_federal_draws_payload(data_dirs, legacy_dirs)
+    draws_url = "/api/v2/federal/draws.json" if draws_payload else None
+    meta = _federal_metadata(
+        election, extra=source_meta, last_update=last_update
+    )
+    if draws_payload:
+        meta["draws_path"] = draws_url
+        meta["n_draws"] = draws_payload.get("n_draws") or len(
+            draws_payload.get("draws") or []
+        )
+
+    forecast_data: dict[str, Any] = {
+        "metadata": meta,
+        "parties": parties,
+    }
+    if pred is not None:
+        forecast_data["probabilities"] = pred
+    if parties or pred is not None:
+        _write_json(fed_dir / "forecast.json", _envelope("v2", election, forecast_data))
+        endpoints.append("/api/v2/federal/forecast.json")
+
+    if isinstance(districts, list):
+        _write_json(
+            fed_dir / "districts.json",
+            _envelope(
+                "v2",
+                election,
+                {"metadata": dict(meta), "districts": districts},
+            ),
+            compact=True,
+        )
+        endpoints.append("/api/v2/federal/districts.json")
+
+    if draws_payload:
+        enriched = _enrich_state_draws(
+            draws_payload,
+            forecast_data=forecast_data,
+            forecast_path="/api/v2/federal/forecast.json",
+        )
+        _write_json(
+            fed_dir / "draws.json",
+            _envelope("v2", election, enriched),
+            compact=True,
+        )
+        endpoints.append(draws_url)
+
+    archive_items = build_v2_federal_archive(
+        api_root, data_dirs, last_update=last_update
+    )
+
+    catalog: dict[str, Any] = {
+        "description": (
+            "Federal (Bundestag) election-day forecasts, current (v2) contract."
+        ),
+        "status": "current",
+        "forecast": "/api/v2/federal/forecast.json",
+        "archive_index": "/api/v2/federal/archive/index.json",
+        "archive_count": len(archive_items),
+        "legacy": "/api/v1/federal/index.json",
+        "endpoints": endpoints,
+        "note": (
+            "Same underlying federal forecast as v1, with the improved envelope: "
+            "metadata plus parties as fit/low/high (percentage points). "
+            "Probabilities stay 0–1. Prefer this over /api/v1/federal/."
+        ),
+    }
+    if "/api/v2/federal/districts.json" in endpoints:
+        catalog["districts"] = "/api/v2/federal/districts.json"
+    if draws_url:
+        catalog["draws"] = draws_url
+    _write_json(fed_dir / "index.json", _envelope("v2", election, catalog))
+    return endpoints
 
 
 def _state_payload_from_file(
@@ -536,6 +836,67 @@ _DRAWS_NOTES = (
 )
 
 
+_DRAWS_TIMING_KEYS = ("last_update", "asof_date", "last_poll_date")
+# Former metadata fields, minus ones that already live elsewhere on this payload.
+_DRAWS_FLAT_META_KEYS = (
+    "state_code",
+    "election_id",
+    "election_name",
+    "election_date",
+    "model",
+    "lead",
+    "lead_model",
+    "lead_horizon_days",
+    "poll_window_days",
+    "scenario_config_md5",
+    "predictor_encoding",
+    "shares_normalized_to_100",
+    "source_repo",
+)
+_DRAWS_TAIL_KEYS = (
+    "summary",
+    "forecast_path",
+    "normalization",
+    "notes",
+    "n_draws",
+    "unit",
+    "parties",
+    "draws",
+)
+# Do not copy these out of nested metadata: they duplicate header/tail fields,
+# or (draws_path) just point at this file.
+_DRAWS_SKIP_FROM_META = frozenset(
+    {
+        "metadata",
+        "n_draws",
+        "draws_path",
+        "parties",
+        "draws",
+        "summary",
+        "unit",
+        "forecast_path",
+        "normalization",
+        "notes",
+        *_DRAWS_TIMING_KEYS,
+    }
+)
+
+
+def _flatten_draws_meta(data: dict[str, Any], meta: dict[str, Any] | None) -> None:
+    """Lift forecast fields onto data; keep last_update / dates only at the top."""
+    if not isinstance(meta, dict):
+        return
+    for key in _DRAWS_TIMING_KEYS:
+        if data.get(key) is None and meta.get(key) is not None:
+            data[key] = meta[key]
+    for key, value in meta.items():
+        if key in _DRAWS_SKIP_FROM_META:
+            continue
+        if data.get(key) is None and value is not None:
+            data[key] = value
+    data.pop("metadata", None)
+
+
 def _state_draws_from_file(path: Path) -> dict[str, Any] | None:
     payload = _load_json(path)
     if not isinstance(payload, dict):
@@ -550,14 +911,17 @@ def _state_draws_from_file(path: Path) -> dict[str, Any] | None:
     if not parties and isinstance(draws[0], dict):
         parties = [k for k in draws[0].keys() if k != "draw"]
     out: dict[str, Any] = {}
-    meta = inner.get("metadata")
-    if isinstance(meta, dict) and meta:
-        out["metadata"] = meta
-    for key in ("last_update", "asof_date", "last_poll_date"):
+    for key in _DRAWS_TIMING_KEYS:
         if inner.get(key):
             out[key] = inner[key]
-        elif isinstance(meta, dict) and meta.get(key):
-            out[key] = meta[key]
+    _flatten_draws_meta(
+        out, inner.get("metadata") if isinstance(inner.get("metadata"), dict) else None
+    )
+    for key, value in inner.items():
+        if key in ("metadata", "draws", "n_draws", "unit", "parties", "summary") or key in out:
+            continue
+        if value is not None:
+            out[key] = value
     summary = inner.get("summary")
     if isinstance(summary, dict) and summary:
         out["summary"] = summary
@@ -577,7 +941,7 @@ def _enrich_state_draws(
     forecast_data: dict[str, Any] | None = None,
     forecast_path: str | None = None,
 ) -> dict[str, Any]:
-    """Make draws self-contained: timing, last poll, and summary forecast + CIs."""
+    """Make draws self-contained: timing, model, last poll, and summary + CIs."""
     forecast_meta = None
     forecast_parties = None
     if isinstance(forecast_data, dict):
@@ -586,16 +950,10 @@ def _enrich_state_draws(
         if isinstance(forecast_data.get("parties"), list):
             forecast_parties = forecast_data["parties"]
 
-    meta = data.get("metadata") if isinstance(data.get("metadata"), dict) else {}
-    if forecast_meta:
-        merged = dict(forecast_meta)
-        merged.update({k: v for k, v in meta.items() if v is not None})
-        meta = merged
-    if meta:
-        data["metadata"] = meta
-        for key in ("last_update", "asof_date", "last_poll_date"):
-            if meta.get(key):
-                data[key] = meta[key]
+    nested = data.get("metadata") if isinstance(data.get("metadata"), dict) else {}
+    merged: dict[str, Any] = dict(forecast_meta or {})
+    merged.update({k: v for k, v in nested.items() if v is not None})
+    _flatten_draws_meta(data, merged)
 
     summary = data.get("summary") if isinstance(data.get("summary"), dict) else {}
     if forecast_parties:
@@ -610,31 +968,22 @@ def _enrich_state_draws(
     return _order_state_draws_payload(data)
 
 
-_DRAWS_KEY_ORDER = (
-    "metadata",
-    "last_update",
-    "asof_date",
-    "last_poll_date",
-    "summary",
-    "forecast_path",
-    "normalization",
-    "notes",
-    "n_draws",
-    "unit",
-    "parties",
-    "draws",
-)
+_DRAWS_KEY_ORDER = _DRAWS_TIMING_KEYS + _DRAWS_FLAT_META_KEYS + _DRAWS_TAIL_KEYS
 
 
 def _order_state_draws_payload(data: dict[str, Any]) -> dict[str, Any]:
-    """Header/metadata first, raw simulations last — so clients can read the file prefix."""
+    """Timing + model fields first, raw simulations last — prefix is readable."""
     ordered: dict[str, Any] = {}
+    tail = set(_DRAWS_TAIL_KEYS)
     for key in _DRAWS_KEY_ORDER:
-        if key in data:
+        if key in data and key not in tail:
             ordered[key] = data[key]
     for key, value in data.items():
-        if key not in ordered:
+        if key not in ordered and key not in tail:
             ordered[key] = value
+    for key in _DRAWS_TAIL_KEYS:
+        if key in data:
+            ordered[key] = data[key]
     return ordered
 
 
@@ -1032,6 +1381,9 @@ def build(
     v1_eps, root_aliases = build_v1_federal(
         api_root, federal_election, data_dirs, legacy_dirs
     )
+    v2_fed_eps = build_v2_federal(
+        api_root, federal_election, data_dirs, legacy_dirs
+    )
     state_items, archive_items = build_v2_state(api_root, calendar, data_dirs)
     stim_summary = build_v2_stimmung(api_root, calendar, data_dirs)
 
@@ -1049,13 +1401,24 @@ def build(
             "openapi": "/api/openapi.json",
             "versions": {
                 "v1": {
-                    "description": "Federal (Bundestag) forecasts",
+                    "status": "legacy",
+                    "description": (
+                        "Legacy contract from when only federal forecasts existed. "
+                        "Unchanged for compatibility. Prefer v2."
+                    ),
                     "index": "/api/v1/federal/index.json",
                     "archive_index": "/api/v1/federal/archive/index.json",
+                    "successor": "/api/v2/federal/index.json",
                     "endpoints": v1_eps,
                 },
                 "v2": {
-                    "description": "State forecasts and Aktuelle Stimmung",
+                    "status": "current",
+                    "description": (
+                        "Current contract: federal and state election-day forecasts, "
+                        "posterior draws, and Aktuelle Stimmung."
+                    ),
+                    "federal_index": "/api/v2/federal/index.json",
+                    "federal_archive_index": "/api/v2/federal/archive/index.json",
                     "state_index": "/api/v2/state/index.json",
                     "state_archive_index": "/api/v2/state/archive/index.json",
                     "stimmung_federal": "/api/v2/stimmung/federal.json",
@@ -1077,12 +1440,14 @@ def build(
             "policy": {
                 "active_forecast_window_days": 90,
                 "archive": (
-                    "After election day, forecasts move to /api/v1/federal/archive/ "
-                    "and /api/v2/state/archive/. No backfill of earlier elections."
+                    "After election day, forecasts move to /api/v2/federal/archive/ "
+                    "and /api/v2/state/archive/ (v1 federal archive remains for the "
+                    "legacy contract). No backfill of earlier elections."
                 ),
             },
             "counts": {
                 "v1_federal_endpoints": len(v1_eps),
+                "v2_federal_endpoints": len(v2_fed_eps),
                 "v2_state_forecasts": len(state_items),
                 "v2_state_archive": len(archive_items),
                 "v2_stimmung_states": len(stim_summary.get("states") or []),

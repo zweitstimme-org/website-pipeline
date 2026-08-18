@@ -38,13 +38,13 @@ This is **not** the polling API for individual surveys. That lives at [api.zweit
 
 ## Versioning
 
-| Version | Scope |
+| Version | Meaning |
 |---|---|
-| `v1` | Federal (Bundestag) forecast contract |
-| `v2` | State forecasts, posterior draws, and Stimmung |
-| unversioned `/forecast.json` etc. | Legacy aliases of `v1` |
+| `v1` | Legacy contract from when only federal forecasts existed. Kept for compatibility. |
+| `v2` | Current contract: federal and state election-day forecasts, posterior draws, and Stimmung. |
+| unversioned `/forecast.json` etc. | Aliases of the `v1` federal files. |
 
-Start at `GET /api/index.json`. Prefer `v2` for new integrations.
+Start at `GET /api/index.json`. Prefer `v2` for new integrations. Federal data exists under both `/api/v1/federal/` (old row shape) and `/api/v2/federal/` (metadata + `fit`/`low`/`high`, same as state).
 
 ## Envelope
 
@@ -62,13 +62,13 @@ Versioned endpoints wrap payloads as:
 ## Availability
 
 - State forecasts exist only inside the **~90-day window** before election day. Outside that window the path returns **404**.
-- After election day the last forecast moves to `/api/v2/state/archive/`.
+- After election day the last forecast moves to `/api/v2/federal/archive/` or `/api/v2/state/archive/`.
 - Archives start when this API began publishing them; there is no historical backfill.
 - `/data/*.json` files used by the website UI are **not** a public contract.
 
 ## Units
 
-Watch the unit. Party vote shares in summary forecasts are usually **percentage points**. Posterior draws use **shares from 0 to 1**. Federal `pred_probabilities` are also 0–1. State scenario `probability` values are **percent 0–100**.
+Watch the unit. Party vote shares in summary forecasts are usually **percentage points**. Posterior draws use **shares from 0 to 1**. Federal `probabilities` / `pred_probabilities` are also 0–1. State scenario `probability` values are **percent 0–100**.
 
 ## License
 
@@ -222,6 +222,12 @@ def schemas() -> dict[str, Any]:
             "type": "object",
             "properties": {
                 "description": {"type": "string"},
+                "status": {"type": "string", "example": "current"},
+                "successor": {"type": "string"},
+                "legacy": {"type": "string"},
+                "forecast": {"type": "string"},
+                "districts": {"type": "string"},
+                "draws": {"type": "string"},
                 "endpoints": {"type": "array", "items": {"type": "string"}},
                 "archive_index": {"type": "string"},
                 "archive_count": {"type": "integer"},
@@ -231,7 +237,7 @@ def schemas() -> dict[str, Any]:
         },
         "FederalPartyRow": {
             "type": "object",
-            "description": "One party in the federal forecast. `value`/`y` and interval fields are percentage points. `low`/`high` ≈ 83% interval; `low95`/`high95` ≈ 95%.",
+            "description": "Legacy `v1` party row. `value`/`y` and interval fields are percentage points. `low`/`high` ≈ 83% interval; `low95`/`high95` ≈ 95%. Prefer `FederalPartyRowV2` on `/api/v2/federal/forecast.json`.",
             "properties": {
                 "name": {"type": "string", "example": "CDU/CSU"},
                 "name_eng": {"type": "string"},
@@ -244,6 +250,63 @@ def schemas() -> dict[str, Any]:
                 "low95": {"type": "number"},
                 "high95": {"type": "number"},
                 "color": {"type": "string"},
+            },
+        },
+        "FederalPartyRowV2": {
+            "type": "object",
+            "description": "Current federal party row. Same fields as state forecasts (`party`, `party_code`, `fit`, `low`, `high` in percentage points). `low`/`high` ≈ 83%; `low95`/`high95` ≈ 95% when present.",
+            "required": ["party", "party_code", "fit"],
+            "properties": {
+                "party": {"type": "string", "example": "CDU/CSU"},
+                "party_code": {"type": "string", "example": "cdu"},
+                "fit": {"type": "number", "example": 29.3},
+                "low": {"type": "number", "example": 24.2},
+                "high": {"type": "number", "example": 34.5},
+                "low95": {"type": "number"},
+                "high95": {"type": "number"},
+                "name_eng": {"type": "string"},
+                "color": {"type": "string"},
+            },
+        },
+        "FederalForecastMetadata": {
+            "type": "object",
+            "properties": {
+                "scope": {"type": "string", "example": "federal"},
+                "election_id": {"type": "string"},
+                "election_name": {"type": "string"},
+                "election_date": {"type": "string", "format": "date"},
+                "last_update": {
+                    "type": "string",
+                    "description": "When this forecast was computed / exported.",
+                },
+                "asof_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Forecast input-date anchor.",
+                },
+                "n_draws": {"type": "integer"},
+                "draws_path": {
+                    "type": "string",
+                    "example": "/api/v2/federal/draws.json",
+                },
+            },
+        },
+        "FederalForecastData": {
+            "type": "object",
+            "properties": {
+                "metadata": _ref("FederalForecastMetadata"),
+                "parties": {"type": "array", "items": _ref("FederalPartyRowV2")},
+                "probabilities": _ref("FederalProbabilities"),
+            },
+        },
+        "FederalDistrictsData": {
+            "type": "object",
+            "properties": {
+                "metadata": _ref("FederalForecastMetadata"),
+                "districts": {
+                    "type": "array",
+                    "items": _ref("FederalDistrictRow"),
+                },
             },
         },
         "FederalProbabilities": {
@@ -383,13 +446,12 @@ def schemas() -> dict[str, Any]:
         "StateDrawsData": {
             "type": "object",
             "description": (
-                "Self-contained posterior draws. Header fields come first "
-                "(`metadata`, timing, `summary`, notes), then `n_draws` / `unit` / "
-                "`parties`, then the raw `draws` array. Regenerated whenever the "
-                "state forecast is rerun."
+                "Self-contained posterior draws. Timing and model fields sit at "
+                "`data` (no nested `metadata` object). `n_draws` / `unit` / "
+                "`parties` come once, just above the raw `draws` array. "
+                "Regenerated whenever the state forecast is rerun."
             ),
             "properties": {
-                "metadata": _ref("StateForecastMetadata"),
                 "last_update": {
                     "type": "string",
                     "description": "Forecast-run timestamp (UTC). Distinct from envelope `generated_at`.",
@@ -404,6 +466,19 @@ def schemas() -> dict[str, Any]:
                     "format": "date",
                     "description": "Newest poll included in this forecast.",
                 },
+                "state_code": {"type": "string"},
+                "election_id": {"type": "string"},
+                "election_name": {"type": "string"},
+                "election_date": {"type": "string", "format": "date"},
+                "model": {"type": "string"},
+                "lead": {"type": "string"},
+                "lead_model": {"type": "string"},
+                "lead_horizon_days": {"type": "integer"},
+                "poll_window_days": {"type": ["integer", "null"]},
+                "scenario_config_md5": {"type": "string"},
+                "predictor_encoding": {"type": "string"},
+                "shares_normalized_to_100": {"type": "boolean"},
+                "source_repo": {"type": "string"},
                 "summary": {
                     "type": "object",
                     "description": "Published point estimates and ~83% intervals in percentage points, computed from these draws.",
@@ -533,18 +608,65 @@ def paths() -> dict[str, Any]:
             tags=["discovery"],
             schema={"type": "object"},
         ),
-        "/api/v1/federal/index.json": _get(
-            operation_id="get_v1_federal_index",
+        "/api/v2/federal/index.json": _get(
+            operation_id="get_v2_federal_index",
             summary="Federal forecast catalog",
-            description="Entry point for the older federal (`v1`) contract, including legacy root aliases.",
+            description="Entry point for the current federal (`v2`) contract: forecast, districts, draws, archive. Successor of `/api/v1/federal/`.",
             tags=["federal"],
             schema=_envelope_schema("FederalIndexData"),
         ),
+        "/api/v2/federal/forecast.json": _get(
+            operation_id="get_v2_federal_forecast",
+            summary="Federal party forecast",
+            description="Current federal summary: `data.metadata`, `data.parties` (`fit`/`low`/`high` in **percentage points**), and `data.probabilities` (shares **0–1**). Same underlying forecast as `v1`, improved shape.",
+            tags=["federal"],
+            schema=_envelope_schema("FederalForecastData"),
+        ),
+        "/api/v2/federal/districts.json": _get(
+            operation_id="get_v2_federal_districts",
+            summary="Federal district forecast",
+            description="Wahlkreis-level first- and second-vote forecast with `metadata`. Large file.",
+            tags=["federal"],
+            schema=_envelope_schema("FederalDistrictsData"),
+            missing="No district forecast published.",
+        ),
+        "/api/v2/federal/draws.json": _get(
+            operation_id="get_v2_federal_draws",
+            summary="Federal posterior draws",
+            description="Raw posterior simulations (`unit: share`, 0–1) behind the federal summary. Header (`metadata`, `summary` with CIs) comes first; the `draws` array follows. Large file.",
+            tags=["federal"],
+            schema=_envelope_schema("StateDrawsData"),
+            missing="No federal draws published.",
+        ),
+        "/api/v2/federal/archive/index.json": _get(
+            operation_id="get_v2_federal_archive_index",
+            summary="Federal archive catalog",
+            description="Archived federal forecast runs in the v2 contract. Empty until the pipeline has frozen a cycle.",
+            tags=["federal"],
+            schema=_ref("Envelope"),
+        ),
+        "/api/v2/federal/archive/{date}.json": _get(
+            operation_id="get_v2_federal_archive_run",
+            summary="One archived federal forecast",
+            description="Frozen federal forecast for one run date, v2 shape.",
+            tags=["federal"],
+            schema=_envelope_schema("FederalForecastData"),
+            params=[federal_date],
+            missing="No archived federal forecast for that date.",
+        ),
+        "/api/v1/federal/index.json": _get(
+            operation_id="get_v1_federal_index",
+            summary="Legacy federal catalog",
+            description="Entry point for the **legacy** federal-only contract. Prefer `/api/v2/federal/index.json`.",
+            tags=["v1"],
+            schema=_envelope_schema("FederalIndexData"),
+            deprecated=True,
+        ),
         "/api/v1/federal/forecast.json": _get(
             operation_id="get_v1_federal_forecast",
-            summary="Federal party forecast",
-            description="Array of party rows in `data`. Point estimates and intervals are **percentage points**.",
-            tags=["federal"],
+            summary="Legacy federal party forecast",
+            description="Legacy `data` array of `{value, _row, …}` rows. Prefer `/api/v2/federal/forecast.json` (`fit`/`party_code`). Point estimates are **percentage points**.",
+            tags=["v1"],
             schema={
                 "allOf": [
                     _ref("Envelope"),
@@ -556,12 +678,13 @@ def paths() -> dict[str, Any]:
                     },
                 ]
             },
+            deprecated=True,
         ),
         "/api/v1/federal/pred_probabilities.json": _get(
             operation_id="get_v1_federal_pred_probabilities",
-            summary="Federal scenario probabilities",
-            description="`data` is a one-element array of probability maps. Values are **shares from 0 to 1**.",
-            tags=["federal"],
+            summary="Legacy federal scenario probabilities",
+            description="`data` is a one-element array of probability maps. Values are **shares from 0 to 1**. Prefer `data.probabilities` on `/api/v2/federal/forecast.json`.",
+            tags=["v1"],
             schema={
                 "allOf": [
                     _ref("Envelope"),
@@ -576,12 +699,13 @@ def paths() -> dict[str, Any]:
                     },
                 ]
             },
+            deprecated=True,
         ),
         "/api/v1/federal/forecast_districts.json": _get(
             operation_id="get_v1_federal_forecast_districts",
-            summary="Federal district forecast",
-            description="Wahlkreis-level first- and second-vote forecast. Large file.",
-            tags=["federal"],
+            summary="Legacy federal district forecast",
+            description="Wahlkreis-level first- and second-vote forecast. Prefer `/api/v2/federal/districts.json`. Large file.",
+            tags=["v1"],
             schema={
                 "allOf": [
                     _ref("Envelope"),
@@ -596,22 +720,25 @@ def paths() -> dict[str, Any]:
                     },
                 ]
             },
+            deprecated=True,
         ),
         "/api/v1/federal/archive/index.json": _get(
             operation_id="get_v1_federal_archive_index",
-            summary="Federal archive catalog",
-            description="Archived federal forecast runs. Empty until the pipeline has frozen a cycle.",
-            tags=["federal"],
+            summary="Legacy federal archive catalog",
+            description="Archived federal forecast runs in the v1 contract. Prefer `/api/v2/federal/archive/`.",
+            tags=["v1"],
             schema=_ref("Envelope"),
+            deprecated=True,
         ),
         "/api/v1/federal/archive/{date}.json": _get(
             operation_id="get_v1_federal_archive_run",
-            summary="One archived federal forecast",
-            description="Frozen federal forecast for one run date.",
-            tags=["federal"],
+            summary="One archived federal forecast (v1)",
+            description="Frozen federal forecast for one run date, legacy row shape.",
+            tags=["v1"],
             schema=_ref("Envelope"),
             params=[federal_date],
             missing="No archived federal forecast for that date.",
+            deprecated=True,
         ),
         "/api/v2/state/index.json": _get(
             operation_id="get_v2_state_index",
@@ -632,7 +759,7 @@ def paths() -> dict[str, Any]:
         "/api/v2/state/{code}/draws.json": _get(
             operation_id="get_v2_state_draws",
             summary="State posterior draws",
-            description="Raw posterior simulations (`unit: share`, 0–1) behind the summary and scenarios. The JSON header (`data.metadata`, last poll, published `summary` with CIs) comes first; the `draws` array follows. Regenerated on every state-forecast run. Large file (~4000 draws).",
+            description="Raw posterior simulations (`unit: share`, 0–1) behind the summary and scenarios. Timing, model, last poll, and published `summary` (with CIs) sit directly on `data`; `n_draws` / `unit` / `parties` come once, then the `draws` array. Regenerated on every state-forecast run. Large file (~4000 draws).",
             tags=["state"],
             schema=_envelope_schema("StateDrawsData"),
             params=[code],
@@ -761,16 +888,20 @@ def openapi_spec() -> dict[str, Any]:
                 "description": "Catalog and OpenAPI document",
             },
             {
+                "name": "federal",
+                "description": "Bundestag election-day forecasts (current `v2` contract)",
+            },
+            {
                 "name": "state",
-                "description": "Landtag election-day forecasts and posterior draws",
+                "description": "Landtag election-day forecasts and posterior draws (`v2`)",
             },
             {
                 "name": "stimmung",
                 "description": "Kalman-smoothed daily latent support (federal and Länder)",
             },
             {
-                "name": "federal",
-                "description": "Bundestag forecast contract (`v1`)",
+                "name": "v1",
+                "description": "Legacy federal-only contract. Prefer `/api/v2/federal/`.",
             },
             {
                 "name": "legacy",
