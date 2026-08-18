@@ -1,0 +1,4853 @@
+{
+  "parliament_period": 134,
+  "data": [
+    {
+      "id": 70567,
+      "entity_type": "candidacy_mandate",
+      "label": "Christian Geier (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/70567",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176927,
+        "entity_type": "politician",
+        "label": "Christian Geier",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176927",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christian-geier"
+      },
+      "start_date": "2026-07-08",
+      "end_date": null,
+      "info": "Christian Geier ist am 08.07.2026 für Sebastian Ehlers in den Landtag von Mecklenburg-Vorpommern nachgerückt.",
+      "electoral_data": {
+        "id": 71442,
+        "entity_type": "electoral_data",
+        "label": "Christian Geier (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 14,
+        "constituency": {
+          "id": 11137,
+          "entity_type": "constituency",
+          "label": "19 - Ludwigslust-Parchim III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11137"
+        },
+        "constituency_result": 15.4,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 13970,
+          "entity_type": "fraction_membership",
+          "label": "CDU seit 08.07.2026",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": "2026-07-08",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 70128,
+      "entity_type": "candidacy_mandate",
+      "label": "Noah Böhringer (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/70128",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176945,
+        "entity_type": "politician",
+        "label": "Noah Böhringer",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176945",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/noah-boehringer"
+      },
+      "start_date": "2026-03-11",
+      "end_date": null,
+      "info": "Noah Böhringer ist am 11.03.2026 für René Domke in den Landtag von Mecklenburg-Vorpommern nachgerückt.",
+      "electoral_data": {
+        "id": 71003,
+        "entity_type": "electoral_data",
+        "label": "Noah Böhringer (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 445,
+          "entity_type": "electoral_list",
+          "label": "Landesliste FDP (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/445"
+        },
+        "list_position": 6,
+        "constituency": {
+          "id": 11124,
+          "entity_type": "constituency",
+          "label": "6 - Hansestadt Rostock III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11124"
+        },
+        "constituency_result": 5.8,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 13522,
+          "entity_type": "fraction_membership",
+          "label": "FDP (Gruppe) seit 11.03.2026",
+          "fraction": {
+            "id": 433,
+            "entity_type": "fraction",
+            "label": "FDP (Gruppe) (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/433"
+          },
+          "valid_from": "2026-03-11",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 69050,
+      "entity_type": "candidacy_mandate",
+      "label": "Daniel Trepsdorf (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/69050",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177014,
+        "entity_type": "politician",
+        "label": "Daniel Trepsdorf",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177014",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/daniel-trepsdorf"
+      },
+      "start_date": "2025-09-10",
+      "end_date": null,
+      "info": "Daniel Trepsdorf ist am 10.09.2025 für Daniel Seiffert in den Landtag von Mecklenburg-Vorpommern nachgerückt.",
+      "electoral_data": {
+        "id": 69925,
+        "entity_type": "electoral_data",
+        "label": "Daniel Trepsdorf (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 14,
+        "constituency": {
+          "id": 11126,
+          "entity_type": "constituency",
+          "label": "8 - Schwerin I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11126"
+        },
+        "constituency_result": 9.8,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 13485,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke seit 10.09.2025",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": "2025-09-10",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 67622,
+      "entity_type": "candidacy_mandate",
+      "label": "Grit Schmelzer (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/67622",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 184321,
+        "entity_type": "politician",
+        "label": "Grit Schmelzer",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/184321",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/grit-schmelzer"
+      },
+      "start_date": "2025-01-08",
+      "end_date": null,
+      "info": "Grit Schmelzer ist am 08.01.2025 für den verstorbenen Bernd Lange in den Landtag von Mecklenburg-Vorpommern nachgerückt.",
+      "electoral_data": {
+        "id": 68497,
+        "entity_type": "electoral_data",
+        "label": "Grit Schmelzer (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 31,
+        "constituency": null,
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 12048,
+          "entity_type": "fraction_membership",
+          "label": "SPD seit 08.01.2025",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": "2025-01-08",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 58125,
+      "entity_type": "candidacy_mandate",
+      "label": "Dirk Bruhn (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/58125",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177002,
+        "entity_type": "politician",
+        "label": "Dirk Bruhn",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177002",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/dirk-bruhn"
+      },
+      "start_date": "2023-02-01",
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 59049,
+        "entity_type": "electoral_data",
+        "label": "Dirk Bruhn (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11131,
+          "entity_type": "constituency",
+          "label": "13 - Mecklenburgische Seenplatte I - Vorpommern- Greifswald I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11131"
+        },
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 10826,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke seit 01.02.2023",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": "2023-02-01",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 56396,
+      "entity_type": "candidacy_mandate",
+      "label": "Monique Wölk (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/56396",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 179137,
+        "entity_type": "politician",
+        "label": "Monique Wölk",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/179137",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/monique-woelk"
+      },
+      "start_date": "2022-05-10",
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 57320,
+        "entity_type": "electoral_data",
+        "label": "Monique Wölk (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 29,
+        "constituency": null,
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 10629,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54427,
+      "entity_type": "candidacy_mandate",
+      "label": "Steffi Pulz-Debler (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54427",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177013,
+        "entity_type": "politician",
+        "label": "Steffi Pulz-Debler",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177013",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/steffi-pulz-debler"
+      },
+      "start_date": "2021-11-15",
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55351,
+        "entity_type": "electoral_data",
+        "label": "Steffi Pulz-Debler (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11149,
+          "entity_type": "constituency",
+          "label": "31 - Ludwigslust-Parchim IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11149"
+        },
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 10275,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke seit 15.11.2021",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": "2021-11-15",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54421,
+      "entity_type": "candidacy_mandate",
+      "label": "Thomas Diener (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54421",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123514,
+        "entity_type": "politician",
+        "label": "Thomas Diener",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123514",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/thomas-diener"
+      },
+      "start_date": "2021-10-26",
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55345,
+        "entity_type": "electoral_data",
+        "label": "Thomas Diener (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11140,
+          "entity_type": "constituency",
+          "label": "22 - Mecklenburgische Seenplatte V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11140"
+        },
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 13972,
+          "entity_type": "fraction_membership",
+          "label": "AfD seit 01.07.2026",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": "2026-07-01",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54420,
+      "entity_type": "candidacy_mandate",
+      "label": "Anna-Konstanze Schröder (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54420",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177025,
+        "entity_type": "politician",
+        "label": "Anna-Konstanze Schröder",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177025",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/anna-konstanze-schroeder"
+      },
+      "start_date": "2021-12-08",
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55344,
+        "entity_type": "electoral_data",
+        "label": "Anna-Konstanze Schröder (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11131,
+          "entity_type": "constituency",
+          "label": "13 - Mecklenburgische Seenplatte I - Vorpommern- Greifswald I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11131"
+        },
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "moved_up"
+      },
+      "fraction_membership": [
+        {
+          "id": 10268,
+          "entity_type": "fraction_membership",
+          "label": "SPD seit 08.12.2021",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": "2021-12-08",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54367,
+      "entity_type": "candidacy_mandate",
+      "label": "Anne Shepley (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54367",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176986,
+        "entity_type": "politician",
+        "label": "Anne Shepley",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176986",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/anne-shepley"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55291,
+        "entity_type": "electoral_data",
+        "label": "Anne Shepley (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 444,
+          "entity_type": "electoral_list",
+          "label": "Landesliste BÜNDNIS 90/DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/444"
+        },
+        "list_position": 1,
+        "constituency": {
+          "id": 11146,
+          "entity_type": "constituency",
+          "label": "28 - Nordwestmecklenburg II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11146"
+        },
+        "constituency_result": 6,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10211,
+          "entity_type": "fraction_membership",
+          "label": "BÜNDNIS 90/­DIE GRÜNEN",
+          "fraction": {
+            "id": 337,
+            "entity_type": "fraction",
+            "label": "BÜNDNIS 90/­DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/337"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54366,
+      "entity_type": "candidacy_mandate",
+      "label": "Constanze Oehlrich (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54366",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176983,
+        "entity_type": "politician",
+        "label": "Constanze Oehlrich",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176983",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/constanze-oehlrich"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55290,
+        "entity_type": "electoral_data",
+        "label": "Constanze Oehlrich (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 444,
+          "entity_type": "electoral_list",
+          "label": "Landesliste BÜNDNIS 90/DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/444"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11126,
+          "entity_type": "constituency",
+          "label": "8 - Schwerin I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11126"
+        },
+        "constituency_result": 8,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10210,
+          "entity_type": "fraction_membership",
+          "label": "BÜNDNIS 90/­DIE GRÜNEN",
+          "fraction": {
+            "id": 337,
+            "entity_type": "fraction",
+            "label": "BÜNDNIS 90/­DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/337"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54365,
+      "entity_type": "candidacy_mandate",
+      "label": "Harald Terpe (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54365",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 78961,
+        "entity_type": "politician",
+        "label": "Harald Terpe",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/78961",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/harald-terpe"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55289,
+        "entity_type": "electoral_data",
+        "label": "Harald Terpe (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 444,
+          "entity_type": "electoral_list",
+          "label": "Landesliste BÜNDNIS 90/DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/444"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11122,
+          "entity_type": "constituency",
+          "label": "4 - Hansestadt Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11122"
+        },
+        "constituency_result": 9,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10209,
+          "entity_type": "fraction_membership",
+          "label": "BÜNDNIS 90/­DIE GRÜNEN",
+          "fraction": {
+            "id": 337,
+            "entity_type": "fraction",
+            "label": "BÜNDNIS 90/­DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/337"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54364,
+      "entity_type": "candidacy_mandate",
+      "label": "Jutta Wegner (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54364",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123483,
+        "entity_type": "politician",
+        "label": "Jutta Wegner",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123483",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/jutta-wegner"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55288,
+        "entity_type": "electoral_data",
+        "label": "Jutta Wegner (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 444,
+          "entity_type": "electoral_list",
+          "label": "Landesliste BÜNDNIS 90/DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/444"
+        },
+        "list_position": 5,
+        "constituency": {
+          "id": 11120,
+          "entity_type": "constituency",
+          "label": "2 - Neubrandenburg I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11120"
+        },
+        "constituency_result": 5,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10208,
+          "entity_type": "fraction_membership",
+          "label": "BÜNDNIS 90/­DIE GRÜNEN",
+          "fraction": {
+            "id": 337,
+            "entity_type": "fraction",
+            "label": "BÜNDNIS 90/­DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/337"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54363,
+      "entity_type": "candidacy_mandate",
+      "label": "Hannes Damm (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54363",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176971,
+        "entity_type": "politician",
+        "label": "Hannes Damm",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176971",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/hannes-damm"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55287,
+        "entity_type": "electoral_data",
+        "label": "Hannes Damm (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 444,
+          "entity_type": "electoral_list",
+          "label": "Landesliste BÜNDNIS 90/DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/444"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11119,
+          "entity_type": "constituency",
+          "label": "1 - Greifswald (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11119"
+        },
+        "constituency_result": 14,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10207,
+          "entity_type": "fraction_membership",
+          "label": "BÜNDNIS 90/­DIE GRÜNEN",
+          "fraction": {
+            "id": 337,
+            "entity_type": "fraction",
+            "label": "BÜNDNIS 90/­DIE GRÜNEN (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/337"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54362,
+      "entity_type": "candidacy_mandate",
+      "label": "Patrick Dahlemann (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54362",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122595,
+        "entity_type": "politician",
+        "label": "Patrick Dahlemann",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122595",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/patrick-dahlemann"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55286,
+        "entity_type": "electoral_data",
+        "label": "Patrick Dahlemann (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 10,
+        "constituency": {
+          "id": 11153,
+          "entity_type": "constituency",
+          "label": "35 - Vorpommern-Greifswald IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11153"
+        },
+        "constituency_result": 36,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10206,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54361,
+      "entity_type": "candidacy_mandate",
+      "label": "Manuela Schwesig (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54361",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122576,
+        "entity_type": "politician",
+        "label": "Manuela Schwesig",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122576",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/manuela-schwesig"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55285,
+        "entity_type": "electoral_data",
+        "label": "Manuela Schwesig (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 1,
+        "constituency": {
+          "id": 11126,
+          "entity_type": "constituency",
+          "label": "8 - Schwerin I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11126"
+        },
+        "constituency_result": 46,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10205,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54360,
+      "entity_type": "candidacy_mandate",
+      "label": "Sabine Enseleit (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54360",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176947,
+        "entity_type": "politician",
+        "label": "Sabine Enseleit",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176947",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/sabine-enseleit"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55284,
+        "entity_type": "electoral_data",
+        "label": "Sabine Enseleit (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 445,
+          "entity_type": "electoral_list",
+          "label": "Landesliste FDP (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/445"
+        },
+        "list_position": 5,
+        "constituency": {
+          "id": 11145,
+          "entity_type": "constituency",
+          "label": "27 - Nordwestmecklenburg I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11145"
+        },
+        "constituency_result": 5,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 11920,
+          "entity_type": "fraction_membership",
+          "label": "CDU seit 10.09.2024",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": "2024-09-10",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54359,
+      "entity_type": "candidacy_mandate",
+      "label": "Barbara Becker-Hornickel (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54359",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176944,
+        "entity_type": "politician",
+        "label": "Barbara Becker-Hornickel",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176944",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/barbara-becker-hornickel"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": "Mit dem Austritt der Abgeordneten Sandy van Baal verlor die FDP im Landtag von Mecklenburg-Vorpommern ihre Fraktionsstärke. Am 25.06.2025 wurde die Parlamentarische Gruppe \"Gruppe der FDP\" gebildet.",
+      "electoral_data": {
+        "id": 55283,
+        "entity_type": "electoral_data",
+        "label": "Barbara Becker-Hornickel (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 445,
+          "entity_type": "electoral_list",
+          "label": "Landesliste FDP (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/445"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11122,
+          "entity_type": "constituency",
+          "label": "4 - Hansestadt Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11122"
+        },
+        "constituency_result": 5,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 13523,
+          "entity_type": "fraction_membership",
+          "label": "FDP (Gruppe) seit 25.06.2025",
+          "fraction": {
+            "id": 433,
+            "entity_type": "fraction",
+            "label": "FDP (Gruppe) (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/433"
+          },
+          "valid_from": "2025-06-25",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54358,
+      "entity_type": "candidacy_mandate",
+      "label": "Sandy van Baal (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54358",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176961,
+        "entity_type": "politician",
+        "label": "Sandy van Baal",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176961",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/sandy-van-baal"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55282,
+        "entity_type": "electoral_data",
+        "label": "Sandy van Baal (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 445,
+          "entity_type": "electoral_list",
+          "label": "Landesliste FDP (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/445"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11133,
+          "entity_type": "constituency",
+          "label": "15 - Landkreis Rostock III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11133"
+        },
+        "constituency_result": 6,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 13464,
+          "entity_type": "fraction_membership",
+          "label": "fraktionslos seit 28.04.2025",
+          "fraction": {
+            "id": 398,
+            "entity_type": "fraction",
+            "label": "fraktionslos (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/398"
+          },
+          "valid_from": "2025-04-28",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54357,
+      "entity_type": "candidacy_mandate",
+      "label": "Paul-Joachim Timm (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54357",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 178145,
+        "entity_type": "politician",
+        "label": "Paul-Joachim Timm",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/178145",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/paul-joachim-timm"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55281,
+        "entity_type": "electoral_data",
+        "label": "Paul-Joachim Timm (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 10,
+        "constituency": null,
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10201,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54356,
+      "entity_type": "candidacy_mandate",
+      "label": "Eva-Maria Schneider-Gärtner (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54356",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 178144,
+        "entity_type": "politician",
+        "label": "Eva-Maria Schneider-Gärtner",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/178144",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/eva-maria-schneider-gaertner"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55280,
+        "entity_type": "electoral_data",
+        "label": "Eva-Maria Schneider-Gärtner (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 9,
+        "constituency": null,
+        "constituency_result": null,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 11696,
+          "entity_type": "fraction_membership",
+          "label": "fraktionslos seit 26.04.2023",
+          "fraction": {
+            "id": 398,
+            "entity_type": "fraction",
+            "label": "fraktionslos (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/398"
+          },
+          "valid_from": "2023-04-26",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54355,
+      "entity_type": "candidacy_mandate",
+      "label": "Beate Schlupp (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54355",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122242,
+        "entity_type": "politician",
+        "label": "Beate Schlupp",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122242",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/beate-schlupp"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55279,
+        "entity_type": "electoral_data",
+        "label": "Beate Schlupp (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11154,
+          "entity_type": "constituency",
+          "label": "36 - Vorpommern-Greifswald V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11154"
+        },
+        "constituency_result": 23,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10199,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54354,
+      "entity_type": "candidacy_mandate",
+      "label": "Nikolaus Kramer (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54354",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123530,
+        "entity_type": "politician",
+        "label": "Nikolaus Kramer",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123530",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/nikolaus-kramer"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55278,
+        "entity_type": "electoral_data",
+        "label": "Nikolaus Kramer (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 1,
+        "constituency": {
+          "id": 11153,
+          "entity_type": "constituency",
+          "label": "35 - Vorpommern-Greifswald IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11153"
+        },
+        "constituency_result": 28,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10198,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54353,
+      "entity_type": "candidacy_mandate",
+      "label": "Jan-Phillip Tadsen (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54353",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177671,
+        "entity_type": "politician",
+        "label": "Jan-Phillip Tadsen",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177671",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/jan-phillip-tadsen"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55277,
+        "entity_type": "electoral_data",
+        "label": "Jan-Phillip Tadsen (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 12,
+        "constituency": {
+          "id": 11150,
+          "entity_type": "constituency",
+          "label": "32 - Ludwigslust-Parchim V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11150"
+        },
+        "constituency_result": 17,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10197,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54352,
+      "entity_type": "candidacy_mandate",
+      "label": "Wolfgang Waldmüller (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54352",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122451,
+        "entity_type": "politician",
+        "label": "Wolfgang Waldmüller",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122451",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/wolfgang-waldmueller"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55276,
+        "entity_type": "electoral_data",
+        "label": "Wolfgang Waldmüller (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11149,
+          "entity_type": "constituency",
+          "label": "31 - Ludwigslust-Parchim IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11149"
+        },
+        "constituency_result": 19,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10196,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54351,
+      "entity_type": "candidacy_mandate",
+      "label": "Thore Stein (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54351",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176919,
+        "entity_type": "politician",
+        "label": "Thore Stein",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176919",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/thore-stein"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55275,
+        "entity_type": "electoral_data",
+        "label": "Thore Stein (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 5,
+        "constituency": {
+          "id": 11149,
+          "entity_type": "constituency",
+          "label": "31 - Ludwigslust-Parchim IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11149"
+        },
+        "constituency_result": 19,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10195,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54350,
+      "entity_type": "candidacy_mandate",
+      "label": "Stephan J. Reuken (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54350",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 151252,
+        "entity_type": "politician",
+        "label": "Stephan J. Reuken",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/151252",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/stephan-j-reuken"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55274,
+        "entity_type": "electoral_data",
+        "label": "Stephan J. Reuken (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 14,
+        "constituency": {
+          "id": 11148,
+          "entity_type": "constituency",
+          "label": "30 - Vorpommern-Greifswald III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11148"
+        },
+        "constituency_result": 25,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10194,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54349,
+      "entity_type": "candidacy_mandate",
+      "label": "Jeannine Rösler (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54349",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123442,
+        "entity_type": "politician",
+        "label": "Jeannine Rösler",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123442",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/jeannine-roesler"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55273,
+        "entity_type": "electoral_data",
+        "label": "Jeannine Rösler (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11147,
+          "entity_type": "constituency",
+          "label": "29 - Vorpommern-Greifswald II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11147"
+        },
+        "constituency_result": 8,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10193,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54348,
+      "entity_type": "candidacy_mandate",
+      "label": "Jens Schulze-Wiehenbrauk (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54348",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176918,
+        "entity_type": "politician",
+        "label": "Jens Schulze-Wiehenbrauk",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176918",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/jens-schulze-wiehenbrauk"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55272,
+        "entity_type": "electoral_data",
+        "label": "Jens Schulze-Wiehenbrauk (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 7,
+        "constituency": {
+          "id": 11147,
+          "entity_type": "constituency",
+          "label": "29 - Vorpommern-Greifswald II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11147"
+        },
+        "constituency_result": 23,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10192,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54347,
+      "entity_type": "candidacy_mandate",
+      "label": "Christiane Berg (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54347",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122505,
+        "entity_type": "politician",
+        "label": "Christiane Berg",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122505",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christiane-berg"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55271,
+        "entity_type": "electoral_data",
+        "label": "Christiane Berg (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 12,
+        "constituency": {
+          "id": 11146,
+          "entity_type": "constituency",
+          "label": "28 - Nordwestmecklenburg II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11146"
+        },
+        "constituency_result": 16,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10191,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54345,
+      "entity_type": "candidacy_mandate",
+      "label": "Ann Christin von Allwörden (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54345",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123516,
+        "entity_type": "politician",
+        "label": "Ann Christin von Allwörden",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123516",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/ann-christin-von-allwoerden"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55269,
+        "entity_type": "electoral_data",
+        "label": "Ann Christin von Allwörden (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 9,
+        "constituency": {
+          "id": 11144,
+          "entity_type": "constituency",
+          "label": "26 - Stralsund II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11144"
+        },
+        "constituency_result": 16,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10189,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54344,
+      "entity_type": "candidacy_mandate",
+      "label": "Horst Förster (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54344",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 152093,
+        "entity_type": "politician",
+        "label": "Horst Förster",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/152093",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/horst-foerster"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55268,
+        "entity_type": "electoral_data",
+        "label": "Horst Förster (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11139,
+          "entity_type": "constituency",
+          "label": "21 - Mecklenburgische Seenplatte IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11139"
+        },
+        "constituency_result": 18,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10188,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54343,
+      "entity_type": "candidacy_mandate",
+      "label": "Elke-Annette Schmidt (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54343",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122529,
+        "entity_type": "politician",
+        "label": "Elke-Annette Schmidt",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122529",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/elke-annette-schmidt"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55267,
+        "entity_type": "electoral_data",
+        "label": "Elke-Annette Schmidt (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 9,
+        "constituency": {
+          "id": 11138,
+          "entity_type": "constituency",
+          "label": "20 - Mecklenburgische Seenplatte III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11138"
+        },
+        "constituency_result": 11,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10187,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54342,
+      "entity_type": "candidacy_mandate",
+      "label": "Thomas De Jesus Fernandes (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54342",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 29481,
+        "entity_type": "politician",
+        "label": "Thomas De Jesus Fernandes",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/29481",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/thomas-de-jesus-fernandes"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55266,
+        "entity_type": "electoral_data",
+        "label": "Thomas De Jesus Fernandes (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11138,
+          "entity_type": "constituency",
+          "label": "20 - Mecklenburgische Seenplatte III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11138"
+        },
+        "constituency_result": 18,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10186,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54340,
+      "entity_type": "candidacy_mandate",
+      "label": "Torsten Renz (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54340",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122437,
+        "entity_type": "politician",
+        "label": "Torsten Renz",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122437",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/torsten-renz"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55264,
+        "entity_type": "electoral_data",
+        "label": "Torsten Renz (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11133,
+          "entity_type": "constituency",
+          "label": "15 - Landkreis Rostock III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11133"
+        },
+        "constituency_result": 20,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10184,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54339,
+      "entity_type": "candidacy_mandate",
+      "label": "Marc Reinhardt (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54339",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122373,
+        "entity_type": "politician",
+        "label": "Marc Reinhardt",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122373",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/marc-reinhardt"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55263,
+        "entity_type": "electoral_data",
+        "label": "Marc Reinhardt (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 8,
+        "constituency": {
+          "id": 11132,
+          "entity_type": "constituency",
+          "label": "14 - Mecklenburgische Seenplatte II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11132"
+        },
+        "constituency_result": 21,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10183,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54338,
+      "entity_type": "candidacy_mandate",
+      "label": "Franz-Robert Liskow (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54338",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123510,
+        "entity_type": "politician",
+        "label": "Franz-Robert Liskow",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123510",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/franz-robert-liskow"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55262,
+        "entity_type": "electoral_data",
+        "label": "Franz-Robert Liskow (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 7,
+        "constituency": {
+          "id": 11131,
+          "entity_type": "constituency",
+          "label": "13 - Mecklenburgische Seenplatte I - Vorpommern- Greifswald I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11131"
+        },
+        "constituency_result": 26,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10182,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54337,
+      "entity_type": "candidacy_mandate",
+      "label": "Michael Noetzel (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54337",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177012,
+        "entity_type": "politician",
+        "label": "Michael Noetzel",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177012",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/michael-noetzel"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55261,
+        "entity_type": "electoral_data",
+        "label": "Michael Noetzel (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 8,
+        "constituency": {
+          "id": 11129,
+          "entity_type": "constituency",
+          "label": "11 - Landkreis Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11129"
+        },
+        "constituency_result": 9,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10181,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54336,
+      "entity_type": "candidacy_mandate",
+      "label": "Katy Hoffmeister (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54336",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176931,
+        "entity_type": "politician",
+        "label": "Katy Hoffmeister",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176931",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/katy-hoffmeister"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55260,
+        "entity_type": "electoral_data",
+        "label": "Katy Hoffmeister (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 6,
+        "constituency": {
+          "id": 11129,
+          "entity_type": "constituency",
+          "label": "11 - Landkreis Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11129"
+        },
+        "constituency_result": 16,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10180,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54334,
+      "entity_type": "candidacy_mandate",
+      "label": "Jens-Holger Schneider (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54334",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 152094,
+        "entity_type": "politician",
+        "label": "Jens-Holger Schneider",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/152094",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/jens-holger-schneider"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55258,
+        "entity_type": "electoral_data",
+        "label": "Jens-Holger Schneider (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 13,
+        "constituency": {
+          "id": 11128,
+          "entity_type": "constituency",
+          "label": "10 - Wismar (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11128"
+        },
+        "constituency_result": 12,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10178,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54333,
+      "entity_type": "candidacy_mandate",
+      "label": "Henning Foerster (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54333",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122546,
+        "entity_type": "politician",
+        "label": "Henning Foerster",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122546",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/henning-foerster"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55257,
+        "entity_type": "electoral_data",
+        "label": "Henning Foerster (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11127,
+          "entity_type": "constituency",
+          "label": "9 - Schwerin II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11127"
+        },
+        "constituency_result": 13,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10177,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54332,
+      "entity_type": "candidacy_mandate",
+      "label": "Petra Federau (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54332",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123538,
+        "entity_type": "politician",
+        "label": "Petra Federau",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123538",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/petra-federau"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55256,
+        "entity_type": "electoral_data",
+        "label": "Petra Federau (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11127,
+          "entity_type": "constituency",
+          "label": "9 - Schwerin II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11127"
+        },
+        "constituency_result": 17,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10176,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54330,
+      "entity_type": "candidacy_mandate",
+      "label": "Martin Schmidt (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54330",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176914,
+        "entity_type": "politician",
+        "label": "Martin Schmidt",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176914",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/martin-schmidt-1"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55254,
+        "entity_type": "electoral_data",
+        "label": "Martin Schmidt (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 8,
+        "constituency": {
+          "id": 11126,
+          "entity_type": "constituency",
+          "label": "8 - Schwerin I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11126"
+        },
+        "constituency_result": 11,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10174,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54329,
+      "entity_type": "candidacy_mandate",
+      "label": "Daniel Peters (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54329",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123506,
+        "entity_type": "politician",
+        "label": "Daniel Peters",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123506",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/daniel-peters"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55253,
+        "entity_type": "electoral_data",
+        "label": "Daniel Peters (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 11,
+        "constituency": {
+          "id": 11125,
+          "entity_type": "constituency",
+          "label": "7 - Hansestadt Rostock IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11125"
+        },
+        "constituency_result": 14,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10173,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54327,
+      "entity_type": "candidacy_mandate",
+      "label": "Christian Albrecht (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54327",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177000,
+        "entity_type": "politician",
+        "label": "Christian Albrecht",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177000",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christian-albrecht-0"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55251,
+        "entity_type": "electoral_data",
+        "label": "Christian Albrecht (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 6,
+        "constituency": {
+          "id": 11123,
+          "entity_type": "constituency",
+          "label": "5 - Hansestadt Rostock II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11123"
+        },
+        "constituency_result": 16,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10171,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54326,
+      "entity_type": "candidacy_mandate",
+      "label": "Michael Meister (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54326",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176911,
+        "entity_type": "politician",
+        "label": "Michael Meister",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176911",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/michael-meister-1"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55250,
+        "entity_type": "electoral_data",
+        "label": "Michael Meister (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 11,
+        "constituency": {
+          "id": 11123,
+          "entity_type": "constituency",
+          "label": "5 - Hansestadt Rostock II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11123"
+        },
+        "constituency_result": 13,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10170,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54325,
+      "entity_type": "candidacy_mandate",
+      "label": "Torsten Koplin (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54325",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 119412,
+        "entity_type": "politician",
+        "label": "Torsten Koplin",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/119412",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/torsten-koplin"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55249,
+        "entity_type": "electoral_data",
+        "label": "Torsten Koplin (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 452,
+          "entity_type": "electoral_list",
+          "label": "Landesliste Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/452"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11120,
+          "entity_type": "constituency",
+          "label": "2 - Neubrandenburg I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11120"
+        },
+        "constituency_result": 18,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 10169,
+          "entity_type": "fraction_membership",
+          "label": "Die Linke",
+          "fraction": {
+            "id": 335,
+            "entity_type": "fraction",
+            "label": "Die Linke (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/335"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54324,
+      "entity_type": "candidacy_mandate",
+      "label": "David Wulff (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54324",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122265,
+        "entity_type": "politician",
+        "label": "David Wulff",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122265",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/david-wulff"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": "Mit dem Austritt der Abgeordneten Sandy van Baal verlor die FDP im Landtag von Mecklenburg-Vorpommern ihre Fraktionsstärke. Am 25.06.2025 wurde die Parlamentarische Gruppe \"Gruppe der FDP\" gebildet.",
+      "electoral_data": {
+        "id": 55248,
+        "entity_type": "electoral_data",
+        "label": "David Wulff (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 445,
+          "entity_type": "electoral_list",
+          "label": "Landesliste FDP (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/445"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11119,
+          "entity_type": "constituency",
+          "label": "1 - Greifswald (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11119"
+        },
+        "constituency_result": 7,
+        "constituency_result_count": null,
+        "mandate_won": "list"
+      },
+      "fraction_membership": [
+        {
+          "id": 13524,
+          "entity_type": "fraction_membership",
+          "label": "FDP (Gruppe) seit 25.06.2025",
+          "fraction": {
+            "id": 433,
+            "entity_type": "fraction",
+            "label": "FDP (Gruppe) (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/433"
+          },
+          "valid_from": "2025-06-25",
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54322,
+      "entity_type": "candidacy_mandate",
+      "label": "Bettina Martin (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54322",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177020,
+        "entity_type": "politician",
+        "label": "Bettina Martin",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177020",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/bettina-martin"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55246,
+        "entity_type": "electoral_data",
+        "label": "Bettina Martin (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 7,
+        "constituency": {
+          "id": 11154,
+          "entity_type": "constituency",
+          "label": "36 - Vorpommern-Greifswald V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11154"
+        },
+        "constituency_result": 30,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10166,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54321,
+      "entity_type": "candidacy_mandate",
+      "label": "Sylva Rahm-Präger (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54321",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177023,
+        "entity_type": "politician",
+        "label": "Sylva Rahm-Präger",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177023",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/sylva-rahm-praeger"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55245,
+        "entity_type": "electoral_data",
+        "label": "Sylva Rahm-Präger (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 23,
+        "constituency": {
+          "id": 11152,
+          "entity_type": "constituency",
+          "label": "34 - Vorpommern-Rügen V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11152"
+        },
+        "constituency_result": 31,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10165,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54320,
+      "entity_type": "candidacy_mandate",
+      "label": "Heiko Miraß (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54320",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 146778,
+        "entity_type": "politician",
+        "label": "Heiko Miraß",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/146778",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/heiko-mirass"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55244,
+        "entity_type": "electoral_data",
+        "label": "Heiko Miraß (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11151,
+          "entity_type": "constituency",
+          "label": "33 - Vorpommern-Rügen IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11151"
+        },
+        "constituency_result": 27,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10164,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54319,
+      "entity_type": "candidacy_mandate",
+      "label": "Christine Klingohr (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54319",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177018,
+        "entity_type": "politician",
+        "label": "Christine Klingohr",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177018",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christine-klingohr"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55243,
+        "entity_type": "electoral_data",
+        "label": "Christine Klingohr (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 21,
+        "constituency": {
+          "id": 11150,
+          "entity_type": "constituency",
+          "label": "32 - Ludwigslust-Parchim V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11150"
+        },
+        "constituency_result": 34,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10163,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54318,
+      "entity_type": "candidacy_mandate",
+      "label": "Christian Brade (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54318",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122502,
+        "entity_type": "politician",
+        "label": "Christian Brade",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122502",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christian-brade"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55242,
+        "entity_type": "electoral_data",
+        "label": "Christian Brade (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 30,
+        "constituency": {
+          "id": 11149,
+          "entity_type": "constituency",
+          "label": "31 - Ludwigslust-Parchim IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11149"
+        },
+        "constituency_result": 35,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10162,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54317,
+      "entity_type": "candidacy_mandate",
+      "label": "Falko Beitz (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54317",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123434,
+        "entity_type": "politician",
+        "label": "Falko Beitz",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123434",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/falko-beitz"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55241,
+        "entity_type": "electoral_data",
+        "label": "Falko Beitz (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 34,
+        "constituency": {
+          "id": 11148,
+          "entity_type": "constituency",
+          "label": "30 - Vorpommern-Greifswald III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11148"
+        },
+        "constituency_result": 27,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10161,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54316,
+      "entity_type": "candidacy_mandate",
+      "label": "Marcel Falk (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54316",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123451,
+        "entity_type": "politician",
+        "label": "Marcel Falk",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123451",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/marcel-falk"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55240,
+        "entity_type": "electoral_data",
+        "label": "Marcel Falk (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 36,
+        "constituency": {
+          "id": 11147,
+          "entity_type": "constituency",
+          "label": "29 - Vorpommern-Greifswald II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11147"
+        },
+        "constituency_result": 28,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10160,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54315,
+      "entity_type": "candidacy_mandate",
+      "label": "Martina Tegtmeier (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54315",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122382,
+        "entity_type": "politician",
+        "label": "Martina Tegtmeier",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122382",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/martina-tegtmeier"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55239,
+        "entity_type": "electoral_data",
+        "label": "Martina Tegtmeier (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 9,
+        "constituency": {
+          "id": 11146,
+          "entity_type": "constituency",
+          "label": "28 - Nordwestmecklenburg II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11146"
+        },
+        "constituency_result": 34,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10159,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54314,
+      "entity_type": "candidacy_mandate",
+      "label": "Birgit Hesse (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54314",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123433,
+        "entity_type": "politician",
+        "label": "Birgit Hesse",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123433",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/birgit-hesse"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55238,
+        "entity_type": "electoral_data",
+        "label": "Birgit Hesse (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 3,
+        "constituency": {
+          "id": 11145,
+          "entity_type": "constituency",
+          "label": "27 - Nordwestmecklenburg I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11145"
+        },
+        "constituency_result": 38,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10158,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54313,
+      "entity_type": "candidacy_mandate",
+      "label": "Beatrix Hegenkötter (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54313",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177017,
+        "entity_type": "politician",
+        "label": "Beatrix Hegenkötter",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177017",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/beatrix-hegenkoetter"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55237,
+        "entity_type": "electoral_data",
+        "label": "Beatrix Hegenkötter (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 19,
+        "constituency": {
+          "id": 11144,
+          "entity_type": "constituency",
+          "label": "26 - Stralsund II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11144"
+        },
+        "constituency_result": 25,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10157,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54312,
+      "entity_type": "candidacy_mandate",
+      "label": "Thomas Würdisch (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54312",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123432,
+        "entity_type": "politician",
+        "label": "Thomas Würdisch",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123432",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/thomas-wuerdisch"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55236,
+        "entity_type": "electoral_data",
+        "label": "Thomas Würdisch (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 16,
+        "constituency": {
+          "id": 11143,
+          "entity_type": "constituency",
+          "label": "25 - Vorpommern-Rügen III - Stralsund I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11143"
+        },
+        "constituency_result": 31,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10156,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54311,
+      "entity_type": "candidacy_mandate",
+      "label": "Harry Glawe (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54311",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122322,
+        "entity_type": "politician",
+        "label": "Harry Glawe",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122322",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/harry-glawe"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55235,
+        "entity_type": "electoral_data",
+        "label": "Harry Glawe (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 446,
+          "entity_type": "electoral_list",
+          "label": "Landesliste CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/446"
+        },
+        "list_position": 5,
+        "constituency": {
+          "id": 11142,
+          "entity_type": "constituency",
+          "label": "24 - Vorpommern-Rügen II - Stralsund III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11142"
+        },
+        "constituency_result": 33,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10155,
+          "entity_type": "fraction_membership",
+          "label": "CDU",
+          "fraction": {
+            "id": 333,
+            "entity_type": "fraction",
+            "label": "CDU (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/333"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54310,
+      "entity_type": "candidacy_mandate",
+      "label": "Michel-Friedrich Schiefler (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54310",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177024,
+        "entity_type": "politician",
+        "label": "Michel-Friedrich Schiefler",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177024",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/michel-friedrich-schiefler"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55234,
+        "entity_type": "electoral_data",
+        "label": "Michel-Friedrich Schiefler (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 22,
+        "constituency": {
+          "id": 11141,
+          "entity_type": "constituency",
+          "label": "23 - Vorpommern-Rügen I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11141"
+        },
+        "constituency_result": 30,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10154,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54309,
+      "entity_type": "candidacy_mandate",
+      "label": "Dagmar Kaselitz (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54309",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122507,
+        "entity_type": "politician",
+        "label": "Dagmar Kaselitz",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122507",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/dagmar-kaselitz"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55233,
+        "entity_type": "electoral_data",
+        "label": "Dagmar Kaselitz (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 17,
+        "constituency": {
+          "id": 11140,
+          "entity_type": "constituency",
+          "label": "22 - Mecklenburgische Seenplatte V (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11140"
+        },
+        "constituency_result": 29,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10153,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54308,
+      "entity_type": "candidacy_mandate",
+      "label": "Andreas Butzki (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54308",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122489,
+        "entity_type": "politician",
+        "label": "Andreas Butzki",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122489",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/andreas-butzki"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55232,
+        "entity_type": "electoral_data",
+        "label": "Andreas Butzki (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 20,
+        "constituency": {
+          "id": 11139,
+          "entity_type": "constituency",
+          "label": "21 - Mecklenburgische Seenplatte IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11139"
+        },
+        "constituency_result": 37,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10152,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54307,
+      "entity_type": "candidacy_mandate",
+      "label": "Nadine Julitz (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54307",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123430,
+        "entity_type": "politician",
+        "label": "Nadine Julitz",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123430",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/nadine-julitz"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55231,
+        "entity_type": "electoral_data",
+        "label": "Nadine Julitz (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 11,
+        "constituency": {
+          "id": 11138,
+          "entity_type": "constituency",
+          "label": "20 - Mecklenburgische Seenplatte III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11138"
+        },
+        "constituency_result": 35,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10151,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54306,
+      "entity_type": "candidacy_mandate",
+      "label": "Christian Winter (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54306",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177026,
+        "entity_type": "politician",
+        "label": "Christian Winter",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177026",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christian-winter"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55230,
+        "entity_type": "electoral_data",
+        "label": "Christian Winter (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 32,
+        "constituency": {
+          "id": 11137,
+          "entity_type": "constituency",
+          "label": "19 - Ludwigslust-Parchim III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11137"
+        },
+        "constituency_result": 33,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10150,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54304,
+      "entity_type": "candidacy_mandate",
+      "label": "Till Backhaus (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54304",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122284,
+        "entity_type": "politician",
+        "label": "Till Backhaus",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122284",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/till-backhaus"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55228,
+        "entity_type": "electoral_data",
+        "label": "Till Backhaus (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 4,
+        "constituency": {
+          "id": 11135,
+          "entity_type": "constituency",
+          "label": "17 - Ludwigslust-Parchim I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11135"
+        },
+        "constituency_result": 51,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10148,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54303,
+      "entity_type": "candidacy_mandate",
+      "label": "Philipp da Cunha (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54303",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123426,
+        "entity_type": "politician",
+        "label": "Philipp da Cunha",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123426",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/philipp-da-cunha"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55227,
+        "entity_type": "electoral_data",
+        "label": "Philipp da Cunha (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 14,
+        "constituency": {
+          "id": 11134,
+          "entity_type": "constituency",
+          "label": "16 - Landkreis Rostock IV (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11134"
+        },
+        "constituency_result": 39,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10147,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54302,
+      "entity_type": "candidacy_mandate",
+      "label": "Nils Saemann (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54302",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122590,
+        "entity_type": "politician",
+        "label": "Nils Saemann",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122590",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/nils-saemann"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55226,
+        "entity_type": "electoral_data",
+        "label": "Nils Saemann (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": null,
+        "list_position": null,
+        "constituency": {
+          "id": 11133,
+          "entity_type": "constituency",
+          "label": "15 - Landkreis Rostock III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11133"
+        },
+        "constituency_result": 33,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10146,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54301,
+      "entity_type": "candidacy_mandate",
+      "label": "Thomas Krüger (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54301",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122621,
+        "entity_type": "politician",
+        "label": "Thomas Krüger",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122621",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/thomas-krueger"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55225,
+        "entity_type": "electoral_data",
+        "label": "Thomas Krüger (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 6,
+        "constituency": {
+          "id": 11132,
+          "entity_type": "constituency",
+          "label": "14 - Mecklenburgische Seenplatte II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11132"
+        },
+        "constituency_result": 34,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10145,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54300,
+      "entity_type": "candidacy_mandate",
+      "label": "Enrico Schult (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54300",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 176916,
+        "entity_type": "politician",
+        "label": "Enrico Schult",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/176916",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/enrico-schult"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55224,
+        "entity_type": "electoral_data",
+        "label": "Enrico Schult (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 447,
+          "entity_type": "electoral_list",
+          "label": "Landesliste AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/447"
+        },
+        "list_position": 6,
+        "constituency": {
+          "id": 11131,
+          "entity_type": "constituency",
+          "label": "13 - Mecklenburgische Seenplatte I - Vorpommern- Greifswald I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11131"
+        },
+        "constituency_result": 27,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10144,
+          "entity_type": "fraction_membership",
+          "label": "AfD",
+          "fraction": {
+            "id": 336,
+            "entity_type": "fraction",
+            "label": "AfD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/336"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54299,
+      "entity_type": "candidacy_mandate",
+      "label": "Dirk Stamer (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54299",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123424,
+        "entity_type": "politician",
+        "label": "Dirk Stamer",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123424",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/dirk-stamer"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55223,
+        "entity_type": "electoral_data",
+        "label": "Dirk Stamer (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 26,
+        "constituency": {
+          "id": 11130,
+          "entity_type": "constituency",
+          "label": "12 - Landkreis Rostock II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11130"
+        },
+        "constituency_result": 34,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10143,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54298,
+      "entity_type": "candidacy_mandate",
+      "label": "Stefanie Drese (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54298",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122612,
+        "entity_type": "politician",
+        "label": "Stefanie Drese",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122612",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/stefanie-drese"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55222,
+        "entity_type": "electoral_data",
+        "label": "Stefanie Drese (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 5,
+        "constituency": {
+          "id": 11129,
+          "entity_type": "constituency",
+          "label": "11 - Landkreis Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11129"
+        },
+        "constituency_result": 38,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10142,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54297,
+      "entity_type": "candidacy_mandate",
+      "label": "Tilo Gundlack (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54297",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122622,
+        "entity_type": "politician",
+        "label": "Tilo Gundlack",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122622",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/tilo-gundlack"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55221,
+        "entity_type": "electoral_data",
+        "label": "Tilo Gundlack (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 18,
+        "constituency": {
+          "id": 11128,
+          "entity_type": "constituency",
+          "label": "10 - Wismar (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11128"
+        },
+        "constituency_result": 43,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10141,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54296,
+      "entity_type": "candidacy_mandate",
+      "label": "Mandy Pfeifer (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54296",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177022,
+        "entity_type": "politician",
+        "label": "Mandy Pfeifer",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177022",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/mandy-pfeifer"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55220,
+        "entity_type": "electoral_data",
+        "label": "Mandy Pfeifer (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 15,
+        "constituency": {
+          "id": 11127,
+          "entity_type": "constituency",
+          "label": "9 - Schwerin II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11127"
+        },
+        "constituency_result": 38,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10140,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54294,
+      "entity_type": "candidacy_mandate",
+      "label": "Julian Barlen (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54294",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 169552,
+        "entity_type": "politician",
+        "label": "Julian Barlen",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/169552",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/julian-barlen"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55218,
+        "entity_type": "electoral_data",
+        "label": "Julian Barlen (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 8,
+        "constituency": {
+          "id": 11124,
+          "entity_type": "constituency",
+          "label": "6 - Hansestadt Rostock III (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11124"
+        },
+        "constituency_result": 30,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10138,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54293,
+      "entity_type": "candidacy_mandate",
+      "label": "Rainer Albrecht (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54293",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122597,
+        "entity_type": "politician",
+        "label": "Rainer Albrecht",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122597",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/rainer-albrecht"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55217,
+        "entity_type": "electoral_data",
+        "label": "Rainer Albrecht (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 24,
+        "constituency": {
+          "id": 11123,
+          "entity_type": "constituency",
+          "label": "5 - Hansestadt Rostock II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11123"
+        },
+        "constituency_result": 39,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10137,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54292,
+      "entity_type": "candidacy_mandate",
+      "label": "Ralf Mucha (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54292",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 122598,
+        "entity_type": "politician",
+        "label": "Ralf Mucha",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/122598",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/ralf-mucha"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55216,
+        "entity_type": "electoral_data",
+        "label": "Ralf Mucha (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 28,
+        "constituency": {
+          "id": 11122,
+          "entity_type": "constituency",
+          "label": "4 - Hansestadt Rostock I (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11122"
+        },
+        "constituency_result": 37,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10136,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54291,
+      "entity_type": "candidacy_mandate",
+      "label": "Robert Northoff (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54291",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 177021,
+        "entity_type": "politician",
+        "label": "Robert Northoff",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/177021",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/robert-northoff"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55215,
+        "entity_type": "electoral_data",
+        "label": "Robert Northoff (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 39,
+        "constituency": {
+          "id": 11121,
+          "entity_type": "constituency",
+          "label": "3 - Neubrandenburg II (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11121"
+        },
+        "constituency_result": 34,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10135,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    },
+    {
+      "id": 54289,
+      "entity_type": "candidacy_mandate",
+      "label": "Christian Pegel (Mecklenburg-Vorpommern 2021 - 2026)",
+      "api_url": "https://www.abgeordnetenwatch.de/api/v2/candidacies-mandates/54289",
+      "id_external_administration": null,
+      "id_external_administration_description": null,
+      "type": "mandate",
+      "parliament_period": {
+        "id": 134,
+        "entity_type": "parliament_period",
+        "label": "Mecklenburg-Vorpommern 2021 - 2026",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/parliament-periods/134",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/mecklenburg-vorpommern"
+      },
+      "politician": {
+        "id": 123423,
+        "entity_type": "politician",
+        "label": "Christian Pegel",
+        "api_url": "https://www.abgeordnetenwatch.de/api/v2/politicians/123423",
+        "abgeordnetenwatch_url": "https://www.abgeordnetenwatch.de/profile/christian-pegel"
+      },
+      "start_date": null,
+      "end_date": null,
+      "info": null,
+      "electoral_data": {
+        "id": 55213,
+        "entity_type": "electoral_data",
+        "label": "Christian Pegel (Mecklenburg-Vorpommern 2021 - 2026)",
+        "electoral_list": {
+          "id": 443,
+          "entity_type": "electoral_list",
+          "label": "Landesliste SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/electoral-lists/443"
+        },
+        "list_position": 2,
+        "constituency": {
+          "id": 11119,
+          "entity_type": "constituency",
+          "label": "1 - Greifswald (Mecklenburg-Vorpommern 2021 - 2026)",
+          "api_url": "https://www.abgeordnetenwatch.de/api/v2/constituencies/11119"
+        },
+        "constituency_result": 29,
+        "constituency_result_count": null,
+        "mandate_won": "constituency"
+      },
+      "fraction_membership": [
+        {
+          "id": 10133,
+          "entity_type": "fraction_membership",
+          "label": "SPD",
+          "fraction": {
+            "id": 334,
+            "entity_type": "fraction",
+            "label": "SPD (Mecklenburg-Vorpommern 2021 - 2026)",
+            "api_url": "https://www.abgeordnetenwatch.de/api/v2/fractions/334"
+          },
+          "valid_from": null,
+          "valid_until": null
+        }
+      ]
+    }
+  ]
+}

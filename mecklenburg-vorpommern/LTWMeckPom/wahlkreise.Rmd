@@ -1,0 +1,78 @@
+---
+title: "Wahlkreise"
+output: html_document
+date: "2026-04-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+p_needed <- c("viridis", "knitr", "sandwich", "haven", "tidyverse", "lme4", "margins", "haven", "XML", "readxl", "writexl", "readr", "dplyr", "rvest")
+packages <- rownames(installed.packages())
+p_to_install <- p_needed[!(p_needed %in% packages)]
+if (length(p_to_install) > 0) {
+  install.packages(p_to_install)
+}
+sapply(p_needed, require, character.only = TRUE)
+```
+
+
+
+```{r}
+# load table with Gemeinde pro Wahlkreis https://www.laiv-mv.de/Wahlen/Landtagswahlen/2016/Ergebnisse/ Excel Tabelle "LW 2016 Endgültiges Ergebnis Wahlbezirken, Gemeinden, Kreisen.xlsx"
+wk_gem <- read_excel("raw-data/LW 2016 Endgültiges Ergebnis Wahlbezirken, Gemeinden, Kreisen.xlsx", sheet = "nach Gemeinden")
+#colnames(wk_gem)
+wk_gem <- wk_gem[, c("Endgültige Ergebnisse der Landtagswahl\r\nam 4. September 2016\r\nin Mecklenburg Vorpommern", "...3", "...4")]
+
+colnames(wk_gem) <- c("wahlkreisnummer16", "gemeindekennziffer", "gemeindename")
+
+wk_gem <- wk_gem[-7,]
+wk_gem <- wk_gem[-6,]
+wk_gem <- wk_gem[-5,]
+wk_gem <- wk_gem[-4,]
+wk_gem <- wk_gem[-3,]
+wk_gem <- wk_gem[-2,]
+wk_gem <- wk_gem[-1,]
+
+
+```
+
+# wahlkreise for 2021
+```{r}
+wk_gem16 <- wk_gem
+write.csv(wk_gem16, "wahlkreise_meckpom.csv", row.names = FALSE)
+
+# load table with Gemeinde pro Wahlkreis
+# Wechsel der Wahlkreise von 2016 auf 2021 
+# Aufgrund § 36 Absatz 5 Landes- und Kommunalwahlordnung M-V nahmen nachstehende Gemeinden weitere Gemeinden in einem gemeinsamen Wahlbezirk auf:
+#Lindenberg (13071089): Hohenbollentin (13071064)
+#Bartow (13071006): Breest (13071017)
+#Thelkow (13072107): Grammow (13072037), Nustrow (13072076)
+#Zarnewanz (13072118): Gnewitz (13083034), Stubbendorf (13072102)
+#Tessin, Wahlbezirk 4 (13072105): Selpin (13072097)
+#Drechow (13073020): Hugoldsdorf (13073039)
+#Krembz (13074043): Rögnitz (13074070)
+#Für die aufgenommenen Gemeinden können somit keine Ergebnisse auf Gemeindeebene dargestellt werden. 
+
+# load table with Gemeinde pro Wahlkreis 2021 https://www.laiv-mv.de/Wahlen/Landtagswahlen/2021/Ergebnisse/ Excel Tabelle "LTW 2021 Endg. Erg. n. WBZ, Gem. u. WK.xlsx"
+wk_gem <- read_excel("raw-data/LTW 2021 Endg. Erg. n. WBZ, Gem. u. WK.xlsx", sheet = "nach Gemeinden")
+#colnames(wk_gem)
+wk_gem <- wk_gem[, c("Endgültige Ergebnisse der Landtagswahl\r\nam 26. September 2021\r\nin Mecklenburg Vorpommern", "...3", "...4")]
+
+colnames(wk_gem) <- c("wahlkreisnummer", "gemeindekennziffer", "gemeindename")
+
+wk_gem <- wk_gem[-10,]
+wk_gem <- wk_gem[-9,]
+wk_gem <- wk_gem[-8,]
+wk_gem <- wk_gem[-7,]
+wk_gem <- wk_gem[-6,]
+wk_gem <- wk_gem[-5,]
+wk_gem <- wk_gem[-4,]
+wk_gem <- wk_gem[-3,]
+wk_gem <- wk_gem[-2,]
+wk_gem <- wk_gem[-1,]
+
+wk_gem21 <- wk_gem
+
+colnames(wk_gem21) <- c("wahlkreisnummer21", "gemeindekennziffer", "gemeindename")
+```
+

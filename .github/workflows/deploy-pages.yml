@@ -1,0 +1,49 @@
+name: Deploy site preview
+
+# Preview only: https://zweitstimme-org.github.io/website-pipeline/
+# Does NOT touch zweitstimme.org.
+#
+# Full Hugo rebuild (local):
+#   ./scripts/deploy_pages_preview.sh
+# Daily data refresh (GitHub Actions → gh-pages data/):
+#   Daily Stimmung / State Forecasts call scripts/publish_to_pages_preview.sh
+# This workflow then publishes the gh-pages tree via Actions Pages.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [gh-pages]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: deploy-site-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy prebuilt preview
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout gh-pages (prebuilt Hugo output)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

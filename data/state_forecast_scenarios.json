@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "description": "Scenario definitions for state election forecast probabilities (posterior draws).",
+    "min_probability_pct": 1.0,
+    "hurdle_pct": 5.0
+  },
+  "coalitions": [
+    {
+      "id": "abs_maj_afd",
+      "parties": ["afd"],
+      "label_de": "Absolute Mehrheit AfD"
+    },
+    {
+      "id": "coal_cdu_bsw",
+      "parties": ["cdu", "bsw"],
+      "label_de": "Parlamentsmehrheit CDU/CSU und BSW"
+    },
+    {
+      "id": "coal_cdu_bsw_spd",
+      "parties": ["cdu", "bsw", "spd"],
+      "label_de": "Parlamentsmehrheit CDU/CSU, BSW und SPD"
+    },
+    {
+      "id": "coal_cdu_spd_gru",
+      "parties": ["cdu", "spd", "gru"],
+      "label_de": "Parlamentsmehrheit CDU/CSU, SPD und Grüne"
+    },
+    {
+      "id": "coal_cdu_spd",
+      "parties": ["cdu", "spd"],
+      "label_de": "Parlamentsmehrheit CDU/CSU und SPD"
+    },
+    {
+      "id": "coal_cdu_gru",
+      "parties": ["cdu", "gru"],
+      "label_de": "Parlamentsmehrheit CDU/CSU und Grüne"
+    },
+    {
+      "id": "coal_spd_gru_lin",
+      "parties": ["spd", "gru", "lin"],
+      "label_de": "Parlamentsmehrheit SPD, Grüne und Linke"
+    },
+    {
+      "id": "coal_lin_bsw_spd",
+      "parties": ["lin", "bsw", "spd"],
+      "label_de": "Parlamentsmehrheit Linke, BSW und SPD"
+    },
+    {
+      "id": "coal_cdu_bsw_gru",
+      "parties": ["cdu", "bsw", "gru"],
+      "label_de": "Parlamentsmehrheit CDU/CSU, BSW und Grüne"
+    },
+    {
+      "id": "coal_spd_bsw",
+      "parties": ["spd", "bsw"],
+      "label_de": "Parlamentsmehrheit SPD und BSW"
+    },
+    {
+      "id": "coal_spd_lin",
+      "parties": ["spd", "lin"],
+      "label_de": "Parlamentsmehrheit SPD und Linke"
+    },
+    {
+      "id": "coal_gru_spd",
+      "parties": ["gru", "spd"],
+      "label_de": "Parlamentsmehrheit Grüne und SPD"
+    }
+  ],
+  "above_hurdle_parties": ["fdp", "gru", "lin", "bsw"],
+  "above_hurdle_parties_by_state": {
+    "BE": ["fdp", "bsw"],
+    "MV": ["fdp", "gru", "bsw"],
+    "ST": ["fdp", "gru", "spd", "bsw"]
+  },
+  "exclude_scenario_ids_by_state": {
+    "BE": ["coal_cdu_bsw_spd", "coal_lin_bsw_spd", "coal_cdu_bsw_gru"],
+    "MV": ["coal_cdu_bsw_spd", "coal_cdu_spd"],
+    "ST": ["coal_cdu_spd"]
+  },
+  "coalitions_by_state": {
+    "BE": [
+      {
+        "id": "coal_gru_lin",
+        "parties": ["gru", "lin"],
+        "label_de": "Parlamentsmehrheit Grüne und Linke"
+      },
+      {
+        "id": "coal_spd_gru_lin_lead_spd",
+        "parties": ["spd", "gru", "lin"],
+        "lead": "spd",
+        "label_de": "Parlamentsmehrheit SPD, Grüne und Linke (unter Führung der SPD)"
+      },
+      {
+        "id": "coal_spd_gru_lin_lead_gru",
+        "parties": ["spd", "gru", "lin"],
+        "lead": "gru",
+        "label_de": "Parlamentsmehrheit SPD, Grüne und Linke (unter Führung der Grünen)"
+      },
+      {
+        "id": "coal_spd_gru_lin_lead_lin",
+        "parties": ["spd", "gru", "lin"],
+        "lead": "lin",
+        "label_de": "Parlamentsmehrheit SPD, Grüne und Linke (unter Führung der Linken)"
+      }
+    ],
+    "ST": [
+      {
+        "id": "coal_afd_bsw",
+        "parties": ["afd", "bsw"],
+        "label_de": "Parlamentsmehrheit AfD und BSW"
+      },
+      {
+        "id": "coal_cdu_spd_gru_fdp",
+        "parties": ["cdu", "spd", "gru", "fdp"],
+        "label_de": "Parlamentsmehrheit CDU/CSU, SPD, Grüne und FDP"
+      }
+    ]
+  },
+  "majority_excluding_by_state": {
+    "ST": [
+      {
+        "id": "maj_ohne_afd",
+        "exclude": ["afd"],
+        "label_de": "Parlamentsmehrheit ohne AfD"
+      },
+      {
+        "id": "maj_ohne_afd_bsw",
+        "exclude": ["afd", "bsw"],
+        "label_de": "Parlamentsmehrheit ohne AfD und BSW"
+      }
+    ],
+    "MV": [
+      {
+        "id": "maj_ohne_afd",
+        "exclude": ["afd"],
+        "label_de": "Parlamentsmehrheit ohne AfD"
+      },
+      {
+        "id": "maj_ohne_afd_bsw",
+        "exclude": ["afd", "bsw"],
+        "label_de": "Parlamentsmehrheit ohne AfD und BSW"
+      }
+    ]
+  },
+  "largest_party_parties": ["afd", "bsw", "cdu", "fdp", "gru", "lin", "spd"]
+}

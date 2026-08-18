@@ -1,0 +1,110 @@
+OK 200 https://www.altmarkkreis-salzwedel.de/ hits=3
+  landkreis/bekanntmachungen.aspx
+  buerger-presseservice/Wahlen/landtagswahl-sachsen-anhalt-2026.aspx
+  bekanntmachungen.aspx
+OK 200 https://www.altmarkkreis-salzwedel.de/de/politik-verwaltung/wahlen/ hits=3
+  landkreis/bekanntmachungen.aspx
+  buerger-presseservice/Wahlen/landtagswahl-sachsen-anhalt-2026.aspx
+  bekanntmachungen.aspx
+OK 200 https://www.landkreis-stendal.de/de/landtagswahl-2026.html hits=10
+  https://www.landkreis-stendal.de/de/landtagswahl-2026.html
+  //www.landkreis-stendal.de/de/oeffentliche-bekanntmachungen.html
+  https://www.landkreis-stendal.de/de/oeffentliche-bekanntmachungen.html
+  https://www.landkreis-stendal.de/de/sonstige-bekanntmachungen.html
+  https://www.landkreis-stendal.de/de/bekanntmachungen-der-gesellschaften.html
+  /de/landtagswahl-2026/zugelassene-kreiswahlvorschlaege-in-den-wahlkreisen-3-havelberg-osterburg-und-4-stendal.html
+  /de/landtagswahl-2026/sitzung-des-kreiswahlausschusses.html
+  /de/landtagswahl-2026/zusammensetzung-des-gemeinsamen-kreiswahlausschusses.html
+  /de/landtagswahl-2026/oeffentliche-bekanntmachung-der-kreiswahlleiterin.html
+  //www.landkreis-stendal.de/de/bekanntmachung-quicklink.html
+OK 200 https://www.lkjl.de/ hits=3
+  /de/oeffentliche-bekanntmachungen.html
+  /de/landtagswahl-2026.html
+  /de/bekanntmachungen.html
+FAIL https://www.lkjl.de/de/buergerservice/wahlen/ HTTP Error 404: Not Found
+OK 200 https://www.landkreis-boerde.de/ hits=3
+  /landkreis/kreispolitik/amtsblatt-bekanntmachungen
+  /landkreis/kreispolitik/amtsblatt-bekanntmachungen/bekanntmachungen
+  https://www.landkreis-boerde.de/landkreis/kreispolitik/amtsblatt-bekanntmachungen
+FAIL https://www.landkreis-boerde.de/politik-verwaltung/wahlen/ HTTP Error 404: Not Found
+OK 200 https://www.magdeburg.de/Buerger-Stadt/Leben-in-Magdeburg/Wahlen/ hits=0
+OK 200 https://www.kreis-hz.de/ hits=9
+  /de/bekanntmachungen.html
+  /de/amtliche-bekanntmachungen.html
+  /de/bekanntmachungen-der-sitzungstermine.html
+  /de/landtagswahl-2026.html
+  /de/suche.html?searchwords=Landtagswahl+2026
+  /de/bekanntmachungen-1.html
+  /de/bekanntmachungen-der-kreisverwaltung.html
+  /de/bekanntmachungen-regionaler-behoerden-und-einrichtungen.html
+  /de/wahlbekanntmachungen.html
+FAIL https://www.kreis-hz.de/de/wahlen/ HTTP Error 404: Not Found
+OK 200 https://www.salzlandkreis.de/ hits=1
+  https://www.salzlandkreis.de/aktuelles-presse/bekanntmachungen-amtsblatt/
+OK 200 https://www.salzlandkreis.de/aktuelles-presse/bekanntmachungen-amtsblatt/ hits=4
+  https://www.salzlandkreis.de/aktuelles-presse/bekanntmachungen-amtsblatt/
+  https://www.salzlandkreis.de/:translation/en/salzlandkreis/startseite/aktuelles-presse/bekanntmachungen-amtsblatt/
+  https://www.salzlandkreis.de/:translation/fr/salzlandkreis/startseite/aktuelles-presse/bekanntmachungen-amtsblatt/
+  https://www.salzlandkreis.de/:translation/es/salzlandkreis/startseite/aktuelles-presse/bekanntmachungen-amtsblatt/
+OK 200 https://www.anhalt-bitterfeld.de/ hits=8
+  //www.anhalt-bitterfeld.de/de/bekanntmachungen.html#main
+  //www.anhalt-bitterfeld.de/de/sonstige-bekanntmachungen.html#main
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2026.html#main
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2021.html#main
+  https://www.anhalt-bitterfeld.de/de/bekanntmachungen.html
+  https://www.anhalt-bitterfeld.de/de/sonstige-bekanntmachungen.html
+  https://www.anhalt-bitterfeld.de/de/landtagswahl-2026.html
+  https://www.anhalt-bitterfeld.de/de/landtagswahl-2021.html
+OK 200 https://www.anhalt-bitterfeld.de/de/wahlen.html hits=10
+  //www.anhalt-bitterfeld.de/de/bekanntmachungen.html#main
+  //www.anhalt-bitterfeld.de/de/sonstige-bekanntmachungen.html#main
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2026.html#main
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2021.html#main
+  https://www.anhalt-bitterfeld.de/de/bekanntmachungen.html
+  https://www.anhalt-bitterfeld.de/de/sonstige-bekanntmachungen.html
+  https://www.anhalt-bitterfeld.de/de/landtagswahl-2026.html
+  https://www.anhalt-bitterfeld.de/de/landtagswahl-2021.html
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2026.html
+  //www.anhalt-bitterfeld.de/de/landtagswahl-2021.html
+OK 200 https://www.landkreis-wittenberg.de/ hits=2
+  https://www.landkreis-wittenberg.de/verwaltung-verstehen/oeffentliche-bekanntmachung/
+  /verwaltung-verstehen/oeffentliche-bekanntmachung/
+FAIL https://www.landkreis-wittenberg.de/de/wahlen.html HTTP Error 404: Not Found
+OK 200 https://verwaltung.dessau-rosslau.de/stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen/amtliche-wahlbekanntmachungen.html hits=63
+  https://verwaltung.dessau-rosslau.de/stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen/amtliche-wahlbekanntmachungen.html
+  stadt-buerger/amtsblatt-bekanntmachungen.html
+  stadt-buerger/amtsblatt-bekanntmachungen/amtsblatt.html
+  stadt-buerger/amtsblatt-bekanntmachungen/amtliche-bekanntmachungen.html
+  stadt-buerger/wahlen-und-statistik/wahlen-neu/landtagswahl-2026.html
+  stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen/amtliche-wahlbekanntmachungen.html
+  stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen-und-termine/aeltere-wahlbekanntmachungen.html
+  stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen/amtliche-wahlbekanntmachungen.html#mobilemenu
+  stadt-buerger/wahlen-und-statistik/wahlen/wahlbekanntmachungen/amtliche-wahlbekanntmachungen.html#
+  fileadmin/Verwaltungsportal_Dessau-Rosslau/Stadt_Buerger/Wahlen_und_Statistik/Wahlbekanntmachungen/2026_LTW/2026_07_27_Bekanntmachung_zugelassene_Kreiswahlvorschlaege.pdf
+  fileadmin/Verwaltungsportal_Dessau-Rosslau/Stadt_Buerger/Wahlen_und_Statistik/Wahlbekanntmachungen/2026_07_09_Bekanntmachung_Kreiswahlausschuss_Sitzung1_Zulassung.pdf
+  fileadmin/Verwaltungsportal_Dessau-Rosslau/Stadt_Buerger/Wahlen_und_Statistik/Wahlbekanntmachungen/2026_LTW/2026_07_08_Bekanntmachung_Kreiswahlausschuss_neu.pdf
+OK 200 https://www.mansfeldsuedharz.de/ hits=3
+  /aktuell/bekanntmachungen
+  https://www.mansfeldsuedharz.de/aktuell/aktuelle-bekanntmachungen
+  /aktuell/aktuelle-bekanntmachungen#c1883
+FAIL https://www.mansfeldsuedharz.de/de/wahlen/ HTTP Error 404: Not Found
+OK 200 https://www.saalekreis.de/ hits=1
+  //www.saalekreis.de/de/shortcut-bekanntmachungen.html
+OK 200 https://www.saalekreis.de/de/wahlen.html hits=1
+  /de/landtagswahl-2026.html
+FAIL https://halle.de/verwaltung-und-politik/wahlen HTTP Error 404: Not Found
+FAIL https://www.halle.de/de/verwaltung/wahlen/ HTTP Error 404: Not Found
+OK 200 https://www.burgenlandkreis.de/ hits=19
+  /de/bekanntmachungen.html
+  https://www.burgenlandkreis.de/de/bekanntmachungen.html
+  https://www.burgenlandkreis.de/de/amtliche-bekanntmachungen.html
+  https://www.burgenlandkreis.de/de/sonstige-bekanntmachungen.html
+  https://www.burgenlandkreis.de/de/bekanntmachungen-1709658474.html
+  https://www.burgenlandkreis.de/de/bekanntmachungen-1647593934.html
+  https://www.burgenlandkreis.de/de/landtagswahl-2026.html
+  https://www.burgenlandkreis.de/de/bekanntmachungen-landtagswahl.html
+  https://www.burgenlandkreis.de/de/kreiswahlvorschlaege-copy-1759755836.html
+  https://www.burgenlandkreis.de/de/formulare-landtagswahl.html
+  https://www.burgenlandkreis.de/de/informationen-der-landeswahlleiterin-zur-landtagswahl-2026.html
+  https://www.burgenlandkreis.de/de/bekanntmachungen-bundestagswahl-copy-1724767474.html
+FAIL https://www.burgenlandkreis.de/de/wahlen/ HTTP Error 404: Not Found

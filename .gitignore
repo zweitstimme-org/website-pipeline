@@ -1,0 +1,34 @@
+inspiration/.DS_Store
+data/plots/.DS_Store
+data/json_output/.DS_Store
+data/.DS_Store
+code/data/.DS_Store
+code/.DS_Store
+inspiration/state-models/
+website-mock/
+output/
+pages-preview/
+.bin/
+vendor/
+.Rhistory
+.Rproj.user
+website-source/
+*.Rproj
+__pycache__/
+*.pyc
+website-mock-tmp-data/
+*.zip
+*.RData
+zweitstimme_intro.mp4
+
+# Scraper / election-night raw dumps (regenerable; keep curated CSVs)
+**/candidates/raw/
+**/wahlabend/raw/
+mecklenburg-vorpommern/LTWMeckPom/raw-data/
+
+# Local pipeline scratch (keep AW incumbents cache for offline CI)
+tmp/*
+!tmp/incumbents/
+tmp/incumbents/*
+!tmp/incumbents/aw_cache/
+!tmp/incumbents/aw_cache/**

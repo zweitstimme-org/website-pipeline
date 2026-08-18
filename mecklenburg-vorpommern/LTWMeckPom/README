@@ -1,0 +1,21 @@
+####################################
+Panel Data on Landtagswahl Results from 2011-2021 in Mecklenburg-Vorpommern (absolute numbers)
+Author: Lisa-Marie Zikesch Date: 09. April 2026
+####################################
+
+Rmds included:
+Landtagswahlen 2011-2021 Mecklenburg-Vorpommern.Rmd
+wahlkreise.Rmd
+
+Landtagswahlen 2011-2021 Mecklenburg-Vorpommern.Rmd
+- cleans datasets on state elections
+- merges data into paneldataset for state elections of 2011, 2016, 2021 in Mecklenburg-Vorpommern with absolute numbers
+- writes out csv file for panel dataset
+
+wahlkreise.Rmd
+- pulls municipalities included in constituencies from 2016 and 2021
+- writes out csv file for 2016 data
+
+Rmds do not build on each other and can be run in no predefined order
+
+####################################

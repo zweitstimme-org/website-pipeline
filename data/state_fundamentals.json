@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "description": "State-level fundamentals for the state forecast model (gov, pm). The new-party indicator is not used; polls capture that dynamics (see forecast-bw-rp-2026).",
+    "last_updated": "2026-07-15"
+  },
+  "states": {
+    "BW": { "gov": "gru", "pm": "gru" },
+    "BY": { "gov": "cdu", "pm": "cdu" },
+    "BE": { "gov": "spd", "pm": "spd" },
+    "BB": { "gov": "spd", "pm": "spd" },
+    "HB": { "gov": "spd", "pm": "spd" },
+    "HH": { "gov": "spd", "pm": "spd" },
+    "HE": { "gov": "cdu", "pm": "cdu" },
+    "MV": { "gov": "spd", "pm": "spd" },
+    "NI": { "gov": "spd", "pm": "spd" },
+    "NW": { "gov": "cdu", "pm": "cdu" },
+    "RP": { "gov": "spd", "pm": "spd" },
+    "SL": { "gov": "spd", "pm": "spd" },
+    "SN": { "gov": "cdu", "pm": "cdu" },
+    "ST": { "gov": "spd", "pm": "spd" },
+    "SH": { "gov": "cdu", "pm": "cdu" },
+    "TH": { "gov": "lin", "pm": "lin" }
+  }
+}

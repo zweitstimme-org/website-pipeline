@@ -1,0 +1,49 @@
+{
+  "state_code": "BE",
+  "election_date": "2023-02-12",
+  "lead_horizon_days": 0,
+  "method": "poll_mean_lead0_interim",
+  "note": "Recency-weighted mean of BE polls published in the 21d up to election day. uncertainty_pp = 1.28·SD across those polls (soft 80 %). Replace with state-models lead-0/1 polls-only backcast (+ posterior intervals) when available.",
+  "n_polls": 5,
+  "poll_dates": [
+    "2023-02-02",
+    "2023-02-03",
+    "2023-02-05",
+    "2023-02-09",
+    "2023-02-09"
+  ],
+  "institutes": [
+    "FORSA",
+    "FORSCHUNGSGRUPPE_WAHLEN",
+    "INFRATEST",
+    "INSA"
+  ],
+  "shares": {
+    "spd": 0.19466,
+    "cdu": 0.250231,
+    "gruene": 0.177439,
+    "linke": 0.115858,
+    "afd": 0.1,
+    "fdp": 0.058188,
+    "others": 0.103623
+  },
+  "shares_pct": {
+    "spd": 19.466,
+    "cdu": 25.023,
+    "gruene": 17.744,
+    "linke": 11.586,
+    "afd": 10.0,
+    "fdp": 5.819,
+    "others": 10.362
+  },
+  "uncertainty_pp": {
+    "spd": 1.88,
+    "cdu": 1.5,
+    "gruene": 1.5,
+    "linke": 1.5,
+    "afd": 1.5,
+    "fdp": 1.5,
+    "others": 1.5
+  },
+  "generated_at": "2026-08-10T08:50:44.221674+00:00"
+}

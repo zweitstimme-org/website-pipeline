@@ -1,0 +1,1 @@
+import json; data = json.load(open("data/json_output/all_polls.json")); parties = set(); [parties.update(poll["parties"].keys()) for poll in data["polls"] if "parties" in poll]; print("Unique party names:"); [print(f"  \"{p}\"") for p in sorted(parties)]

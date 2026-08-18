@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: https://ogp.me/ns#">
+<head><style>img.lazy{min-height:1px}</style><link href="https://cdu-mv.de/wp-content/plugins/w3-total-cache/pub/js/lazyload.min.js" as="script">
+	<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="pingback" href="https://cdu-mv.de/xmlrpc.php" />
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+	
+	
+			<style>
+			.fuse_social_icons_links {
+			    display: block;
+			}
+			.facebook-awesome-social::before {
+			    content: "\f09a" !important;
+			}
+			
+
+
+			.awesome-social-img img {
+			    position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%,-50%);
+			}
+
+			.awesome-social-img {
+			    position: relative;
+			}			
+			.icon_wrapper .awesome-social {
+			    font-family: 'FuseAwesome' !important;
+			}
+			#icon_wrapper .fuse_social_icons_links .awesome-social {
+			    font-family: "FuseAwesome" !important;
+			    ext-rendering: auto !important;
+			    -webkit-font-smoothing: antialiased !important;
+			    -moz-osx-font-smoothing: grayscale !important;
+			}
+									
+			
+				#icon_wrapper{
+					position: fixed;
+					top: 50%;
+					right: 0px;
+					z-index: 99999;
+				}
+
+			
+			.awesome-social
+
+			{
+
+            margin-top:2px;
+
+			color: #fff !important;
+
+			text-align: center !important;
+
+			display: block;
+
+			
+			line-height: 51px !important;
+
+			width: 48px !important;
+
+			height: 48px !important;
+
+			font-size: 28px !important;
+
+			
+
+
+			}
+
+			
+			.fuse_social_icons_links
+
+			{
+
+			outline:0 !important;
+
+
+
+			}
+
+			.fuse_social_icons_links:hover{
+
+			text-decoration:none !important;
+
+			}
+
+			
+			.fb-awesome-social
+
+			{
+
+			background: #3b5998;
+			border-color: #3b5998;
+			
+			}
+			.facebook-awesome-social
+
+			{
+
+			background: #3b5998;
+			border-color: #3b5998;
+						}
+			
+			.fuseicon-threads.threads-awesome-social.awesome-social::before {
+			    content: "\e900";
+			    font-family: 'FuseCustomIcons' !important;
+			    			}
+
+			.fuseicon-threads.threads-awesome-social.awesome-social {
+			    background: #000;
+			}
+
+
+			.tw-awesome-social
+
+			{
+
+			background:#00aced;
+			border-color: #00aced;
+			
+			}
+			.twitter-awesome-social
+
+			{
+
+			background:#000;
+			border-color: #000;
+			
+			}
+			.rss-awesome-social
+
+			{
+
+			background:#FA9B39;
+			border-color: #FA9B39;
+			
+			}
+
+			.linkedin-awesome-social
+
+			{
+
+			background:#007bb6;
+			border-color: #007bb6;
+						}
+
+			.youtube-awesome-social
+
+			{
+
+			background:#bb0000;
+			border-color: #bb0000;
+						}
+
+			.flickr-awesome-social
+
+			{
+
+			background: #ff0084;
+			border-color: #ff0084;
+						}
+
+			.pinterest-awesome-social
+
+			{
+
+			background:#cb2027;
+			border-color: #cb2027;
+						}
+
+			.stumbleupon-awesome-social
+
+			{
+
+			background:#f74425 ;
+			border-color: #f74425;
+						}
+
+			.google-plus-awesome-social
+
+			{
+
+			background:#f74425 ;
+			border-color: #f74425;
+						}
+
+			.instagram-awesome-social
+
+			{
+
+			    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+			    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+			    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+			    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+			    border-color: #f09433;
+					    
+
+			}
+
+			.tumblr-awesome-social
+
+			{
+
+			background: #32506d ;
+			border-color: #32506d;
+						}
+
+			.vine-awesome-social
+
+			{
+
+			background: #00bf8f ;
+			border-color: #00bf8f;
+						}
+
+            .vk-awesome-social {
+
+
+
+            background: #45668e ;
+            border-color: #45668e;
+            
+            }
+
+            .soundcloud-awesome-social
+
+                {
+
+            background: #ff3300 ;
+            border-color: #ff3300;
+            
+                }
+
+                .reddit-awesome-social{
+
+
+
+            background: #ff4500 ;
+            border-color: #ff4500;
+
+                            }
+
+                .stack-awesome-social{
+
+
+
+            background: #fe7a15 ;
+            border-color: #fe7a15;
+            
+                }
+
+                .behance-awesome-social{
+
+            background: #1769ff ;
+            border-color: #1769ff;
+            
+                }
+
+                .github-awesome-social{
+
+            background: #999999 ;
+            border-color: #999999;
+            
+
+
+                }
+
+                .envelope-awesome-social{
+
+                  background: #ccc ;
+ 				  border-color: #ccc;                 
+ 				                  }
+
+/*  Mobile */
+
+
+
+@media(max-width:768px){
+#icon_wrapper{
+
+
+
+	display: none;
+
+}
+
+}
+
+
+
+
+
+
+
+             
+
+
+
+
+			</style>
+
+<style id="et-divi-userfonts">@font-face { font-family: "Inter CDU Neu"; font-display: swap;  src: url("https://cdu-mv.de/wp-content/uploads/et-fonts/Inter-VariableFont_slntwght.ttf") format("truetype"); }</style><script type="text/javascript">
+			let jqueryParams=[],jQuery=function(r){return jqueryParams=[...jqueryParams,r],jQuery},$=function(r){return jqueryParams=[...jqueryParams,r],$};window.jQuery=jQuery,window.$=jQuery;let customHeadScripts=!1;jQuery.fn=jQuery.prototype={},$.fn=jQuery.prototype={},jQuery.noConflict=function(r){if(window.jQuery)return jQuery=window.jQuery,$=window.jQuery,customHeadScripts=!0,jQuery.noConflict},jQuery.ready=function(r){jqueryParams=[...jqueryParams,r]},$.ready=function(r){jqueryParams=[...jqueryParams,r]},jQuery.load=function(r){jqueryParams=[...jqueryParams,r]},$.load=function(r){jqueryParams=[...jqueryParams,r]},jQuery.fn.ready=function(r){jqueryParams=[...jqueryParams,r]},$.fn.ready=function(r){jqueryParams=[...jqueryParams,r]};</script>
+<!-- Suchmaschinen-Optimierung durch Rank Math PRO - https://rankmath.com/ -->
+<title>Page Not Found - CDU Mecklenburg-Vorpommern</title>
+<meta name="robots" content="follow, noindex"/>
+<meta property="og:locale" content="de_DE" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Page Not Found - CDU Mecklenburg-Vorpommern" />
+<meta property="og:site_name" content="Landesverband der CDU Mecklenburg-Vorpommern" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Page Not Found - CDU Mecklenburg-Vorpommern" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"GovernmentOrganization","@id":"https://cdu-mv.de/#organization","name":"Landesverband der CDU Mecklenburg-Vorpommern","url":"https://cdu-mv.de"},{"@type":"WebSite","@id":"https://cdu-mv.de/#website","url":"https://cdu-mv.de","name":"Landesverband der CDU Mecklenburg-Vorpommern","alternateName":"CDU M-V","publisher":{"@id":"https://cdu-mv.de/#organization"},"inLanguage":"de"},{"@type":"WebPage","@id":"#webpage","url":"","name":"Page Not Found - CDU Mecklenburg-Vorpommern","isPartOf":{"@id":"https://cdu-mv.de/#website"},"inLanguage":"de"}]}</script>
+<!-- /Rank Math WordPress SEO Plugin -->
+
+<link rel="alternate" type="application/rss+xml" title="CDU Mecklenburg-Vorpommern &raquo; Feed" href="https://cdu-mv.de/feed/" />
+<link rel="alternate" type="application/rss+xml" title="CDU Mecklenburg-Vorpommern &raquo; Kommentar-Feed" href="https://cdu-mv.de/comments/feed/" />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast Feed: KLARTEXT! (KLARTEXT! MP3 Feed)" href="https://cdu-mv.de/feed/klartext-cdumv-mp3/" />
+<script consent-skip-blocker="1" data-skip-lazy-load="js-extra"  data-cfasync="false">
+(function(w,d){w[d]=w[d]||[];w.gtag=function(){w[d].push(arguments)}})(window,"dataLayer");
+</script><script consent-skip-blocker="1" data-skip-lazy-load="js-extra"  data-cfasync="false">window.gtag && (()=>{gtag('set', 'url_passthrough', false);
+gtag('set', 'ads_data_redaction', true);
+for (const d of [{"ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","analytics_storage":"denied","functionality_storage":"denied","personalization_storage":"denied","security_storage":"denied","wait_for_update":1000}]) {
+	gtag('consent', 'default', d);
+}})()</script><style>[consent-id]:not(.rcb-content-blocker):not([consent-transaction-complete]):not([consent-visual-use-parent^="children:"]):not([consent-confirm]){opacity:0!important;}
+.rcb-content-blocker+.rcb-content-blocker-children-fallback~*{display:none!important;}</style><link rel="preload" href="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/1239052296.js?ver=4da9deaa8edb67e014c200f7fb07caf2" as="script" />
+<link rel="preload" href="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/1029639613.js?ver=e40c2f4cd4b174d6" as="script" />
+<link rel="preload" href="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/1610440107.js?ver=aaace4e25d9fef6805a3bb6e7d6abaa8" as="script" />
+<link rel="preload" href="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/405846211.js?ver=402093d53ee8b8bb" as="script" />
+<link rel="preload" href="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/337114147.js?ver=ec7f2c1dc0b315d9" as="script" />
+<script data-cfasync="false" id="real-cookie-banner-pro-vendor-real-cookie-banner-pro-banner-js" defer src="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/1239052296.js?ver=4da9deaa8edb67e014c200f7fb07caf2"></script>
+<script type="application/json" data-skip-lazy-load="js-extra" data-skip-moving="true" data-no-defer nitro-exclude data-alt-type="application/ld+json" data-dont-merge data-wpmeteor-nooptimize="true" data-cfasync="false" id="a8af102a76970001f1ad5e06f4bf714851-js-extra">{"slug":"real-cookie-banner-pro","textDomain":"real-cookie-banner","version":"5.2.28","restUrl":"https:\/\/cdu-mv.de\/wp-json\/real-cookie-banner\/v1\/","restNamespace":"real-cookie-banner\/v1","restPathObfuscateOffset":"34ce35136394e7b6","restRoot":"https:\/\/cdu-mv.de\/wp-json\/","restQuery":{"_v":"5.2.28","_locale":"user"},"restNonce":"63d9988a66","restRecreateNonceEndpoint":"https:\/\/cdu-mv.de\/wp-admin\/admin-ajax.php?action=rest-nonce","publicUrl":"https:\/\/cdu-mv.de\/wp-content\/plugins\/real-cookie-banner-pro\/public\/","chunkFolder":"dist","chunksLanguageFolder":"https:\/\/cdu-mv.de\/wp-content\/languages\/mo-cache\/real-cookie-banner-pro\/","chunks":{"chunk-config-tab-blocker.lite.js":["de_DE-83d48f038e1cf6148175589160cda67e","de_DE-e051c4c51a9ece7608a571f9dada4712","de_DE-24de88ac89ca0a1363889bd3fd6e1c50","de_DE-93ec68381a9f458fbce3acbccd434479"],"chunk-config-tab-blocker.pro.js":["de_DE-ddf5ae983675e7b6eec2afc2d53654a2","de_DE-ad0fc0f9f96d053303b1ede45a238984","de_DE-e516a6866b9a31db231ab92dedaa8b29","de_DE-1aac2e7f59d941d7ed1061d1018d2957"],"chunk-config-tab-consent.lite.js":["de_DE-3823d7521a3fc2857511061e0d660408"],"chunk-config-tab-consent.pro.js":["de_DE-9cb9ecf8c1e8ce14036b5f3a5e19f098"],"chunk-config-tab-cookies.lite.js":["de_DE-1a51b37d0ef409906245c7ed80d76040","de_DE-e051c4c51a9ece7608a571f9dada4712","de_DE-24de88ac89ca0a1363889bd3fd6e1c50"],"chunk-config-tab-cookies.pro.js":["de_DE-572ee75deed92e7a74abba4b86604687","de_DE-ad0fc0f9f96d053303b1ede45a238984","de_DE-e516a6866b9a31db231ab92dedaa8b29"],"chunk-config-tab-dashboard.lite.js":["de_DE-f843c51245ecd2b389746275b3da66b6"],"chunk-config-tab-dashboard.pro.js":["de_DE-ae5ae8f925f0409361cfe395645ac077"],"chunk-config-tab-import.lite.js":["de_DE-66df94240f04843e5a208823e466a850"],"chunk-config-tab-import.pro.js":["de_DE-e5fee6b51986d4ff7a051d6f6a7b076a"],"chunk-config-tab-licensing.lite.js":["de_DE-e01f803e4093b19d6787901b9591b5a6"],"chunk-config-tab-licensing.pro.js":["de_DE-4918ea9704f47c2055904e4104d4ffba"],"chunk-config-tab-scanner.lite.js":["de_DE-b10b39f1099ef599835c729334e38429"],"chunk-config-tab-scanner.pro.js":["de_DE-752a1502ab4f0bebfa2ad50c68ef571f"],"chunk-config-tab-settings.lite.js":["de_DE-37978e0b06b4eb18b16164a2d9c93a2c"],"chunk-config-tab-settings.pro.js":["de_DE-e59d3dcc762e276255c8989fbd1f80e3"],"chunk-config-tab-tcf.lite.js":["de_DE-4f658bdbf0aa370053460bc9e3cd1f69","de_DE-e051c4c51a9ece7608a571f9dada4712","de_DE-93ec68381a9f458fbce3acbccd434479"],"chunk-config-tab-tcf.pro.js":["de_DE-e1e83d5b8a28f1f91f63b9de2a8b181a","de_DE-ad0fc0f9f96d053303b1ede45a238984","de_DE-1aac2e7f59d941d7ed1061d1018d2957"]},"others":{"customizeValuesBanner":"{\"layout\":{\"type\":\"dialog\",\"maxHeightEnabled\":false,\"maxHeight\":740,\"dialogMaxWidth\":650,\"dialogPosition\":\"middleCenter\",\"dialogMargin\":[0,0,0,0],\"bannerPosition\":\"bottom\",\"bannerMaxWidth\":1024,\"dialogBorderRadius\":0,\"borderRadius\":0,\"animationIn\":\"slideInDown\",\"animationInDuration\":500,\"animationInOnlyMobile\":true,\"animationOut\":\"none\",\"animationOutDuration\":500,\"animationOutOnlyMobile\":true,\"overlay\":true,\"overlayBg\":\"#52b7c1\",\"overlayBgAlpha\":57,\"overlayBlur\":2},\"decision\":{\"acceptAll\":\"button\",\"acceptEssentials\":\"button\",\"showCloseIcon\":true,\"acceptIndividual\":\"link\",\"buttonOrder\":\"all,essential,save,individual\",\"showGroups\":false,\"groupsFirstView\":false,\"saveButton\":\"always\"},\"design\":{\"bg\":\"#ffffff\",\"textAlign\":\"center\",\"linkTextDecoration\":\"underline\",\"borderWidth\":0,\"borderColor\":\"#ffffff\",\"fontSize\":16,\"fontColor\":\"#000000\",\"fontInheritFamily\":true,\"fontFamily\":\"Arial, Helvetica, sans-serif\",\"fontWeight\":\"normal\",\"boxShadowEnabled\":true,\"boxShadowOffsetX\":0,\"boxShadowOffsetY\":5,\"boxShadowBlurRadius\":2,\"boxShadowSpreadRadius\":0,\"boxShadowColor\":\"#6d6d6d\",\"boxShadowColorAlpha\":10},\"headerDesign\":{\"inheritBg\":true,\"bg\":\"#f4f4f4\",\"inheritTextAlign\":true,\"textAlign\":\"center\",\"padding\":[17,30,15,30],\"logo\":\"https:\\\/\\\/2024.cdu-mv.de\\\/wp-content\\\/uploads\\\/2023\\\/12\\\/CDU-MV-LOGO.png\",\"logoRetina\":\"\",\"logoMaxHeight\":40,\"logoPosition\":\"left\",\"logoMargin\":[5,15,5,15],\"fontSize\":26,\"fontColor\":\"#2b2b2b\",\"fontInheritFamily\":false,\"fontFamily\":\"Arial, Helvetica, sans-serif\",\"fontWeight\":\"normal\",\"borderWidth\":1,\"borderColor\":\"#ddeef1\"},\"bodyDesign\":{\"padding\":[20,30,15,30],\"descriptionInheritFontSize\":true,\"descriptionFontSize\":13,\"dottedGroupsInheritFontSize\":true,\"dottedGroupsFontSize\":13,\"dottedGroupsBulletColor\":\"#65bc7b\",\"teachingsInheritTextAlign\":true,\"teachingsTextAlign\":\"center\",\"teachingsSeparatorActive\":true,\"teachingsSeparatorWidth\":96,\"teachingsSeparatorHeight\":1,\"teachingsSeparatorColor\":\"#52b7c2\",\"teachingsInheritFontSize\":false,\"teachingsFontSize\":12,\"teachingsInheritFontColor\":false,\"teachingsFontColor\":\"#2b3246\",\"accordionMargin\":[10,0,5,0],\"accordionPadding\":[5,10,5,10],\"accordionArrowType\":\"outlined\",\"accordionArrowColor\":\"#65bc7b\",\"accordionBg\":\"#ffffff\",\"accordionActiveBg\":\"#f9f9f9\",\"accordionHoverBg\":\"#efefef\",\"accordionBorderWidth\":1,\"accordionBorderColor\":\"#efefef\",\"accordionTitleFontSize\":12,\"accordionTitleFontColor\":\"#2b2b2b\",\"accordionTitleFontWeight\":\"normal\",\"accordionDescriptionMargin\":[5,0,0,0],\"accordionDescriptionFontSize\":12,\"accordionDescriptionFontColor\":\"#757575\",\"accordionDescriptionFontWeight\":\"normal\",\"acceptAllOneRowLayout\":false,\"acceptAllPadding\":[12,10,12,10],\"acceptAllBg\":\"#2b3246\",\"acceptAllTextAlign\":\"center\",\"acceptAllFontSize\":18,\"acceptAllFontColor\":\"#ffffff\",\"acceptAllFontWeight\":\"bolder\",\"acceptAllBorderWidth\":0,\"acceptAllBorderColor\":\"#000000\",\"acceptAllHoverBg\":\"#ffa600\",\"acceptAllHoverFontColor\":\"#2b3246\",\"acceptAllHoverBorderColor\":\"#000000\",\"acceptEssentialsUseAcceptAll\":true,\"acceptEssentialsButtonType\":\"\",\"acceptEssentialsPadding\":[10,5,10,5],\"acceptEssentialsBg\":\"#efefef\",\"acceptEssentialsTextAlign\":\"center\",\"acceptEssentialsFontSize\":18,\"acceptEssentialsFontColor\":\"#0a0a0a\",\"acceptEssentialsFontWeight\":\"normal\",\"acceptEssentialsBorderWidth\":0,\"acceptEssentialsBorderColor\":\"#000000\",\"acceptEssentialsHoverBg\":\"#e8e8e8\",\"acceptEssentialsHoverFontColor\":\"#000000\",\"acceptEssentialsHoverBorderColor\":\"#000000\",\"acceptIndividualPadding\":[10,5,0,5],\"acceptIndividualBg\":\"#ffffff\",\"acceptIndividualTextAlign\":\"center\",\"acceptIndividualFontSize\":16,\"acceptIndividualFontColor\":\"#2b3246\",\"acceptIndividualFontWeight\":\"bolder\",\"acceptIndividualBorderWidth\":0,\"acceptIndividualBorderColor\":\"#000000\",\"acceptIndividualHoverBg\":\"#ffffff\",\"acceptIndividualHoverFontColor\":\"#2b3246\",\"acceptIndividualHoverBorderColor\":\"#000000\"},\"footerDesign\":{\"poweredByLink\":false,\"inheritBg\":false,\"bg\":\"#2b3246\",\"inheritTextAlign\":true,\"textAlign\":\"center\",\"padding\":[25,30,25,30],\"fontSize\":14,\"fontColor\":\"#ffffff\",\"fontInheritFamily\":true,\"fontFamily\":\"Arial, Helvetica, sans-serif\",\"fontWeight\":\"normal\",\"hoverFontColor\":\"#ffa600\",\"borderWidth\":2,\"borderColor\":\"#ddeef1\",\"languageSwitcher\":\"flags\"},\"texts\":{\"headline\":\"Privatsph\\u00e4re-Einstellungen\",\"description\":\"Wir verwenden Cookies und \\u00e4hnliche Technologien auf unserer Website und verarbeiten personenbezogene Daten von dir (z.B. IP-Adresse), um z.B. Inhalte und Anzeigen zu personalisieren, Medien von Drittanbietern einzubinden oder Zugriffe auf unsere Website zu analysieren. Die Datenverarbeitung kann auch erst in Folge gesetzter Cookies stattfinden. Wir teilen diese Daten mit Dritten, die wir in den Privatsph\\u00e4re-Einstellungen benennen.<br \\\/><br \\\/>Die Datenverarbeitung kann mit deiner Einwilligung oder auf Basis eines berechtigten Interesses erfolgen, dem du in den Privatsph\\u00e4re-Einstellungen widersprechen kannst. Du hast das Recht, nicht einzuwilligen und deine Einwilligung zu einem sp\\u00e4teren Zeitpunkt zu \\u00e4ndern oder zu widerrufen. Weitere Informationen zur Verwendung deiner Daten findest du in unserer {{privacyPolicy}}Datenschutzerkl\\u00e4rung{{\\\/privacyPolicy}}.\",\"acceptAll\":\"Alle akzeptieren\",\"acceptEssentials\":\"Weiter ohne Einwilligung\",\"acceptIndividual\":\"Privatsph\\u00e4re-Einstellungen individuell festlegen\",\"poweredBy\":\"1\",\"dataProcessingInUnsafeCountries\":\"Einige Services verarbeiten personenbezogene Daten in unsicheren Drittl\\u00e4ndern. Mit deiner Einwilligung stimmst du auch der Datenverarbeitung gekennzeichneter Services gem\\u00e4\\u00df {{legalBasis}} zu, mit Risiken wie unzureichenden Rechtsmitteln, unbefugtem Zugriff durch Beh\\u00f6rden ohne Information oder Widerspruchsm\\u00f6glichkeit, unbefugter Weitergabe an Dritte und unzureichenden Datensicherheitsma\\u00dfnahmen.\",\"ageNoticeBanner\":\"Du bist unter {{minAge}} Jahre alt? Dann kannst du nicht in optionale Services einwilligen. Du kannst deine Eltern oder Erziehungsberechtigten bitten, mit dir in diese Services einzuwilligen.\",\"ageNoticeBlocker\":\"Du bist unter {{minAge}} Jahre alt? Leider darfst du in diesen Service nicht selbst einwilligen, um diese Inhalte zu sehen. Bitte deine Eltern oder Erziehungsberechtigten, in den Service mit dir einzuwilligen!\",\"listServicesNotice\":\"Wenn du alle Services akzeptierst, erlaubst du, dass {{services}} geladen werden. Diese sind nach ihrem Zweck in Gruppen {{serviceGroups}} unterteilt (Zugeh\\u00f6rigkeit durch hochgestellte Zahlen gekennzeichnet).\",\"listServicesLegitimateInterestNotice\":\"Au\\u00dferdem werden {{services}} auf der Grundlage eines berechtigten Interesses geladen.\",\"tcfStacksCustomName\":\"Services mit verschiedenen Zwecken au\\u00dferhalb des TCF-Standards\",\"tcfStacksCustomDescription\":\"Services, die Einwilligungen nicht \\u00fcber den TCF-Standard, sondern \\u00fcber andere Technologien teilen. Diese werden nach ihrem Zweck in mehrere Gruppen unterteilt. Einige davon werden aufgrund eines berechtigten Interesses genutzt (z.B. Gefahrenabwehr), andere werden nur mit deiner Einwilligung genutzt. Details zu den einzelnen Gruppen und Zwecken der Services findest du in den individuellen Privatsph\\u00e4re-Einstellungen.\",\"consentForwardingExternalHosts\":\"Deine Einwilligung gilt auch auf {{websites}}.\",\"blockerHeadline\":\"{{name}} aufgrund von Privatsph\\u00e4re-Einstellungen blockiert\",\"blockerLinkShowMissing\":\"Zeige alle Services, in die du noch einwilligen musst\",\"blockerLoadButton\":\"Services akzeptieren und Inhalte laden\",\"blockerAcceptInfo\":\"Wenn du die blockierten Inhalte l\\u00e4dst, werden deine Datenschutzeinstellungen angepasst. Inhalte aus diesem Service werden in Zukunft nicht mehr blockiert.\",\"stickyHistory\":\"Historie der Privatsph\\u00e4re-Einstellungen\",\"stickyRevoke\":\"Einwilligungen widerrufen\",\"stickyRevokeSuccessMessage\":\"Du hast die Einwilligung f\\u00fcr Services mit dessen Cookies und Verarbeitung personenbezogener Daten erfolgreich widerrufen. Die Seite wird jetzt neu geladen!\",\"stickyChange\":\"Privatsph\\u00e4re-Einstellungen \\u00e4ndern\"},\"individualLayout\":{\"inheritDialogMaxWidth\":false,\"dialogMaxWidth\":885,\"inheritBannerMaxWidth\":true,\"bannerMaxWidth\":1980,\"descriptionTextAlign\":\"left\"},\"group\":{\"checkboxBg\":\"#ddeef1\",\"checkboxBorderWidth\":2,\"checkboxBorderColor\":\"#52b7c1\",\"checkboxActiveColor\":\"#2b3246\",\"checkboxActiveBg\":\"#52b7c1\",\"checkboxActiveBorderColor\":\"#52b7c1\",\"groupInheritBg\":true,\"groupBg\":\"#f4f4f4\",\"groupPadding\":[15,15,15,15],\"groupSpacing\":10,\"groupBorderRadius\":5,\"groupBorderWidth\":1,\"groupBorderColor\":\"#ddeef1\",\"headlineFontSize\":16,\"headlineFontWeight\":\"normal\",\"headlineFontColor\":\"#2b3246\",\"descriptionFontSize\":16,\"descriptionFontColor\":\"#2b3246\",\"linkColor\":\"#52b7c1\",\"linkHoverColor\":\"#2b3246\",\"detailsHideLessRelevant\":true},\"saveButton\":{\"useAcceptAll\":true,\"type\":\"button\",\"padding\":[10,10,10,10],\"bg\":\"#efefef\",\"textAlign\":\"center\",\"fontSize\":18,\"fontColor\":\"#0a0a0a\",\"fontWeight\":\"normal\",\"borderWidth\":0,\"borderColor\":\"#000000\",\"hoverBg\":\"#e8e8e8\",\"hoverFontColor\":\"#000000\",\"hoverBorderColor\":\"#000000\"},\"individualTexts\":{\"headline\":\"Individuelle Privatsph\\u00e4re-Einstellungen\",\"description\":\"Wir verwenden Cookies und \\u00e4hnliche Technologien auf unserer Website und verarbeiten personenbezogene Daten von dir (z.B. IP-Adresse), um z.B. Inhalte und Anzeigen zu personalisieren, Medien von Drittanbietern einzubinden oder Zugriffe auf unsere Website zu analysieren. Die Datenverarbeitung kann auch erst in Folge gesetzter Cookies stattfinden. Wir teilen diese Daten mit Dritten, die wir in den Privatsph\\u00e4re-Einstellungen benennen.<br \\\/><br \\\/>Die Datenverarbeitung kann mit deiner Einwilligung oder auf Basis eines berechtigten Interesses erfolgen, dem du in den Privatsph\\u00e4re-Einstellungen widersprechen kannst. Du hast das Recht, nicht einzuwilligen und deine Einwilligung zu einem sp\\u00e4teren Zeitpunkt zu \\u00e4ndern oder zu widerrufen. Weitere Informationen zur Verwendung deiner Daten findest du in unserer {{privacyPolicy}}Datenschutzerkl\\u00e4rung{{\\\/privacyPolicy}}.<br \\\/><br \\\/>Im Folgenden findest du eine \\u00dcbersicht \\u00fcber alle Services, die von dieser Website genutzt werden. Du kannst dir detaillierte Informationen zu jedem Service ansehen und ihm einzeln zustimmen oder von deinem Widerspruchsrecht Gebrauch machen.\",\"save\":\"Individuelle Auswahlen speichern\",\"showMore\":\"Service-Informationen anzeigen\",\"hideMore\":\"Service-Informationen ausblenden\",\"postamble\":\"\"},\"mobile\":{\"enabled\":true,\"maxHeight\":400,\"hideHeader\":false,\"alignment\":\"bottom\",\"scalePercent\":90,\"scalePercentVertical\":-50},\"sticky\":{\"enabled\":true,\"animationsEnabled\":true,\"alignment\":\"left\",\"bubbleBorderRadius\":50,\"icon\":\"fingerprint\",\"iconCustom\":\"\",\"iconCustomRetina\":\"\",\"iconSize\":30,\"iconColor\":\"#ffffff\",\"bubbleMargin\":[10,20,20,20],\"bubblePadding\":15,\"bubbleBg\":\"#15779b\",\"bubbleBorderWidth\":0,\"bubbleBorderColor\":\"#10556f\",\"boxShadowEnabled\":true,\"boxShadowOffsetX\":0,\"boxShadowOffsetY\":2,\"boxShadowBlurRadius\":5,\"boxShadowSpreadRadius\":1,\"boxShadowColor\":\"#105b77\",\"boxShadowColorAlpha\":40,\"bubbleHoverBg\":\"#ffffff\",\"bubbleHoverBorderColor\":\"#000000\",\"hoverIconColor\":\"#000000\",\"hoverIconCustom\":\"\",\"hoverIconCustomRetina\":\"\",\"menuFontSize\":16,\"menuBorderRadius\":5,\"menuItemSpacing\":10,\"menuItemPadding\":[5,10,5,10]},\"customCss\":{\"css\":\"\",\"antiAdBlocker\":\"y\"}}","animateCss":":root{--animate-duration:1s;--animate-delay:1s;--animate-repeat:1}.animate__animated{animation-duration:var(--animate-duration);animation-fill-mode:both}@media (prefers-reduced-motion:reduce){.animate__animated{animation-duration:1ms!important;transition-duration:1ms!important;animation-iteration-count:1!important}.animate__animated[class*=Out]{opacity:0}}@keyframes slideInDown{from{transform:translate3d(0,-100%,0);visibility:visible;}to{transform:translate3d(0,0,0);}}.animate__slideInDown{animation-name:slideInDown;}@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}.animate__fadeIn{animation-name:fadeIn;}@keyframes fadeInUp{from{opacity:0;transform:translate3d(0,100%,0);}to{opacity:1;transform:translate3d(0,0,0);}}.animate__fadeInUp{animation-name:fadeInUp;}@keyframes fadeOut{from{opacity:1;}to{opacity:0;}}.animate__fadeOut{animation-name:fadeOut;}@keyframes fadeOutDown{from{opacity:1;}to{opacity:0;transform:translate3d(0,100%,0);}}.animate__fadeOutDown{animation-name:fadeOutDown;}","isPro":true,"showProHints":false,"proUrl":"https:\/\/devowl.io\/de\/go\/real-cookie-banner?source=rcb-lite","showLiteNotice":false,"frontend":{"groups":"[{\"id\":33,\"name\":\"Essenziell\",\"slug\":\"essenziell\",\"description\":\"Essenzielle Services sind f\\u00fcr die grundlegende Funktionalit\\u00e4t der Website erforderlich. Sie enthalten nur technisch notwendige Services. Diesen Services kann nicht widersprochen werden.\",\"isEssential\":true,\"isDefault\":true,\"items\":[{\"id\":3060,\"name\":\"Cloudflare\",\"purpose\":\"Cloudflare sch\\u00fctzt somit die Website und deren technische Infrastruktur vor b\\u00f6swilligen Website-Besuchern und f\\u00fchrt zu einer schnelleren Ladezeit der Website, indem statische Inhalte \\u00fcber einen Server ausgeliefert werden, der m\\u00f6glichst nah am Website-Besucher ist. Cloudflare fungiert als DNS-Verwaltung f\\u00fcr diese Website mit einem Reverse-Proxy und integriertem CDN. Dies umfasst auch ein DDoS-Schutz (Distributed Denial-of-Service), Web Application Firewall (WAF), SSL\\\/TLS-Verschl\\u00fcsselung und -Terminierung, Cloudflare Analytics f\\u00fcr sicherheitsbezogene Datenverkehrsanalysen, Bot-Management, Caching und Komprimierung \\u00fcber den Reverse-Proxy sowie Traffic-Routing. Cloudflare f\\u00fchrt auch Sicherheits\\u00fcberpr\\u00fcfungen wie Captcha- oder JavaScript-\\u00dcberpr\\u00fcfungen auf den Endger\\u00e4ten von Website-Besuchern durch, um sicherzustellen, dass es sich bei ihnen um legitime Benutzer und nicht um Bots oder b\\u00f6swillige Akteure handelt. Dies erfordert die Verarbeitung der IP-Adresse des Benutzers, Systemkonfigurationsinformationen wie Betriebssystem und Browsertyp, Traffic-Routing-Daten, Standort- und Spracheinstellungen sowie Daten zu den Interaktionen des Benutzers mit der Website, wie z. B. aufgerufene Seiten und durchgef\\u00fchrte Aktionen, Protokolle der auf der Website ausgef\\u00fchrten Aktivit\\u00e4ten und Metadaten. Cookies oder Cookie-\\u00e4hnliche Technologien k\\u00f6nnen gespeichert und gelesen werden. Diese k\\u00f6nnen personenbezogene Daten und technische Daten wie Sitzungs-IDs, Bot-Management-Token, Details zur Anfragenreihenfolge, Serverfehlerinformationen, Sitzungsdaten aus dem Warteraum, Identifikatoren zur Rate-Limiting und Token zur Abfragefreigabe enthalten. \\n\\nDie Daten k\\u00f6nnen verwendet werden, um die Sicherheit und Performance der Website zu gew\\u00e4hrleisten, vor b\\u00f6swilligen Aktivit\\u00e4ten zu sch\\u00fctzen, die Bereitstellung von Inhalten zu optimieren, IP-zu-L\\u00e4ndersuchen durchzuf\\u00fchren, um regionsspezifische Inhalte bereitzustellen oder die Performance zu optimieren, Trends im Benutzerverhalten zu \\u00fcberwachen und zu analysieren, um Muster zu erkennen und Sicherheitsma\\u00dfnahmen zu verbessern, und die allgemeine Funktionalit\\u00e4t und die von Cloudflare bereitgestellten Services zu verbessern. Cloudflare stellt personenbezogene Daten seinen verbundenen Unternehmen, vertrauensw\\u00fcrdigen Dienstanbietern, Resellern und Vertriebspartnern zur Verf\\u00fcgung, damit diese sie in ihrem Namen und in Einklang mit der Datenschutzrichtlinie von Cloudflare verarbeiten k\\u00f6nnen. Daten k\\u00f6nnen auch innerhalb der Cloudflare-Gruppe, bei Gesch\\u00e4ftstransaktionen oder bei gesetzlicher Notwendigkeit weitergegeben werden. Begrenzt anonymisierte Daten k\\u00f6nnen an Forschungspartner weitergegeben werden. \\n\\nDas berechtigte Interesse an der Nutzung dieses Service besteht darin, die Sicherheit und Performance der Website zu gew\\u00e4hrleisten, vor b\\u00f6swilligen Aktivit\\u00e4ten zu sch\\u00fctzen und die Bereitstellung von Inhalten zu optimieren, einschlie\\u00dflich regionalspezifischer Inhalte durch IP-zu-Land-Lookups.\",\"providerContact\":{\"phone\":\"+49 89 26207202\",\"email\":\"privacyquestions@cloudflare.com\",\"link\":\"\"},\"isProviderCurrentWebsite\":false,\"provider\":\"Cloudflare Germany GmbH, Rosental 7, 80331 M\\u00fcnchen, Deutschland\",\"uniqueName\":\"cloudflare\",\"isEmbeddingOnlyExternalResources\":false,\"legalBasis\":\"legitimate-interest\",\"dataProcessingInCountries\":[\"US\",\"CA\",\"GB\",\"PT\",\"DE\",\"FR\",\"NL\",\"SG\",\"AU\",\"CN\",\"JP\",\"AE\",\"IN\",\"KR\",\"MX\",\"MY\",\"AF\",\"AL\",\"DZ\",\"AD\",\"AO\",\"AG\",\"AR\",\"AM\",\"AT\",\"AZ\",\"BS\",\"BH\",\"BD\",\"BB\",\"BY\",\"BE\",\"BZ\",\"BJ\",\"BT\",\"BO\",\"BA\",\"BW\",\"BR\",\"BN\",\"BG\",\"BF\",\"BI\",\"KH\",\"CM\",\"CV\",\"CF\",\"TD\",\"CL\",\"CO\",\"KM\",\"CG\",\"CD\",\"CR\",\"HR\",\"CU\",\"CY\",\"CZ\",\"DK\",\"DJ\",\"DM\",\"DO\",\"EC\",\"EG\",\"SV\",\"GQ\",\"ER\",\"EE\",\"ET\",\"FJ\",\"FI\",\"GA\",\"GM\",\"GE\",\"GH\",\"GR\",\"GD\",\"GT\",\"GN\",\"GW\",\"GY\",\"HT\",\"HN\",\"HU\",\"IS\",\"ID\",\"IR\",\"IQ\",\"IE\",\"IL\",\"IT\",\"JM\",\"JO\",\"KZ\",\"KE\",\"KI\",\"KP\",\"KW\",\"KG\",\"LA\",\"LV\",\"LB\",\"LS\",\"LR\",\"LY\",\"LI\",\"LT\",\"LU\",\"MG\",\"MW\",\"MV\",\"ML\",\"MT\",\"MH\",\"MR\",\"MU\",\"MK\",\"FM\",\"MD\",\"MC\",\"MN\",\"ME\",\"MA\",\"MZ\",\"MM\",\"NA\",\"NR\",\"NP\",\"NZ\",\"NI\",\"NE\",\"NG\",\"NO\",\"OM\",\"PK\",\"PW\",\"PA\",\"PG\",\"PY\",\"PE\",\"PH\",\"PL\",\"QA\",\"RO\",\"RU\",\"RW\",\"KN\",\"LC\",\"WS\",\"SM\",\"ST\",\"SA\",\"SN\",\"RS\",\"SC\",\"SL\",\"SK\",\"SI\",\"SB\",\"SO\",\"ZA\",\"ES\",\"LK\",\"SD\",\"SR\",\"SZ\",\"SE\",\"CH\",\"SY\",\"TW\",\"TJ\",\"TZ\",\"TH\",\"TL\",\"TG\",\"TO\",\"TT\",\"TN\",\"TR\",\"TM\",\"TV\",\"UG\",\"UA\",\"UY\",\"UZ\",\"VU\",\"VA\",\"VE\",\"VN\",\"YE\",\"ZM\",\"ZW\"],\"dataProcessingInCountriesSpecialTreatments\":[\"standard-contractual-clauses\",\"provider-is-self-certified-trans-atlantic-data-privacy-framework\"],\"technicalDefinitions\":[{\"type\":\"http\",\"name\":\"__cflb\",\"host\":\".cdu-mv.de\",\"duration\":0,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"H\\u00e4lt den Benutzer w\\u00e4hrend seiner Sitzung mit demselben Server verbunden\"},{\"type\":\"http\",\"name\":\"__cf_bm\",\"host\":\".cdu-mv.de\",\"duration\":30,\"durationUnit\":\"m\",\"isSessionDuration\":false,\"purpose\":\"Identifiziert und entsch\\u00e4rft Bot-Verkehr\"},{\"type\":\"http\",\"name\":\"cf_ob_info\",\"host\":\".cdu-mv.de\",\"duration\":30,\"durationUnit\":\"s\",\"isSessionDuration\":false,\"purpose\":\"Stellt Daten f\\u00fcr den Always-Online-Dienst bereit (Ersatzinhalte bei einem Serverausfall) und holt Ressourcen aus dem Cache\"},{\"type\":\"http\",\"name\":\"cf_use_ob\",\"host\":\".cdu-mv.de\",\"duration\":30,\"durationUnit\":\"s\",\"isSessionDuration\":false,\"purpose\":\"Stellt Daten f\\u00fcr den Always-Online-Dienst bereit (Ersatzinhalte bei einem Serverausfall) und holt Ressourcen aus dem Cache\"},{\"type\":\"http\",\"name\":\"__cfwaitingroom\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":true,\"purpose\":\"Verfolgt Besucher im Warteraum bei hohem Verkehrsaufkommen und Server\\u00fcberlastung\"},{\"type\":\"http\",\"name\":\"__cfseq\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Verfolgt Anfragesequenzen und Zeitplanung\"},{\"type\":\"http\",\"name\":\"__cfruid\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Unterst\\u00fctzt die Ratenbegrenzung durch die Verwaltung des Datenverkehrs und die Verfolgung der Herkunft der Anfragen\"},{\"type\":\"http\",\"name\":\"_cfuvid\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Identifiziert einzelne Benutzer, die dieselbe IP-Adresse haben.\"},{\"type\":\"http\",\"name\":\"cf_clearance\",\"host\":\".cdu-mv.de\",\"duration\":30,\"durationUnit\":\"m\",\"isSessionDuration\":false,\"purpose\":\"Nachweis f\\u00fcr die bestandene Anti-Bot-Herausforderung\"},{\"type\":\"http\",\"name\":\"cf_chl_rc_i\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Interne Verwendung zur Ermittlung von Produktionsproblemen\"},{\"type\":\"http\",\"name\":\"cf_chl_rc_ni\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Interne Verwendung zur Ermittlung von Produktionsproblemen\"},{\"type\":\"http\",\"name\":\"cf_chl_rc_m\",\"host\":\".cdu-mv.de\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"Interne Verwendung zur Ermittlung von Produktionsproblemen\"}],\"codeDynamics\":[],\"providerPrivacyPolicyUrl\":\"https:\\\/\\\/www.cloudflare.com\\\/de-de\\\/privacypolicy\\\/\",\"providerLegalNoticeUrl\":\"https:\\\/\\\/www.cloudflare.com\\\/de-de\\\/impressum-germany\\\/\",\"tagManagerOptInEventName\":\"\",\"tagManagerOptOutEventName\":\"\",\"googleConsentModeConsentTypes\":[],\"executePriority\":10,\"codeOptIn\":\"\",\"executeCodeOptInWhenNoTagManagerConsentIsGiven\":false,\"codeOptOut\":\"\",\"executeCodeOptOutWhenNoTagManagerConsentIsGiven\":false,\"deleteTechnicalDefinitionsAfterOptOut\":false,\"codeOnPageLoad\":\"\",\"presetId\":\"cloudflare\"},{\"id\":1473,\"name\":\"Real Cookie Banner\",\"purpose\":\"Real Cookie Banner bittet Website-Besucher um die Einwilligung zum Setzen von Cookies und zur Verarbeitung personenbezogener Daten. Dazu wird jedem Website-Besucher eine UUID (pseudonyme Identifikation des Nutzers) zugewiesen, die bis zum Ablauf des Cookies zur Speicherung der Einwilligung g\\u00fcltig ist. Cookies werden dazu verwendet, um zu testen, ob Cookies gesetzt werden k\\u00f6nnen, um Referenz auf die dokumentierte Einwilligung zu speichern, um zu speichern, in welche Services aus welchen Service-Gruppen der Besucher eingewilligt hat, und, falls Einwilligung nach dem Transparency & Consent Framework (TCF) eingeholt werden, um die Einwilligungen in TCF Partner, Zwecke, besondere Zwecke, Funktionen und besondere Funktionen zu speichern. Im Rahmen der Darlegungspflicht nach DSGVO wird die erhobene Einwilligung vollumf\\u00e4nglich dokumentiert. Dazu z\\u00e4hlt neben den Services und Service-Gruppen, in welche der Besucher eingewilligt hat, und falls Einwilligung nach dem TCF Standard eingeholt werden, in welche TCF Partner, Zwecke und Funktionen der Besucher eingewilligt hat, alle Einstellungen des Cookie Banners zum Zeitpunkt der Einwilligung als auch die technischen Umst\\u00e4nde (z.B. Gr\\u00f6\\u00dfe des Sichtbereichs bei der Einwilligung) und die Nutzerinteraktionen (z.B. Klick auf Buttons), die zur Einwilligung gef\\u00fchrt haben. Die Einwilligung wird pro Sprache einmal erhoben.\",\"providerContact\":{\"phone\":\"\",\"email\":\"\",\"link\":\"\"},\"isProviderCurrentWebsite\":true,\"provider\":\"\",\"uniqueName\":\"\",\"isEmbeddingOnlyExternalResources\":false,\"legalBasis\":\"legal-requirement\",\"dataProcessingInCountries\":[],\"dataProcessingInCountriesSpecialTreatments\":[],\"technicalDefinitions\":[{\"type\":\"http\",\"name\":\"real_cookie_banner*\",\"host\":\".cdu-mv.de\",\"duration\":365,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Eindeutiger Identifikator f\\u00fcr die Einwilligung, aber nicht f\\u00fcr den Website-Besucher. Revisionshash f\\u00fcr die Einstellungen des Cookie-Banners (Texte, Farben, Funktionen, Servicegruppen, Dienste, Content Blocker usw.). IDs f\\u00fcr eingewilligte Services und Service-Gruppen.\"},{\"type\":\"http\",\"name\":\"real_cookie_banner*-tcf\",\"host\":\".cdu-mv.de\",\"duration\":365,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Im Rahmen von TCF gesammelte Einwilligungen, die im TC-String-Format gespeichert werden, einschlie\\u00dflich TCF-Vendoren, -Zwecke, -Sonderzwecke, -Funktionen und -Sonderfunktionen.\"},{\"type\":\"http\",\"name\":\"real_cookie_banner*-gcm\",\"host\":\".cdu-mv.de\",\"duration\":365,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Die im Google Consent Mode gesammelten Einwilligungen in die verschiedenen Einwilligungstypen (Zwecke) werden f\\u00fcr alle mit dem Google Consent Mode kompatiblen Services gespeichert.\"},{\"type\":\"http\",\"name\":\"real_cookie_banner-test\",\"host\":\".cdu-mv.de\",\"duration\":365,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Cookie, der gesetzt wurde, um die Funktionalit\\u00e4t von HTTP-Cookies zu testen. Wird sofort nach dem Test gel\\u00f6scht.\"},{\"type\":\"local\",\"name\":\"real_cookie_banner*\",\"host\":\"https:\\\/\\\/cdu-mv.de\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Eindeutiger Identifikator f\\u00fcr die Einwilligung, aber nicht f\\u00fcr den Website-Besucher. Revisionshash f\\u00fcr die Einstellungen des Cookie-Banners (Texte, Farben, Funktionen, Service-Gruppen, Services, Content Blocker usw.). IDs f\\u00fcr eingewilligte Services und Service-Gruppen. Wird nur solange gespeichert, bis die Einwilligung auf dem Website-Server dokumentiert ist.\"},{\"type\":\"local\",\"name\":\"real_cookie_banner*-tcf\",\"host\":\"https:\\\/\\\/cdu-mv.de\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Im Rahmen von TCF gesammelte Einwilligungen werden im TC-String-Format gespeichert, einschlie\\u00dflich TCF Vendoren, Zwecke, besondere Zwecke, Funktionen und besondere Funktionen. Wird nur solange gespeichert, bis die Einwilligung auf dem Website-Server dokumentiert ist.\"},{\"type\":\"local\",\"name\":\"real_cookie_banner*-gcm\",\"host\":\"https:\\\/\\\/cdu-mv.de\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Im Rahmen des Google Consent Mode erfasste Einwilligungen werden f\\u00fcr alle mit dem Google Consent Mode kompatiblen Services in Einwilligungstypen (Zwecke) gespeichert. Wird nur solange gespeichert, bis die Einwilligung auf dem Website-Server dokumentiert ist.\"},{\"type\":\"local\",\"name\":\"real_cookie_banner-consent-queue*\",\"host\":\"https:\\\/\\\/cdu-mv.de\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"Lokale Zwischenspeicherung (Caching) der Auswahl im Cookie-Banner, bis der Server die Einwilligung dokumentiert; Dokumentation periodisch oder bei Seitenwechseln versucht, wenn der Server nicht verf\\u00fcgbar oder \\u00fcberlastet ist.\"}],\"codeDynamics\":[],\"providerPrivacyPolicyUrl\":\"\",\"providerLegalNoticeUrl\":\"\",\"tagManagerOptInEventName\":\"\",\"tagManagerOptOutEventName\":\"\",\"googleConsentModeConsentTypes\":[],\"executePriority\":10,\"codeOptIn\":\"\",\"executeCodeOptInWhenNoTagManagerConsentIsGiven\":false,\"codeOptOut\":\"\",\"executeCodeOptOutWhenNoTagManagerConsentIsGiven\":false,\"deleteTechnicalDefinitionsAfterOptOut\":false,\"codeOnPageLoad\":\"\",\"presetId\":\"real-cookie-banner\"}]},{\"id\":34,\"name\":\"Funktional\",\"slug\":\"funktional\",\"description\":\"Funktionale Services sind notwendig, um \\u00fcber die wesentliche Funktionalit\\u00e4t der Website hinausgehende Features wie h\\u00fcbschere Schriftarten, Videowiedergabe oder interaktive Web 2.0-Features bereitzustellen. Inhalte von z.B. Video- und Social Media-Plattformen sind standardm\\u00e4\\u00dfig gesperrt und k\\u00f6nnen zugestimmt werden. Wenn dem Service zugestimmt wird, werden diese Inhalte automatisch ohne weitere manuelle Einwilligung geladen.\",\"isEssential\":false,\"isDefault\":true,\"items\":[{\"id\":1474,\"name\":\"YouTube\",\"purpose\":\"YouTube erm\\u00f6glicht das Einbetten von Inhalten auf Websites, die auf youtube.com ver\\u00f6ffentlicht werden, um die Website mit Videos zu verbessern. Dies erfordert die Verarbeitung der IP-Adresse und der Metadaten des Nutzers. Cookies oder Cookie-\\u00e4hnliche Technologien k\\u00f6nnen gespeichert und ausgelesen werden. Diese k\\u00f6nnen personenbezogene Daten und technische Daten wie Nutzer-IDs, Einwilligungen, Einstellungen des Videoplayers, verbundene Ger\\u00e4te, Interaktionen mit dem Service, Push-Benachrichtigungen und dem genutzten Konto enthalten. Diese Daten k\\u00f6nnen verwendet werden, um besuchte Websites zu erfassen, detaillierte Statistiken \\u00fcber das Nutzerverhalten zu erstellen und um die Dienste von Google zu verbessern. Sie k\\u00f6nnen auch zur Profilerstellung verwendet werden, z. B. um dir personalisierte Dienste anzubieten, wie Werbung auf der Grundlage deiner Interessen oder Empfehlungen. Diese Daten k\\u00f6nnen von Google mit den Daten der auf den Websites von Google (z. B. youtube.com und google.com) eingeloggten Nutzer verkn\\u00fcpft werden. Google stellt personenbezogene Daten seinen verbundenen Unternehmen, anderen vertrauensw\\u00fcrdigen Unternehmen oder Personen zur Verf\\u00fcgung, die diese Daten auf der Grundlage der Anweisungen von Google und in \\u00dcbereinstimmung mit den Datenschutzbestimmungen von Google verarbeiten k\\u00f6nnen.\",\"providerContact\":{\"phone\":\"+1 650 253 0000\",\"email\":\"dpo-google@google.com\",\"link\":\"https:\\\/\\\/support.google.com\\\/\"},\"isProviderCurrentWebsite\":false,\"provider\":\"Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland\",\"uniqueName\":\"youtube\",\"isEmbeddingOnlyExternalResources\":false,\"legalBasis\":\"consent\",\"dataProcessingInCountries\":[\"US\",\"IE\",\"CL\",\"NL\",\"BE\",\"FI\",\"DK\",\"TW\",\"JP\",\"SG\",\"BR\",\"GB\",\"FR\",\"DE\",\"PL\",\"ES\",\"IT\",\"CH\",\"IL\",\"KR\",\"IN\",\"HK\",\"AU\",\"QA\"],\"dataProcessingInCountriesSpecialTreatments\":[\"provider-is-self-certified-trans-atlantic-data-privacy-framework\"],\"technicalDefinitions\":[{\"type\":\"http\",\"name\":\"SIDCC\",\"host\":\".google.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"NID\",\"host\":\".google.com\",\"duration\":6,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SIDCC\",\"host\":\".youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"YSC\",\"host\":\".youtube.com\",\"duration\":0,\"durationUnit\":\"y\",\"isSessionDuration\":true,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"VISITOR_INFO1_LIVE\",\"host\":\".youtube.com\",\"duration\":6,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"PREF\",\"host\":\".youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"LOGIN_INFO\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"CONSENT\",\"host\":\".youtube.com\",\"duration\":9,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"CONSENT\",\"host\":\".google.com\",\"duration\":9,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PAPISID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SAPISID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"APISID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"HSID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PSID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PAPISID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SAPISID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"HSID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SSID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SSID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"APISID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PSID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"OTZ\",\"host\":\"www.google.com\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"IDE\",\"host\":\".doubleclick.net\",\"duration\":9,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SOCS\",\"host\":\".youtube.com\",\"duration\":9,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"SOCS\",\"host\":\".google.com\",\"duration\":9,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-remote-device-id\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-player-headers-readable\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"ytidb::LAST_RESULT_ENTRY_KEY\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-fullerscreen-edu-button-shown-count\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-remote-connected-devices\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-player-bandwidth\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"LogsDatabaseV2:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"ServiceWorkerLogsDatabase\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"YtldbMeta\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-YEC\",\"host\":\".youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"test_cookie\",\"host\":\".doubleclick.net\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-player-quality\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-player-performance-cap\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-player-volume\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"PersistentEntityStoreDb:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"yt-idb-pref-storage:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt.innertube::nextId\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt.innertube::requests\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"yt-html5-player-modules::subtitlesModuleData::module-enabled\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-remote-session-app\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-remote-cast-installed\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-player-volume\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-remote-session-name\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-remote-cast-available\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"session\",\"name\":\"yt-remote-fast-check-period\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"local\",\"name\":\"*||::yt-player::yt-player-lv\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"swpushnotificationsdb\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"yt-player-local-media:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"yt-it-response-store:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__HOST-GAPS\",\"host\":\"accounts.google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"OTZ\",\"host\":\"accounts.google.com\",\"duration\":1,\"durationUnit\":\"d\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-1PSIDCC\",\"host\":\".google.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-1PAPISID\",\"host\":\".google.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PSIDCC\",\"host\":\".youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-1PAPISID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-1PSID\",\"host\":\".youtube.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-3PSIDCC\",\"host\":\".google.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-ENID\",\"host\":\".google.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"AEC\",\"host\":\".google.com\",\"duration\":6,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Secure-1PSID\",\"host\":\".google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"indexedDb\",\"name\":\"ytGefConfig:*||\",\"host\":\"https:\\\/\\\/www.youtube.com\",\"duration\":1,\"durationUnit\":\"y\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Host-3PLSID\",\"host\":\"accounts.google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"LSID\",\"host\":\"accounts.google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"ACCOUNT_CHOOSER\",\"host\":\"accounts.google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"},{\"type\":\"http\",\"name\":\"__Host-1PLSID\",\"host\":\"accounts.google.com\",\"duration\":13,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"\"}],\"codeDynamics\":[],\"providerPrivacyPolicyUrl\":\"https:\\\/\\\/policies.google.com\\\/privacy?hl=de\",\"providerLegalNoticeUrl\":\"https:\\\/\\\/www.google.de\\\/contact\\\/impressum.html\",\"tagManagerOptInEventName\":\"\",\"tagManagerOptOutEventName\":\"\",\"googleConsentModeConsentTypes\":[],\"executePriority\":10,\"codeOptIn\":\"\",\"executeCodeOptInWhenNoTagManagerConsentIsGiven\":false,\"codeOptOut\":\"\",\"executeCodeOptOutWhenNoTagManagerConsentIsGiven\":false,\"deleteTechnicalDefinitionsAfterOptOut\":false,\"codeOnPageLoad\":\"\",\"presetId\":\"youtube\"}]},{\"id\":35,\"name\":\"Statistik\",\"slug\":\"statistik\",\"description\":\"Statistik-Services werden ben\\u00f6tigt, um pseudonymisierte Daten \\u00fcber die Besucher der Website zu sammeln. Die Daten erm\\u00f6glichen es uns, die Besucher besser zu verstehen und die Website zu optimieren.\",\"isEssential\":false,\"isDefault\":true,\"items\":[{\"id\":2187,\"name\":\"Google Analytics\",\"purpose\":\"Google Analytics erstellt detaillierte Statistiken \\u00fcber das Nutzerverhalten auf der Website, um Analyseinformationen zu erhalten. Dazu m\\u00fcssen die IP-Adresse eines Nutzers und Metadaten verarbeitet werden, mit denen das Land, die Stadt und die Sprache eines Nutzers bestimmt werden k\\u00f6nnen. Cookies oder Cookie-\\u00e4hnliche Technologien k\\u00f6nnen gespeichert und gelesen werden. Diese k\\u00f6nnen pers\\u00f6nliche Daten und technische Daten wie die Nutzer-ID enthalten, die folgende zus\\u00e4tzliche Informationen liefern k\\u00f6nnen:\\n- Zeitinformationen dar\\u00fcber, wann und wie lange ein Nutzer auf den verschiedenen Seiten der Website war oder ist\\n- Ger\\u00e4tekategorie (Desktop, Handy und Tablet), Plattform (Web, iOS-App oder Android-App), Browser und Bildschirmaufl\\u00f6sung, die ein Nutzer verwendet hat\\n- woher ein Nutzer kam (z. B. Herkunftswebsite, Suchmaschine einschlie\\u00dflich des gesuchten Begriffs, Social Media-Plattform, Newsletter, organisches Video, bezahlte Suche oder Kampagne)\\n- ob ein Nutzer zu einer Zielgruppe geh\\u00f6rt oder nicht\\n- was ein Nutzer auf der Website getan hat und welche Ereignisse durch die Aktionen des Nutzers ausgel\\u00f6st wurden (z. B. Seitenaufrufe, Nutzerengagement, Scrollverhalten, Klicks, hinzugef\\u00fcgte Zahlungsinformationen und benutzerdefinierte Ereignisse wie E-Commerce-Tracking)\\n- Konversionen (z. B. ob ein Nutzer etwas gekauft hat und was gekauft wurde)\\n- Geschlecht, Alter und Interessen, wenn eine Zuordnung m\\u00f6glich ist \\n\\nDiese Daten k\\u00f6nnten von Google auch verwendet werden, um die besuchten Websites zu erfassen und um die Dienste von Google zu verbessern. Sie k\\u00f6nnen \\u00fcber mehrere Domains, die von diesem Websitebetreiber betrieben werden, mit anderen Google-Produkten (z. B. Google AdSense, Google Ads, BigQuery, Google Play), die der Websitebetreiber nutzt, verkn\\u00fcpft werden. Sie k\\u00f6nnen von Google auch mit den Daten von Nutzern verkn\\u00fcpft werden, die auf den Websites von Google (z. B. google.com) eingeloggt sind. Google gibt personenbezogene Daten an seine verbundenen Unternehmen und andere vertrauensw\\u00fcrdige Unternehmen oder Personen weiter, die diese Daten auf der Grundlage der Anweisungen von Google und in \\u00dcbereinstimmung mit den Datenschutzbestimmungen von Google f\\u00fcr sie verarbeiten. Sie k\\u00f6nnen auch zur Profilerstellung durch den Website-Betreiber und Google verwendet werden, z. B. um einem Nutzer personalisierte Dienste anzubieten, wie z. B. Anzeigen, die auf den Interessen oder Empfehlungen eines Nutzers basieren.\",\"providerContact\":{\"phone\":\"+353 1 543 1000\",\"email\":\"dpo-google@google.com\",\"link\":\"https:\\\/\\\/support.google.com\\\/\"},\"isProviderCurrentWebsite\":false,\"provider\":\"Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland\",\"uniqueName\":\"google-analytics-analytics-4\",\"isEmbeddingOnlyExternalResources\":false,\"legalBasis\":\"consent\",\"dataProcessingInCountries\":[\"US\",\"IE\",\"AU\",\"BE\",\"BR\",\"CA\",\"CL\",\"FI\",\"FR\",\"DE\",\"HK\",\"IN\",\"ID\",\"IL\",\"IT\",\"JP\",\"KR\",\"NL\",\"PL\",\"QA\",\"SG\",\"ES\",\"CH\",\"TW\",\"GB\"],\"dataProcessingInCountriesSpecialTreatments\":[\"standard-contractual-clauses\",\"provider-is-self-certified-trans-atlantic-data-privacy-framework\"],\"technicalDefinitions\":[{\"type\":\"http\",\"name\":\"_ga\",\"host\":\".cdu-mv.de\",\"duration\":24,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"Benutzer-ID zur Analyse des allgemeinen Benutzerverhaltens auf verschiedenen Websites\"},{\"type\":\"http\",\"name\":\"_ga_*\",\"host\":\".cdu-mv.de\",\"duration\":24,\"durationUnit\":\"mo\",\"isSessionDuration\":false,\"purpose\":\"Benutzer-ID zur Analyse des Benutzerverhaltens auf dieser Website f\\u00fcr Berichte \\u00fcber die Nutzung der Website\"}],\"codeDynamics\":{\"gaMeasurementId\":\"G-P3DX0N7Z9W\"},\"providerPrivacyPolicyUrl\":\"https:\\\/\\\/policies.google.com\\\/privacy\",\"providerLegalNoticeUrl\":\"https:\\\/\\\/www.google.de\\\/contact\\\/impressum.html\",\"tagManagerOptInEventName\":\"\",\"tagManagerOptOutEventName\":\"\",\"googleConsentModeConsentTypes\":[\"ad_storage\",\"analytics_storage\",\"ad_personalization\",\"ad_user_data\"],\"executePriority\":10,\"codeOptIn\":\"base64-encoded:PHNjcmlwdCBhc3luYyB1bmlxdWUtd3JpdGUtbmFtZT0iZ3RhZyIgc3JjPSJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbS9ndGFnL2pzP2lkPXt7Z2FNZWFzdXJlbWVudElkfX0iPjwvc2NyaXB0Pgo8c2NyaXB0PgpndGFnKCdqcycsIG5ldyBEYXRlKCkpOwpndGFnKCdjb25maWcnLCAne3tnYU1lYXN1cmVtZW50SWR9fScpOwo8L3NjcmlwdD4=\",\"executeCodeOptInWhenNoTagManagerConsentIsGiven\":false,\"codeOptOut\":\"\",\"executeCodeOptOutWhenNoTagManagerConsentIsGiven\":false,\"deleteTechnicalDefinitionsAfterOptOut\":true,\"codeOnPageLoad\":\"base64-encoded:PHNjcmlwdD4KKGZ1bmN0aW9uKHcsZCl7d1tkXT13W2RdfHxbXTt3Lmd0YWc9ZnVuY3Rpb24oKXt3W2RdLnB1c2goYXJndW1lbnRzKX19KSh3aW5kb3csImRhdGFMYXllciIpOwo8L3NjcmlwdD4=\",\"presetId\":\"google-analytics-analytics-4\"}]}]","links":[{"id":1471,"label":"Datenschutzerkl\u00e4rung","pageType":"privacyPolicy","isExternalUrl":false,"pageId":3,"url":"https:\/\/cdu-mv.de\/datenschutz\/","hideCookieBanner":true,"isTargetBlank":true},{"id":1472,"label":"Impressum","pageType":"legalNotice","isExternalUrl":false,"pageId":110,"url":"https:\/\/cdu-mv.de\/impressum\/","hideCookieBanner":true,"isTargetBlank":true}],"websiteOperator":{"address":"Landesverband CDU Mecklenburg-Vorpommern, Wismarsche Str. 173, 19053 Schwerin","country":"DE","contactEmail":"base64-encoded:c29jaWFsbWVkaWFAY2R1LW12LmRl","contactPhone":"","contactFormUrl":"https:\/\/cdu-mv.de\/kontakt\/"},"blocker":[],"languageSwitcher":[],"predefinedDataProcessingInSafeCountriesLists":{"GDPR":["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IS","IT","LI","LV","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE"],"DSG":["CH"],"GDPR+DSG":[],"ADEQUACY_EU":["AD","AR","CA","FO","GG","IL","IM","JP","JE","NZ","KR","CH","GB","UY","US"],"ADEQUACY_CH":["DE","AD","AR","AT","BE","BG","CA","CY","HR","DK","ES","EE","FI","FR","GI","GR","GG","HU","IM","FO","IE","IS","IL","IT","JE","LV","LI","LT","LU","MT","MC","NO","NZ","NL","PL","PT","CZ","RO","GB","SK","SI","SE","UY","US"]},"decisionCookieName":"real_cookie_banner-v:3_blog:1_path:b9f989a","revisionHash":"8783b826e8ceee08fd1bbe009d416cb0","territorialLegalBasis":["gdpr-eprivacy"],"setCookiesViaManager":"none","isRespectDoNotTrack":true,"failedConsentDocumentationHandling":"essentials","isAcceptAllForBots":true,"isDataProcessingInUnsafeCountries":true,"isAgeNotice":true,"ageNoticeAgeLimit":16,"isListServicesNotice":true,"isBannerLessConsent":false,"isTcf":false,"isGcm":true,"isGcmListPurposes":true,"hasLazyData":false},"anonymousContentUrl":"https:\/\/cdu-mv.de\/wp-content\/5273d2c08a03728c5c98d5e6f2a30bea\/dist\/","anonymousHash":"5273d2c08a03728c5c98d5e6f2a30bea","hasDynamicPreDecisions":false,"isLicensed":true,"isDevLicense":false,"multilingualSkipHTMLForTag":"","isCurrentlyInTranslationEditorPreview":false,"defaultLanguage":"","currentLanguage":"","activeLanguages":[],"context":"","iso3166OneAlpha2":{"AF":"Afghanistan","AL":"Albanien","DZ":"Algerien","AS":"Amerikanisch-Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarktis","AG":"Antigua und Barbuda","AR":"Argentinien","AM":"Armenien","AW":"Aruba","AZ":"Aserbaidschan","AU":"Australien","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesch","BB":"Barbados","BY":"Belarus","BE":"Belgien","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivien","BA":"Bosnien und Herzegowina","BW":"Botswana","BV":"Bouvetinsel","BR":"Brasilien","IO":"Britisches Territorium im Indischen Ozean","BN":"Brunei Darussalam","BG":"Bulgarien","BF":"Burkina Faso","BI":"Burundi","CL":"Chile","CN":"China","CK":"Cookinseln","CR":"Costa Rica","CW":"Cura\u00e7ao","DE":"Deutschland","LA":"Die Laotische Demokratische Volksrepublik","DM":"Dominica","DO":"Dominikanische Republik","DJ":"Dschibuti","DK":"D\u00e4nemark","EC":"Ecuador","SV":"El Salvador","ER":"Eritrea","EE":"Estland","FK":"Falklandinseln (Malwinen)","FJ":"Fidschi","FI":"Finnland","FR":"Frankreich","GF":"Franz\u00f6sisch-Guayana","PF":"Franz\u00f6sisch-Polynesien","TF":"Franz\u00f6sische S\u00fcd- und Antarktisgebiete","FO":"F\u00e4r\u00f6er Inseln","FM":"F\u00f6derierte Staaten von Mikronesien","GA":"Gabun","GM":"Gambia","GE":"Georgien","GH":"Ghana","GI":"Gibraltar","GD":"Grenada","GR":"Griechenland","GL":"Gr\u00f6nland","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard und die McDonaldinseln","VA":"Heiliger Stuhl (Staat Vatikanstadt)","HN":"Honduras","HK":"Hong Kong","IN":"Indien","ID":"Indonesien","IQ":"Irak","IE":"Irland","IR":"Islamische Republik Iran","IS":"Island","IM":"Isle of Man","IL":"Israel","IT":"Italien","JM":"Jamaika","JP":"Japan","YE":"Jemen","JE":"Jersey","JO":"Jordanien","VG":"Jungferninseln, Britisch","VI":"Jungferninseln, U.S.","KY":"Kaimaninseln","KH":"Kambodscha","CM":"Kamerun","CA":"Kanada","CV":"Kap Verde","BQ":"Karibischen Niederlande","KZ":"Kasachstan","QA":"Katar","KE":"Kenia","KG":"Kirgisistan","KI":"Kiribati","UM":"Kleinere Inselbesitzungen der Vereinigten Staaten","CC":"Kokosinseln","CO":"Kolumbien","KM":"Komoren","CG":"Kongo","CD":"Kongo, Demokratische Republik","KR":"Korea","XK":"Kosovo","HR":"Kroatien","CU":"Kuba","KW":"Kuwait","LS":"Lesotho","LV":"Lettland","LB":"Libanon","LR":"Liberia","LY":"Libysch-Arabische Dschamahirija","LI":"Liechtenstein","LT":"Litauen","LU":"Luxemburg","MO":"Macao","MG":"Madagaskar","MW":"Malawi","MY":"Malaysia","MV":"Malediven","ML":"Mali","MT":"Malta","MA":"Marokko","MH":"Marshallinseln","MQ":"Martinique","MR":"Mauretanien","MU":"Mauritius","YT":"Mayotte","MK":"Mazedonien","MX":"Mexiko","MD":"Moldawien","MC":"Monaco","MN":"Mongolei","ME":"Montenegro","MS":"Montserrat","MZ":"Mosambik","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NC":"Neukaledonien","NZ":"Neuseeland","NI":"Nicaragua","NL":"Niederlande","AN":"Niederl\u00e4ndische Antillen","NE":"Niger","NG":"Nigeria","NU":"Niue","KP":"Nordkorea","NF":"Norfolkinsel","NO":"Norwegen","MP":"N\u00f6rdliche Marianen","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Pal\u00e4stinensisches Gebiet, besetzt","PA":"Panama","PG":"Papua-Neuguinea","PY":"Paraguay","PE":"Peru","PH":"Philippinen","PN":"Pitcairn","PL":"Polen","PT":"Portugal","PR":"Puerto Rico","CI":"Republik C\u00f4te d'Ivoire","RW":"Ruanda","RO":"Rum\u00e4nien","RU":"Russische F\u00f6deration","RE":"R\u00e9union","BL":"Saint Barth\u00e9l\u00e9my","PM":"Saint Pierre und Miquelo","SB":"Salomonen","ZM":"Sambia","WS":"Samoa","SM":"San Marino","SH":"Sankt Helena","MF":"Sankt Martin","SA":"Saudi-Arabien","SE":"Schweden","CH":"Schweiz","SN":"Senegal","RS":"Serbien","SC":"Seychellen","SL":"Sierra Leone","ZW":"Simbabwe","SG":"Singapur","SX":"Sint Maarten","SK":"Slowakei","SI":"Slowenien","SO":"Somalia","ES":"Spanien","LK":"Sri Lanka","KN":"St. Kitts und Nevis","LC":"St. Lucia","VC":"St. Vincent und Grenadinen","SD":"Sudan","SR":"Surinam","SJ":"Svalbard und Jan Mayen","SZ":"Swasiland","SY":"Syrische Arabische Republik","ST":"S\u00e3o Tom\u00e9 und Pr\u00edncipe","ZA":"S\u00fcdafrika","GS":"S\u00fcdgeorgien und die S\u00fcdlichen Sandwichinseln","SS":"S\u00fcdsudan","TJ":"Tadschikistan","TW":"Taiwan","TZ":"Tansania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad und Tobago","TD":"Tschad","CZ":"Tschechische Republik","TN":"Tunesien","TM":"Turkmenistan","TC":"Turks- und Caicosinseln","TV":"Tuvalu","TR":"T\u00fcrkei","UG":"Uganda","UA":"Ukraine","HU":"Ungarn","UY":"Uruguay","UZ":"Usbekistan","VU":"Vanuatu","VE":"Venezuela","AE":"Vereinigte Arabische Emirate","US":"Vereinigte Staaten","GB":"Vereinigtes K\u00f6nigreich","VN":"Vietnam","WF":"Wallis und Futuna","CX":"Weihnachtsinsel","EH":"Westsahara","CF":"Zentralafrikanische Republik","CY":"Zypern","EG":"\u00c4gypten","GQ":"\u00c4quatorialguinea","ET":"\u00c4thiopien","AX":"\u00c5land Inseln","AT":"\u00d6sterreich"},"visualParentSelectors":{".et_pb_video_box":1,".et_pb_video_slider:has(>.et_pb_slider_carousel %s)":"self",".ast-oembed-container":1,".wpb_video_wrapper":1,".gdlr-core-pbf-background-wrap":1},"isPreventPreDecision":false,"isInvalidateImplicitUserConsent":false,"dependantVisibilityContainers":["[role=\"tabpanel\"]",".eael-tab-content-item",".wpcs_content_inner",".op3-contenttoggleitem-content",".op3-popoverlay-content",".pum-overlay","[data-elementor-type=\"popup\"]",".wp-block-ub-content-toggle-accordion-content-wrap",".w-popup-wrap",".oxy-lightbox_inner[data-inner-content=true]",".oxy-pro-accordion_body",".oxy-tab-content",".kt-accordion-panel",".vc_tta-panel-body",".mfp-hide","div[id^=\"tve_thrive_lightbox_\"]",".brxe-xpromodalnestable",".evcal_eventcard",".divioverlay",".et_pb_toggle_content"],"disableDeduplicateExceptions":[".et_pb_video_slider"],"bannerDesignVersion":12,"bannerI18n":{"showMore":"Mehr anzeigen","hideMore":"Verstecken","showLessRelevantDetails":"Weitere Details anzeigen (%s)","hideLessRelevantDetails":"Weitere Details ausblenden (%s)","other":"Anderes","legalBasis":{"label":"Verwendung auf gesetzlicher Grundlage von","consentPersonalData":"Einwilligung zur Verarbeitung personenbezogener Daten","consentStorage":"Einwilligung zur Speicherung oder zum Zugriff auf Informationen auf der Endeinrichtung des Nutzers","legitimateInterestPersonalData":"Berechtigtes Interesse zur Verarbeitung personenbezogener Daten","legitimateInterestStorage":"Bereitstellung eines ausdr\u00fccklich gew\u00fcnschten digitalen Dienstes zur Speicherung oder zum Zugriff auf Informationen auf der Endeinrichtung des Nutzers","legalRequirementPersonalData":"Erf\u00fcllung einer rechtlichen Verpflichtung zur Verarbeitung personenbezogener Daten"},"territorialLegalBasisArticles":{"gdpr-eprivacy":{"dataProcessingInUnsafeCountries":"Art. 49 Abs. 1 lit. a DSGVO"},"dsg-switzerland":{"dataProcessingInUnsafeCountries":"Art. 17 Abs. 1 lit. a DSG (Schweiz)"}},"legitimateInterest":"Berechtigtes Interesse","consent":"Einwilligung","crawlerLinkAlert":"Wir haben erkannt, dass du ein Crawler\/Bot bist. Nur nat\u00fcrliche Personen d\u00fcrfen in Cookies und die Verarbeitung von personenbezogenen Daten einwilligen. Daher hat der Link f\u00fcr dich keine Funktion.","technicalCookieDefinitions":"Technische Cookie-Definitionen","technicalCookieName":"Technischer Cookie Name","usesCookies":"Verwendete Cookies","cookieRefresh":"Cookie-Erneuerung","usesNonCookieAccess":"Verwendet Cookie-\u00e4hnliche Informationen (LocalStorage, SessionStorage, IndexDB, etc.)","host":"Host","duration":"Dauer","noExpiration":"Kein Ablauf","type":"Typ","purpose":"Zweck","purposes":"Zwecke","description":"Beschreibung","optOut":"Opt-out","optOutDesc":"Cookies kann gesetzt werden, um Widerspruch des beschriebenen Verhaltens zu speichern.","headerTitlePrivacyPolicyHistory":"Privatsph\u00e4re-Einstellungen: Historie","skipToConsentChoices":"Zu Einwilligungsoptionen springen","historyLabel":"Einwilligungen anzeigen vom","historyItemLoadError":"Das Lesen der Zustimmung ist fehlgeschlagen. Bitte versuche es sp\u00e4ter noch einmal!","historySelectNone":"Noch nicht eingewilligt","provider":"Anbieter","providerContactPhone":"Telefon","providerContactEmail":"E-Mail","providerContactLink":"Kontaktformular","providerPrivacyPolicyUrl":"Datenschutzerkl\u00e4rung","providerLegalNoticeUrl":"Impressum","nonStandard":"Nicht standardisierte Datenverarbeitung","nonStandardDesc":"Einige Services setzen Cookies und\/oder verarbeiten personenbezogene Daten, ohne die Standards f\u00fcr die Mitteilung der Einwilligung einzuhalten. Diese Services werden in mehrere Gruppen eingeteilt. Sogenannte \"essenzielle Services\" werden auf Basis eines berechtigten Interesses genutzt und k\u00f6nnen nicht abgew\u00e4hlt werden (ein Widerspruch muss ggf. per E-Mail oder Brief gem\u00e4\u00df der Datenschutzerkl\u00e4rung erfolgen), w\u00e4hrend alle anderen Services nur nach einer Einwilligung genutzt werden.","dataProcessingInThirdCountries":"Datenverarbeitung in Drittl\u00e4ndern","safetyMechanisms":{"label":"Sicherheitsmechanismen f\u00fcr die Daten\u00fcbermittlung","standardContractualClauses":"Standardvertragsklauseln","adequacyDecision":"Angemessenheitsbeschluss","eu":"EU","switzerland":"Schweiz","bindingCorporateRules":"Verbindliche interne Datenschutzvorschriften","contractualGuaranteeSccSubprocessors":"Vertragliche Garantie f\u00fcr Standardvertragsklauseln mit Unterauftragsverarbeitern"},"durationUnit":{"n1":{"s":"Sekunde","m":"Minute","h":"Stunde","d":"Tag","mo":"Monat","y":"Jahr"},"nx":{"s":"Sekunden","m":"Minuten","h":"Stunden","d":"Tage","mo":"Monate","y":"Jahre"}},"close":"Schlie\u00dfen","closeWithoutSaving":"Schlie\u00dfen ohne Speichern","yes":"Ja","no":"Nein","unknown":"Unbekannt","none":"Nichts","noLicense":"Keine Lizenz aktiviert - kein Produktionseinsatz!","devLicense":"Produktlizenz nicht f\u00fcr den Produktionseinsatz!","devLicenseLearnMore":"Mehr erfahren","devLicenseLink":"https:\/\/devowl.io\/de\/wissensdatenbank\/lizenz-installations-typ\/","andSeparator":" und ","deprecated":{"appropriateSafeguard":"Geeignete Garantien","dataProcessingInUnsafeCountries":"Datenverarbeitung in unsicheren Drittl\u00e4ndern","legalRequirement":"Erf\u00fcllung einer rechtlichen Verpflichtung"},"gcm":{"teaching":"Au\u00dferdem erlaubst du die Datenverarbeitung gem\u00e4\u00df dem Google Consent Mode von Google auf der Grundlage deiner Einwilligung f\u00fcr die folgenden Zwecke:","standard":"Datenverarbeitung standardisiert nach dem Google Consent Mode","standardDesc":"Der Google Consent Mode ist ein Standard f\u00fcr die Einholung von Einwilligungen zur Verarbeitung personenbezogener Daten und zum Setzen von Cookies durch teilnehmende Partner. Es besteht die M\u00f6glichkeit Einwilligungen zur Datenverarbeitung f\u00fcr definierte Zwecke zu erteilen, sodass auf dieser Website eingesetzte Google-Services und die mit Google Tag integrierten Tags von Drittanbietern Daten nur im gew\u00fcnschen Ma\u00dfe verarbeiten k\u00f6nnen. Wenn du nicht einwillgst, erh\u00e4ltst du ein Service, der f\u00fcr dich weniger personalisiert ist. Die wichtigsten Leistungen bleiben jedoch dieselben und es gibt keine fehlenden Features, die nicht unbedingt deine Einwilligung erfordern. Unabh\u00e4ngig davon besteht im Abschnitt \"Nicht standardisierte Datenverarbeitung\" die M\u00f6glichkeit, in den Einsatz von Services einzuwilligen oder das Recht auf Widerspruch gegen berechtigte Interessen auszu\u00fcben. Einzelheiten zur spezifischen Datenverarbeitung sind in dem benannten Abschnitt zu finden.","moreInfo":"Weitere Informationen zur Verarbeitung personenbezogener Daten durch Google und Partner:","moreInfoLink":"https:\/\/business.safety.google\/intl\/de\/privacy\/","dataProcessingInService":"Zus\u00e4tzliche Zwecke der Datenverarbeitung nach dem Google Consent Mode auf Grundlage einer Einwilligung (gilt f\u00fcr alle Services)","purposes":{"ad_storage":"Speicherung und Auslesen von Daten wie Cookies (Web) oder Ger\u00e4tekennungen (Apps) im Zusammenhang mit Werbung.","ad_user_data":"\u00dcbermitteln von Nutzerdaten an Google f\u00fcr Online-Werbezwecke.","ad_personalization":"Auswertung und Anzeige von personalisierter Werbung.","analytics_storage":"Speichern und Auslesen von Daten wie Cookies (Web) oder Ger\u00e4tekennungen (Apps) im Zusammenhang mit Analysen (z. B. Besuchsdauer).","functionality_storage":"Speichern und Auslesen von Daten f\u00fcr die Funktionalit\u00e4t der Website oder App (z. B. Spracheinstellungen).","personalization_storage":"Speichern und Auslesen von Daten im Zusammenhang mit Personalisierung (z. B. Videoempfehlungen).","security_storage":"Speichern und Auslesen von sicherheitsrelevanten Daten (z. B. Authentifizierungsfunktionen, Betrugspr\u00e4vention und anderer Nutzerschutz)."}}},"pageRequestUuid4":"ab1cf08eb-1ec3-404c-a1fb-4c38564346a4","pageByIdUrl":"https:\/\/cdu-mv.de?page_id","pluginUrl":"https:\/\/devowl.io\/wordpress-real-cookie-banner\/"}}</script><script data-skip-lazy-load="js-extra" data-skip-moving="true" data-no-defer nitro-exclude data-alt-type="application/ld+json" data-dont-merge data-wpmeteor-nooptimize="true" data-cfasync="false" id="a8af102a76970001f1ad5e06f4bf714852-js-extra">
+(()=>{var x=function (a,b){return-1<["codeOptIn","codeOptOut","codeOnPageLoad","contactEmail"].indexOf(a)&&"string"==typeof b&&b.startsWith("base64-encoded:")?window.atob(b.substr(15)):b},t=(e,t)=>new Proxy(e,{get:(e,n)=>{let r=Reflect.get(e,n);return n===t&&"string"==typeof r&&(r=JSON.parse(r,x),Reflect.set(e,n,r)),r}}),n=JSON.parse(document.getElementById("a8af102a76970001f1ad5e06f4bf714851-js-extra").innerHTML,x);window.Proxy?n.others.frontend=t(n.others.frontend,"groups"):n.others.frontend.groups=JSON.parse(n.others.frontend.groups,x);window.Proxy?n.others=t(n.others,"customizeValuesBanner"):n.others.customizeValuesBanner=JSON.parse(n.others.customizeValuesBanner,x);;window.realCookieBanner=n;window[Math.random().toString(36)]=n;
+})();
+</script><script data-cfasync="false" id="real-cookie-banner-pro-banner-js-before">
+((a,b)=>{a[b]||(a[b]={unblockSync:()=>undefined},["consentSync"].forEach(c=>a[b][c]=()=>({cookie:null,consentGiven:!1,cookieOptIn:!0})),["consent","consentAll","unblock"].forEach(c=>a[b][c]=(...d)=>new Promise(e=>a.addEventListener(b,()=>{a[b][c](...d).then(e)},{once:!0}))))})(window,"consentApi");
+//# sourceURL=real-cookie-banner-pro-banner-js-before
+</script>
+<script data-cfasync="false" id="real-cookie-banner-pro-banner-js" defer src="https://cdu-mv.de/wp-content/5273d2c08a03728c5c98d5e6f2a30bea/dist/1610440107.js?ver=aaace4e25d9fef6805a3bb6e7d6abaa8"></script>
+<meta content="Divi Child Theme v.1.0.0" name="generator"/><link rel='stylesheet' id='podlove-frontend-css-css' href='https://cdu-mv.de/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/css/frontend.css?ver=1.0' media='all' />
+<link rel='stylesheet' id='podlove-admin-font-css' href='https://cdu-mv.de/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/css/admin-font.css?ver=4.5.3' media='all' />
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 823px;--wp--style--global--wide-size: 1080px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='contact-form-7-css' href='https://cdu-mv.de/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.6' media='all' />
+<link rel='stylesheet' id='df-style-css' href='https://cdu-mv.de/wp-content/plugins/divifilter/df-style.css?ver=3.9.3' media='all' />
+<link rel='stylesheet' id='redux-extendify-styles-css' href='https://cdu-mv.de/wp-content/plugins/fuse-social-floating-sidebar/framework/redux-core/assets/css/extendify-utilities.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='fuse-awesome-css' href='https://cdu-mv.de/wp-content/plugins/fuse-social-floating-sidebar/inc/font-awesome/css/font-awesome.min.css?ver=5.4.13' media='all' />
+<link rel='stylesheet' id='wpa-css-css' href='https://cdu-mv.de/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02' media='all' />
+<link rel='stylesheet' id='ssa-divi-module-styles-css' href='https://cdu-mv.de/wp-content/plugins/simply-schedule-appointments/includes/divi/styles/style.min.css?ver=1.0.2' media='all' />
+<link rel='stylesheet' id='sib-front-css-css' href='https://cdu-mv.de/wp-content/plugins/mailin/css/mailin-front.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='repeater_icon-css' href='https://cdu-mv.de/wp-content/plugins/repeater-for-contact-form-7/libs/css/repeatericons.css?ver=1785769375' media='all' />
+<link rel='stylesheet' id='cf7_repeater-css' href='https://cdu-mv.de/wp-content/plugins/repeater-for-contact-form-7/libs/cf7_repeater.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='divi-style-parent-css' href='https://cdu-mv.de/wp-content/themes/Divi/style-static.min.css?ver=4.27.7' media='all' />
+<link rel='stylesheet' id='divi-style-css' href='https://cdu-mv.de/wp-content/themes/Divi-Child-Theme/style.css?ver=4.27.7' media='all' />
+<script id="jquery-core-js" src="https://cdu-mv.de/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://cdu-mv.de/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="jquery-js-after">
+jqueryParams.length&&$.each(jqueryParams,function(e,r){if("function"==typeof r){var n=String(r);n.replace("$","jQuery");var a=new Function("return "+n)();$(document).ready(a)}});
+//# sourceURL=jquery-js-after
+</script>
+<script id="fuse-social-script-js-extra">
+var fuse_social = {"ajax_url":"https://cdu-mv.de/wp-admin/admin-ajax.php"};
+//# sourceURL=fuse-social-script-js-extra
+</script>
+<script id="fuse-social-script-js" src="https://cdu-mv.de/wp-content/plugins/fuse-social-floating-sidebar/inc/js/fuse_script.js?ver=1667461082"></script>
+<script id="podlove-web-player-player-js" src="https://cdu-mv.de/wp-content/plugins/podlove-web-player/web-player/embed.js?ver=5.9.2"></script>
+<script id="podlove-web-player-player-cache-js" src="https://cdu-mv.de/wp-content/plugins/podlove-web-player/js/cache.js?ver=5.9.2"></script>
+<script id="sib-front-js-js-extra">
+var sibErrMsg = {"invalidMail":"Please fill out valid email address","requiredField":"Please fill out required fields","invalidDateFormat":"Please fill out valid date format","invalidSMSFormat":"Please fill out valid phone number"};
+var ajax_sib_front_object = {"ajax_url":"https://cdu-mv.de/wp-admin/admin-ajax.php","ajax_nonce":"79a2827fce","flag_url":"https://cdu-mv.de/wp-content/plugins/mailin/img/flags/"};
+//# sourceURL=sib-front-js-js-extra
+</script>
+<script id="sib-front-js-js" src="https://cdu-mv.de/wp-content/plugins/mailin/js/mailin-front.js?ver=1782386194"></script>
+<script id="cf7_repeater-js-extra">
+var cf7_repeater = {"ajaxUrl":"https://cdu-mv.de/wp-admin/admin-ajax.php","pro":"ok"};
+//# sourceURL=cf7_repeater-js-extra
+</script>
+<script id="cf7_repeater-js" src="https://cdu-mv.de/wp-content/plugins/repeater-for-contact-form-7/libs/cf7_repeater.js?ver=1785769375"></script>
+<link rel="https://api.w.org/" href="https://cdu-mv.de/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cdu-mv.de/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0.2" />
+<meta name="generator" content="Redux 4.4.0" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><script type="text/javascript" src="https://cdn.by.wonderpush.com/sdk/1.1/wonderpush-loader.min.js" async></script>
+<script type="text/javascript">
+  window.WonderPush = window.WonderPush || [];
+  window.WonderPush.push(['init', {"customDomain":"https:\/\/cdu-mv.de\/wp-content\/plugins\/mailin\/","serviceWorkerUrl":"wonderpush-worker-loader.min.js?webKey=485a1af12db9d72c6c7cf25426aa2f2b0a9b38f5d4b01a1e42ccbc0c608b49bd","frameUrl":"wonderpush.min.html","webKey":"485a1af12db9d72c6c7cf25426aa2f2b0a9b38f5d4b01a1e42ccbc0c608b49bd"}]);
+</script><style id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+<script id="dt-collapsable-menu-items">
+jQuery(function ($) {
+	$(document).ready(function () {
+		$(
+			'body ul.et_mobile_menu li.menu-item-has-children, body ul.et_mobile_menu  li.page_item_has_children',
+		).append(
+			'<a href="#" class="mobile-toggle" aria-label="toggle sub menu"><svg class="dt-icons dt-open-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg><svg class="dt-icons dt-close-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg></a>',
+		);
+		$(
+			'ul.et_mobile_menu li.menu-item-has-children .mobile-toggle, ul.et_mobile_menu li.page_item_has_children .mobile-toggle',
+		).click(function (event) {
+			event.preventDefault();
+			$(this).parent('li').toggleClass('dt-open');
+			$(this)
+				.parent('li')
+				.find('ul.children')
+				.first()
+				.toggleClass('visible');
+			$(this)
+				.parent('li')
+				.find('ul.sub-menu')
+				.first()
+				.toggleClass('visible');
+		});
+		$('.mobile-toggle')
+			.on('mouseover', function () {
+				$(this).parent().addClass('is-hover');
+			})
+			.on('mouseout', function () {
+				$(this).parent().removeClass('is-hover');
+			});
+	});
+});
+</script>
+
+<script>
+jQuery(function ($) {
+    $(document).ready(function () {
+        $('.textlength-form textarea.et_pb_contact_message').attr('maxlength', 5800)
+    });
+});
+</script><link rel="icon" href="https://cdu-mv.de/wp-content/uploads/2023/12/cropped-FavIcon-CDU-MV.pdf-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://cdu-mv.de/wp-content/uploads/2023/12/cropped-FavIcon-CDU-MV.pdf-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cdu-mv.de/wp-content/uploads/2023/12/cropped-FavIcon-CDU-MV.pdf-180x180.png" />
+<meta name="msapplication-TileImage" content="https://cdu-mv.de/wp-content/uploads/2023/12/cropped-FavIcon-CDU-MV.pdf-270x270.png" />
+<link rel="stylesheet" id="et-divi-customizer-global-cached-inline-styles" href="https://cdu-mv.de/wp-content/et-cache/global/et-divi-customizer-global.min.css?ver=1785503818" /><style id="et-critical-inline-css">@font-face{font-family:"Inter CDU Neu";font-display:swap;src:url("https://cdu-mv.de/wp-content/uploads/et-fonts/Inter-VariableFont_slntwght.ttf") format("truetype")}</style>
+<link rel="preload" as="style" id="et-core-unified-cpt-deferred-157-cached-inline-styles" href="https://cdu-mv.de/wp-content/et-cache/157/et-core-unified-cpt-deferred-157.min.css?ver=1785503819" onload="this.onload=null;this.rel='stylesheet';" /></head>
+<body class="error404 custom-background wp-theme-Divi wp-child-theme-Divi-Child-Theme et-tb-has-template et-tb-has-footer et_button_no_icon et_pb_button_helper_class et_fixed_nav et_show_nav et_secondary_nav_enabled et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter linux et_pb_gutters3 et_right_sidebar et_divi_theme et-db">
+	<div id="ab1cf08eb-1ec3-404c-a1fb-4c38564346a4" consent-skip-blocker="1" class="" data-bg="background-color: rgba(82, 183, 193, 0.570);" style="background-color: rgba(82, 183, 193, 0.570); -moz-backdrop-filter:blur(2px);-o-backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px); position:fixed;top:0;left:0;right:0;bottom:0;z-index:999999;pointer-events:all;display:none;filter:none;max-width:100vw;max-height:100vh;transform:translateZ(0);" ></div><div id="page-container">
+<div id="et-boc" class="et-boc">
+			
+				<div id="top-header">
+		<div class="container clearfix">
+
+		
+			<div id="et-secondary-menu">
+			<ul class="et-social-icons">
+
+	<li class="et-social-icon et-social-facebook">
+		<a href="https://www.facebook.com/pages/CDU-Meckenburg-Vorpommern-CDU-MV/142004422534101?sk=wall" class="icon">
+			<span>Facebook</span>
+		</a>
+	</li>
+	<li class="et-social-icon et-social-instagram">
+		<a href="https://www.instagram.com/cdu_mv/" class="icon">
+			<span>Instagram</span>
+		</a>
+	</li>
+
+</ul><ul id="et-secondary-nav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-155"><a href="https://cdu-mv.de/mitglied-werden/">MITGLIED WERDEN</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2758"><a href="/podcast/7-mit-philipp-amthor/">PODCAST</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="https://cdu-mv.de/kontakt/">KONTAKT</a></li>
+</ul>			</div>
+
+		</div>
+	</div>
+
+
+	<header id="main-header" data-height-onload="66">
+		<div class="container clearfix et_menu_container">
+					<div class="logo_container">
+				<span class="logo_helper"></span>
+				<a href="https://cdu-mv.de/">
+				<img class="lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20110'%3E%3C/svg%3E" data-src="https://cdu-mv.de/wp-content/uploads/2023/12/CDU-MV-LOGO.png" width="300" height="110" alt="CDU Mecklenburg-Vorpommern" id="logo" data-height-percentage="100" />
+				</a>
+			</div>
+					<div id="et-top-navigation" data-height="66" data-fixed-height="40">
+									<nav id="top-menu-nav">
+					<ul id="top-menu" class="nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-578"><a href="/news">Aktuelles</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-79"><a href="https://cdu-mv.de/news/">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80"><a href="https://cdu-mv.de/termine/">Termine</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3606"><a href="https://cdu-mv.de/cdu-mv-app/">Unsere APP</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1589"><a href="/podcast/7-mit-philipp-amthor/">PODCAST</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3267"><a href="https://cdu-mv.de/landtagswahl-2026/">Landtagswahl</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3268"><a href="https://cdu-mv.de/landtagskandidaten2026cdumv/">Kandidaten</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4368"><a href="https://cdu-mv.de/wp-content/uploads/2026/06/Wahlprogramm-CDU-MV-2026.pdf">Wahlprogramm</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375"><a href="https://cdu-mv.de/mvorne-verbindlich-fuer-einen-politikwechsel/">9-Punkte-Plan</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3369"><a href="https://cdu-mv.de/spenden/">Spenden</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-81"><a href="https://cdu-mv.de/partei/">Partei</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-85"><a href="https://cdu-mv.de/landesvorstand/">Landesvorstand</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86"><a href="https://cdu-mv.de/kreisverbaende-cdu-mv-de/">Kreisverbände</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87"><a href="https://cdu-mv.de/gemeindeverbaende/">Gemeindeverbände</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89"><a href="https://cdu-mv.de/vereinigungen/">Vereinigungen</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"><a href="https://cdu-mv.de/landesgeschaeftsstelle/">Landesgeschäftsstelle</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88"><a href="https://cdu-mv.de/landesfachausschuesse/">Landesfachausschüsse</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91"><a href="https://cdu-mv.de/geschichte/">Geschichte</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-92"><a href="https://cdu-mv.de/politik/">Politik</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://cdu-mv.de/programme/">Programme</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://cdu-mv.de/beschluesse/">Beschlüsse</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-98"><a href="https://cdu-mv.de/parlamente/">Parlamente</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="https://cdu-mv.de/landtag/">Landtag</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="https://cdu-mv.de/landraete/">Landräte</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-99"><a href="https://cdu-mv.de/bundestag/">Bundestag</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-106"><a href="https://cdu-mv.de/pressebereich/">Presse</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4493"><a href="https://cdu-mv.de/pressegespraech-anmeldung/">Pressestelle</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4623"><a href="https://cdu-mv.de/kampagnenmaterial/">Kampagne</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-102"><a href="https://cdu-mv.de/service/">Service</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104"><a href="https://cdu-mv.de/mitglied-werden/">Mitglied werden</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2274"><a href="https://cdu-mv.de/spenden/">Spenden</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-664"><a href="https://cdu-mv.de/satzung/">Satzung</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1247"><a href="https://cdu-mv.de/links/">Links</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="https://cdu-mv.de/newsletteranmeldung/">Newsletteranmeldung</a></li>
+</ul>
+</li>
+</ul>					</nav>
+				
+				
+				
+									<div id="et_top_search">
+						<span id="et_search_icon"></span>
+					</div>
+				
+				<div id="et_mobile_nav_menu">
+				<div class="mobile_nav closed">
+					<span class="select_page">Seite wählen</span>
+					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+				</div>
+			</div>			</div> <!-- #et-top-navigation -->
+		</div> <!-- .container -->
+				<div class="et_search_outer">
+			<div class="container et_search_form_container">
+				<form role="search" method="get" class="et-search-form" action="https://cdu-mv.de/">
+				<input type="search" class="et-search-field" placeholder="Suchen &hellip;" value="" name="s" title="Suchen nach:" />				</form>
+				<span class="et_close_search_field"></span>
+			</div>
+		</div>
+			</header> <!-- #main-header -->
+<div id="et-main-area">
+	
+<div id="main-content">
+	<div class="container">
+		<div id="content-area" class="clearfix">
+			<div id="left-area">
+				<article id="post-0" class="et_pb_post not_found">
+					<div class="entry">
+	<h1 class="not-found-title">Keine Ergebnisse gefunden</h1>
+	<p>Die angefragte Seite konnte nicht gefunden werden. Verfeinern Sie Ihre Suche oder verwenden Sie die Navigation oben, um den Beitrag zu finden.</p>
+</div>
+				</article>
+			</div>
+
+					</div>
+	</div>
+</div>
+
+	<footer class="et-l et-l--footer">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div class="et_pb_section et_pb_section_0_tb_footer et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_0_tb_footer">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_0_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 class="hintergrund"><span style="color: #ffa600;">Folgen</span> Sie uns und melden Sie sich für unseren <span style="color: #ffa600;">Newsletter</span> an.</h2></div>
+			</div><ul class="et_pb_module et_pb_social_media_follow et_pb_social_media_follow_0_tb_footer clearfix  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				
+				
+				<li
+            class='et_pb_social_media_follow_network_0_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-instagram'><a
+              href='https://www.instagram.com/cdu_mv/'
+              class='icon et_pb_with_border'
+              title='Folge auf Instagram'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li><li
+            class='et_pb_social_media_follow_network_1_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-facebook'><a
+              href='https://www.facebook.com/CDU.Mecklenburg.Vorpommern/'
+              class='icon et_pb_with_border'
+              title='Folge auf Facebook'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li><li
+            class='et_pb_social_media_follow_network_2_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-linkedin'><a
+              href='https://www.linkedin.com/company/cdu-mv/'
+              class='icon et_pb_with_border'
+              title='Folge auf LinkedIn'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li><li
+            class='et_pb_social_media_follow_network_3_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-whatsapp et-pb-social-fa-icon'><a
+              href='https://whatsapp.com/channel/0029VaCKH5TBA1etRXSDwk2q'
+              class='icon et_pb_with_border'
+              title='Folge auf Whatsapp'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li><li
+            class='et_pb_social_media_follow_network_4_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-twitter'><a
+              href='https://twitter.com/CDUMV'
+              class='icon et_pb_with_border'
+              title='Folge auf X'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li><li
+            class='et_pb_social_media_follow_network_5_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-youtube'><a
+              href='https://www.youtube.com/@cdu-mecklenburg-vorpommern'
+              class='icon et_pb_with_border'
+              title='Folge auf Youtube'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Folgen</span></a></li>
+			</ul><div class="et_pb_button_module_wrapper et_pb_button_0_tb_footer_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_0_tb_footer et_pb_bg_layout_dark" href="/newsletteranmeldung">Zur Newsletteranmeldung</a>
+			</div><div class="et_pb_module et_pb_code et_pb_code_0_tb_footer">
+				
+				
+				
+				
+				
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_1_tb_footer et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_1_tb_footer">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_1_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_1_tb_footer  et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p style="text-align: center;">©Copyright 2026 CDU Landesverband Mecklenburg-Vorpommern. Alle Rechte vorbehalten.</p>
+<p style="text-align: center;"><strong><a href="/impressum">Impressum</a></strong> | <strong><a href="/datenschutz">Datenschutz</a></strong></p></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_2_tb_footer  et_pb_text_align_center et_pb_bg_layout_dark">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><a  href="#consent-change" role="button" id="rcb-sc-link-change" data-success-message="" class="rcb-sc-link rcb-sc-link-change ">Privatsphäre-Einstellungen ändern</a> | <a  href="#consent-history" role="button" id="rcb-sc-link-history" data-success-message="" class="rcb-sc-link rcb-sc-link-history ">Historie der Privatsphäre-Einstellungen</a> | <a  href="#consent-revoke" role="button" id="rcb-sc-link-revoke" data-success-message="Du hast die Einwilligung für Services mit dessen Cookies und Verarbeitung personenbezogener Daten erfolgreich widerrufen. Die Seite wird jetzt neu geladen!" class="rcb-sc-link rcb-sc-link-revoke ">Einwilligungen widerrufen</a></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div>		</div>
+	</footer>
+		</div>
+
+			
+		</div>
+		</div>
+
+			<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/Divi-Child-Theme/*","/wp-content/themes/Divi/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="wp-hooks-js" src="https://cdu-mv.de/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://cdu-mv.de/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="swv-js" src="https://cdu-mv.de/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.6"></script>
+<script id="contact-form-7-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "contact-form-7", {"translation-revision-date":"2026-06-28 19:30:34+0000","generator":"GlotPress\/4.0.3","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"de"},"This contact form is placed in the wrong place.":["Dieses Kontaktformular wurde an der falschen Stelle platziert."],"Error:":["Fehler:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
+//# sourceURL=contact-form-7-js-translations
+</script>
+<script id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/cdu-mv.de\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script id="contact-form-7-js" src="https://cdu-mv.de/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.6"></script>
+<script id="df-script-js-extra">
+var dvServerResponse = ["FREE"];
+//# sourceURL=df-script-js-extra
+</script>
+<script id="df-script-js" src="https://cdu-mv.de/wp-content/plugins/divifilter/df-script.js?ver=3.9.3"></script>
+<script id="wpascript-js" src="https://cdu-mv.de/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Inhic3d0dTU2NzAiLCJ3cGFfZmllbGRfdmFsdWUiOjkzOTAxNSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="divi-custom-script-js-extra">
+var DIVI = {"item_count":"%d Item","items_count":"%d Items"};
+var et_builder_utils_params = {"condition":{"diviTheme":true,"extraTheme":false},"scrollLocations":["app","top"],"builderScrollLocations":{"desktop":"app","tablet":"app","phone":"app"},"onloadScrollLocation":"app","builderType":"fe"};
+var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_custom = {"ajaxurl":"https://cdu-mv.de/wp-admin/admin-ajax.php","images_uri":"https://cdu-mv.de/wp-content/themes/Divi/images","builder_images_uri":"https://cdu-mv.de/wp-content/themes/Divi/includes/builder/images","et_frontend_nonce":"8515e33e2b","subscription_failed":"Bitte \u00fcberpr\u00fcfen Sie die Felder unten aus, um sicherzustellen, dass Sie die richtigen Informationen eingegeben.","et_ab_log_nonce":"a478b0246c","fill_message":"Bitte f\u00fcllen Sie die folgenden Felder aus:","contact_error_message":"Bitte folgende Fehler beheben:","invalid":"Ung\u00fcltige E-Mail","captcha":"Captcha","prev":"Vorherige","previous":"Vorherige","next":"Weiter","wrong_captcha":"Sie haben die falsche Zahl im Captcha eingegeben.","wrong_checkbox":"Kontrollk\u00e4stchen","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"","unique_test_id":"","ab_bounce_rate":"","is_cache_plugin_active":"no","is_shortcode_tracking":"","tinymce_uri":"https://cdu-mv.de/wp-content/themes/Divi/includes/builder/frontend-builder/assets/vendors","accent_color":"#52b7c1","waypoints_options":[]};
+var et_pb_box_shadow_elements = [];
+//# sourceURL=divi-custom-script-js-extra
+</script>
+<script id="divi-custom-script-js" src="https://cdu-mv.de/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.7"></script>
+<script id="fitvids-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/jquery.fitvids.js?ver=4.27.7"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="https://cdu-mv.de/wp-includes/js/comment-reply.min.js?ver=7.0.2"></script>
+<script id="jquery-mobile-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/jquery.mobile.js?ver=4.27.7"></script>
+<script id="magnific-popup-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/magnific-popup.js?ver=4.27.7"></script>
+<script id="easypiechart-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/easypiechart.js?ver=4.27.7"></script>
+<script id="salvattore-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/salvattore.js?ver=4.27.7"></script>
+<script id="wpt-cf7-divi-frontend-bundle-js" src="https://cdu-mv.de/wp-content/plugins/cf7-grid-and-styler-for-divi-premium/scripts/frontend-bundle.min.js?ver=1.0.0"></script>
+<script id="ssa-divi-module-frontend-bundle-js" src="https://cdu-mv.de/wp-content/plugins/simply-schedule-appointments/includes/divi/scripts/frontend-bundle.min.js?ver=1.0.2"></script>
+<script id="et-core-common-js" src="https://cdu-mv.de/wp-content/themes/Divi/core/admin/js/common.js?ver=4.27.7"></script>
+<script id="et-builder-modules-script-motion-js-extra">
+var et_pb_motion_elements = {"desktop":[],"tablet":[],"phone":[]};
+//# sourceURL=et-builder-modules-script-motion-js-extra
+</script>
+<script id="et-builder-modules-script-motion-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/motion-effects.js?ver=4.27.7"></script>
+<script id="et-builder-modules-script-sticky-js-extra">
+var et_pb_sticky_elements = [];
+//# sourceURL=et-builder-modules-script-sticky-js-extra
+</script>
+<script id="et-builder-modules-script-sticky-js" src="https://cdu-mv.de/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/sticky-elements.js?ver=4.27.7"></script>
+<div id='icon_wrapper'><a target="_blank" class='fuse_social_icons_links' data-nonce='2704ed708f' data-title='facebook' href='https://www.facebook.com/pages/CDU-Meckenburg-Vorpommern-CDU-MV/142004422534101?sk=wall' ><i class='fsf fuseicon-facebook facebook-awesome-social awesome-social'></i></a><a target="_blank" class='fuse_social_icons_links' data-nonce='2704ed708f' data-title='linkedin' href='https://www.linkedin.com/company/cdu-mv' ><i class='fsf fuseicon-linkedin linkedin-awesome-social awesome-social'></i></a><a target="_blank" class='fuse_social_icons_links' data-nonce='2704ed708f' data-title='youtube' href='https://www.youtube.com/channel/UCFJPZnnN8L7h2sitD7b5x6g/' ><i class='fsf fuseicon-youtube youtube-awesome-social awesome-social'></i></a><a target="_blank" class='fuse_social_icons_links' data-nonce='2704ed708f' data-title='instagram' href='https://www.instagram.com/cdu_mv/' ><i class='fsf fuseicon-instagram instagram-awesome-social awesome-social'></i></a><a target="_blank" class='fuse_social_icons_links' data-nonce='2704ed708f' data-title='envelope' href='mailto:post@cdu-mv.de' ><i class='fsf fuseicon-envelope envelope-awesome-social awesome-social'></i></a></div>	
+	<script>function w3tc_ll_observe(ll){if(!ll||!ll.update)return;var t;new MutationObserver(function(){clearTimeout(t);t=setTimeout(function(){ll.update();},200);}).observe(document.documentElement,{childList:true,subtree:true});}window.addEventListener("LazyLoad::Initialized",function(e){setTimeout(function(){window.w3tc_lazyload=e.detail.instance;w3tc_ll_observe(window.w3tc_lazyload);},1);});window.w3tc_lazyload=1,window.lazyLoadOptions={elements_selector:".lazy",callback_loaded:function(t){var e;try{e=new CustomEvent("w3tc_lazyload_loaded",{detail:{e:t}})}catch(a){(e=document.createEvent("CustomEvent")).initCustomEvent("w3tc_lazyload_loaded",!1,!1,{e:t})}window.dispatchEvent(e)}}</script><script async src="https://cdu-mv.de/wp-content/plugins/w3-total-cache/pub/js/lazyload.min.js"></script></body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/?utm_source=w3tc&utm_medium=footer_comment&utm_campaign=free_plugin
+
+Object Caching 0/452 objects using Redis
+Page Caching using Disk: Enhanced (Page is 404) 
+Lazy Loading
+
+Served from: cdu-mv.de @ 2026-08-03 17:02:55 by W3 Total Cache
+-->

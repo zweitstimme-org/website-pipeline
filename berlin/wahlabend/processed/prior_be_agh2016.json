@@ -1,0 +1,50 @@
+{
+  "state_code": "BE",
+  "election_date": "2016-09-18",
+  "lead_horizon_days": 0,
+  "method": "poll_mean_lead0_interim",
+  "note": "Recency-weighted mean of BE polls published in the 21d up to election day. uncertainty_pp = 1.28·SD across those polls (soft 80 %). Replace with state-models lead-0/1 polls-only backcast (+ posterior intervals) when available.",
+  "n_polls": 6,
+  "poll_dates": [
+    "2016-08-29",
+    "2016-09-08",
+    "2016-09-09",
+    "2016-09-12",
+    "2016-09-15",
+    "2016-09-15"
+  ],
+  "institutes": [
+    "FORSA",
+    "FORSCHUNGSGRUPPE_WAHLEN",
+    "INFRATEST",
+    "INSA"
+  ],
+  "shares": {
+    "spd": 0.23013,
+    "cdu": 0.179617,
+    "gruene": 0.164619,
+    "linke": 0.147328,
+    "afd": 0.135674,
+    "fdp": 0.055236,
+    "others": 0.087396
+  },
+  "shares_pct": {
+    "spd": 23.013,
+    "cdu": 17.962,
+    "gruene": 16.462,
+    "linke": 14.733,
+    "afd": 13.567,
+    "fdp": 5.524,
+    "others": 8.74
+  },
+  "uncertainty_pp": {
+    "spd": 1.5,
+    "cdu": 1.5,
+    "gruene": 1.74,
+    "linke": 1.5,
+    "afd": 1.58,
+    "fdp": 1.5,
+    "others": 1.5
+  },
+  "generated_at": "2026-08-10T08:50:44.291366+00:00"
+}

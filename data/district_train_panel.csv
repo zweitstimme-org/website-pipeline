@@ -1,0 +1,1338 @@
+state,election,election_l1,wkr,wkr_name,party,resp_E,resp_Z,res_l1_E,res_l1_Z,no_cand_l1,source
+MV,2016,2011,1,Greifswald,spd,0.283174,0.27813,0.414221,0.275572,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,afd,0.198969,0.187013,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,cdu,0.206664,0.185999,0.233516,0.233741,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,linke,0.136324,0.129106,0.150035,0.173416,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,gruene,0.094367,0.102669,0.121796,0.157679,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,fdp,0.036767,0.038641,0.027532,0.029695,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,1,Greifswald,others,0.043735,0.078441,0.052899,0.129896,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,spd,0.313724,0.309254,0.401997,0.384201,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,afd,0.227736,0.217103,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,cdu,0.158135,0.156645,0.241985,0.19534,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,linke,0.227279,0.187492,0.217648,0.227667,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,gruene,0.044529,0.033581,0.061644,0.067637,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,fdp,0.028598,0.021801,0.021568,0.019731,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,2,Neubrandenburg I,others,0.0,0.074125,0.055159,0.105424,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,spd,0.323718,0.304074,0.382429,0.368085,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,afd,0.223191,0.209631,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,cdu,0.202433,0.170135,0.256079,0.216222,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,linke,0.16744,0.165026,0.201425,0.203365,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,gruene,0.04578,0.045602,0.072945,0.083168,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,fdp,0.037439,0.027598,0.018144,0.022188,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,3,Neubrandenburg II,others,0.0,0.077934,0.068978,0.106972,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,spd,0.334962,0.324465,0.344248,0.348855,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,afd,0.228179,0.214275,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,cdu,0.157948,0.146045,0.176224,0.158592,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,linke,0.161589,0.163019,0.260059,0.245187,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,gruene,0.04187,0.04234,0.091622,0.096956,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,fdp,0.031283,0.027273,0.020531,0.023312,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,4,Hansestadt Rostock I,others,0.04417,0.082582,0.107316,0.127097,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,spd,0.363286,0.360631,0.385659,0.381806,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,afd,0.19563,0.185209,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,cdu,0.135377,0.127621,0.147003,0.134381,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,linke,0.216167,0.182864,0.303398,0.268446,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,gruene,0.058893,0.045096,0.094185,0.086399,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,fdp,0.030648,0.02372,0.017149,0.016449,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,5,Hansestadt Rostock II,others,0.0,0.074859,0.052607,0.112518,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,spd,0.313811,0.326326,0.415085,0.327128,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,afd,0.123724,0.121843,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,cdu,0.166413,0.161301,0.183809,0.1697,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,linke,0.205774,0.169381,0.181574,0.180387,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,gruene,0.114882,0.120044,0.137819,0.190696,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,fdp,0.032642,0.032828,0.025192,0.02496,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,6,Hansestadt Rostock III,others,0.042752,0.068277,0.056522,0.107129,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,spd,0.290285,0.302835,0.314753,0.306231,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,afd,0.180457,0.172558,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,cdu,0.195128,0.171238,0.228444,0.181349,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,linke,0.194862,0.151632,0.227408,0.192909,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,gruene,0.098808,0.091296,0.163939,0.16807,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,fdp,0.040459,0.035779,0.026683,0.032058,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,7,Hansestadt Rostock IV,others,0.0,0.074661,0.038772,0.119381,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,spd,0.473602,0.345966,0.462204,0.384493,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,afd,0.140352,0.147256,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,cdu,0.154748,0.188488,0.203046,0.192717,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,linke,0.099869,0.136784,0.155946,0.17558,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,gruene,0.053106,0.077789,0.093764,0.125652,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,fdp,0.033083,0.03316,0.019879,0.023804,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,8,Schwerin I,others,0.04524,0.070558,0.065162,0.097754,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,spd,0.295508,0.361388,0.377445,0.400699,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,afd,0.198181,0.181904,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,cdu,0.168212,0.152865,0.199128,0.173471,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,linke,0.215888,0.152688,0.252114,0.214893,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,gruene,0.039541,0.039249,0.063029,0.078755,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,fdp,0.027517,0.027563,0.018631,0.020975,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,9,Schwerin II,others,0.055153,0.084342,0.089654,0.111206,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,spd,0.40591,0.380239,0.442842,0.459433,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,afd,0.210864,0.19632,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,cdu,0.142566,0.138088,0.18952,0.159371,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,linke,0.123713,0.122762,0.193398,0.171294,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,gruene,0.056061,0.054214,0.092594,0.086641,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,fdp,0.043974,0.036853,0.035008,0.027991,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,10,Wismar,others,0.016913,0.071524,0.046639,0.095271,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,spd,0.2934,0.320825,0.37021,0.39102,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,afd,0.19285,0.213496,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,cdu,0.210126,0.202021,0.250279,0.215866,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,linke,0.107108,0.116235,0.177454,0.16755,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,gruene,0.049605,0.044671,0.08967,0.089286,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,fdp,0.03025,0.029851,0.041792,0.032895,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,11,Landkreis Rostock I,others,0.116662,0.072902,0.070596,0.103383,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,spd,0.294156,0.315251,0.322688,0.345582,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,afd,0.201094,0.198027,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,cdu,0.240446,0.215456,0.306941,0.247619,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,linke,0.157777,0.125616,0.197115,0.176033,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,gruene,0.052695,0.047937,0.092831,0.096754,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,fdp,0.035909,0.03446,0.029219,0.029968,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,12,Landkreis Rostock II,others,0.017924,0.063252,0.051206,0.104045,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,spd,0.189049,0.240983,0.344488,0.300176,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,afd,0.251013,0.245662,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,cdu,0.281637,0.233106,0.442585,0.319481,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,linke,0.143112,0.121528,0.0,0.180765,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,gruene,0.022045,0.024933,0.065996,0.050333,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,fdp,0.0,0.020906,0.024201,0.025483,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,others,0.113143,0.112881,0.122729,0.123763,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,spd,0.244747,0.276927,0.378135,0.332338,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,afd,0.21438,0.209185,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,cdu,0.239385,0.209404,0.36971,0.285841,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,linke,0.156763,0.131219,0.0,0.192721,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,gruene,0.022653,0.02187,0.071283,0.045862,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,fdp,0.039341,0.028486,0.04693,0.031316,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,14,Mecklenburgische Seenplatte II,others,0.082731,0.122909,0.133943,0.111923,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,spd,0.295441,0.321776,0.320455,0.368262,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,afd,0.220477,0.206375,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,cdu,0.247517,0.220599,0.289214,0.260554,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,linke,0.129637,0.110829,0.182362,0.161965,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,gruene,0.032006,0.032639,0.05745,0.060907,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,fdp,0.030138,0.025315,0.02631,0.025592,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,15,Landkreis Rostock III,others,0.044783,0.082465,0.124208,0.12272,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,spd,0.329412,0.353017,0.418527,0.406841,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,afd,0.213211,0.200364,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,cdu,0.254978,0.190845,0.246829,0.223508,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,linke,0.117038,0.110365,0.168703,0.171807,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,gruene,0.032667,0.038609,0.072087,0.071999,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,fdp,0.02905,0.026586,0.031878,0.024451,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,16,Landkreis Rostock IV,others,0.023644,0.080214,0.061976,0.101395,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,spd,0.416658,0.370479,0.483636,0.44113,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,afd,0.202575,0.175844,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,cdu,0.143871,0.161194,0.18641,0.188864,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,linke,0.11457,0.110426,0.122632,0.144294,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,gruene,0.025601,0.032936,0.046284,0.060186,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,fdp,0.083849,0.047585,0.062388,0.036498,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,17,Ludwigslust-Parchim I,others,0.012876,0.101536,0.09865,0.129028,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,spd,0.299808,0.349137,0.452811,0.427568,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,afd,0.191401,0.172608,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,cdu,0.266798,0.1986,0.243734,0.22113,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,linke,0.131899,0.120859,0.155554,0.154262,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,gruene,0.026727,0.030378,0.05805,0.063844,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,fdp,0.026445,0.028791,0.028675,0.028249,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,18,Ludwigslust-Parchim II,others,0.056923,0.099627,0.061176,0.104948,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,spd,0.286598,0.33616,0.411885,0.417559,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,afd,0.226724,0.20604,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,cdu,0.195839,0.170981,0.211885,0.205845,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,linke,0.149436,0.118615,0.17441,0.16699,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,gruene,0.030885,0.030894,0.102758,0.068653,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,fdp,0.042361,0.034464,0.036736,0.033842,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,19,Ludwigslust-Parchim III,others,0.068157,0.102846,0.062326,0.10711,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,spd,0.301503,0.31449,0.393952,0.396595,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,afd,0.231627,0.221614,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,cdu,0.211323,0.187854,0.258867,0.224778,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,linke,0.141372,0.133238,0.169928,0.171907,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,gruene,0.069123,0.05094,0.066559,0.07259,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,fdp,0.02795,0.026858,0.03252,0.03333,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,20,Mecklenburgische Seenplatte III,others,0.017102,0.065006,0.078174,0.1008,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,spd,0.286173,0.280657,0.331799,0.361058,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,afd,0.223801,0.215677,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,cdu,0.264085,0.225633,0.273833,0.256073,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,linke,0.150336,0.141615,0.197732,0.180226,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,gruene,0.042863,0.045602,0.069527,0.072101,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,fdp,0.032743,0.024671,0.05194,0.025448,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,21,Mecklenburgische Seenplatte IV,others,0.0,0.066145,0.07517,0.105095,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,spd,0.245865,0.262706,0.298144,0.346383,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,afd,0.259247,0.240743,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,cdu,0.265797,0.218546,0.368683,0.290777,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,linke,0.131932,0.119902,0.180117,0.16612,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,gruene,0.029732,0.032944,0.059843,0.055983,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,fdp,0.035527,0.025951,0.027969,0.025437,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,22,Mecklenburgische Seenplatte V,others,0.031899,0.099207,0.065244,0.1153,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,spd,0.273483,0.303259,0.327732,0.343895,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,afd,0.20487,0.20603,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,cdu,0.273252,0.229911,0.338179,0.28717,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,linke,0.120732,0.115947,0.179703,0.177598,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,gruene,0.02934,0.036006,0.072246,0.067472,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,fdp,0.028647,0.027661,0.03311,0.031077,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,23,Vorpommern-Rügen I,others,0.069676,0.081186,0.04903,0.092788,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,spd,0.167562,0.235626,0.18821,0.270874,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,afd,0.214806,0.230676,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,cdu,0.428142,0.276621,0.483178,0.364527,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,linke,0.140583,0.114482,0.200144,0.186507,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,gruene,0.048907,0.036616,0.054996,0.05506,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,fdp,0.0,0.024749,0.0156,0.021182,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,24,Vorpommern-Rügen II - Stralsund III,others,0.0,0.081229,0.057872,0.10185,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,spd,0.236311,0.272923,0.263399,0.314315,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,afd,0.262354,0.247205,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,cdu,0.267195,0.210138,0.33741,0.291098,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,linke,0.148331,0.11857,0.216401,0.194338,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,gruene,0.041736,0.038267,0.054413,0.059027,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,fdp,0.044073,0.028203,0.036693,0.025284,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,25,Vorpommern-Rügen III - Stralsund I,others,0.0,0.084693,0.091684,0.115939,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,spd,0.208982,0.2363,0.267812,0.280268,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,afd,0.21903,0.217606,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,cdu,0.22246,0.226037,0.33798,0.291667,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,linke,0.123453,0.110697,0.180236,0.168053,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,gruene,0.098885,0.084856,0.138874,0.111291,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,fdp,0.03578,0.035372,0.023954,0.027803,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,26,Stralsund II,others,0.09141,0.089132,0.051144,0.120918,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,spd,0.38493,0.361524,0.404804,0.417564,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,afd,0.188725,0.179732,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,cdu,0.18552,0.181571,0.224435,0.203462,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,linke,0.152174,0.125313,0.189244,0.164385,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,gruene,0.041341,0.052728,0.094445,0.090295,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,fdp,0.022734,0.027283,0.020311,0.025609,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,27,Nordwestmecklenburg I,others,0.024576,0.071849,0.066761,0.098684,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,spd,0.319165,0.343985,0.390834,0.405451,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,afd,0.230938,0.200776,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,cdu,0.204508,0.180935,0.26106,0.217304,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,linke,0.138211,0.119217,0.172024,0.167853,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,gruene,0.040881,0.040965,0.07714,0.078408,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,fdp,0.035636,0.031888,0.028087,0.027573,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,28,Nordwestmecklenburg II,others,0.030661,0.082234,0.070855,0.10341,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,spd,0.183663,0.226704,0.231071,0.298365,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,afd,0.316022,0.276382,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,cdu,0.230108,0.194375,0.319763,0.268026,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,linke,0.163996,0.117331,0.202763,0.177793,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,gruene,0.040279,0.033804,0.071006,0.061622,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,fdp,0.065932,0.035727,0.069855,0.038095,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,29,Vorpommern-Greifswald II,others,0.0,0.115677,0.105541,0.156099,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,spd,0.177677,0.187843,0.245052,0.281778,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,afd,0.353098,0.323923,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,cdu,0.189885,0.177831,0.311069,0.269814,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,linke,0.179421,0.13591,0.2319,0.19315,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,gruene,0.027664,0.033271,0.073175,0.063491,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,fdp,0.034161,0.033169,0.023285,0.025267,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,30,Vorpommern-Greifswald III,others,0.038093,0.108054,0.115519,0.166501,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,spd,0.283198,0.320385,0.312799,0.378498,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,afd,0.215609,0.200381,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,cdu,0.249143,0.19748,0.342368,0.27127,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,linke,0.143638,0.128362,0.182533,0.169022,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,gruene,0.028632,0.031527,0.05857,0.053258,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,fdp,0.025942,0.029882,0.026537,0.022147,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,31,Ludwigslust-Parchim IV,others,0.053837,0.091984,0.077193,0.105805,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,spd,0.315914,0.339882,0.380403,0.397365,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,afd,0.187144,0.18536,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,cdu,0.233618,0.188469,0.283274,0.228535,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,linke,0.114125,0.116223,0.177177,0.173143,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,gruene,0.038818,0.039169,0.067521,0.073493,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,fdp,0.029956,0.029387,0.025765,0.02881,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,32,Ludwigslust-Parchim V,others,0.080424,0.101509,0.06586,0.098654,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,spd,0.176992,0.250084,0.305032,0.274049,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,afd,0.227639,0.242793,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,cdu,0.258447,0.200864,0.206412,0.220456,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,linke,0.133455,0.137533,0.230815,0.223077,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,gruene,0.034803,0.040173,0.087849,0.130938,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,fdp,0.027558,0.031936,0.097526,0.048014,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,33,Vorpommern-Rügen IV,others,0.141106,0.096617,0.072366,0.103466,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,spd,0.223714,0.253278,0.230172,0.255197,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,afd,0.248996,0.24897,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,cdu,0.278858,0.211013,0.246461,0.226044,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,linke,0.150063,0.133038,0.239809,0.217171,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,gruene,0.044417,0.04189,0.133379,0.158357,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,fdp,0.053952,0.042452,0.093041,0.050786,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,34,Vorpommern-Rügen V,others,0.0,0.069359,0.057138,0.092445,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,spd,0.310402,0.262978,0.231356,0.271379,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,afd,0.292907,0.244909,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,cdu,0.184913,0.173278,0.254569,0.245518,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,linke,0.110841,0.128664,0.235781,0.206759,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,gruene,0.01874,0.018952,0.030587,0.036824,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,fdp,0.026272,0.024191,0.018211,0.021669,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,35,Vorpommern-Greifswald IV,others,0.055925,0.147028,0.229497,0.217851,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,spd,0.240836,0.253161,0.269714,0.311414,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,afd,0.286129,0.263786,0.0,0.0,1,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,cdu,0.262131,0.185439,0.295387,0.240831,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,linke,0.171809,0.132317,0.210114,0.207917,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,gruene,0.039095,0.023465,0.0517,0.046889,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,fdp,0.0,0.02151,0.031246,0.022345,0,ltw11-21_meckpom_abs.csv
+MV,2016,2011,36,Vorpommern-Greifswald V,others,0.0,0.120323,0.141839,0.170604,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,spd,0.299486,0.335298,0.283174,0.27813,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,afd,0.131428,0.124252,0.198969,0.187013,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,cdu,0.157138,0.125116,0.206664,0.185999,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,linke,0.100953,0.098612,0.136324,0.129106,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,gruene,0.146,0.144091,0.094367,0.102669,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,fdp,0.070385,0.068929,0.036767,0.038641,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,1,Greifswald,others,0.09461,0.103703,0.043735,0.078441,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,spd,0.346198,0.423476,0.313724,0.309254,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,afd,0.17757,0.164443,0.227736,0.217103,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,cdu,0.155359,0.114916,0.158135,0.156645,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,linke,0.184031,0.128371,0.227279,0.187492,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,gruene,0.051806,0.040653,0.044529,0.033581,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,fdp,0.058786,0.050673,0.028598,0.021801,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,2,Neubrandenburg I,others,0.026249,0.077469,0.0,0.074125,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,spd,0.339577,0.404802,0.323718,0.304074,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,afd,0.176663,0.16174,0.223191,0.209631,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,cdu,0.171679,0.119153,0.202433,0.170135,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,linke,0.162227,0.116661,0.16744,0.165026,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,gruene,0.055737,0.056235,0.04578,0.045602,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,fdp,0.064559,0.056235,0.037439,0.027598,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,3,Neubrandenburg II,others,0.029558,0.085174,0.0,0.077934,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,spd,0.37423,0.430641,0.334962,0.324465,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,afd,0.15773,0.140775,0.228179,0.214275,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,cdu,0.117496,0.095376,0.157948,0.146045,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,linke,0.148907,0.125446,0.161589,0.163019,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,gruene,0.092966,0.06875,0.04187,0.04234,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,fdp,0.055391,0.052959,0.031283,0.027273,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,4,Hansestadt Rostock I,others,0.05328,0.086053,0.04417,0.082582,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,spd,0.394396,0.446072,0.363286,0.360631,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,afd,0.131424,0.118213,0.19563,0.185209,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,cdu,0.090577,0.078437,0.135377,0.127621,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,linke,0.166833,0.142309,0.216167,0.182864,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,gruene,0.085222,0.071505,0.058893,0.045096,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,fdp,0.055044,0.050338,0.030648,0.02372,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,5,Hansestadt Rostock II,others,0.076505,0.093126,0.0,0.074859,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,spd,0.30584,0.352753,0.313811,0.326326,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,afd,0.080583,0.074438,0.123724,0.121843,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,cdu,0.103939,0.087902,0.166413,0.161301,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,linke,0.204976,0.146675,0.205774,0.169381,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,gruene,0.166652,0.179664,0.114882,0.120044,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,fdp,0.057916,0.065262,0.032642,0.032828,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,6,Hansestadt Rostock III,others,0.080094,0.093305,0.042752,0.068277,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,spd,0.300672,0.365318,0.290285,0.302835,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,afd,0.113411,0.107952,0.180457,0.172558,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,cdu,0.14093,0.09824,0.195128,0.171238,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,linke,0.139156,0.125799,0.194862,0.151632,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,gruene,0.153407,0.129309,0.098808,0.091296,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,fdp,0.073578,0.07468,0.040459,0.035779,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,7,Hansestadt Rostock IV,others,0.078847,0.098702,0.0,0.074661,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,spd,0.463931,0.352015,0.473602,0.345966,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,afd,0.111581,0.118646,0.140352,0.147256,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,cdu,0.118411,0.120944,0.154748,0.188488,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,linke,0.09848,0.128061,0.099869,0.136784,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,gruene,0.082132,0.117861,0.053106,0.077789,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,fdp,0.060941,0.07311,0.033083,0.03316,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,8,Schwerin I,others,0.064524,0.089363,0.04524,0.070558,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,spd,0.38561,0.442675,0.295508,0.361388,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,afd,0.175013,0.157436,0.198181,0.181904,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,cdu,0.120853,0.10444,0.168212,0.152865,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,linke,0.133609,0.112542,0.215888,0.152688,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,gruene,0.064623,0.052608,0.039541,0.039249,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,fdp,0.065965,0.055605,0.027517,0.027563,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,9,Schwerin II,others,0.054328,0.074695,0.055153,0.084342,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,spd,0.433721,0.450908,0.40591,0.380239,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,afd,0.128126,0.124048,0.210864,0.19632,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,cdu,0.124192,0.104267,0.142566,0.138088,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,linke,0.098277,0.104628,0.123713,0.122762,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,gruene,0.08394,0.081828,0.056061,0.054214,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,fdp,0.073041,0.059433,0.043974,0.036853,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,10,Wismar,others,0.058704,0.074888,0.016913,0.071524,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,spd,0.384795,0.413853,0.2934,0.320825,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,afd,0.166459,0.154059,0.19285,0.213496,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,cdu,0.165772,0.130255,0.210126,0.202021,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,linke,0.098078,0.090954,0.107108,0.116235,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,gruene,0.057431,0.060211,0.049605,0.044671,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,fdp,0.06551,0.063914,0.03025,0.029851,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,11,Landkreis Rostock I,others,0.061954,0.086754,0.116662,0.072902,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,spd,0.34207,0.40171,0.294156,0.315251,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,afd,0.161678,0.149751,0.201094,0.198027,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,cdu,0.166569,0.138448,0.240446,0.215456,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,linke,0.113988,0.095987,0.157777,0.125616,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,gruene,0.071482,0.062394,0.052695,0.047937,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,fdp,0.084481,0.072374,0.035909,0.03446,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,12,Landkreis Rostock II,others,0.059732,0.079336,0.017924,0.063252,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,spd,0.256262,0.336765,0.189049,0.240983,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,afd,0.273824,0.240401,0.251013,0.245662,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,cdu,0.264989,0.210854,0.281637,0.233106,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,linke,0.099822,0.080384,0.143112,0.121528,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,gruene,0.032322,0.02574,0.022045,0.024933,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,fdp,0.047837,0.042203,0.0,0.020906,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,13,Mecklenburgische Seenplatte I - Vorpommern-Greifswald I,others,0.024942,0.063653,0.113143,0.112881,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,spd,0.342757,0.400371,0.244747,0.276927,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,afd,0.225917,0.210336,0.21438,0.209185,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,cdu,0.213613,0.158753,0.239385,0.209404,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,linke,0.094283,0.084915,0.156763,0.131219,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,gruene,0.020995,0.024108,0.022653,0.02187,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,fdp,0.060544,0.049583,0.039341,0.028486,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,14,Mecklenburgische Seenplatte II,others,0.041892,0.071934,0.082731,0.122909,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,spd,0.329628,0.405112,0.295441,0.321776,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,afd,0.223138,0.197356,0.220477,0.206375,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,cdu,0.201274,0.145279,0.247517,0.220599,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,linke,0.101152,0.08434,0.129637,0.110829,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,gruene,0.045533,0.035011,0.032006,0.032639,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,fdp,0.059889,0.055482,0.030138,0.025315,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,15,Landkreis Rostock III,others,0.039386,0.077419,0.044783,0.082465,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,spd,0.394221,0.442301,0.329412,0.353017,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,afd,0.194289,0.17601,0.213211,0.200364,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,cdu,0.167613,0.118344,0.254978,0.190845,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,linke,0.088359,0.081776,0.117038,0.110365,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,gruene,0.044247,0.045643,0.032667,0.038609,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,fdp,0.070485,0.055154,0.02905,0.026586,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,16,Landkreis Rostock IV,others,0.040786,0.080772,0.023644,0.080214,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,spd,0.514532,0.480893,0.416658,0.370479,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,afd,0.14806,0.143043,0.202575,0.175844,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,cdu,0.116168,0.11942,0.143871,0.161194,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,linke,0.086538,0.077601,0.11457,0.110426,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,gruene,0.040506,0.044989,0.025601,0.032936,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,fdp,0.052036,0.053934,0.083849,0.047585,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,17,Ludwigslust-Parchim I,others,0.04216,0.08012,0.012876,0.101536,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,spd,0.386827,0.435089,0.299808,0.349137,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,afd,0.164915,0.151794,0.191401,0.172608,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,cdu,0.18974,0.148055,0.266798,0.1986,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,linke,0.104877,0.091043,0.131899,0.120859,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,gruene,0.039096,0.036299,0.026727,0.030378,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,fdp,0.077306,0.062642,0.026445,0.028791,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,18,Ludwigslust-Parchim II,others,0.037239,0.075078,0.056923,0.099627,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,spd,0.333153,0.411881,0.286598,0.33616,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,afd,0.187912,0.178709,0.226724,0.20604,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,cdu,0.15401,0.131572,0.195839,0.170981,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,linke,0.133984,0.095039,0.149436,0.118615,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,gruene,0.032818,0.037431,0.030885,0.030894,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,fdp,0.066314,0.056709,0.042361,0.034464,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,19,Ludwigslust-Parchim III,others,0.091809,0.088658,0.068157,0.102846,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,spd,0.354934,0.414001,0.301503,0.31449,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,afd,0.189061,0.185317,0.231627,0.221614,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,cdu,0.201055,0.135419,0.211323,0.187854,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,linke,0.115401,0.093264,0.141372,0.133238,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,gruene,0.043563,0.045533,0.069123,0.05094,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,fdp,0.057828,0.055187,0.02795,0.026858,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,20,Mecklenburgische Seenplatte III,others,0.038158,0.071278,0.017102,0.065006,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,spd,0.374869,0.413982,0.286173,0.280657,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,afd,0.184061,0.17536,0.223801,0.215677,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,cdu,0.147914,0.124251,0.264085,0.225633,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,linke,0.120005,0.100861,0.150336,0.141615,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,gruene,0.065238,0.056486,0.042863,0.045602,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,fdp,0.056563,0.051196,0.032743,0.024671,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,21,Mecklenburgische Seenplatte IV,others,0.051349,0.077865,0.0,0.066145,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,spd,0.29437,0.374637,0.245865,0.262706,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,afd,0.240401,0.22362,0.259247,0.240743,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,cdu,0.183976,0.145496,0.265797,0.218546,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,linke,0.120721,0.089788,0.131932,0.119902,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,gruene,0.031024,0.03159,0.029732,0.032944,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,fdp,0.05501,0.050934,0.035527,0.025951,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,22,Mecklenburgische Seenplatte V,others,0.074498,0.083935,0.031899,0.099207,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,spd,0.303745,0.403502,0.273483,0.303259,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,afd,0.17835,0.170539,0.20487,0.20603,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,cdu,0.243062,0.162031,0.273252,0.229911,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,linke,0.112404,0.091631,0.120732,0.115947,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,gruene,0.053858,0.046347,0.02934,0.036006,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,fdp,0.051803,0.052238,0.028647,0.027661,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,23,Vorpommern-Rügen I,others,0.056778,0.073713,0.069676,0.081186,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,spd,0.226832,0.336961,0.167562,0.235626,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,afd,0.226667,0.214723,0.214806,0.230676,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,cdu,0.331068,0.204496,0.428142,0.276621,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,linke,0.095084,0.08089,0.140583,0.114482,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,gruene,0.041322,0.038394,0.048907,0.036616,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,fdp,0.055023,0.050755,0.0,0.024749,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,24,Vorpommern-Rügen II - Stralsund III,others,0.024004,0.07378,0.0,0.081229,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,spd,0.313849,0.379611,0.236311,0.272923,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,afd,0.222999,0.206976,0.262354,0.247205,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,cdu,0.174961,0.141632,0.267195,0.210138,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,linke,0.103571,0.089278,0.148331,0.11857,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,gruene,0.048686,0.043275,0.041736,0.038267,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,fdp,0.060399,0.05404,0.044073,0.028203,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,25,Vorpommern-Rügen III - Stralsund I,others,0.075534,0.085187,0.0,0.084693,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,spd,0.255447,0.335567,0.208982,0.2363,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,afd,0.161733,0.157602,0.21903,0.217606,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,cdu,0.16856,0.136149,0.22246,0.226037,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,linke,0.112582,0.090333,0.123453,0.110697,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,gruene,0.109924,0.099787,0.098885,0.084856,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,fdp,0.090222,0.070126,0.03578,0.035372,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,26,Stralsund II,others,0.101532,0.110436,0.09141,0.089132,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,spd,0.383054,0.426119,0.38493,0.361524,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,afd,0.152494,0.138919,0.188725,0.179732,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,cdu,0.169617,0.134252,0.18552,0.181571,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,linke,0.152035,0.10104,0.152174,0.125313,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,gruene,0.061248,0.072555,0.041341,0.052728,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,fdp,0.050821,0.055598,0.022734,0.027283,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,27,Nordwestmecklenburg I,others,0.030731,0.071518,0.024576,0.071849,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,spd,0.346824,0.41559,0.319165,0.343985,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,afd,0.183181,0.169323,0.230938,0.200776,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,cdu,0.164742,0.132478,0.204508,0.180935,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,linke,0.112569,0.097377,0.138211,0.119217,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,gruene,0.061288,0.053967,0.040881,0.040965,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,fdp,0.062268,0.056628,0.035636,0.031888,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,28,Nordwestmecklenburg II,others,0.069127,0.074637,0.030661,0.082234,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,spd,0.281599,0.356016,0.183663,0.226704,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,afd,0.236167,0.213107,0.316022,0.276382,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,cdu,0.201288,0.167768,0.230108,0.194375,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,linke,0.085608,0.073117,0.163996,0.117331,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,gruene,0.040706,0.039945,0.040279,0.033804,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,fdp,0.094369,0.061762,0.065932,0.035727,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,29,Vorpommern-Greifswald II,others,0.060264,0.088284,0.0,0.115677,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,spd,0.278847,0.347491,0.177677,0.187843,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,afd,0.255107,0.237392,0.353098,0.323923,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,cdu,0.230993,0.154903,0.189885,0.177831,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,linke,0.078997,0.074094,0.179421,0.13591,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,gruene,0.039264,0.038151,0.027664,0.033271,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,fdp,0.056663,0.055314,0.034161,0.033169,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,30,Vorpommern-Greifswald III,others,0.06013,0.092656,0.038093,0.108054,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,spd,0.35134,0.407925,0.283198,0.320385,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,afd,0.196252,0.185038,0.215609,0.200381,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,cdu,0.19296,0.141704,0.249143,0.19748,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,linke,0.107187,0.095087,0.143638,0.128362,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,gruene,0.033109,0.034489,0.028632,0.031527,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,fdp,0.050186,0.051483,0.025942,0.029882,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,31,Ludwigslust-Parchim IV,others,0.068967,0.084273,0.053837,0.091984,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,spd,0.346471,0.408734,0.315914,0.339882,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,afd,0.173985,0.164872,0.187144,0.18536,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,cdu,0.161846,0.136257,0.233618,0.188469,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,linke,0.117975,0.103804,0.114125,0.116223,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,gruene,0.059119,0.047207,0.038818,0.039169,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,fdp,0.062341,0.059876,0.029956,0.029387,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,32,Ludwigslust-Parchim V,others,0.078263,0.07925,0.080424,0.101509,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,spd,0.273668,0.371344,0.176992,0.250084,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,afd,0.207971,0.196934,0.227639,0.242793,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,cdu,0.249719,0.148113,0.258447,0.200864,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,linke,0.113299,0.102712,0.133455,0.137533,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,gruene,0.047898,0.046462,0.034803,0.040173,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,fdp,0.051505,0.052358,0.027558,0.031936,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,33,Vorpommern-Rügen IV,others,0.05594,0.082075,0.141106,0.096617,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,spd,0.31043,0.381852,0.223714,0.253278,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,afd,0.197498,0.178309,0.248996,0.24897,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,cdu,0.216697,0.148349,0.278858,0.211013,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,linke,0.107755,0.100564,0.150063,0.133038,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,gruene,0.058678,0.049611,0.044417,0.04189,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,fdp,0.059271,0.060617,0.053952,0.042452,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,34,Vorpommern-Rügen V,others,0.049671,0.080698,0.0,0.069359,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,spd,0.368089,0.389716,0.310402,0.262978,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,afd,0.279658,0.237023,0.292907,0.244909,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,cdu,0.152264,0.133207,0.184913,0.173278,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,linke,0.081465,0.075616,0.110841,0.128664,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,gruene,0.023182,0.020839,0.01874,0.018952,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,fdp,0.048269,0.043627,0.026272,0.024191,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,35,Vorpommern-Greifswald IV,others,0.047072,0.099973,0.055925,0.147028,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,spd,0.305605,0.38282,0.240836,0.253161,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,afd,0.268119,0.232705,0.286129,0.263786,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,cdu,0.235452,0.166302,0.262131,0.185439,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,linke,0.091991,0.075323,0.171809,0.132317,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,gruene,0.026003,0.02174,0.039095,0.023465,0,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,fdp,0.046888,0.039582,0.0,0.02151,1,ltw11-21_meckpom_abs.csv
+MV,2021,2016,36,Vorpommern-Greifswald V,others,0.025943,0.081527,0.0,0.120323,1,ltw11-21_meckpom_abs.csv
+ST,2021,2016,1,Salzwedel,spd,0.09687,0.086735,0.156,0.13,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,afd,0.176698,0.183097,0.22,0.219,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,cdu,0.363546,0.362182,0.336,0.312,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,linke,0.149365,0.129253,0.174,0.173,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,gruene,0.045791,0.058846,0.057,0.064,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,fdp,0.051834,0.055778,0.002,0.037,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,1,Salzwedel,others,0.115895,0.124109,0.055,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,spd,0.139332,0.102801,0.191,0.136,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,afd,0.198201,0.189627,0.24,0.219,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,cdu,0.363437,0.387836,0.305,0.324,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,linke,0.125098,0.108931,0.159,0.155,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,gruene,0.042257,0.040979,0.054,0.045,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,fdp,0.048909,0.060262,0.052,0.045,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,2,Gardelegen-Klötze,others,0.082767,0.109563,0.0,0.076,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,spd,0.068543,0.072448,0.164,0.108,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,afd,0.210862,0.210321,0.0,0.242,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,cdu,0.266504,0.326982,0.401,0.332,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,linke,0.113993,0.105505,0.273,0.181,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,gruene,0.033835,0.041734,0.062,0.038,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,fdp,0.045037,0.049309,0.101,0.039,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,3,Havelberg-Osterburg,others,0.261225,0.193701,0.0,0.06,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,spd,0.11838,0.08976,0.204,0.118,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,afd,0.223094,0.218515,0.0,0.25,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,cdu,0.296782,0.337994,0.324,0.308,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,linke,0.108915,0.101897,0.266,0.164,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,gruene,0.04654,0.051179,0.062,0.043,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,fdp,0.070871,0.056163,0.145,0.049,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,4,Stendal,others,0.135417,0.144492,0.0,0.068,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,spd,0.11569,0.084526,0.136,0.111,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,afd,0.266334,0.244163,0.274,0.252,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,cdu,0.312534,0.385388,0.305,0.316,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,linke,0.103227,0.09574,0.186,0.162,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,gruene,0.035248,0.035442,0.033,0.036,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,fdp,0.048215,0.048916,0.044,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,5,Genthin,others,0.118753,0.105825,0.022,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,spd,0.123622,0.090468,0.118,0.099,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,afd,0.206,0.203843,0.228,0.215,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,cdu,0.384615,0.39806,0.288,0.306,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,linke,0.110659,0.104645,0.185,0.159,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,gruene,0.045541,0.046857,0.032,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,fdp,0.069862,0.061817,0.051,0.051,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,6,Burg,others,0.0597,0.094311,0.098,0.004,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,spd,0.115779,0.09227,0.161,0.12,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,afd,0.236246,0.21758,0.199,0.232,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,cdu,0.370157,0.38379,0.346,0.337,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,linke,0.115735,0.10424,0.187,0.151,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,gruene,0.042765,0.042447,0.044,0.038,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,fdp,0.055325,0.059894,0.063,0.038,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,7,Haldensleben,others,0.063993,0.099779,0.0,0.084,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,spd,0.082344,0.076657,0.094,0.093,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,afd,0.20637,0.223269,0.252,0.239,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,cdu,0.403927,0.365958,0.373,0.339,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,linke,0.110451,0.104886,0.154,0.146,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,gruene,0.038992,0.044289,0.037,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,fdp,0.058287,0.07326,0.043,0.046,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,8,Wolmirstedt,others,0.099629,0.111681,0.047,0.096,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,spd,0.137881,0.093862,0.216,0.118,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,afd,0.245235,0.232977,0.139,0.251,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,cdu,0.327698,0.37459,0.328,0.316,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,linke,0.097022,0.093784,0.175,0.145,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,gruene,0.033306,0.033422,0.051,0.034,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,fdp,0.093734,0.067781,0.091,0.052,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,9,Oschersleben-Wanzleben,others,0.065125,0.103584,0.0,0.084,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,spd,0.120489,0.096078,0.146,0.118,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,afd,0.198886,0.187414,0.239,0.216,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,cdu,0.292221,0.31125,0.237,0.265,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,linke,0.143455,0.129741,0.2,0.182,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,gruene,0.071318,0.083578,0.049,0.059,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,fdp,0.066655,0.059957,0.048,0.042,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,10,Magdeburg I,others,0.106976,0.131983,0.081,0.118,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,spd,0.128643,0.100676,0.167,0.129,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,afd,0.112328,0.110068,0.142,0.133,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,cdu,0.281245,0.30548,0.269,0.301,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,linke,0.140769,0.134527,0.181,0.176,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,gruene,0.1589,0.154598,0.129,0.117,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,fdp,0.071703,0.073174,0.046,0.055,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,11,Magdeburg II,others,0.106412,0.121478,0.066,0.089,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,spd,0.107973,0.094222,0.146,0.117,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,afd,0.16482,0.155832,0.209,0.187,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,cdu,0.326454,0.354219,0.301,0.309,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,linke,0.12557,0.114506,0.19,0.167,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,gruene,0.116156,0.087859,0.057,0.067,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,fdp,0.072742,0.067033,0.039,0.044,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,12,Magdeburg III,others,0.086284,0.126329,0.058,0.109,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,spd,0.101943,0.090852,0.132,0.112,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,afd,0.174706,0.165451,0.209,0.194,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,cdu,0.331551,0.344294,0.279,0.303,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,linke,0.125432,0.124143,0.197,0.171,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,gruene,0.09883,0.092015,0.066,0.073,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,fdp,0.064681,0.068469,0.046,0.048,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,13,Magdeburg IV,others,0.102855,0.114775,0.024,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,spd,0.083643,0.082817,0.14,0.107,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,afd,0.212919,0.209145,0.246,0.228,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,cdu,0.303518,0.374823,0.359,0.33,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,linke,0.222842,0.130577,0.174,0.165,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,gruene,0.033227,0.046964,0.04,0.047,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,fdp,0.069511,0.061261,0.04,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,14,Halberstadt,others,0.07434,0.094414,0.001,0.082,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,spd,0.179654,0.120122,0.242,0.121,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,afd,0.201585,0.187739,0.0,0.254,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,cdu,0.33607,0.388635,0.424,0.326,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,linke,0.10994,0.0989,0.257,0.144,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,gruene,0.050192,0.046965,0.077,0.043,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,fdp,0.063669,0.060244,0.0,0.035,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,15,Blankenburg,others,0.058891,0.097393,0.0,0.077,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,spd,0.243633,0.125019,0.21,0.121,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,afd,0.183911,0.177295,0.0,0.241,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,cdu,0.303978,0.389894,0.399,0.319,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,linke,0.10708,0.099697,0.284,0.154,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,gruene,0.037599,0.056936,0.108,0.055,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,fdp,0.062677,0.060743,0.0,0.038,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,16,Wernigerode,others,0.061122,0.090415,0.0,0.072,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,spd,0.106035,0.088432,0.125,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,afd,0.208974,0.196795,0.265,0.235,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,cdu,0.334508,0.380303,0.341,0.33,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,linke,0.12411,0.107724,0.157,0.154,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,gruene,0.065578,0.056562,0.053,0.051,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,fdp,0.086927,0.069637,0.045,0.046,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,17,Quedlinburg,others,0.073868,0.100547,0.014,0.003,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,spd,0.093092,0.08262,0.153,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,afd,0.227075,0.222094,0.0,0.259,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,cdu,0.338201,0.376926,0.289,0.301,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,linke,0.134261,0.117269,0.251,0.171,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,gruene,0.041261,0.036823,0.084,0.044,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,fdp,0.060037,0.062312,0.13,0.045,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,18,Aschersleben,others,0.106073,0.101957,0.093,0.077,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,spd,0.082546,0.068361,0.077,0.081,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,afd,0.286737,0.279693,0.321,0.297,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,cdu,0.32695,0.361133,0.258,0.28,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,linke,0.12244,0.106275,0.162,0.155,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,gruene,0.016233,0.025682,0.031,0.028,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,fdp,0.117507,0.077151,0.095,0.066,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,19,Staßfurt,others,0.047586,0.081705,0.056,0.093,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,spd,0.130267,0.090375,0.159,0.113,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,afd,0.225892,0.219677,0.217,0.238,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,cdu,0.345444,0.400829,0.308,0.327,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,linke,0.128655,0.105511,0.158,0.151,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,gruene,0.031378,0.035063,0.031,0.034,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,fdp,0.077781,0.058411,0.095,0.055,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,20,Schönebeck,others,0.060582,0.090133,0.033,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,spd,0.088563,0.072411,0.125,0.096,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,afd,0.247961,0.235411,0.311,0.273,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,cdu,0.347322,0.379354,0.281,0.292,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,linke,0.133132,0.115376,0.186,0.166,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,gruene,0.039744,0.036358,0.033,0.034,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,fdp,0.093694,0.073747,0.055,0.057,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,21,Bernburg,others,0.049585,0.087343,0.009,0.082,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,spd,0.06154,0.061512,0.117,0.093,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,afd,0.251361,0.241782,0.279,0.271,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,cdu,0.374233,0.384778,0.25,0.286,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,linke,0.176785,0.127947,0.224,0.171,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,gruene,0.032556,0.034813,0.028,0.032,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,fdp,0.049579,0.058079,0.024,0.043,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,22,Köthen,others,0.053947,0.091089,0.078,0.104,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,spd,0.0737,0.078411,0.129,0.101,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,afd,0.231461,0.223835,0.238,0.23,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,cdu,0.365377,0.391847,0.293,0.312,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,linke,0.130379,0.110441,0.142,0.148,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,gruene,0.041115,0.03881,0.041,0.04,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,fdp,0.062256,0.059859,0.042,0.046,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,23,Zerbst,others,0.095714,0.096797,0.115,0.123,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,spd,0.070959,0.077363,0.132,0.095,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,afd,0.182456,0.183073,0.224,0.216,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,cdu,0.539024,0.430591,0.336,0.361,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,linke,0.083918,0.093567,0.154,0.142,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,gruene,0.029868,0.049127,0.034,0.039,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,fdp,0.0,0.051895,0.0,0.0,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,24,Wittenberg,others,0.093775,0.114384,0.035,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,spd,0.094407,0.063507,0.093,0.086,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,afd,0.257159,0.223529,0.288,0.263,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,cdu,0.392005,0.440129,0.29,0.322,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,linke,0.116971,0.089701,0.156,0.149,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,gruene,0.038324,0.031449,0.032,0.03,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,fdp,0.0,0.052123,0.0,0.0,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,25,Jessen,others,0.101134,0.099562,0.054,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,spd,0.105185,0.082125,0.13,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,afd,0.190735,0.181022,0.255,0.225,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,cdu,0.370553,0.406783,0.249,0.287,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,linke,0.14495,0.111951,0.232,0.184,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,gruene,0.084347,0.073574,0.061,0.065,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,fdp,0.10423,0.072293,0.073,0.061,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,26,Dessau-Roßlau,others,0.0,0.072252,0.0,0.075,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,spd,0.121361,0.075035,0.119,0.101,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,afd,0.222863,0.210173,0.254,0.233,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,cdu,0.356021,0.392214,0.329,0.295,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,linke,0.106679,0.096208,0.156,0.153,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,gruene,0.048163,0.063562,0.049,0.062,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,fdp,0.06242,0.062297,0.047,0.054,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,27,Dessau-Roßlau-Wittenberg,others,0.082492,0.10051,0.046,0.102,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,spd,0.087276,0.07084,0.126,0.095,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,afd,0.26663,0.246303,0.32,0.299,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,cdu,0.352628,0.388638,0.26,0.287,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,linke,0.113836,0.098107,0.162,0.148,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,gruene,0.038406,0.038161,0.012,0.035,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,fdp,0.061235,0.055362,0.05,0.04,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,28,Bitterfeld-Wolfen,others,0.079989,0.102589,0.009,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,spd,0.089567,0.073854,0.096,0.086,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,afd,0.246457,0.236464,0.301,0.274,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,cdu,0.352101,0.384413,0.285,0.295,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,linke,0.099511,0.093562,0.175,0.159,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,gruene,0.047746,0.042321,0.038,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,fdp,0.094106,0.077726,0.063,0.062,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,29,Saalekreis,others,0.07051,0.09166,0.014,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,spd,0.08979,0.079796,0.144,0.097,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,afd,0.286297,0.265366,0.315,0.288,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,cdu,0.322899,0.367298,0.207,0.257,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,linke,0.166425,0.116575,0.214,0.189,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,gruene,0.026422,0.025065,0.035,0.028,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,fdp,0.071145,0.059105,0.043,0.04,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,30,Eisleben,others,0.037022,0.086794,0.042,0.101,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,spd,0.086718,0.078671,0.119,0.097,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,afd,0.269486,0.245499,0.303,0.281,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,cdu,0.350418,0.387442,0.27,0.275,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,linke,0.141183,0.109024,0.181,0.173,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,gruene,0.03188,0.030241,0.03,0.036,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,fdp,0.079625,0.060036,0.037,0.038,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,31,Sangerhausen,others,0.04069,0.089086,0.031,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,spd,0.085453,0.069251,0.113,0.092,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,afd,0.284854,0.258119,0.331,0.288,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,cdu,0.348543,0.386824,0.29,0.294,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,linke,0.142231,0.100309,0.171,0.153,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,gruene,0.021372,0.028999,0.033,0.031,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,fdp,0.080145,0.064885,0.061,0.054,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,32,Querfurt,others,0.037401,0.091613,0.001,0.088,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,spd,0.108457,0.07955,0.144,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,afd,0.28875,0.245099,0.324,0.295,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,cdu,0.411654,0.369304,0.239,0.271,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,linke,0.143453,0.104818,0.163,0.156,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,gruene,0.047686,0.041474,0.044,0.044,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,fdp,0.0,0.065174,0.0,0.0,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,33,Merseburg,others,0.0,0.09458,0.086,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,spd,0.087486,0.071449,0.129,0.095,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,afd,0.246804,0.228153,0.309,0.275,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,cdu,0.346829,0.381502,0.289,0.29,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,linke,0.094316,0.089835,0.16,0.151,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,gruene,0.047666,0.045267,0.036,0.039,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,fdp,0.094526,0.076622,0.077,0.062,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,34,Bad Dürrenberg-Saalekreis,others,0.082373,0.107173,0.0,0.088,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,spd,0.095188,0.081473,0.125,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,afd,0.242072,0.223484,0.311,0.263,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,cdu,0.314042,0.34437,0.23,0.232,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,linke,0.160979,0.127334,0.228,0.208,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,gruene,0.063378,0.06179,0.046,0.05,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,fdp,0.068977,0.063378,0.061,0.055,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,35,Halle I,others,0.055365,0.098171,0.0,0.089,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,spd,0.157907,0.091869,0.165,0.121,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,afd,0.1293,0.125401,0.187,0.173,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,cdu,0.269923,0.314289,0.26,0.253,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,linke,0.142331,0.137336,0.211,0.186,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,gruene,0.132181,0.150776,0.096,0.116,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,fdp,0.088098,0.075455,0.082,0.066,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,36,Halle II,others,0.08026,0.104874,0.0,0.085,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,spd,0.129511,0.09271,0.202,0.131,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,afd,0.092067,0.091297,0.131,0.124,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,cdu,0.229748,0.268297,0.239,0.227,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,linke,0.173595,0.143261,0.184,0.185,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,gruene,0.212195,0.236144,0.153,0.189,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,fdp,0.090796,0.072063,0.057,0.069,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,37,Halle III,others,0.072088,0.096228,0.034,0.075,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,spd,0.095044,0.083095,0.129,0.103,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,afd,0.21074,0.198539,0.274,0.244,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,cdu,0.385176,0.379338,0.299,0.272,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,linke,0.129955,0.111386,0.189,0.183,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,gruene,0.057112,0.056311,0.045,0.049,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,fdp,0.073385,0.076177,0.062,0.061,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,38,Halle IV,others,0.048588,0.095153,0.002,0.003,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,spd,0.231236,0.096927,0.189,0.122,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,afd,0.248514,0.252214,0.318,0.296,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,cdu,0.27666,0.373088,0.232,0.262,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,linke,0.077093,0.092308,0.165,0.155,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,gruene,0.02182,0.032634,0.04,0.034,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,fdp,0.054296,0.05836,0.056,0.044,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,39,Weißenfels,others,0.09038,0.094469,0.0,0.087,1,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,spd,0.078475,0.067755,0.103,0.091,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,afd,0.2402,0.231535,0.308,0.286,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,cdu,0.421433,0.407416,0.319,0.294,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,linke,0.092874,0.098172,0.152,0.15,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,gruene,0.032019,0.045737,0.043,0.041,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,fdp,0.056968,0.064461,0.052,0.05,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,40,Naumburg,others,0.078031,0.084925,0.022,0.002,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,spd,0.084113,0.068302,0.136,0.095,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,afd,0.270855,0.264855,0.316,0.304,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,cdu,0.26125,0.370242,0.29,0.287,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,linke,0.140434,0.10604,0.144,0.155,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,gruene,0.033882,0.031461,0.062,0.032,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,fdp,0.075367,0.064308,0.03,0.035,0,stala lt21 ergtab vergleich 2016 %
+ST,2021,2016,41,Zeitz,others,0.134099,0.094792,0.023,0.002,0,stala lt21 ergtab vergleich 2016 %
+BE,2023,2016,1,Mitte 1,spd,0.164991,0.152086,0.216667,0.189684,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,afd,0.040802,0.040629,0.06709,0.067576,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,cdu,0.218767,0.20606,0.163925,0.148898,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,linke,0.133102,0.128213,0.144278,0.152147,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,gruene,0.334637,0.305902,0.298705,0.265107,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,fdp,0.076306,0.080318,0.086637,0.108312,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,1,Mitte 1,others,0.031394,0.086793,0.022697,0.068276,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,spd,0.215077,0.175539,0.238529,0.190307,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,afd,0.067856,0.070656,0.120004,0.123259,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,cdu,0.249125,0.242413,0.140335,0.135433,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,linke,0.166787,0.176017,0.278638,0.263857,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,gruene,0.200451,0.19483,0.136038,0.14341,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,fdp,0.051599,0.062183,0.056282,0.067232,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,2,Mitte 2,others,0.049106,0.078363,0.030174,0.076501,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,spd,0.186496,0.184113,0.262751,0.220068,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,afd,0.04677,0.046493,0.088052,0.089293,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,cdu,0.223263,0.22237,0.157982,0.155384,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,linke,0.112749,0.124123,0.104819,0.13173,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,gruene,0.330265,0.280606,0.262249,0.24312,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,fdp,0.053208,0.061158,0.071135,0.084723,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,3,Mitte 3,others,0.047249,0.081137,0.053012,0.075683,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,spd,0.141667,0.147138,0.236666,0.213811,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,afd,0.044014,0.045508,0.083945,0.082671,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,cdu,0.158216,0.156169,0.118469,0.116,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,linke,0.175293,0.168074,0.191051,0.168282,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,gruene,0.401232,0.343244,0.242103,0.256835,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,fdp,0.034272,0.038119,0.043277,0.052173,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,4,Mitte 4,others,0.045305,0.101748,0.084489,0.110228,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,spd,0.206056,0.184064,0.261551,0.248015,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,afd,0.085941,0.084984,0.142535,0.134554,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,cdu,0.244394,0.24072,0.159342,0.158135,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,linke,0.139385,0.140699,0.134101,0.134317,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,gruene,0.225124,0.216554,0.199667,0.165659,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,fdp,0.028468,0.03155,0.048402,0.048762,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,5,Mitte 5,others,0.070632,0.10143,0.054401,0.110558,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,spd,0.161589,0.148483,0.250228,0.219303,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,afd,0.05713,0.053676,0.101986,0.097991,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,cdu,0.15027,0.147495,0.104303,0.102416,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,linke,0.210666,0.215084,0.191479,0.193383,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,gruene,0.320064,0.287311,0.244753,0.212981,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,fdp,0.027729,0.02813,0.039657,0.040531,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,6,Mitte 6,others,0.072552,0.119821,0.067593,0.133394,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,spd,0.184316,0.164019,0.31481,0.241864,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,afd,0.053967,0.056173,0.104294,0.099368,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,cdu,0.193451,0.177587,0.12058,0.120399,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,linke,0.175111,0.175759,0.169636,0.176705,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,gruene,0.301384,0.284519,0.202872,0.206456,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,fdp,0.031481,0.034941,0.041478,0.044126,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,7,Mitte 7,others,0.060291,0.107002,0.046331,0.111082,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,spd,0.171719,0.160614,0.216262,0.200166,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,afd,0.024609,0.026236,0.014044,0.053246,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,cdu,0.152868,0.142509,0.092454,0.083554,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,linke,0.15477,0.173786,0.169569,0.189735,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,gruene,0.403194,0.369796,0.386557,0.320307,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,fdp,0.033518,0.037511,0.042185,0.045202,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,8,Friedrichshain-Kreuzberg 1,others,0.059322,0.089549,0.078928,0.10779,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,spd,0.130476,0.126954,0.174079,0.165618,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,afd,0.019545,0.019628,0.032702,0.041875,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,cdu,0.109557,0.102255,0.066032,0.061173,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,linke,0.270815,0.243945,0.211856,0.234962,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,gruene,0.379475,0.382651,0.385412,0.338494,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,fdp,0.02319,0.02446,0.028411,0.03193,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,9,Friedrichshain-Kreuzberg 2,others,0.066942,0.100107,0.101507,0.125947,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,spd,0.179131,0.15777,0.21157,0.201508,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,afd,0.027812,0.02877,0.056678,0.057392,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,cdu,0.148146,0.143541,0.080725,0.081735,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,linke,0.198171,0.215746,0.177659,0.215815,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,gruene,0.350548,0.328963,0.333564,0.289398,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,fdp,0.02215,0.023799,0.030232,0.035877,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,10,Friedrichshain-Kreuzberg 3,others,0.074042,0.101411,0.109571,0.118277,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,spd,0.180134,0.171042,0.2008,0.194148,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,afd,0.06881,0.068686,0.105233,0.10548,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,cdu,0.180641,0.181665,0.09371,0.090751,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,linke,0.247086,0.214547,0.265606,0.274585,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,gruene,0.222704,0.22399,0.227132,0.189288,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,fdp,0.034687,0.036086,0.036474,0.041508,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,11,Friedrichshain-Kreuzberg 4,others,0.065938,0.103985,0.071044,0.10424,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,spd,0.144398,0.135275,0.172664,0.168692,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,afd,0.041347,0.041522,0.059837,0.06041,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,cdu,0.110295,0.11148,0.076336,0.073532,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,linke,0.219056,0.218793,0.207179,0.248493,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,gruene,0.361286,0.339401,0.321017,0.278626,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,fdp,0.033733,0.033449,0.030884,0.037714,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,12,Friedrichshain-Kreuzberg 5,others,0.089885,0.12008,0.132083,0.132533,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,spd,0.132169,0.128306,0.172849,0.165049,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,afd,0.033947,0.03411,0.063853,0.062559,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,cdu,0.126345,0.121694,0.074714,0.078489,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,linke,0.196548,0.200829,0.219169,0.234571,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,gruene,0.394827,0.365082,0.321819,0.292225,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,fdp,0.037148,0.041824,0.03173,0.041777,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,13,Friedrichshain-Kreuzberg 6,others,0.079018,0.108155,0.115865,0.12533,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,spd,0.142785,0.161864,0.211977,0.19629,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,afd,0.157994,0.170019,0.223693,0.223486,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,cdu,0.41617,0.335548,0.200347,0.163864,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,linke,0.101008,0.110276,0.192016,0.188032,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,gruene,0.091525,0.093875,0.071035,0.075057,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,fdp,0.025332,0.034086,0.037709,0.043841,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,14,Pankow 1,others,0.065186,0.094333,0.063224,0.10943,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,spd,0.19125,0.175553,0.233388,0.209937,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,afd,0.129473,0.130543,0.189511,0.188613,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,cdu,0.314091,0.295921,0.198556,0.177278,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,linke,0.108688,0.11899,0.179075,0.177929,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,gruene,0.153062,0.142406,0.112541,0.111483,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,fdp,0.037876,0.044433,0.045965,0.050117,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,15,Pankow 2,others,0.06556,0.092153,0.040964,0.084643,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,spd,0.151104,0.170613,0.247958,0.215518,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,afd,0.094253,0.092027,0.133449,0.130276,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,cdu,0.197087,0.202723,0.117246,0.123886,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,linke,0.214732,0.166352,0.225456,0.231515,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,gruene,0.247646,0.230134,0.176586,0.176179,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,fdp,0.028734,0.034043,0.031755,0.034819,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,16,Pankow 3,others,0.066444,0.104107,0.06755,0.087807,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,spd,0.19772,0.180131,0.223776,0.210184,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,afd,0.13364,0.135687,0.200981,0.196767,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,cdu,0.30176,0.28867,0.184519,0.154984,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,linke,0.138683,0.142638,0.217286,0.208177,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,gruene,0.126679,0.121237,0.092233,0.09149,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,fdp,0.02823,0.032239,0.033717,0.03423,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,17,Pankow 4,others,0.073288,0.099398,0.047488,0.104168,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,spd,0.181963,0.174219,0.241809,0.214334,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,afd,0.106062,0.103853,0.154006,0.149821,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,cdu,0.20803,0.206258,0.120711,0.11621,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,linke,0.177419,0.175766,0.252537,0.240932,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,gruene,0.221262,0.195628,0.146516,0.142664,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,fdp,0.026865,0.030891,0.028027,0.02892,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,18,Pankow 5,others,0.078398,0.113385,0.056393,0.107119,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,spd,0.139219,0.132008,0.174076,0.181632,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,afd,0.03399,0.035122,0.054197,0.057778,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,cdu,0.122596,0.121119,0.089746,0.087781,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,linke,0.182847,0.19141,0.204428,0.213818,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,gruene,0.416399,0.377815,0.364966,0.317364,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,fdp,0.039624,0.043369,0.037077,0.050135,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,19,Pankow 6,others,0.065326,0.099157,0.075509,0.091493,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,spd,0.155346,0.149293,0.249865,0.197556,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,afd,0.071905,0.072866,0.121275,0.115953,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,cdu,0.165123,0.160698,0.102715,0.099318,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,linke,0.183746,0.1881,0.226199,0.230826,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,gruene,0.309037,0.275003,0.194874,0.201482,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,fdp,0.030728,0.035762,0.035302,0.039501,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,20,Pankow 7,others,0.084114,0.118278,0.06977,0.115364,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,spd,0.147832,0.136164,0.255846,0.185229,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,afd,0.03902,0.038566,0.0,0.063096,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,cdu,0.146054,0.143858,0.114254,0.101652,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,linke,0.181567,0.186615,0.199886,0.207928,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,gruene,0.372073,0.343147,0.297519,0.293912,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,fdp,0.048948,0.055777,0.060913,0.069089,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,21,Pankow 8,others,0.064507,0.095872,0.071582,0.079094,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,spd,0.255901,0.175452,0.245787,0.203135,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,afd,0.078232,0.079232,0.121733,0.12012,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,cdu,0.168864,0.177156,0.11477,0.106163,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,linke,0.153236,0.17978,0.235686,0.235989,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,gruene,0.242808,0.245891,0.188231,0.193515,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,fdp,0.031117,0.039777,0.036838,0.044449,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,22,Pankow 9,others,0.069841,0.102712,0.056955,0.096629,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,spd,0.232869,0.208118,0.289709,0.241008,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,afd,0.078043,0.079862,0.146483,0.144146,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,cdu,0.282986,0.274198,0.193308,0.180504,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,linke,0.080754,0.088483,0.088485,0.099552,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,gruene,0.212192,0.201762,0.155634,0.160784,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,fdp,0.048541,0.054311,0.075122,0.080616,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,23,Charlottenburg-Wilmersdorf 1,others,0.064616,0.093266,0.05126,0.093389,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,spd,0.205549,0.206173,0.256528,0.222102,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,afd,0.051184,0.053705,0.104138,0.108114,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,cdu,0.386893,0.355058,0.286166,0.244466,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,linke,0.046735,0.056238,0.063658,0.071654,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,gruene,0.201339,0.184385,0.159031,0.154152,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,fdp,0.060081,0.080319,0.111457,0.141005,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,24,Charlottenburg-Wilmersdorf 2,others,0.048218,0.064122,0.019021,0.058507,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,spd,0.216012,0.206656,0.290348,0.236228,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,afd,0.040319,0.041687,0.077932,0.081813,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,cdu,0.261281,0.240803,0.187794,0.161209,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,linke,0.093758,0.101431,0.095701,0.121215,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,gruene,0.291605,0.272788,0.226943,0.230846,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,fdp,0.049258,0.063154,0.078891,0.105254,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,25,Charlottenburg-Wilmersdorf 3,others,0.047768,0.07348,0.042392,0.063435,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,spd,0.223559,0.2013,0.285929,0.23216,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,afd,0.045935,0.047161,0.087185,0.088557,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,cdu,0.286078,0.279005,0.20315,0.180098,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,linke,0.067899,0.082299,0.091263,0.096201,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,gruene,0.260297,0.242156,0.1994,0.205919,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,fdp,0.07284,0.080295,0.114137,0.136658,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,26,Charlottenburg-Wilmersdorf 4,others,0.043391,0.067784,0.018937,0.060405,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,spd,0.200547,0.18827,0.246657,0.202808,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,afd,0.051238,0.054051,0.107199,0.109467,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,cdu,0.423219,0.390432,0.285959,0.248387,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,linke,0.042631,0.052233,0.066375,0.071239,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,gruene,0.166523,0.159729,0.141552,0.147363,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,fdp,0.078629,0.098555,0.13865,0.168232,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,27,Charlottenburg-Wilmersdorf 5,others,0.037213,0.056729,0.013608,0.052504,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,spd,0.240923,0.216369,0.29955,0.233717,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,afd,0.042485,0.043599,0.090624,0.090031,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,cdu,0.292221,0.275982,0.230423,0.192398,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,linke,0.07017,0.085477,0.086761,0.097016,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,gruene,0.25649,0.242375,0.197837,0.211493,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,fdp,0.053932,0.069892,0.094805,0.113933,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,28,Charlottenburg-Wilmersdorf 6,others,0.043778,0.066307,0.0,0.061411,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,spd,0.238672,0.220993,0.274121,0.232401,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,afd,0.052216,0.055125,0.102004,0.104517,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,cdu,0.342342,0.318884,0.250807,0.212324,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,linke,0.058715,0.073127,0.082045,0.092623,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,gruene,0.210703,0.200931,0.181289,0.180944,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,fdp,0.049706,0.063096,0.086079,0.109452,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,29,Charlottenburg-Wilmersdorf 7,others,0.047645,0.067843,0.023654,0.067738,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,spd,0.244945,0.221794,0.309937,0.281914,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,afd,0.126126,0.122225,0.179812,0.175768,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,cdu,0.37311,0.371942,0.262523,0.237028,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,linke,0.046837,0.048425,0.063523,0.067003,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,gruene,0.091465,0.095718,0.074076,0.08267,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,fdp,0.04106,0.041063,0.06322,0.063678,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,30,Spandau 1,others,0.076457,0.098833,0.04691,0.09194,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,spd,0.260329,0.230302,0.372452,0.306254,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,afd,0.133343,0.128471,0.175189,0.172859,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,cdu,0.332156,0.338845,0.222539,0.215151,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,linke,0.051134,0.055614,0.059173,0.074313,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,gruene,0.10149,0.097802,0.064997,0.078814,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,fdp,0.036514,0.037807,0.051776,0.055331,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,31,Spandau 2,others,0.085034,0.111158,0.053873,0.097277,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,spd,0.239054,0.212436,0.35082,0.285385,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,afd,0.1108,0.108376,0.165676,0.162719,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,cdu,0.34425,0.343502,0.225973,0.21331,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,linke,0.054641,0.059263,0.070799,0.076372,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,gruene,0.124985,0.121442,0.083145,0.094276,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,fdp,0.039813,0.045264,0.067008,0.070183,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,32,Spandau 3,others,0.086457,0.109718,0.036578,0.097754,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,spd,0.230391,0.211737,0.301199,0.269838,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,afd,0.11435,0.113278,0.170861,0.170871,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,cdu,0.453305,0.438511,0.303853,0.270828,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,linke,0.03204,0.034817,0.059908,0.062568,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,gruene,0.072758,0.077589,0.06716,0.074119,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,fdp,0.035915,0.041138,0.066259,0.069074,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,33,Spandau 4,others,0.061241,0.082929,0.03076,0.082701,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,spd,0.219679,0.204199,0.276196,0.238483,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,afd,0.081014,0.085451,0.150802,0.14902,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,cdu,0.468848,0.438512,0.317936,0.279552,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,linke,0.026783,0.032869,0.05008,0.055505,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,gruene,0.10699,0.111861,0.095104,0.101573,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,fdp,0.046443,0.059564,0.094759,0.113898,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,34,Spandau 5,others,0.050242,0.067544,0.015123,0.061969,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,spd,0.199072,0.205306,0.259897,0.233982,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,afd,0.052831,0.053192,0.092912,0.094814,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,cdu,0.301581,0.287005,0.230897,0.211381,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,linke,0.057605,0.07554,0.070715,0.088581,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,gruene,0.286133,0.234442,0.236127,0.205657,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,fdp,0.048507,0.065153,0.072926,0.094178,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,35,Steglitz-Zehlendorf  1,others,0.054272,0.079362,0.036527,0.071407,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,spd,0.241394,0.216096,0.268775,0.235475,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,afd,0.059669,0.059693,0.109634,0.111322,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,cdu,0.313007,0.300548,0.239416,0.21781,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,linke,0.060446,0.070255,0.072968,0.085705,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,gruene,0.222217,0.207374,0.19921,0.183473,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,fdp,0.04957,0.063278,0.07864,0.086564,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,36,Steglitz-Zehlendorf  2,others,0.053697,0.082756,0.031356,0.079651,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,spd,0.216596,0.204469,0.247555,0.21623,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,afd,0.0476,0.049741,0.096085,0.098193,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,cdu,0.404903,0.368329,0.320559,0.279154,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,linke,0.038621,0.048926,0.050279,0.061741,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,gruene,0.192407,0.179883,0.170316,0.167272,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,fdp,0.059284,0.086965,0.098539,0.125888,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,37,Steglitz-Zehlendorf  3,others,0.040589,0.061687,0.016667,0.051523,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,spd,0.220742,0.209922,0.243406,0.212701,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,afd,0.066832,0.065836,0.125754,0.126398,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,cdu,0.418139,0.390429,0.322532,0.285654,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,linke,0.043952,0.046621,0.054258,0.062189,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,gruene,0.156905,0.148465,0.142285,0.141158,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,fdp,0.0533,0.069339,0.092266,0.1091,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,38,Steglitz-Zehlendorf  4,others,0.04013,0.06939,0.019499,0.0628,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,spd,0.212935,0.205735,0.267597,0.223822,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,afd,0.079484,0.082092,0.146354,0.141918,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,cdu,0.411912,0.383113,0.296296,0.264943,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,linke,0.040701,0.049106,0.062779,0.066683,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,gruene,0.147355,0.134603,0.116056,0.122348,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,fdp,0.047467,0.063045,0.083673,0.097318,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,39,Steglitz-Zehlendorf  5,others,0.060146,0.082305,0.027245,0.082967,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,spd,0.199435,0.188203,0.233823,0.201149,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,afd,0.045941,0.04842,0.101234,0.101823,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,cdu,0.399812,0.365542,0.303369,0.257639,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,linke,0.042002,0.05351,0.053953,0.064607,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,gruene,0.20393,0.191625,0.181329,0.178794,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,fdp,0.068205,0.094743,0.109948,0.144451,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,40,Steglitz-Zehlendorf  6,others,0.040675,0.057958,0.016344,0.051536,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,spd,0.18537,0.186969,0.234274,0.191056,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,afd,0.044282,0.047899,0.1003,0.101739,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,cdu,0.401078,0.383634,0.309277,0.270939,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,linke,0.031095,0.040694,0.046914,0.056681,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,gruene,0.198601,0.181365,0.170185,0.168232,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,fdp,0.10233,0.107138,0.124413,0.164989,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,41,Steglitz-Zehlendorf  7,others,0.037243,0.052302,0.014637,0.046364,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,spd,0.20917,0.192729,0.266481,0.251674,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,afd,0.038659,0.04027,0.077788,0.078356,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,cdu,0.220329,0.211093,0.14557,0.128347,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,linke,0.110701,0.123235,0.123168,0.136936,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,gruene,0.344103,0.311349,0.294063,0.260483,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,fdp,0.041087,0.047168,0.066543,0.079193,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,42,Tempelhof-Schöneberg 1,others,0.035951,0.074155,0.026387,0.065011,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,spd,0.220312,0.192758,0.284447,0.246737,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,afd,0.03646,0.036727,0.069251,0.069843,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,cdu,0.177069,0.171798,0.120187,0.113578,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,linke,0.114278,0.13465,0.123217,0.144437,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,gruene,0.368835,0.342051,0.307487,0.285898,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,fdp,0.029818,0.036867,0.045455,0.056878,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,43,Tempelhof-Schöneberg 2,others,0.053229,0.08515,0.049955,0.08263,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,spd,0.321418,0.218996,0.313887,0.263147,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,afd,0.036576,0.039527,0.077189,0.079202,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,cdu,0.230456,0.229739,0.166786,0.156344,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,linke,0.061568,0.091165,0.083115,0.106685,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,gruene,0.268277,0.300249,0.275074,0.253841,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,fdp,0.034417,0.046703,0.063986,0.075717,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,44,Tempelhof-Schöneberg 3,others,0.047287,0.073621,0.019963,0.065064,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,spd,0.200658,0.190952,0.32481,0.255887,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,afd,0.058368,0.058469,0.110725,0.111612,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,cdu,0.28458,0.27781,0.188787,0.176487,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,linke,0.088907,0.10168,0.092248,0.105928,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,gruene,0.26435,0.232812,0.186619,0.190743,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,fdp,0.034266,0.039204,0.055927,0.065912,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,45,Tempelhof-Schöneberg 4,others,0.06887,0.099073,0.040884,0.093431,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,spd,0.222568,0.203102,0.277863,0.25727,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,afd,0.087148,0.086584,0.15788,0.154391,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,cdu,0.403197,0.38509,0.261131,0.237597,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,linke,0.062701,0.063966,0.076223,0.075223,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,gruene,0.124779,0.121083,0.119601,0.107774,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,fdp,0.040693,0.049336,0.0726,0.07855,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,46,Tempelhof-Schöneberg 5,others,0.058912,0.090838,0.034703,0.089194,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,spd,0.207199,0.199858,0.252481,0.242446,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,afd,0.095552,0.09584,0.163946,0.157389,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,cdu,0.474462,0.456448,0.321352,0.294909,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,linke,0.036556,0.037889,0.05519,0.054294,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,gruene,0.096009,0.090761,0.103979,0.092108,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,fdp,0.041024,0.047946,0.086263,0.092932,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,47,Tempelhof-Schöneberg 6,others,0.049198,0.071258,0.016789,0.065922,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,spd,0.19551,0.191776,0.235133,0.222516,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,afd,0.088954,0.089051,0.155405,0.155488,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,cdu,0.496352,0.473261,0.337864,0.297093,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,linke,0.032193,0.035808,0.047488,0.050976,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,gruene,0.096484,0.090461,0.104997,0.101692,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,fdp,0.043583,0.0539,0.088572,0.101085,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,48,Tempelhof-Schöneberg 7,others,0.046924,0.065742,0.030541,0.07115,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,spd,0.148814,0.143925,0.228838,0.191138,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,afd,0.034265,0.033967,0.082533,0.082047,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,cdu,0.106537,0.10306,0.107821,0.100685,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,linke,0.262572,0.248196,0.192423,0.211147,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,gruene,0.351133,0.353942,0.271737,0.261581,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,fdp,0.015551,0.018063,0.032415,0.037551,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,49,Neukölln 1,others,0.081128,0.098847,0.084234,0.115852,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,spd,0.146373,0.142817,0.229105,0.19209,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,afd,0.035932,0.033614,0.08324,0.08309,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,cdu,0.106499,0.096801,0.104536,0.099698,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,linke,0.307389,0.256734,0.192833,0.217027,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,gruene,0.344841,0.357912,0.252152,0.251753,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,fdp,0.0,0.018126,0.031507,0.036285,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,50,Neukölln 2,others,0.058966,0.093996,0.106627,0.120056,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,spd,0.23417,0.203315,0.293371,0.250577,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,afd,0.067577,0.065478,0.130843,0.131364,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,cdu,0.20987,0.200188,0.146573,0.139859,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,linke,0.189328,0.176235,0.152416,0.165007,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,gruene,0.210872,0.22833,0.155,0.158425,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,fdp,0.023173,0.024828,0.040281,0.043713,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,51,Neukölln 3,others,0.065009,0.101626,0.081517,0.111055,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,spd,0.297369,0.275191,0.305504,0.267835,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,afd,0.105187,0.106463,0.18986,0.184775,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,cdu,0.43048,0.411636,0.237435,0.224864,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,linke,0.043065,0.046095,0.076754,0.077641,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,gruene,0.050435,0.052195,0.089002,0.090532,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,fdp,0.030687,0.036082,0.069581,0.071293,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,52,Neukölln 4,others,0.042777,0.072337,0.031863,0.083061,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,spd,0.248636,0.252813,0.294753,0.247715,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,afd,0.099474,0.098578,0.171333,0.168893,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,cdu,0.430527,0.403231,0.261174,0.23638,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,linke,0.047357,0.04406,0.078053,0.079833,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,gruene,0.079837,0.084552,0.108864,0.112786,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,fdp,0.03615,0.044357,0.071578,0.074561,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,53,Neukölln 5,others,0.058018,0.072409,0.014244,0.079833,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,spd,0.295737,0.252091,0.291551,0.251613,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,afd,0.104056,0.108011,0.173331,0.173966,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,cdu,0.453424,0.439376,0.293378,0.255975,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,linke,0.036264,0.035725,0.070054,0.072649,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,gruene,0.05151,0.056392,0.094091,0.098864,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,fdp,0.036165,0.041925,0.06914,0.077601,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,54,Neukölln 6,others,0.022844,0.06648,0.008454,0.069332,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,spd,0.159591,0.157698,0.233479,0.195548,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,afd,0.097893,0.097624,0.154134,0.14828,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,cdu,0.188291,0.183326,0.10032,0.096964,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,linke,0.259129,0.209228,0.263521,0.255858,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,gruene,0.192633,0.213431,0.154675,0.156105,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,fdp,0.027101,0.030973,0.025576,0.029818,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,55,Treptow-Köpenick 1,others,0.075362,0.10772,0.068294,0.117427,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,spd,0.29156,0.204268,0.264686,0.208653,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,afd,0.13577,0.135235,0.209872,0.202707,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,cdu,0.209624,0.221202,0.125771,0.113604,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,linke,0.161503,0.164185,0.245288,0.236443,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,gruene,0.106693,0.124426,0.079748,0.082652,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,fdp,0.028752,0.03382,0.0,0.033103,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,56,Treptow-Köpenick 2,others,0.066097,0.116864,0.074634,0.122839,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,spd,0.190143,0.173676,0.221432,0.200089,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,afd,0.1703,0.169861,0.238389,0.241359,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,cdu,0.327091,0.306458,0.182058,0.155556,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,linke,0.119247,0.122127,0.194497,0.186497,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,gruene,0.086128,0.086675,0.068233,0.068053,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,fdp,0.032746,0.035964,0.037002,0.039392,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,57,Treptow-Köpenick 3,others,0.074343,0.105239,0.058389,0.109054,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,spd,0.236021,0.179478,0.269902,0.201789,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,afd,0.137743,0.138955,0.215612,0.21207,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,cdu,0.272162,0.28362,0.155175,0.141868,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,linke,0.139576,0.144921,0.228379,0.216931,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,gruene,0.100537,0.110789,0.082058,0.077903,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,fdp,0.036396,0.04308,0.0,0.048953,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,58,Treptow-Köpenick 4,others,0.077566,0.099156,0.048874,0.100486,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,spd,0.228836,0.188554,0.263208,0.21276,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,afd,0.180651,0.176009,0.247907,0.241876,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,cdu,0.27702,0.275731,0.134819,0.124019,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,linke,0.149313,0.148249,0.231709,0.223542,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,gruene,0.069202,0.070094,0.066637,0.058829,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,fdp,0.033424,0.040999,0.0,0.04437,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,59,Treptow-Köpenick 5,others,0.061554,0.100363,0.055722,0.094604,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,spd,0.184435,0.177688,0.252925,0.208305,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,afd,0.119615,0.122187,0.189232,0.1857,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,cdu,0.315717,0.29033,0.174137,0.141452,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,linke,0.179681,0.16188,0.255273,0.236855,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,gruene,0.116676,0.120935,0.098872,0.097539,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,fdp,0.03241,0.035892,0.0,0.047472,1,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,60,Treptow-Köpenick 6,others,0.051467,0.09109,0.029561,0.082677,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,spd,0.172814,0.150336,0.18466,0.156091,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,afd,0.288145,0.280009,0.30555,0.289892,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,cdu,0.220072,0.229483,0.091242,0.092326,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,linke,0.182529,0.159536,0.286593,0.255371,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,gruene,0.030604,0.035193,0.041333,0.034521,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,fdp,0.019794,0.022196,0.023867,0.021048,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,61,Marzahn-Hellersdorf 1,others,0.086042,0.123248,0.066754,0.150751,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,spd,0.189668,0.180543,0.208065,0.18353,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,afd,0.209442,0.204338,0.253465,0.24695,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,cdu,0.254666,0.268592,0.108477,0.110369,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,linke,0.202188,0.174988,0.317798,0.278534,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,gruene,0.040718,0.041335,0.041583,0.035752,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,fdp,0.027672,0.025257,0.028978,0.024956,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,62,Marzahn-Hellersdorf 2,others,0.075645,0.104946,0.041633,0.11991,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,spd,0.155331,0.149682,0.192924,0.164917,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,afd,0.258996,0.251924,0.297994,0.284906,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,cdu,0.247403,0.245634,0.094776,0.096462,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,linke,0.171011,0.148344,0.281193,0.242276,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,gruene,0.039737,0.043024,0.04585,0.036851,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,fdp,0.028278,0.026966,0.028338,0.024705,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,63,Marzahn-Hellersdorf 3,others,0.099243,0.134426,0.058924,0.149882,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,spd,0.127146,0.156671,0.174246,0.176558,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,afd,0.140792,0.146825,0.196765,0.207472,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,cdu,0.428972,0.364556,0.260369,0.20155,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,linke,0.149738,0.143935,0.259282,0.243828,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,gruene,0.07148,0.068106,0.048431,0.049724,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,fdp,0.022501,0.030169,0.026867,0.032394,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,64,Marzahn-Hellersdorf 4,others,0.059371,0.089739,0.034041,0.088475,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,spd,0.153801,0.162004,0.125034,0.15918,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,afd,0.126377,0.132692,0.157148,0.187333,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,cdu,0.450346,0.400629,0.472426,0.316279,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,linke,0.116147,0.115285,0.163044,0.174611,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,gruene,0.071372,0.074813,0.048151,0.05662,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,fdp,0.031358,0.040432,0.02606,0.036202,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,65,Marzahn-Hellersdorf 5,others,0.050598,0.074145,0.008136,0.069774,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,spd,0.140605,0.152756,0.21571,0.176149,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,afd,0.193817,0.201786,0.235536,0.235749,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,cdu,0.377594,0.318509,0.180055,0.149191,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,linke,0.152122,0.142655,0.252553,0.238185,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,gruene,0.044343,0.050015,0.050186,0.047042,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,fdp,0.019708,0.025685,0.028307,0.026525,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,66,Marzahn-Hellersdorf 6,others,0.071811,0.108593,0.037653,0.127159,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,spd,0.124073,0.140204,0.162953,0.161092,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,afd,0.199715,0.209024,0.259669,0.260581,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,cdu,0.408386,0.346607,0.20952,0.153369,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,linke,0.153679,0.143622,0.250015,0.244101,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,gruene,0.038334,0.04005,0.036367,0.033447,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,fdp,0.018939,0.021022,0.019975,0.020372,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,67,Lichtenberg 1,others,0.056874,0.09947,0.061502,0.127037,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,spd,0.145073,0.149277,0.20203,0.183896,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,afd,0.147768,0.152879,0.22203,0.216886,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,cdu,0.394691,0.345929,0.150644,0.14309,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,linke,0.169023,0.158712,0.290891,0.270304,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,gruene,0.065036,0.068831,0.049208,0.048719,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,fdp,0.02273,0.028557,0.033812,0.031358,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,68,Lichtenberg 2,others,0.05568,0.095815,0.051386,0.105747,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,spd,0.189705,0.184945,0.225919,0.20872,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,afd,0.14666,0.145601,0.213443,0.208768,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,cdu,0.234458,0.231112,0.120358,0.114088,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,linke,0.233907,0.194739,0.303965,0.275589,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,gruene,0.088514,0.090354,0.057302,0.053544,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,fdp,0.032297,0.030815,0.027273,0.026699,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,69,Lichtenberg 3,others,0.07446,0.122434,0.051741,0.112592,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,spd,0.186431,0.168327,0.219502,0.19903,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,afd,0.109559,0.107003,0.170043,0.162497,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,cdu,0.19082,0.179696,0.102462,0.093826,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,linke,0.272333,0.219086,0.32805,0.294806,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,gruene,0.166255,0.173207,0.100282,0.097589,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,fdp,0.0,0.030134,0.029567,0.029734,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,70,Lichtenberg 4,others,0.074603,0.122548,0.050095,0.122518,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,spd,0.162226,0.158883,0.226868,0.197267,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,afd,0.131078,0.12741,0.169927,0.160989,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,cdu,0.197528,0.1983,0.103559,0.096302,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,linke,0.249595,0.209432,0.295546,0.264122,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,gruene,0.141359,0.149724,0.116097,0.116419,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,fdp,0.027603,0.029449,0.025784,0.027656,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,71,Lichtenberg 5,others,0.09061,0.126803,0.06222,0.137244,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,spd,0.194112,0.171883,0.266617,0.220952,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,afd,0.099056,0.099272,0.155965,0.155779,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,cdu,0.22355,0.23165,0.138939,0.12953,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,linke,0.217132,0.18417,0.287462,0.262249,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,gruene,0.162582,0.166226,0.087275,0.096477,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,fdp,0.034507,0.039551,0.03117,0.036125,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,72,Lichtenberg 6,others,0.06906,0.107247,0.032572,0.098888,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,spd,0.229899,0.193227,0.26321,0.238677,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,afd,0.115464,0.117553,0.194268,0.188981,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,cdu,0.371601,0.345448,0.266381,0.222298,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,linke,0.084889,0.082374,0.091135,0.088224,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,gruene,0.108776,0.125783,0.088773,0.090024,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,fdp,0.025577,0.030007,0.052219,0.055342,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,73,Reinickendorf 1,others,0.063795,0.105608,0.044013,0.116454,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,spd,0.228114,0.20459,0.260665,0.224007,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,afd,0.132432,0.12977,0.205744,0.191934,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,cdu,0.389027,0.380197,0.28625,0.260152,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,linke,0.050663,0.054033,0.064047,0.066154,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,gruene,0.089841,0.095344,0.087168,0.085732,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,fdp,0.038391,0.03941,0.071157,0.06554,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,74,Reinickendorf 2,others,0.071532,0.096656,0.024969,0.106481,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,spd,0.223291,0.206772,0.235683,0.215151,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,afd,0.081895,0.083396,0.145354,0.14638,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,cdu,0.440736,0.416651,0.335333,0.293364,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,linke,0.029043,0.034328,0.052005,0.055448,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,gruene,0.124328,0.128602,0.12438,0.120554,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,fdp,0.047053,0.059145,0.089249,0.103868,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,75,Reinickendorf 3,others,0.053654,0.071106,0.017997,0.065235,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,spd,0.233126,0.206713,0.257652,0.222843,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,afd,0.097994,0.099042,0.16869,0.163967,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,cdu,0.413082,0.395505,0.323102,0.270677,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,linke,0.033012,0.040963,0.054762,0.05943,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,gruene,0.116065,0.123554,0.098837,0.108885,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,fdp,0.042736,0.047933,0.07571,0.083561,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,76,Reinickendorf 4,others,0.063985,0.086289,0.021247,0.090638,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,spd,0.225225,0.217817,0.28124,0.244245,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,afd,0.141092,0.143579,0.200791,0.194644,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,cdu,0.437706,0.409919,0.304913,0.273267,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,linke,0.038842,0.038573,0.055391,0.056593,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,gruene,0.064098,0.066355,0.064029,0.069257,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,fdp,0.031243,0.038038,0.061194,0.065695,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,77,Reinickendorf 5,others,0.061795,0.085719,0.032443,0.0963,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,spd,0.203011,0.189918,0.214006,0.188281,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,afd,0.056802,0.060001,0.1,0.107998,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,cdu,0.456682,0.439515,0.397042,0.333839,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,linke,0.023552,0.034728,0.040365,0.04771,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,gruene,0.166944,0.152516,0.133014,0.140484,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,fdp,0.051261,0.067795,0.104437,0.133154,0,SB_B07-02-03_2023.xlsx tab 3.*
+BE,2023,2016,78,Reinickendorf 6,others,0.041747,0.055527,0.011135,0.048534,0,SB_B07-02-03_2023.xlsx tab 3.*

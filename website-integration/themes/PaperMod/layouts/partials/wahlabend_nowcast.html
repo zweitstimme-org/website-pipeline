@@ -1,0 +1,783 @@
+{{/*
+  Wahlabend nowcast replay timeline (AGH 2023 evaluation).
+*/}}
+<style>
+.wb-wrap { max-width: 920px; margin: 0 auto; }
+.wb-meta { color: #666; font-size: 0.88rem; margin: 0 0 1rem; line-height: 1.45; }
+.wb-controls {
+  display: grid; gap: 0.75rem; margin: 1rem 0 1.25rem;
+  padding: 0.9rem 1rem; border: 1px solid var(--border, #e6e6e6);
+  border-radius: 10px; background: #fafafa;
+}
+.wb-controls label { font-size: 0.85rem; color: #444; display: block; margin-bottom: 0.25rem; }
+.wb-controls input[type=range] { width: 100%; }
+.wb-scope-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+}
+@media (max-width: 700px) {
+  .wb-scope-tabs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .wb-scope-tabs { grid-template-columns: 1fr; }
+}
+.wb-scope-btn {
+  appearance: none;
+  border: 1.5px solid #d0d0d0;
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  padding: 0.55rem 0.45rem;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 650;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.wb-scope-btn:hover { border-color: #888; }
+.wb-scope-btn.is-active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+.wb-subnav {
+  min-height: 0;
+}
+.wb-subnav-label {
+  font-size: 0.78rem;
+  color: #666;
+  margin: 0 0 0.35rem;
+}
+.wb-sub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.wb-sub-btn {
+  appearance: none;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  color: #222;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.wb-sub-btn:hover { border-color: #888; }
+.wb-sub-btn.is-active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+.wb-sub-btn.has-party { border-left-width: 4px; }
+.wb-land-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.5rem;
+}
+.wb-scenario-note {
+  font-size: 0.78rem;
+  color: #777;
+  margin: 0;
+}
+.wb-stat {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem;
+  font-size: 0.9rem; margin: 0.5rem 0 1rem;
+}
+.wb-stat strong { font-variant-numeric: tabular-nums; }
+.wb-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.wb-table th, .wb-table td {
+  padding: 0.4rem 0.5rem; border-bottom: 1px solid #eee; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wb-table th:first-child, .wb-table td:first-child { text-align: left; }
+.wb-table-h {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.wb-table-h table { min-width: 36rem; }
+.wb-table-h th, .wb-table-h td {
+  text-align: center;
+  padding: 0.35rem 0.4rem;
+  white-space: nowrap;
+}
+.wb-table-h th:first-child,
+.wb-table-h td:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+  font-weight: 600;
+  min-width: 4.5rem;
+}
+.wb-table-h thead th {
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-bottom: 2px solid #e8e8e8;
+}
+.wb-table-h .wb-h-nc { font-size: 1.02rem; font-weight: 700; }
+.wb-table-h .wb-h-band {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #666;
+  margin-top: 0.1rem;
+}
+.wb-table-h .wb-h-pm { font-size: 0.82rem; color: #555; }
+.wb-chart {
+  width: 100%; height: 220px; margin: 0.5rem 0 1.25rem;
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px;
+}
+#wb-chart-shares.wb-chart { height: 280px; }
+.wb-range { font-variant-numeric: tabular-nums; color: #555; font-size: 0.85em; }
+.wb-legend { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.8rem; color: #555; margin-bottom: 0.75rem; }
+.wb-err { color: #b00020; }
+.wb-loading { color: #666; }
+.wb-scope-title { font-size: 1.05rem; margin: 0 0 0.35rem; font-weight: 600; }
+.wb-coverage {
+  margin: 1.25rem 0 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 0.55rem 0.85rem 0.75rem;
+}
+.wb-coverage > summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  list-style: none;
+}
+.wb-coverage > summary::-webkit-details-marker { display: none; }
+.wb-coverage > summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 1em;
+  color: #666;
+}
+.wb-coverage[open] > summary::before { content: "▾"; }
+.wb-coverage-meta { font-size: 0.8rem; color: #666; margin: 0.35rem 0 0.65rem; }
+.wb-tier {
+  margin: 1.5rem 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #888;
+}
+.wb-coverage.wb-eval-block {
+  background: #f7f7f5;
+  border-style: dashed;
+}
+.wb-coverage.wb-eval-block > summary { color: #555; }
+.wb-cov-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.wb-cov-table th, .wb-cov-table td {
+  padding: 0.28rem 0.4rem; border-bottom: 1px solid #eee;
+  text-align: right; font-variant-numeric: tabular-nums; vertical-align: middle;
+}
+.wb-cov-table th:first-child, .wb-cov-table td:first-child { text-align: left; }
+.wb-cov-nest { margin: 0.15rem 0 0.35rem 0.75rem; }
+.wb-cov-nest > summary {
+  cursor: pointer; font-size: 0.82rem; color: #333; list-style: none;
+  padding: 0.2rem 0;
+}
+.wb-cov-nest > summary::-webkit-details-marker { display: none; }
+.wb-cov-nest > summary::before { content: "▸ "; color: #888; }
+.wb-cov-nest[open] > summary::before { content: "▾ "; }
+.wb-pill {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  padding: 0.1rem 0.4rem; border-radius: 999px; letter-spacing: 0.01em;
+}
+.wb-pill-done { background: #d8f0d8; color: #1b5e20; }
+.wb-pill-part { background: #fff3cd; color: #7a5b00; }
+.wb-pill-likely { background: #e3ecfa; color: #23508f; }
+.wb-pill-none { background: #eee; color: #666; }
+.wb-bar {
+  display: inline-block; width: 72px; height: 8px; background: #e8e8e8;
+  border-radius: 4px; overflow: hidden; vertical-align: middle;
+}
+.wb-bar > i { display: block; height: 100%; background: #3d6b9a; }
+.wb-art { color: #888; font-size: 0.75rem; }
+.wb-eval {
+  margin: 0.35rem 0 0.5rem;
+  padding: 0.5rem 0 0.25rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.88rem;
+}
+.wb-eval h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.wb-eval-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.25rem;
+}
+@media (max-width: 700px) { .wb-eval-grid { grid-template-columns: 1fr; } }
+.wb-eval dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.65rem; }
+.wb-eval dt { color: #666; }
+.wb-eval dd { margin: 0; font-variant-numeric: tabular-nums; }
+.wb-ok { color: #1b5e20; font-weight: 600; }
+.wb-bad { color: #b00020; font-weight: 600; }
+.wb-chart-label { font-size: 0.8rem; color: #555; margin: 0.75rem 0 0.25rem; }
+.wb-lage-h {
+  font-size: 1.12rem;
+  font-weight: 650;
+  color: #1a1a1a;
+  margin: 1.1rem 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+.wb-lage-h:first-child { margin-top: 0; }
+[data-lage-only] > .wb-coverage-meta {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #555;
+  margin: 0 0 0.65rem;
+}
+.wb-hits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+@media (min-width: 900px) { .wb-hits { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .wb-hits { grid-template-columns: 1fr 1fr; } }
+.wb-hit-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+}
+.wb-hit-card .wb-hit-k { font-size: 0.75rem; color: #666; display: block; margin-bottom: 0.15rem; }
+.wb-hit-card .wb-hit-v {
+  font-size: 1.15rem; font-weight: 650; font-variant-numeric: tabular-nums;
+}
+.wb-hit-card .wb-hit-s { font-size: 0.75rem; color: #888; }
+.wb-hits-timeline tr.wb-row-active td { background: #eef3ff; }
+.wb-wkr-race {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  margin: 0 0 1rem;
+  background: #fafafa;
+}
+.wb-wkr-race h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.wb-wkr-race .wb-wkr-now {
+  font-size: 1.05rem; font-weight: 650; margin: 0.35rem 0 0.15rem;
+}
+.wb-wkr-race .wb-ph { color: #888; font-style: italic; font-weight: 400; }
+.wb-wkr-race table { margin-top: 0.5rem; }
+.wb-wkr-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0.85rem;
+}
+.wb-wkr-hero .wb-wkr-lead {
+  font-size: 1.35rem; font-weight: 700; line-height: 1.25;
+}
+.wb-wkr-hero .wb-wkr-sub { font-size: 0.9rem; color: #444; margin-top: 0.25rem; }
+.wb-wkr-meta { min-width: 0; }
+.wb-wkr-plead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  margin: 0 0 0.55rem;
+  padding: 0.4rem 0.5rem;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  max-width: 14rem;
+}
+.wb-wkr-plead-k {
+  font-size: 0.72rem;
+  color: #555;
+  line-height: 1.2;
+}
+.wb-wkr-plead-v {
+  font-size: 1.2rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.wb-wkr-hero dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+}
+.wb-wkr-hero dt {
+  color: #666;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.12rem;
+}
+.wb-wkr-hero dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+.wb-wkr-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.35rem 0 0.5rem; }
+.wb-wkr-chip {
+  font-size: 0.8rem; padding: 0.25rem 0.55rem; border-radius: 6px;
+  background: #fff; border: 1px solid #e0e0e0;
+}
+.wb-wkr-chip strong { font-variant-numeric: tabular-nums; }
+.wb-wkr-hub {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 0.75rem 0.9rem;
+  margin: 0.35rem 0 1rem;
+}
+.wb-wkr-hub h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+.wb-wkr-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+  margin-top: 0.55rem;
+}
+@media (max-width: 700px) { .wb-wkr-hub-grid { grid-template-columns: 1fr; } }
+.wb-wkr-hub-col h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: none;
+}
+.wb-wkr-hot {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.45rem 0.55rem;
+  margin: 0 0 0.35rem;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.35;
+}
+.wb-wkr-hot:hover { border-color: #5b7cfa; background: #f5f8ff; }
+.wb-wkr-hot.is-active { border-color: #5b7cfa; box-shadow: inset 3px 0 0 #5b7cfa; }
+.wb-wkr-hot .wb-hot-title {
+  font-weight: 650;
+  font-size: 0.88rem;
+}
+.wb-wkr-hot .wb-hot-meta {
+  font-size: 0.78rem;
+  color: #555;
+}
+.wb-wkr-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  margin: 0 0 0.35rem;
+}
+.wb-wkr-search {
+  flex: 1 1 10rem;
+  min-width: 0;
+  max-width: 22rem;
+  padding: 0.38rem 0.65rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.85rem;
+  background: #fff;
+  color: #222;
+}
+.wb-wkr-search:focus {
+  outline: none;
+  border-color: #5b7cfa;
+  box-shadow: 0 0 0 2px rgba(91, 124, 250, 0.2);
+}
+.wb-wkr-search-hint {
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.wb-wkr-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+  align-items: stretch;
+  margin: 0.25rem 0 0.1rem;
+}
+.wb-wkr-bez-sep {
+  flex: 0 0 auto;
+  align-self: center;
+  margin: 0 0.12rem 0 0.28rem;
+  padding-left: 0.42rem;
+  border-left: 2px solid #c8c8c8;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #888;
+  line-height: 1.85rem;
+  user-select: none;
+  cursor: default;
+}
+.wb-wkr-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2.05rem;
+  min-height: 1.85rem;
+  padding: 0.2rem 0.1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.wb-wkr-tile:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.wb-wkr-tile.is-active {
+  box-shadow: 0 0 0 2px #1a1a1a;
+  transform: translateY(-1px);
+}
+.wb-subnav .wb-wkr-tiles { margin-top: 0.1rem; }
+.wb-wkr-tile-open {
+  background: #fff;
+  border-color: #e0e0e0;
+  color: #666;
+}
+.wb-wkr-tile-called {
+  font-weight: 650;
+}
+.wb-wkr-tile-num {
+  font-size: 0.8rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.wb-wkr-tile-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.9rem;
+  font-size: 0.75rem;
+  color: #666;
+  margin: 0.2rem 0 0.1rem;
+}
+.wb-wkr-tile-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.wb-wkr-tile-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 3px;
+  border: 1.5px solid #ccc;
+  display: inline-block;
+}
+.wb-wkr-tile-swatch.is-called { background: #111; border-color: #111; }
+.wb-wkr-tile-swatch.is-likely {
+  background: rgba(17,17,17,0.18);
+  border-color: #111;
+}
+.wb-wkr-tile-swatch.is-open { background: #fff; }
+.wb-chart-race { height: 260px; }
+.wb-chart-prob { height: 160px; }
+.wb-ph { color: #888; font-style: italic; }
+.wb-call-banner {
+  border-radius: 8px; padding: 0.6rem 0.8rem; margin: 0.35rem 0 0.65rem;
+  font-size: 0.95rem; border: 1px solid #e6e6e6; background: #fff;
+}
+.wb-call-banner.wb-called { background: #e9f5e9; border-color: #bfe3bf; }
+.wb-call-banner.wb-likely { background: #eef3fb; border-color: #c5d4ef; }
+.wb-call-banner.wb-open { background: #fff8e6; border-color: #f0e0ae; }
+.wb-why {
+  border: 1px solid #e6e6e6; border-radius: 8px; background: #fff;
+  padding: 0.6rem 0.8rem; margin: 0.5rem 0 0.85rem; font-size: 0.85rem;
+  color: #444; line-height: 1.5;
+}
+.wb-why strong { font-variant-numeric: tabular-nums; }
+.wb-entry-party { margin: 0.5rem 0; }
+.wb-entry-party > summary {
+  cursor: pointer; font-weight: 600; font-size: 0.92rem; list-style: none;
+  padding: 0.25rem 0;
+}
+.wb-entry-party > summary::-webkit-details-marker { display: none; }
+.wb-entry-party > summary::before { content: "▸ "; color: #888; }
+.wb-entry-party[open] > summary::before { content: "▾ "; }
+.wb-entry-status { font-size: 0.72rem; font-weight: 600; padding: 0.08rem 0.4rem; border-radius: 999px; }
+.wb-in { background: #d8f0d8; color: #1b5e20; }
+.wb-maybe { background: #fff3cd; color: #7a5b00; }
+.wb-out { background: #eee; color: #888; }
+.wb-direct-tag { background: #e3ecfa; color: #23508f; }
+.wb-scen-panel { margin: 0.5rem 0 0.75rem; }
+.wb-scen-panel h3 {
+  font-size: 0.95rem; font-weight: 600; margin: 0 0 0.35rem;
+}
+.wb-scen-item {
+  display: grid;
+  grid-template-columns: 1fr 3.6rem;
+  gap: 0.15rem 0.65rem;
+  align-items: center;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.86rem;
+}
+#wb-scenarios-eval-body .wb-scen-item {
+  grid-template-columns: 1fr 3.6rem auto;
+}
+.wb-scen-main { min-width: 0; }
+.wb-scen-pct {
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: 0.98rem;
+  line-height: 1.2; text-align: right;
+}
+.wb-scen-pct.wb-lean-yes,
+.wb-scen-meta .wb-lean-yes { color: #1b5e20; }
+.wb-scen-pct.wb-lean-no,
+.wb-scen-meta .wb-lean-no { color: #666; }
+.wb-scen-label { line-height: 1.25; }
+.wb-scen-meta {
+  font-size: 0.72rem; color: #888; margin-top: 0.05rem; line-height: 1.25;
+}
+.wb-scen-verdict { white-space: nowrap; font-size: 0.78rem; text-align: right; }
+.wb-scen-score {
+  font-size: 0.9rem; margin: 0 0 0.5rem; font-variant-numeric: tabular-nums;
+}
+.wb-scen-more {
+  appearance: none;
+  border: none;
+  background: none;
+  color: #23508f;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0 0.15rem;
+  cursor: pointer;
+  text-align: left;
+}
+.wb-scen-more:hover { text-decoration: underline; }
+.wb-bezirk-entry {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 0.75rem 0.9rem;
+  margin: 0.35rem 0 1rem;
+}
+.wb-bezirk-entry h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+.wb-bezirk-party {
+  margin: 0.65rem 0 0;
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.wb-bezirk-party h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+.wb-bezirk-party .wb-bezirk-seats {
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0 0 0.4rem;
+}
+</style>
+
+<div class="wb-wrap" id="wahlabend-root">
+  <div class="wb-land-tabs" role="tablist" aria-label="Land">
+    <button type="button" class="wb-sub-btn" data-wb-land="st">Sachsen-Anhalt</button>
+    <button type="button" class="wb-sub-btn" data-wb-land="be">Berlin</button>
+    <button type="button" class="wb-sub-btn" data-wb-land="mv">Mecklenburg-Vorpommern</button>
+  </div>
+  <details class="wb-coverage" style="margin-top:0.5rem;">
+    <summary>Was ist das? · Methodik (kurz)</summary>
+    <p class="wb-coverage-meta" style="margin-bottom:0.35rem;">
+      Replay der letzten Landtagswahl / AGH mit L1-Historie und Swing aus gemeldeten
+      Wahlbezirken. ST/MV = LTW&nbsp;2021 ← 2016; Berlin = AGH&nbsp;2023.
+      Live-Feeds 2026: StaLA Downloads (ST), AfS (BE), LAIV CSV mit Zeitstempel (MV).
+    </p>
+    <p class="wb-coverage-meta" style="margin-bottom:0;">
+      Ausführlich:
+      <a href="{{ "blog/posts/wahlabend-nowcast-methodology/" | relURL }}">Wie funktioniert unser Wahlabend-Nowcast?</a>
+    </p>
+  </details>
+
+  <div class="wb-controls">
+    <div class="wb-scope-tabs" id="wb-scope-tabs" role="tablist" aria-label="Ebene">
+      <button type="button" class="wb-scope-btn is-active" data-scope="zweit">Zweitstimme</button>
+      <button type="button" class="wb-scope-btn" data-scope="lage">Szenarien</button>
+      <button type="button" class="wb-scope-btn" data-scope="land">Listen</button>
+      <button type="button" class="wb-scope-btn" data-scope="wkr">Wahlkreise</button>
+    </div>
+    <div id="wb-subnav" class="wb-subnav"></div>
+    <div>
+      <label for="wb-slider">Zeitpunkt <span id="wb-frac-label">—</span></label>
+      <input id="wb-slider" type="range" min="0" max="39" value="10" step="1" />
+    </div>
+    <p class="wb-scenario-note" id="wb-scenario-note">Meldefluss: AfS-Zeiten</p>
+  </div>
+
+  <p class="wb-tier" data-zweit-only>Dashboard</p>
+  <p class="wb-tier" data-land-only>Listenplätze</p>
+  <p class="wb-scope-title" id="wb-scope-label">Berlin · Zweitstimme</p>
+  <div class="wb-stat" id="wb-stat"></div>
+  <div id="wb-call-banner"></div>
+  <div class="wb-wkr-race" id="wb-wkr-race" hidden></div>
+  <div id="wb-wkr-why"></div>
+
+  <div data-lage-only>
+    <p class="wb-lage-h">Wahlbeteiligung</p>
+    <p class="wb-coverage-meta">
+      Nowcast aus gemeldeten WBs + L1-Rest (oft mit Zweitstimme zuerst verfügbar).
+      Band = ± Unsicherheit; Endstand erst wenn Land voll ausgezählt.
+    </p>
+    <canvas id="wb-chart-turnout" class="wb-chart" width="900" height="180"></canvas>
+
+    <p class="wb-lage-h">Szenario-Wahrscheinlichkeiten</p>
+    <p class="wb-coverage-meta">
+      Aktuelle Nowcast-P und Wkt vor Auszählungsbeginn.
+      P&nbsp;≥&nbsp;50&nbsp;% = tritt eher ein (kein Call).
+      Treffer vs. Wahrheit unter Eval.
+    </p>
+    <div class="wb-scen-panel" id="wb-scenarios"></div>
+
+    <p class="wb-lage-h">Parlamentsgröße</p>
+    <p class="wb-coverage-meta">
+      Kurve/Band nur bis jetzt; X-Achse bis Nachtende (MC p10–p90).
+      Endstand-Linie erst wenn Land voll ausgezählt.
+      Wer einzieht: Tabs Listen / Wahlkreise.
+    </p>
+    <canvas id="wb-chart-size" class="wb-chart" width="900" height="200"></canvas>
+  </div>
+
+  <div data-zweit-only>
+  <p class="wb-chart-label" id="wb-share-chart-label">Partei-Anteile (Nowcast ± Band)</p>
+  <div class="wb-legend" id="wb-share-legend"></div>
+  <canvas id="wb-chart-shares" class="wb-chart" width="900" height="280"></canvas>
+  <p class="wb-meta" id="wb-share-note" style="margin:0.25rem 0 0.5rem;">
+    Linie = Nowcast, Band = ± Unsicherheit. Endstand-Linie erst wenn Land voll ausgezählt.
+  </p>
+  </div>
+
+  <details class="wb-coverage" id="wb-share-table-wrap" data-zweit-only>
+    <summary>Tabelle: Nowcast-Anteile (±)</summary>
+    <p class="wb-coverage-meta">
+      Parteiweise Nowcast mit Band und ±. Chart oben bleibt sichtbar.
+    </p>
+    <div class="wb-table-h" id="wb-table-wrap">
+      <table class="wb-table" id="wb-table">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="wb-meta" id="wb-unc-note" style="margin:0.35rem 0 0;">
+      ± = offener Stimmenanteil × Landesprognose-CI (party-spezifisch), bei guter
+      Stichprobe etwas enger; monoton fallend. Kein formales KI.
+    </p>
+  </details>
+
+  <details class="wb-coverage" id="wb-entry-wrap" open data-land-only>
+    <summary>Wer kommt rein? (Listen)</summary>
+    <p class="wb-coverage-meta" id="wb-entry-meta">
+      Listenplätze nach Nowcast: sicher / Wackelplatz / draußen (MC p10–p90).
+      In Berlin: Landes- und Bezirkslisten (CDU/SPD/Linke). In ST/MV: nur Landeslisten.
+      Partei-Chips oben filtern. Direktgewinner werden übersprungen.
+    </p>
+    <div id="wb-entry"></div>
+  </details>
+
+  <p class="wb-tier" data-zweit-only>Zusatz</p>
+
+  <details class="wb-coverage" id="wb-coverage">
+    <summary>Auszählung nach Gebiet</summary>
+    <p class="wb-coverage-meta" id="wb-coverage-meta"></p>
+    <div id="wb-coverage-body"></div>
+  </details>
+
+  <details class="wb-coverage" id="wb-actual-wrap">
+    <summary>Gemeldete Zahlen (Rohstand)</summary>
+    <p class="wb-coverage-meta" id="wb-actual-meta">
+      Absolute Stimmen und Wahlbeteiligung nur aus bereits gemeldeten Wahlbezirken —
+      ohne Nowcast. Erststimmen in Wahlkreisen, Zweitstimmen landesweit.
+    </p>
+    <div id="wb-actual"></div>
+  </details>
+
+  <p class="wb-tier" data-zweit-only>Replay-Eval <span style="font-weight:500;text-transform:none;letter-spacing:0;">(nur Vorschau)</span></p>
+
+  <details class="wb-coverage wb-eval-block" id="wb-eval-root" data-zweit-only>
+    <summary>Treffer &amp; Genauigkeit</summary>
+    <p class="wb-coverage-meta">
+      Alles hier nutzt die bekannte Wahrheit 2023 — am echten Wahlabend so nicht
+      verfügbar. Meldefluss-Vergleiche und Treffer zum Kalibrieren.
+      Nowcast = ein Modell (lokal + Nachbarn).
+    </p>
+
+    <div class="wb-hits" id="wb-hits"></div>
+
+    <p class="wb-chart-label">Direktmandate richtig (78&nbsp;WK)</p>
+    <div class="wb-legend">
+      <span><i style="background:#1a1a1a;display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>Nowcast</span>
+      <span><i style="background:#c45c26;display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>Naiv</span>
+    </div>
+    <canvas id="wb-chart-hit" class="wb-chart" width="900" height="220"></canvas>
+    <div id="wb-direkt-table" style="overflow-x:auto;margin:0.5rem 0 1rem;"></div>
+
+    <details class="wb-coverage" id="wb-eval-wrap" style="margin-top:0.5rem;">
+      <summary>Genauigkeit (dieser Zeitpunkt)</summary>
+      <p class="wb-coverage-meta">
+        Hürde, Direkt, Bezirkslisten, Szenario-Calls am aktuellen Stand.
+      </p>
+      <div class="wb-eval" id="wb-eval"></div>
+    </details>
+
+    <details class="wb-coverage" id="wb-hits-timeline" style="margin-top:0.5rem;">
+      <summary>Treffer über die Nacht · Szenario-Calls</summary>
+      <p class="wb-coverage-meta">
+        Pro Auszählungsstand: Hürde / Größe / Direkt / Einzug und
+        Szenarien (P&nbsp;≥&nbsp;50&nbsp;% = eher ein).
+      </p>
+      <div id="wb-hits-timeline-body" style="overflow-x:auto;"></div>
+    </details>
+
+    <details class="wb-coverage" id="wb-scenarios-eval" style="margin-top:0.5rem;">
+      <summary>Szenarien: eher ein vs. Wahrheit</summary>
+      <p class="wb-coverage-meta">
+        Dieselbe Liste wie oben, mit Eval-Spalte (Richtung richtig/falsch).
+      </p>
+      <div id="wb-scenarios-eval-body"></div>
+    </details>
+  </details>
+
+  <p class="wb-meta" id="wb-foot" style="margin-top:1rem;"></p>
+  <p class="wb-meta" style="margin-top:0.35rem;">
+    Methodik:
+    <a href="{{ "blog/posts/wahlabend-nowcast-methodology/" | relURL }}">Wie funktioniert unser Wahlabend-Nowcast?</a>
+  </p>
+</div>
+
+<script src="{{ printf "%s?v=%d" ("js/wahlabend-nowcast.js" | relURL) now.Unix }}" defer></script>

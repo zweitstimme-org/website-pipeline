@@ -1,0 +1,86 @@
+{
+  "formula": "resp_E ~ resp_Z_hat + res_l1_E + no_cand_l1",
+  "resp_Z_definition": "proportional swing from res_l1_Z toward actual statewide Zweit of the outcome election (land target = role of today's forecast; district Zweit never uses observed outcome-election district results)",
+  "swing": "proportional Zweit (federal-style)",
+  "parties_modeled": [
+    "spd",
+    "afd",
+    "cdu",
+    "linke",
+    "gruene",
+    "fdp"
+  ],
+  "coef_names": [
+    "intercept",
+    "resp_Z",
+    "res_l1_E",
+    "no_cand_l1"
+  ],
+  "coef": [
+    0.0027037816383078564,
+    0.819378032673236,
+    0.1771600734839297,
+    0.036169248724646885
+  ],
+  "vcov": [
+    [
+      3.3728841996174954e-06,
+      -2.6317921402686467e-08,
+      -1.4668966588355343e-05,
+      -3.368513921874202e-06
+    ],
+    [
+      -2.6317921402710693e-08,
+      0.0002569162328471235,
+      -0.00023240176122704098,
+      -4.263644701064031e-05
+    ],
+    [
+      -1.4668966588355323e-05,
+      -0.00023240176122704106,
+      0.00029846961699672497,
+      5.326092942054369e-05
+    ],
+    [
+      -3.368513921874197e-06,
+      -4.263644701064033e-05,
+      5.326092942054369e-05,
+      2.8482027736331633e-05
+    ]
+  ],
+  "sigma": 0.031778483672551636,
+  "n": 1146,
+  "n_elections": 4,
+  "elections": [
+    {
+      "state": "BE",
+      "election": 2023,
+      "n": 468
+    },
+    {
+      "state": "MV",
+      "election": 2016,
+      "n": 216
+    },
+    {
+      "state": "MV",
+      "election": 2021,
+      "n": 216
+    },
+    {
+      "state": "ST",
+      "election": 2021,
+      "n": 246
+    }
+  ],
+  "fit": {
+    "r2": 0.9143,
+    "mae": 0.0223,
+    "rmse": 0.0317,
+    "mae_z_hat_vs_obs": 0.0152
+  },
+  "loo_mae": 0.0252,
+  "trained_at": "2026-08-03T11:42:47",
+  "panel": "data/district_train_panel.csv",
+  "notes": "Pre-election information set: lagged district Erst/Zweit + statewide land target. RHS Zweit is projected, not observed. No candidate covariates. ST lags are StaLA comparable %-shares."
+}

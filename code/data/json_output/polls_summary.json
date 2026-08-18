@@ -1,0 +1,25 @@
+{
+  "total_polls": 6730,
+  "duplicates_removed": 0,
+  "date_range": {
+    "earliest": "1998-08-12",
+    "latest": "2025-08-15"
+  },
+  "federal_polls": 5779,
+  "state_polls": 951,
+  "unique_institutes": 21,
+  "unique_sources": 2,
+  "unique_methods": 5,
+  "unique_states": 13,
+  "party_order": [
+    "CDU/CSU",
+    "SPD",
+    "GRÜNE",
+    "FDP",
+    "LINKE",
+    "AfD",
+    "BSW",
+    "Sonstige"
+  ],
+  "format": "key_value_pairs"
+}

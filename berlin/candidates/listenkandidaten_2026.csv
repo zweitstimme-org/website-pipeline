@@ -1,0 +1,530 @@
+party,list_type,bezirk,list_pos,name,person_id,wkr_direct,source,is_placeholder
+spd,bezirk,01,1,Mathias Schulz,be:spd:person:mathias schulz,5,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,01,2,Dr. Maja Lasić,be:spd:person:maja lasic,7,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,01,3,Lucy Merle Demers,be:spd:person:lucy merle demers,3,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,01,4,Federico Quadrelli,be:spd:person:federico quadrelli,4,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,01,5,Susanne Fischer,be:spd:person:susanne fischer,6,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,01,6,Marion Blacher-Schwake,be:spd:person:marion blacher-schwake,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,1,Sevim Aydin,be:spd:person:sevim aydin,8,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,2,Sven Heinemann,be:spd:person:sven heinemann,10,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,3,Britt Schlünz,be:spd:person:britt schluenz,9,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,4,Thomas Giebel,be:spd:person:thomas giebel,11,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,5,Dora Oswald,be:spd:person:dora oswald,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,02,6,Steffen Opitz,be:spd:person:steffen opitz,12,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,1,Rona Tietje,be:spd:person:rona tietje,13,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,2,Dennis Buchner,be:spd:person:dennis buchner,16,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,3,Annette Unger,be:spd:person:annette unger,19,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,4,Tino Schopf,be:spd:person:tino schopf,21,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,5,Linda Vierecke,be:spd:person:linda vierecke,18,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,6,Torsten Hofer,be:spd:person:torsten hofer,14,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,7,Arne Gröschel,be:spd:person:arne groeschel,17,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,8,Katja Ahrens,be:spd:person:katja ahrens,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,9,Paul Krüger,be:spd:person:paul krueger,15,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,10,Birgit Mickley,be:spd:person:birgit mickley,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,03,11,Heiko Kretschmer,be:spd:person:heiko kretschmer,20,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,1,Florian Dörstelmann,be:spd:person:florian doerstelmann,28,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,2,Dr. Ann-Kathrin Biewener,be:spd:person:ann-kathrin biewener,27,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,3,Timur Sarić,be:spd:person:timur saric,25,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,4,Dr. Claudia Buß,be:spd:person:claudia buss,26,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,5,Nico Kaufmann,be:spd:person:nico kaufmann,22,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,6,Ülker Radziwill,be:spd:person:uelker radziwill,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,7,Christian Hochgrebe,be:spd:person:christian hochgrebe,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,8,Kristina Göllner,be:spd:person:kristina goellner,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,9,Johannes Gamer,be:spd:person:johannes gamer,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,10,Dr. Kabeh Führ-Hosseini,be:spd:person:kabeh fuehr-hosseini,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,11,Clemens Wilhelm Brandt,be:spd:person:clemens wilhelm brandt,23,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,04,12,Julia Selge,be:spd:person:julia selge,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,1,Raed Saleh,be:spd:person:raed saleh,30,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,2,Sebahat Atli,be:spd:person:sebahat atli,29,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,3,Stephan Machulik,be:spd:person:stephan machulik,31,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,4,Susanne Drescher,be:spd:person:susanne drescher,33,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,5,Marco Rumza,be:spd:person:marco rumza,32,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,6,Miloslava Büger,be:spd:person:miloslava bueger,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,7,Michael Stobbe,be:spd:person:michael stobbe,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,05,8,Dagmar Brückmann,be:spd:person:dagmar brueckmann,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,1,Steffen Krach,be:spd:person:steffen krach,35,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,2,Dr. Ina Czyborra,be:spd:person:ina czyborra,39,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,3,Martin Matz,be:spd:person:martin matz,36,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,4,Mirjam Golm,be:spd:person:mirjam golm,38,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,5,Norbert Buchta,be:spd:person:norbert buchta,40,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,6,Carolyn Macmillan,be:spd:person:carolyn macmillan,37,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,7,Andreas Linde,be:spd:person:andreas linde,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,8,Franziska Grün,be:spd:person:franziska gruen,34,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,9,Matthias Trenczek,be:spd:person:matthias trenczek,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,10,Sarah Maurer,be:spd:person:sarah maurer,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,11,Patrik John,be:spd:person:patrik john,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,12,Esra Kosan,be:spd:person:esra kosan,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,06,13,Matthias Kollatz,be:spd:person:matthias kollatz,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,1,Wiebke Neumann,be:spd:person:wiebke neumann,41,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,2,Orkan Özdemir,be:spd:person:orkan oezdemir,43,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,3,Melanie Kühnemann-Grunow,be:spd:person:melanie kuehnemann-grunow,44,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,4,Michael Biel,be:spd:person:michael biel,42,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,5,Annette Hertlein,be:spd:person:annette hertlein,47,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,6,Sebastian Schlüsselburg,be:spd:person:sebastian schluesselburg,45,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,7,Kari Lenke,be:spd:person:kari lenke,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,07,8,Oliver Schworck,be:spd:person:oliver schworck,46,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,1,Derya Çağlar,be:spd:person:derya caglar,50,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,2,Marcel Hopp,be:spd:person:marcel hopp,51,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,3,Charlotte Mende,be:spd:person:charlotte mende,49,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,4,Joachim Rahmann,be:spd:person:joachim rahmann,52,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,5,Anne Roever,be:spd:person:anne roever,48,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,6,Akilnathan Logeswaran,be:spd:person:akilnathan logeswaran,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,08,7,Ines Woithe,be:spd:person:ines woithe,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,1,Julia Dittmar,be:spd:person:julia dittmar,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,2,Alexander Freier-Winterwerb,be:spd:person:alexander freier-winterwerb,54,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,3,Ellen Haußdörfer,be:spd:person:ellen haussdoerfer,57,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,4,Paul Bahlmann,be:spd:person:paul bahlmann,55,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,5,Sara Rüdiger,be:spd:person:sara ruediger,59,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,6,Lars Düsterhöft,be:spd:person:lars duesterhoeft,56,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,7,Katharina Jahn-Günther,be:spd:person:katharina jahn-guenther,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,09,8,Asya Aldiri,be:spd:person:asya aldiri,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,1,Iris Spranger,be:spd:person:iris spranger,62,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,2,Jan Lehmann,be:spd:person:jan lehmann,66,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,3,Dr. Luise Lehmann,be:spd:person:luise lehmann,65,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,4,Enrico Bloch,be:spd:person:enrico bloch,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,5,Maria Geidel,be:spd:person:maria geidel,64,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,10,6,Eike Arnold,be:spd:person:eike arnold,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,11,1,Tamara Lüdke,be:spd:person:tamara luedke,70,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,11,2,Marlon Bünck,be:spd:person:marlon buenck,71,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,11,3,Marie Scharfenberg,be:spd:person:marie scharfenberg,69,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,11,4,Uwe Heinecke,be:spd:person:uwe heinecke,67,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,11,5,Stefan Schenck,be:spd:person:stefan schenck,68,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,1,Bettina König,be:spd:person:bettina koenig,73,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,2,Sven Meyer,be:spd:person:sven meyer,76,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,3,Laurence Stroedter,be:spd:person:laurence stroedter,74,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,4,Kai Kottenstede,be:spd:person:kai kottenstede,78,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,5,Sevda Boyraci,be:spd:person:sevda boyraci,77,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,6,Samuel Märkt,be:spd:person:samuel maerkt,75,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,7,Hayal Düz,be:spd:person:hayal duez,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,8,Sascha Rudloff,be:spd:person:sascha rudloff,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,9,Angela Budweg,be:spd:person:angela budweg,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,10,Kán Lindner,be:spd:person:kan lindner,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,11,Nicole Borkenhagen,be:spd:person:nicole borkenhagen,,https://spd.berlin/kandidatinnen/,0
+spd,bezirk,12,12,Darrell Kanngießer,be:spd:person:darrell kanngiesser,,https://spd.berlin/kandidatinnen/,0
+afd,landes,,1,Kristin Brinker,be:afd:person:kristin brinker,,https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html,0
+afd,landes,,2,Alexander Bertram,be:afd:person:alexander bertram,,https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html,0
+afd,landes,,3,Rolf Wiedenhaupt,be:afd:person:rolf wiedenhaupt,,https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html,0
+afd,landes,,4,Jan Streeck,be:afd:person:jan streeck,,https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html,0
+afd,landes,,5,Martin Kohler,be:afd:person:martin kohler,,https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html,0
+afd,landes,,6,Martin Trefzer,be:afd:person:martin trefzer,,https://noafd.info/agh/,0
+afd,landes,,7,Jeannette Auricht,be:afd:person:jeannette auricht,63,https://noafd.info/agh/,0
+afd,landes,,8,Tommy Tabor,be:afd:person:tommy tabor,,https://noafd.info/agh/,0
+afd,landes,,9,Dr. Hugh Bronson,be:afd:person:hugh bronson,23,https://noafd.info/agh/,0
+afd,landes,,10,Carsten Ubbelohde,be:afd:person:carsten ubbelohde,,https://noafd.info/agh/,0
+afd,landes,,11,Daniel Krüger,be:afd:person:daniel krueger,,https://pankow.afd.berlin/2025/10/starke-praesenz-und-erfolg-fuer-pankower-afd-bei-listenaufstellung/,0
+afd,landes,,12,Robert Eschricht,be:afd:person:robert eschricht,51,https://noafd.info/agh/,0
+afd,landes,,13,Marc Bernicke,be:afd:person:marc bernicke,,https://noafd.info/agh/,0
+afd,landes,,14,Frank-Christian Hansel,be:afd:person:frank-christian hansel,,https://noafd.info/agh/,0
+afd,landes,,15,Julian Adrat,be:afd:person:julian adrat,,https://noafd.info/agh/,0
+afd,landes,,16,Marc Vallendar,be:afd:person:marc vallendar,,https://noafd.info/agh/,0
+afd,landes,,17,Frank Scheermesser,be:afd:person:frank scheermesser,,https://noafd.info/agh/,0
+afd,landes,,18,David Eckert,be:afd:person:david eckert,,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/,0
+afd,landes,,19,Dennis Henkel,be:afd:person:dennis henkel,,https://noafd.info/agh/,0
+afd,landes,,20,Herbert Mohr,be:afd:person:herbert mohr,,https://pankow.afd.berlin/2025/10/starke-praesenz-und-erfolg-fuer-pankower-afd-bei-listenaufstellung/,0
+afd,landes,,21,Hendrik Pauli,be:afd:person:hendrik pauli,53,https://noafd.info/agh/,0
+afd,landes,,22,Sarah Gröber,be:afd:person:sarah groeber,,https://noafd.info/agh/,0
+afd,landes,,23,Ralf Conradi,be:afd:person:ralf conradi,,https://noafd.info/agh/,0
+afd,landes,,24,Karl-Heinz Turban,be:afd:person:karl-heinz turban,,https://noafd.info/agh/,0
+afd,landes,,25,Stephan Knaute,be:afd:person:stephan knaute,67,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/,0
+afd,landes,,26,Christopher Wiedenhaupt,be:afd:person:christopher wiedenhaupt,,https://noafd.info/agh/,0
+afd,landes,,27,Miriam Schroiff,be:afd:person:miriam schroiff,,https://noafd.info/agh/,0
+afd,landes,,28,Hanno Bachmann,be:afd:person:hanno bachmann,,https://pankow.afd.berlin/2025/10/starke-praesenz-und-erfolg-fuer-pankower-afd-bei-listenaufstellung/,0
+afd,landes,,29,Christian Müller,be:afd:person:christian mueller,,https://noafd.info/agh/,0
+afd,landes,,30,Christopher Schweer,be:afd:person:christopher schweer,,https://pankow.afd.berlin/2025/10/starke-praesenz-und-erfolg-fuer-pankower-afd-bei-listenaufstellung/,0
+afd,landes,,31,Thomas Arhelger,be:afd:person:thomas arhelger,50,https://noafd.info/agh/,0
+afd,landes,,32,Hermann Priegnitz,be:afd:person:hermann priegnitz,,https://noafd.info/agh/,0
+afd,landes,,33,Michael Zischka,be:afd:person:michael zischka,,https://noafd.info/agh/,0
+afd,landes,,34,Katharina Oldenburg,be:afd:person:katharina oldenburg,,https://pankow.afd.berlin/2025/10/starke-praesenz-und-erfolg-fuer-pankower-afd-bei-listenaufstellung/,0
+afd,landes,,35,Andreas Quint,be:afd:person:andreas quint,,https://noafd.info/agh/,0
+afd,landes,,36,Listenplatz 36 · unbekannt,be:afd:list:landes:land:36,,,1
+afd,landes,,37,Listenplatz 37 · unbekannt,be:afd:list:landes:land:37,,,1
+afd,landes,,38,Listenplatz 38 · unbekannt,be:afd:list:landes:land:38,,,1
+afd,landes,,39,Listenplatz 39 · unbekannt,be:afd:list:landes:land:39,,,1
+afd,landes,,40,Listenplatz 40 · unbekannt,be:afd:list:landes:land:40,,,1
+afd,landes,,41,Listenplatz 41 · unbekannt,be:afd:list:landes:land:41,,,1
+afd,landes,,42,Listenplatz 42 · unbekannt,be:afd:list:landes:land:42,,,1
+afd,landes,,43,Listenplatz 43 · unbekannt,be:afd:list:landes:land:43,,,1
+afd,landes,,44,Listenplatz 44 · unbekannt,be:afd:list:landes:land:44,,,1
+afd,landes,,45,Listenplatz 45 · unbekannt,be:afd:list:landes:land:45,,,1
+afd,landes,,46,Listenplatz 46 · unbekannt,be:afd:list:landes:land:46,,,1
+afd,landes,,47,Listenplatz 47 · unbekannt,be:afd:list:landes:land:47,,,1
+afd,landes,,48,Listenplatz 48 · unbekannt,be:afd:list:landes:land:48,,,1
+afd,landes,,49,Listenplatz 49 · unbekannt,be:afd:list:landes:land:49,,,1
+afd,landes,,50,Listenplatz 50 · unbekannt,be:afd:list:landes:land:50,,,1
+afd,landes,,51,Listenplatz 51 · unbekannt,be:afd:list:landes:land:51,,,1
+afd,landes,,52,Listenplatz 52 · unbekannt,be:afd:list:landes:land:52,,,1
+afd,landes,,53,Listenplatz 53 · unbekannt,be:afd:list:landes:land:53,,,1
+afd,landes,,54,Listenplatz 54 · unbekannt,be:afd:list:landes:land:54,,,1
+afd,landes,,55,Listenplatz 55 · unbekannt,be:afd:list:landes:land:55,,,1
+afd,landes,,56,Listenplatz 56 · unbekannt,be:afd:list:landes:land:56,,,1
+afd,landes,,57,Listenplatz 57 · unbekannt,be:afd:list:landes:land:57,,,1
+afd,landes,,58,Listenplatz 58 · unbekannt,be:afd:list:landes:land:58,,,1
+afd,landes,,59,Listenplatz 59 · unbekannt,be:afd:list:landes:land:59,,,1
+afd,landes,,60,Listenplatz 60 · unbekannt,be:afd:list:landes:land:60,,,1
+cdu,bezirk,03,1,Dirk Stettner,be:cdu:person:dirk stettner,4,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,2,Stephan Lenz,be:cdu:person:stephan lenz,,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,3,Johannes Kraft,be:cdu:person:johannes kraft,1,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,4,Lars Bocian,be:cdu:person:lars bocian,14,https://www.cdupankownord.de/Unsere-Kandidaten_p_35.html,0
+cdu,bezirk,03,5,Denise Bittner,be:cdu:person:denise bittner,5,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,6,Alexander Meyer,be:cdu:person:alexander meyer,,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,7,Prof. Dr. Antje Tölle,be:cdu:person:antje toelle,,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,8,David Paul,be:cdu:person:david paul,9,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,03,9,Sabrina Hohl,be:cdu:person:sabrina hohl,,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html,0
+cdu,bezirk,04,1,Dr. Felor Badenberg,be:cdu:person:felor badenberg,7,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,2,Ariturel Hack,be:cdu:person:ariturel hack,2,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,3,Sandra Khalatbari,be:cdu:person:sandra khalatbari,5,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,4,Kevin Steuer,be:cdu:person:kevin steuer,3,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,5,Vivien-Nathalie Keilbar,be:cdu:person:vivien-nathalie keilbar,1,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,6,Peer Mock-Stümer,be:cdu:person:peer mock-stuemer,6,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,7,Aldona Niemczyk,be:cdu:person:aldona niemczyk,4,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,8,Joachim Krüger,be:cdu:person:joachim krueger,,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,9,Nilüfer Bakkal,be:cdu:person:niluefer bakkal,,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,04,10,Mario Röllig,be:cdu:person:mario roellig,,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html,0
+cdu,bezirk,05,1,Kai Wegner,be:cdu:person:kai wegner,33,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,2,Heiko Melzer,be:cdu:person:heiko melzer,32,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,3,Bettina Meißner,be:cdu:person:bettina meissner,29,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,4,Kerstin Brauner,be:cdu:person:kerstin brauner,31,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,5,Dr. Ersin Nas,be:cdu:person:ersin nas,30,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,6,Max Grüninger,be:cdu:person:max grueninger,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,7,Beate Bathe,be:cdu:person:beate bathe,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,8,Stefan Putzger,be:cdu:person:stefan putzger,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,9,Silke Lehmann,be:cdu:person:silke lehmann,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,10,Anastasia Vidojkovic,be:cdu:person:anastasia vidojkovic,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,11,Christian König-Tumpiya,be:cdu:person:christian koenig-tumpiya,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,12,Jörg Mollenhauer,be:cdu:person:joerg mollenhauer,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,05,13,Ulrike Billerbeck,be:cdu:person:ulrike billerbeck,,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html,0
+cdu,bezirk,06,1,Cornelia Seibeld,be:cdu:person:cornelia seibeld,37,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,2,Tom Cywinski,be:cdu:person:tom cywinski,35,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,3,Stephan Standfuß,be:cdu:person:stephan standfuss,40,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,4,Dr. Claudia Wein,be:cdu:person:claudia wein,34,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,5,Jens Hoffmann,be:cdu:person:jens hoffmann,36,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,6,Marco Hahnfeld,be:cdu:person:marco hahnfeld,38,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,7,Christoph Wegener,be:cdu:person:christoph wegener,39,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,8,Dr. Marela Bone-Winkel,be:cdu:person:marela bone-winkel,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,9,Iris Gertig,be:cdu:person:iris gertig,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,10,Sebastian Voigt,be:cdu:person:sebastian voigt,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,11,Jörg Schumacher,be:cdu:person:joerg schumacher,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,12,Henriette Kauer,be:cdu:person:henriette kauer,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,13,Christine Mögling,be:cdu:person:christine moegling,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,14,André Bossy,be:cdu:person:andre bossy,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,15,Isabelle Thomsen,be:cdu:person:isabelle thomsen,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,16,Dr. Christof Hasenburg,be:cdu:person:christof hasenburg,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,17,Dr. Laura Langner,be:cdu:person:laura langner,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,18,Norman Hähmel,be:cdu:person:norman haehmel,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,19,Sascha Schwarz,be:cdu:person:sascha schwarz,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,20,Bastian Hirsch,be:cdu:person:bastian hirsch,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,06,21,Kai Miederer,be:cdu:person:kai miederer,,https://www.cdusz.de/ueber-uns/kandidaten2026/,0
+cdu,bezirk,09,1,Maik Penn,be:cdu:person:maik penn,7,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,2,Stefan Evers,be:cdu:person:stefan evers,4,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,3,Lisa Knack,be:cdu:person:lisa knack,5,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,4,Dr. med. Katrin Hegenscheid,be:cdu:person:katrin hegenscheid,2,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,5,Dr. Martin Sattelkau,be:cdu:person:martin sattelkau,6,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,6,Dustin Hoffmann,be:cdu:person:dustin hoffmann,1,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,7,Lukas Vennemann,be:cdu:person:lukas vennemann,3,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,8,Sascha Lawrenz,be:cdu:person:sascha lawrenz,,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,9,Elke Groth,be:cdu:person:elke groth,,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,09,10,Wilma Glücklich-Rusche,be:cdu:person:wilma gluecklich-rusche,,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html,0
+cdu,bezirk,11,1,Danny Freymark,be:cdu:person:danny freymark,1,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,2,Prof. Dr. Martin Pätzold,be:cdu:person:martin paetzold,2,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,3,Lilia Usik,be:cdu:person:lilia usik,6,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,4,Dennis Haustein,be:cdu:person:dennis haustein,3,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,5,Lennart Birkenthal,be:cdu:person:lennart birkenthal,4,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,6,Sarah Ribbeck,be:cdu:person:sarah ribbeck,5,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,7,Dr. Catrin Gocksch,be:cdu:person:catrin gocksch,,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,8,Lilli Kosiol,be:cdu:person:lilli kosiol,,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,9,Dr. Elisabeth Zinke-Heßler,be:cdu:person:elisabeth zinke-hessler,,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,11,10,Wilfried Nünthel,be:cdu:person:wilfried nuenthel,,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die,0
+cdu,bezirk,12,1,Burkard Dregger,be:cdu:person:burkard dregger,1,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+cdu,bezirk,12,2,Niklas Graßelt,be:cdu:person:niklas grasselt,3,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+cdu,bezirk,12,3,Matea Krolo,be:cdu:person:matea krolo,5,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+cdu,bezirk,12,4,Tomasz Klon,be:cdu:person:tomasz klon,4,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+cdu,bezirk,12,5,Richard Gamp,be:cdu:person:richard gamp,6,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+cdu,bezirk,12,6,Cassandra Hoffmann,be:cdu:person:cassandra hoffmann,,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html,0
+linke,bezirk,01,1,Martha Kleedörfer,be:linke:person:martha kleedoerfer,6,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,2,Tobias Schulze,be:linke:person:tobias schulze,3,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,3,Jacky Sanehy,be:linke:person:jacky sanehy,4,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,4,Deike Janssen,be:linke:person:deike janssen,7,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,5,Anna Eiling,be:linke:person:anna eiling,1,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,6,Leo Diederich,be:linke:person:leo diederich,2,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,7,Kadriye Karci,be:linke:person:kadriye karci,,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,01,8,Andreas Umgelter,be:linke:person:andreas umgelter,5,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/,0
+linke,bezirk,02,1,Elif Eralp,be:linke:person:elif eralp,1,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,2,Damiano Valgolio,be:linke:person:damiano valgolio,4,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,3,Kerstin Wolter,be:linke:person:kerstin wolter,3,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,4,Michael Efler,be:linke:person:michael efler,2,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,5,Ruby Cichon,be:linke:person:ruby cichon,,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,6,Ekkehard Spiegel,be:linke:person:ekkehard spiegel,5,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,7,Karolin Behlert,be:linke:person:karolin behlert,,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,8,Daniela Dohr,be:linke:person:daniela dohr,,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,02,9,Alex Wischnewski,be:linke:person:alex wischnewski,,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/,0
+linke,bezirk,03,1,Maximilian Schirmer,be:linke:person:maximilian schirmer,9,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,2,Enja Springob,be:linke:person:enja springob,5,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,3,Maria Bigos,be:linke:person:maria bigos,6,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,4,Niklas Schrader,be:linke:person:niklas schrader,7,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,5,Maxi Häber,be:linke:person:maxi haeber,1,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,6,Christian Zebisch,be:linke:person:christian zebisch,3,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,7,Coco Aglibut,be:linke:person:coco aglibut,2,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,8,Devran Basbolat,be:linke:person:devran basbolat,4,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,9,Salomé Berhanu,be:linke:person:salome berhanu,,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,03,10,Gloria Viagra,be:linke:person:gloria viagra,8,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/,0
+linke,bezirk,04,1,Niklas Schenker,be:linke:person:niklas schenker,1,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,2,Sonja Radde,be:linke:person:sonja radde,6,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,3,Frederike-Sophie Gronde-Brunner,be:linke:person:frederike-sophie gronde-brunner,3,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,4,Johannes Kolleck,be:linke:person:johannes kolleck,7,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,5,Lisbeth Ritterhoff,be:linke:person:lisbeth ritterhoff,,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,6,Dr. Enrico Brehm,be:linke:person:enrico brehm,2,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,7,Kyla Grigoleit,be:linke:person:kyla grigoleit,5,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,04,8,Felix Städler,be:linke:person:felix staedler,4,https://www.dielinke-charlottenburg-wilmersdorf.de/,0
+linke,bezirk,05,1,Ender Atakul,be:linke:person:ender atakul,2,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/,0
+linke,bezirk,05,2,Isabella Sander,be:linke:person:isabella sander,1,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/,0
+linke,bezirk,05,3,Hanna Krüger,be:linke:person:hanna krueger,4,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/,0
+linke,bezirk,05,4,Thomas Wulfes,be:linke:person:thomas wulfes,3,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/,0
+linke,bezirk,05,5,Fritz Stephan,be:linke:person:fritz stephan,5,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/,0
+linke,bezirk,06,1,Franziska Brychcy,be:linke:person:franziska brychcy,2,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,2,Marcus Otto,be:linke:person:marcus otto,1,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,3,Bettina Günter,be:linke:person:bettina guenter,7,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,4,Mathias Gruner,be:linke:person:mathias gruner,4,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,5,Lara Wiebelt,be:linke:person:lara wiebelt,6,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,6,Kevin Kreis,be:linke:person:kevin kreis,5,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,7,Magbula Zenović,be:linke:person:magbula zenovic,,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,06,8,Maximilian Voß,be:linke:person:maximilian voss,,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/,0
+linke,bezirk,07,1,Maja Jamal Eddine,be:linke:person:maja jamal eddine,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,2,Harald Gindra,be:linke:person:harald gindra,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,3,Maria Stachira,be:linke:person:maria stachira,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,4,Johannes Franck,be:linke:person:johannes franck,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,5,Mia-Kim Ide,be:linke:person:mia-kim ide,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,6,Christoph Böltes,be:linke:person:christoph boeltes,45,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,7,Miriam Morhart,be:linke:person:miriam morhart,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,8,Vic Ribbeck,be:linke:person:vic ribbeck,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,9,Philine Busch,be:linke:person:philine busch,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,10,Onur Yildirim,be:linke:person:onur yildirim,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,11,Rike Hildebrandt,be:linke:person:rike hildebrandt,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,12,Marius Brey,be:linke:person:marius brey,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,13,Dena Ghiassi-Maasser,be:linke:person:dena ghiassi-maasser,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,14,Max Erik Schöne,be:linke:person:max erik schoene,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,15,Corinna Stupka,be:linke:person:corinna stupka,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,16,Paul Frieda Felsmann,be:linke:person:paul frieda felsmann,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,17,Cäcilie Büttner,be:linke:person:caecilie buettner,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,18,Michael Janßen,be:linke:person:michael janssen,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,19,Leonie Adler,be:linke:person:leonie adler,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,20,Benjamin Barner,be:linke:person:benjamin barner,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,21,Philipp Lachmund,be:linke:person:philipp lachmund,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,22,Jakob Waidner,be:linke:person:jakob waidner,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,23,Finn Leben,be:linke:person:finn leben,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,07,24,Michal Lech,be:linke:person:michal lech,,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/berlin-wahlen-2026/,0
+linke,bezirk,08,1,Rouzbeh Taheri,be:linke:person:rouzbeh taheri,3,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,08,2,Vedi Emde,be:linke:person:vedi emde,1,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,08,3,Betül Havva Yılmaz,be:linke:person:betuel havva yilmaz,,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,08,4,Philipp Dehne,be:linke:person:philipp dehne,2,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,08,5,Emmi Stiegler,be:linke:person:emmi stiegler,5,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,08,6,Yurtsever Özdemir,be:linke:person:yurtsever oezdemir,4,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/,0
+linke,bezirk,09,1,Moritz Warnke,be:linke:person:moritz warnke,54,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,2,Lisa Pfitzmann,be:linke:person:lisa pfitzmann,55,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,3,Eda Terkan,be:linke:person:eda terkan,59,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,4,Hans Kromrey,be:linke:person:hans kromrey,60,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,5,Lena Fries,be:linke:person:lena fries,57,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,6,Loic Kliemann,be:linke:person:loic kliemann,58,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,7,Dr. Susanne Willems,be:linke:person:susanne willems,,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,09,8,Fabian Ulrich,be:linke:person:fabian ulrich,56,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/,0
+linke,bezirk,10,1,Björn Tielebein,be:linke:person:bjoern tielebein,1,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,10,2,Sarah Bigall,be:linke:person:sarah bigall,2,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,10,3,Nadine Jüngling,be:linke:person:nadine juengling,3,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,10,4,Steffen Ostehr,be:linke:person:steffen ostehr,6,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,10,5,Juliane Witt,be:linke:person:juliane witt,5,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,10,6,Markus Berg,be:linke:person:markus berg,4,https://dielinke-mahe.de/wahlen-2026/,0
+linke,bezirk,11,1,Hendrikje Klein,be:linke:person:hendrikje klein,5,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,2,Antonio Leonhardt,be:linke:person:antonio leonhardt,4,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,3,Claudia Engelmann,be:linke:person:claudia engelmann,3,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,4,Toni Kraus,be:linke:person:toni kraus,2,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,5,Julia Behrens,be:linke:person:julia behrens,6,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,6,Sascha Gehrke,be:linke:person:sascha gehrke,,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,7,So-Rim Jung-Thomas,be:linke:person:so-rim jung-thomas,,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,11,8,Martin Bober,be:linke:person:martin bober,,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/,0
+linke,bezirk,12,1,Pilar Caballero Alvarez,be:linke:person:pilar caballero alvarez,1,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,2,Jessica Gerke,be:linke:person:jessica gerke,2,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,3,Sophia-Marie Dietrich,be:linke:person:sophia-marie dietrich,4,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,4,Noah Leven Keilmann,be:linke:person:noah leven keilmann,,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,5,Gülistan Erdil,be:linke:person:guelistan erdil,5,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,6,Robert Irmscher,be:linke:person:robert irmscher,3,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,7,Ines Schwende,be:linke:person:ines schwende,,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+linke,bezirk,12,8,Ben Hennig,be:linke:person:ben hennig,6,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/,0
+gruene,landes,,1,Bettina Jarasch,be:gruene:person:bettina jarasch,13,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,2,Werner Graf,be:gruene:person:werner graf,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,3,Daniela Ehlers,be:gruene:person:daniela ehlers,72,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,4,Silke Gebel,be:gruene:person:silke gebel,1,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,5,Klara Schedlich,be:gruene:person:klara schedlich,78,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,6,Philmon Ghirmai,be:gruene:person:philmon ghirmai,51,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,7,Gollaleh Ahmadi,be:gruene:person:gollaleh ahmadi,31,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,8,Sebastian Walter,be:gruene:person:sebastian walter,41,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,9,Elina Schumacher,be:gruene:person:elina schumacher,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,10,André Schulze,be:gruene:person:andre schulze,48,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,11,Antje Kapek,be:gruene:person:antje kapek,11,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,12,Pascal Grothe,be:gruene:person:pascal grothe,64,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,13,Bahar Haghanipour,be:gruene:person:bahar haghanipour,49,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,14,Ario Ebrahimpour Mirzaie,be:gruene:person:ario ebrahimpour mirzaie,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,15,Charlotte Steinmetz,be:gruene:person:charlotte steinmetz,56,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,16,Christoph Wapler,be:gruene:person:christoph wapler,25,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,17,Tonka Wojahn,be:gruene:person:tonka wojahn,34,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,18,Bogusz Schmidt,be:gruene:person:bogusz schmidt,74,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,19,Oda Hassepaß,be:gruene:person:oda hassepass,15,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,20,Julian Schwarze,be:gruene:person:julian schwarze,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,21,Jana Eva Brix,be:gruene:person:jana eva brix,22,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,22,Louis Krüger,be:gruene:person:louis krueger,17,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,23,Katja Zimmermann,be:gruene:person:katja zimmermann,2,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,24,Enad Altaweel,be:gruene:person:enad altaweel,10,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,25,Petra Vandrey,be:gruene:person:petra vandrey,24,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,26,Vasili Franco,be:gruene:person:vasili franco,12,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,27,Chantal Münster,be:gruene:person:chantal muenster,63,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,28,Notker Schweikhardt,be:gruene:person:notker schweikhardt,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,29,Catrin Wahlen,be:gruene:person:catrin wahlen,54,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,30,Philipp Ahrens,be:gruene:person:philipp ahrens,70,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,31,Anna Melnik,be:gruene:person:anna melnik,26,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,32,Willi Junga,be:gruene:person:willi junga,57,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,33,Kristin Kosche,be:gruene:person:kristin kosche,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,34,Oliver Jütting,be:gruene:person:oliver juetting,21,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,35,Lela Sisauri,be:gruene:person:lela sisauri,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,36,Konstantinos Kosmas,be:gruene:person:konstantinos kosmas,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,37,Marei Zylka,be:gruene:person:marei zylka,75,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,38,Sascha Taschenberger,be:gruene:person:sascha taschenberger,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,39,Manuela Neubert,be:gruene:person:manuela neubert,65,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,40,Georg Atta Mensah,be:gruene:person:georg mensah,76,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,41,Doreen Frowitter,be:gruene:person:doreen frowitter,29,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,42,Evan Vosberg,be:gruene:person:evan vosberg,69,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,43,Elena Christine Steinbach,be:gruene:person:elena christine steinbach,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,44,Friedrich Ehrhardt,be:gruene:person:friedrich ehrhardt,16,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,45,Lilly Aepfelbach,be:gruene:person:lilly aepfelbach,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,46,Nicolas Völcker Ortega,be:gruene:person:nicolas voelcker ortega,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,47,Kristin Otto,be:gruene:person:kristin otto,68,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,48,Niclas Rother,be:gruene:person:niclas rother,61,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,49,Lisa Wolfram,be:gruene:person:lisa wolfram,,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,50,Jan Stiermann,be:gruene:person:jan stiermann,52,https://www.gruene-berlin.de/unsere-kandidatinnen-als-liste/,0
+gruene,landes,,51,Listenplatz 51 · unbekannt,be:gruene:list:landes:land:51,,,1
+gruene,landes,,52,Listenplatz 52 · unbekannt,be:gruene:list:landes:land:52,,,1
+gruene,landes,,53,Listenplatz 53 · unbekannt,be:gruene:list:landes:land:53,,,1
+gruene,landes,,54,Listenplatz 54 · unbekannt,be:gruene:list:landes:land:54,,,1
+gruene,landes,,55,Listenplatz 55 · unbekannt,be:gruene:list:landes:land:55,,,1
+gruene,landes,,56,Listenplatz 56 · unbekannt,be:gruene:list:landes:land:56,,,1
+gruene,landes,,57,Listenplatz 57 · unbekannt,be:gruene:list:landes:land:57,,,1
+gruene,landes,,58,Listenplatz 58 · unbekannt,be:gruene:list:landes:land:58,,,1
+gruene,landes,,59,Listenplatz 59 · unbekannt,be:gruene:list:landes:land:59,,,1
+gruene,landes,,60,Listenplatz 60 · unbekannt,be:gruene:list:landes:land:60,,,1
+fdp,landes,,1,Christoph Meyer,be:fdp:person:christoph meyer,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,2,Dr. Maren Jasper-Winter,be:fdp:person:maren jasper-winter,1,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,3,Peter Langer,be:fdp:person:peter langer,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,4,Maria Wandel,be:fdp:person:maria wandel,15,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,5,Tobias Bauschke,be:fdp:person:tobias bauschke,39,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,6,Moritz Wimmer,be:fdp:person:moritz wimmer,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,7,Batuhan Temiz,be:fdp:person:batuhan temiz,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,8,Karoline Preisler,be:fdp:person:karoline preisler,38,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,9,Dr. Felix Recke-Friedrich,be:fdp:person:felix recke-friedrich,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,10,David Jahn,be:fdp:person:david jahn,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,11,Eren Güvercin,be:fdp:person:eren guevercin,2,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,12,Matthias Morrkopf-Widlok,be:fdp:person:matthias morrkopf-widlok,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,13,Axel Bering,be:fdp:person:axel bering,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,14,Ruven Gastel,be:fdp:person:ruven gastel,18,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,15,Belinda Christmann,be:fdp:person:belinda christmann,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,16,Henning Krumrey,be:fdp:person:henning krumrey,40,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,17,Joachim Schmidt,be:fdp:person:joachim schmidt,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,18,Prof. Dr. Martin Lutzenberger,be:fdp:person:martin lutzenberger,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,19,Philip Schmidt,be:fdp:person:philip schmidt,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,20,Franz Teresiak,be:fdp:person:franz teresiak,7,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,21,Anastasia Vishnevskaya-Mann,be:fdp:person:anastasia vishnevskaya-mann,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,22,Bastian Roet,be:fdp:person:bastian roet,6,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,23,Alexey Smachtin,be:fdp:person:alexey smachtin,,https://www.fdp-berlin.de/ein-starkes-team-fuer-eine-stadt-die-wieder-funktioniert,0
+fdp,landes,,24,Listenplatz 24 · unbekannt,be:fdp:list:landes:land:24,,,1
+fdp,landes,,25,Listenplatz 25 · unbekannt,be:fdp:list:landes:land:25,,,1
+fdp,landes,,26,Listenplatz 26 · unbekannt,be:fdp:list:landes:land:26,,,1
+fdp,landes,,27,Listenplatz 27 · unbekannt,be:fdp:list:landes:land:27,,,1
+fdp,landes,,28,Listenplatz 28 · unbekannt,be:fdp:list:landes:land:28,,,1
+fdp,landes,,29,Listenplatz 29 · unbekannt,be:fdp:list:landes:land:29,,,1
+fdp,landes,,30,Listenplatz 30 · unbekannt,be:fdp:list:landes:land:30,,,1
+fdp,landes,,31,Listenplatz 31 · unbekannt,be:fdp:list:landes:land:31,,,1
+fdp,landes,,32,Listenplatz 32 · unbekannt,be:fdp:list:landes:land:32,,,1
+fdp,landes,,33,Listenplatz 33 · unbekannt,be:fdp:list:landes:land:33,,,1
+fdp,landes,,34,Listenplatz 34 · unbekannt,be:fdp:list:landes:land:34,,,1
+fdp,landes,,35,Listenplatz 35 · unbekannt,be:fdp:list:landes:land:35,,,1
+fdp,landes,,36,Listenplatz 36 · unbekannt,be:fdp:list:landes:land:36,,,1
+fdp,landes,,37,Listenplatz 37 · unbekannt,be:fdp:list:landes:land:37,,,1
+fdp,landes,,38,Listenplatz 38 · unbekannt,be:fdp:list:landes:land:38,,,1
+fdp,landes,,39,Listenplatz 39 · unbekannt,be:fdp:list:landes:land:39,,,1
+fdp,landes,,40,Listenplatz 40 · unbekannt,be:fdp:list:landes:land:40,,,1
+fdp,landes,,41,Listenplatz 41 · unbekannt,be:fdp:list:landes:land:41,,,1
+fdp,landes,,42,Listenplatz 42 · unbekannt,be:fdp:list:landes:land:42,,,1
+fdp,landes,,43,Listenplatz 43 · unbekannt,be:fdp:list:landes:land:43,,,1
+fdp,landes,,44,Listenplatz 44 · unbekannt,be:fdp:list:landes:land:44,,,1
+fdp,landes,,45,Listenplatz 45 · unbekannt,be:fdp:list:landes:land:45,,,1
+fdp,landes,,46,Listenplatz 46 · unbekannt,be:fdp:list:landes:land:46,,,1
+fdp,landes,,47,Listenplatz 47 · unbekannt,be:fdp:list:landes:land:47,,,1
+fdp,landes,,48,Listenplatz 48 · unbekannt,be:fdp:list:landes:land:48,,,1
+fdp,landes,,49,Listenplatz 49 · unbekannt,be:fdp:list:landes:land:49,,,1
+fdp,landes,,50,Listenplatz 50 · unbekannt,be:fdp:list:landes:land:50,,,1
+fdp,landes,,51,Listenplatz 51 · unbekannt,be:fdp:list:landes:land:51,,,1
+fdp,landes,,52,Listenplatz 52 · unbekannt,be:fdp:list:landes:land:52,,,1
+fdp,landes,,53,Listenplatz 53 · unbekannt,be:fdp:list:landes:land:53,,,1
+fdp,landes,,54,Listenplatz 54 · unbekannt,be:fdp:list:landes:land:54,,,1
+fdp,landes,,55,Listenplatz 55 · unbekannt,be:fdp:list:landes:land:55,,,1
+fdp,landes,,56,Listenplatz 56 · unbekannt,be:fdp:list:landes:land:56,,,1
+fdp,landes,,57,Listenplatz 57 · unbekannt,be:fdp:list:landes:land:57,,,1
+fdp,landes,,58,Listenplatz 58 · unbekannt,be:fdp:list:landes:land:58,,,1
+fdp,landes,,59,Listenplatz 59 · unbekannt,be:fdp:list:landes:land:59,,,1
+fdp,landes,,60,Listenplatz 60 · unbekannt,be:fdp:list:landes:land:60,,,1
+bsw,landes,,1,Dr. Alexander King,be:bsw:person:alexander king,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,2,Dr. Michael Lüders,be:bsw:person:michael lueders,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,3,Josephine Thyrêt,be:bsw:person:josephine thyret,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,4,Sevim Dagdelen,be:bsw:person:sevim dagdelen,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,5,Norman Wolf,be:bsw:person:norman wolf,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,6,Wiebke Diehl,be:bsw:person:wiebke diehl,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,7,Robert Schneider,be:bsw:person:robert schneider,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,8,Alina Lindemann,be:bsw:person:alina lindemann,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,9,Philippe Gouverneur,be:bsw:person:philippe gouverneur,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,10,Manaf Hassan,be:bsw:person:manaf hassan,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,11,Erwin Liedke,be:bsw:person:erwin liedke,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,12,Martin Mnich,be:bsw:person:martin mnich,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,13,Andreas Preisner,be:bsw:person:andreas preisner,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,14,Jonathan Farner,be:bsw:person:jonathan farner,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,15,Viola Radke,be:bsw:person:viola radke,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,16,Johann Geißler,be:bsw:person:johann geissler,,https://bsw.berlin/allgemein/bsw-berlin-komplettiert-landesliste-fuer-die-abgeordnetenhauswahl-2026/,0
+bsw,landes,,17,Nicolai Röschert,be:bsw:person:nicolai roeschert,,https://www.nd-aktuell.de/artikel/1201353.wahlen-parteien-berlinweit-auf-den-stimmzetteln.html,0
+bsw,landes,,18,Sabine Zimmer,be:bsw:person:sabine zimmer,,https://www.nd-aktuell.de/artikel/1201353.wahlen-parteien-berlinweit-auf-den-stimmzetteln.html,0
+bsw,landes,,19,Torsten Geißler,be:bsw:person:torsten geissler,,https://www.nd-aktuell.de/artikel/1201353.wahlen-parteien-berlinweit-auf-den-stimmzetteln.html,0
+bsw,landes,,20,Listenplatz 20 · unbekannt,be:bsw:list:landes:land:20,,,1
+bsw,landes,,21,Listenplatz 21 · unbekannt,be:bsw:list:landes:land:21,,,1
+bsw,landes,,22,Listenplatz 22 · unbekannt,be:bsw:list:landes:land:22,,,1
+bsw,landes,,23,Listenplatz 23 · unbekannt,be:bsw:list:landes:land:23,,,1
+bsw,landes,,24,Listenplatz 24 · unbekannt,be:bsw:list:landes:land:24,,,1
+bsw,landes,,25,Listenplatz 25 · unbekannt,be:bsw:list:landes:land:25,,,1
+bsw,landes,,26,Listenplatz 26 · unbekannt,be:bsw:list:landes:land:26,,,1
+bsw,landes,,27,Listenplatz 27 · unbekannt,be:bsw:list:landes:land:27,,,1
+bsw,landes,,28,Listenplatz 28 · unbekannt,be:bsw:list:landes:land:28,,,1
+bsw,landes,,29,Listenplatz 29 · unbekannt,be:bsw:list:landes:land:29,,,1
+bsw,landes,,30,Listenplatz 30 · unbekannt,be:bsw:list:landes:land:30,,,1
+bsw,landes,,31,Listenplatz 31 · unbekannt,be:bsw:list:landes:land:31,,,1
+bsw,landes,,32,Listenplatz 32 · unbekannt,be:bsw:list:landes:land:32,,,1
+bsw,landes,,33,Listenplatz 33 · unbekannt,be:bsw:list:landes:land:33,,,1
+bsw,landes,,34,Listenplatz 34 · unbekannt,be:bsw:list:landes:land:34,,,1
+bsw,landes,,35,Listenplatz 35 · unbekannt,be:bsw:list:landes:land:35,,,1
+bsw,landes,,36,Listenplatz 36 · unbekannt,be:bsw:list:landes:land:36,,,1
+bsw,landes,,37,Listenplatz 37 · unbekannt,be:bsw:list:landes:land:37,,,1
+bsw,landes,,38,Listenplatz 38 · unbekannt,be:bsw:list:landes:land:38,,,1
+bsw,landes,,39,Listenplatz 39 · unbekannt,be:bsw:list:landes:land:39,,,1
+bsw,landes,,40,Listenplatz 40 · unbekannt,be:bsw:list:landes:land:40,,,1
+bsw,landes,,41,Listenplatz 41 · unbekannt,be:bsw:list:landes:land:41,,,1
+bsw,landes,,42,Listenplatz 42 · unbekannt,be:bsw:list:landes:land:42,,,1
+bsw,landes,,43,Listenplatz 43 · unbekannt,be:bsw:list:landes:land:43,,,1
+bsw,landes,,44,Listenplatz 44 · unbekannt,be:bsw:list:landes:land:44,,,1
+bsw,landes,,45,Listenplatz 45 · unbekannt,be:bsw:list:landes:land:45,,,1
+bsw,landes,,46,Listenplatz 46 · unbekannt,be:bsw:list:landes:land:46,,,1
+bsw,landes,,47,Listenplatz 47 · unbekannt,be:bsw:list:landes:land:47,,,1
+bsw,landes,,48,Listenplatz 48 · unbekannt,be:bsw:list:landes:land:48,,,1
+bsw,landes,,49,Listenplatz 49 · unbekannt,be:bsw:list:landes:land:49,,,1
+bsw,landes,,50,Listenplatz 50 · unbekannt,be:bsw:list:landes:land:50,,,1
+bsw,landes,,51,Listenplatz 51 · unbekannt,be:bsw:list:landes:land:51,,,1
+bsw,landes,,52,Listenplatz 52 · unbekannt,be:bsw:list:landes:land:52,,,1
+bsw,landes,,53,Listenplatz 53 · unbekannt,be:bsw:list:landes:land:53,,,1
+bsw,landes,,54,Listenplatz 54 · unbekannt,be:bsw:list:landes:land:54,,,1
+bsw,landes,,55,Listenplatz 55 · unbekannt,be:bsw:list:landes:land:55,,,1
+bsw,landes,,56,Listenplatz 56 · unbekannt,be:bsw:list:landes:land:56,,,1
+bsw,landes,,57,Listenplatz 57 · unbekannt,be:bsw:list:landes:land:57,,,1
+bsw,landes,,58,Listenplatz 58 · unbekannt,be:bsw:list:landes:land:58,,,1
+bsw,landes,,59,Listenplatz 59 · unbekannt,be:bsw:list:landes:land:59,,,1
+bsw,landes,,60,Listenplatz 60 · unbekannt,be:bsw:list:landes:land:60,,,1

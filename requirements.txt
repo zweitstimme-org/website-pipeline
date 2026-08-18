@@ -1,0 +1,14 @@
+requests
+pandas
+numpy
+scipy
+scikit-learn
+beautifulsoup4
+matplotlib
+seaborn
+pykalman
+geopandas
+pyogrio
+shapely
+openpyxl
+gender-guesser

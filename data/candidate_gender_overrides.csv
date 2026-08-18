@@ -1,0 +1,18 @@
+person_id,gender,method,notes
+be:linke:person:so-rim jung-thomas,f,manual,Hyphenated Korean given name
+be:spd:person:kabeh fuehr-hosseini,f,manual,SPD Grunewald: Stellvertretende Vorsitzende / Europareferentin
+be:gruene:person:enad altaweel,m,manual,Grüne Berlin Landesvorstand (er / zum Sprecher)
+be:linke:person:vedi emde,f,manual,Linke Neukölln bio uses sie
+st:spd:person:elrid pasbrig,f,manual,SPD ST MdL / Landtagskandidatin
+be:linke:person:yurtsever oezdemir,m,manual,Turkish male given name; Linke NK Direktkandidat
+st:spd:person:skady luisa herkenrath,f,manual,Kinnings bio / LinkedIn: sie / Kandidatin
+st:gruene:person:darlin hoeckendorff,f,manual,handcoded
+be:fdp:person:dominique bobeck,m,manual,handcoded
+mv:linke:person:gelord opitz,m,manual,handcoded
+mv:linke:person:hennis herbst,m,manual,handcoded
+be:spd:person:kan lindner,m,manual,handcoded
+be:linke:person:maxi haeber,f,manual,handcoded
+mv:linke:person:morgan varbelow,f,manual,handcoded
+mv:fdp:person:whitney braeunig,f,manual,handcoded
+st:spd:person:seluan al-chakmakchi,m,manual,handcoded
+be:linke:person:vic ribbeck,u,manual,still open (?)

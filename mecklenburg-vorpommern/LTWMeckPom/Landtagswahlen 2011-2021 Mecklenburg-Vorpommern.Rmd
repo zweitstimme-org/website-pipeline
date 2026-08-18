@@ -1,0 +1,230 @@
+---
+title: "Landtagswahl 2011-2021 Mecklenburg-Vorpommern"
+output: html_document
+date: "2026-03-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+p_needed <- c("viridis", "knitr", "sandwich", "haven", "tidyverse", "lme4", "margins", "haven", "XML", "readxl", "writexl", "readr", "dplyr", "rvest")
+packages <- rownames(installed.packages())
+p_to_install <- p_needed[!(p_needed %in% packages)]
+if (length(p_to_install) > 0) {
+  install.packages(p_to_install)
+}
+sapply(p_needed, require, character.only = TRUE)
+```
+
+#2021
+```{r}
+# read data on Landtagswahl 2021 https://www.laiv-mv.de/Wahlen/Landtagswahlen/2021/Ergebnisse/
+ltw21 <- read_excel("raw-data/l_wahlkreise_2021.xlsx")
+#clean dataset
+colnames(ltw21) <- c("berechnungsdatum", "ausgabe", "wahlkreis", "wahlkreisname", "wahlbezirke_insg", "erf_wahlbezirke", "wahlberechtigte", "wähler", "wahlbeteiligung", "Erst_Zweitstimme", "ungültige_stimmen", "gültige_stimmen", "spd", "afd", "cdu", "linke", "gruene", "fdp", "NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber")
+
+ltw21 <- ltw21[-6,]
+ltw21 <- ltw21[-5,]
+ltw21 <- ltw21[-4,]
+ltw21 <- ltw21[-3,]
+ltw21 <- ltw21[-2,]
+ltw21 <- ltw21[-1,]
+ltw21 <- ltw21[ltw21$wahlkreisname != "Mecklenburg-Vorpommern",]
+
+ltw21 <- ltw21 |> 
+  mutate(across(c("wahlkreis", "wahlberechtigte", "wähler", "wahlbeteiligung", "ungültige_stimmen", "gültige_stimmen", "spd", "afd", "cdu", "linke", "gruene", "fdp", "NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber"), as.numeric))
+
+# ltw21 contains first and scondvotes in absolute numbers and percent
+ltw21_all <- ltw21
+
+ltw21_erst <- ltw21[ltw21$Erst_Zweitstimme == "1",]
+ltw21_zweit <- ltw21[ltw21$Erst_Zweitstimme == "2",]
+ltw21_erst_per <- ltw21[ltw21$ausgabe == "P" & ltw21$Erst_Zweitstimme == "1",]
+ltw21_zweit_per <- ltw21[ltw21$ausgabe == "P" & ltw21$Erst_Zweitstimme == "2",]
+ltw21_erst_abs <- ltw21[ltw21$ausgabe == "A" & ltw21$Erst_Zweitstimme == "1",]
+ltw21_zweit_abs <- ltw21[ltw21$ausgabe == "A" & ltw21$Erst_Zweitstimme == "2",]
+```
+
+```{r}
+# we select absolute numbers
+# sum votes of other parties than CDU, SPD, Grüne, Linke, FDP, AfD as others
+ltw21_erst_abs$others <- rowSums(ltw21_erst_abs[, c("NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber")], na.rm = TRUE)
+
+# delete columns of the other parties
+ltw21_erst_abs <- ltw21_erst_abs[, !names(ltw21_erst_abs) %in% c("NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber")]
+
+# do the same for ltw21 Zweit absolut
+ltw21_zweit_abs$others <- rowSums(ltw21_zweit_abs[, c("NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber")], na.rm = TRUE)
+
+ltw21_zweit_abs <- ltw21_zweit_abs[, !names(ltw21_zweit_abs) %in% c("NPD", "Tierschutzpartei", "FREiER HORIZONT", "Die PARTEI", "FREIE  WÄHLER", "PIRATEN", "DKP", "Bündnis C", "TIERSCHUTZ hier!", "dieBasis", "DiB", "FPA", "LKR", "ÖDP", "Die Humanisten", "Gesundheitsforschung", "Team Todenhöfer", "UNABHÄNGIGE", "Einzelbewerber")]
+
+# clarify column names to be erst vote for merging
+colnames(ltw21_erst_abs) <- c("berechnungsdatum", "ausgabe", "wahlkreis", "wahlkreisname", "wahlbezirke_insg", "erf_wahlbezirke", "wahlberechtigte", "wähler", "wahlbeteiligung", "Erst_Zweitstimme", "ungültige_stimmen", "gültige_stimmen_erst", "spd_erst", "afd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "others_erst")
+
+# select needed variables
+ltw21_erst_abs <- ltw21_erst_abs[, c("wahlkreis", "wahlkreisname", "wahlbeteiligung","gültige_stimmen_erst", "spd_erst", "afd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "others_erst")]
+
+# again same for zweit
+colnames(ltw21_zweit_abs) <- c("berechnungsdatum", "ausgabe", "wahlkreis", "wahlkreisname", "wahlbezirke_insg", "erf_wahlbezirke", "wahlberechtigte", "wähler", "wahlbeteiligung_zweit", "Erst_Zweitstimme", "ungültige_stimmen", "gültige_stimmen_zweit", "spd_zweit", "afd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "others_zweit")
+
+ltw21_zweit_abs <- ltw21_zweit_abs[, c("wahlkreis", "wahlkreisname", "gültige_stimmen_zweit", "spd_zweit", "afd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "others_zweit")]
+
+# join the two
+ltw21_abs <- full_join(ltw21_erst_abs, ltw21_zweit_abs, by = c("wahlkreis", "wahlkreisname"))
+
+# rename ltw21
+ltw21 <- ltw21_abs
+# add year variable
+ltw21$year <- 2021
+
+# adapt colnames for later big merge
+colnames(ltw21) <- c("wahlkreis", "wahlkreisname", "wahlbeteiligung", "gültige_erststimmen", "spd_erst", "afd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "afd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "others_zweit", "year")
+
+# adjust order for later big merge
+ltw21 <- ltw21[c("wahlkreis", "wahlkreisname", "wahlbeteiligung", "year", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+```
+
+# 2016
+```{r}
+# read data on Landtagswahl 2016 https://www.laiv-mv.de/Wahlen/Landtagswahlen/2016/Ergebnisse/ -> Exel Tabelle Endgültiges Ergebnis Wahlbezirken, Gemeinden, Kreisen and took sheet "nach Wahlkreisen" only absolute numbers
+ltw16 <- read_excel("raw-data/LW 2016 Endgültiges Ergebnis Wahlbezirken, Gemeinden, Kreisen.xlsx", sheet = "nach Wahlkreisen")
+# clean data
+colnames(ltw16) <- c("wahlkreis", "wahlberechtigte", "mit Sperrvermerk", "nach § 25 Abs.1 Nr.1 LKWG M-V", "insgesamt wahlberechtigt (A1+A2+A3)", "wähler", "mit Wahlschein",  "ungültige_erststimmen", "gültige_erststimmen", "spd", "cdu", "linke", "gruene", "NPD", "FDP", "PIRATEN", "FAMILIE", "FREIE  WÄHLER", "Die PARTEI", "Die Achtsamen", "ALFA", "AfD", "Bündnis C", "DKP", "FREiER HORIZONT", "Tierschutz- partei", "Ahlers, Uwe (Einzelbewerber)", "Bonn, Guido (Einzelbewerber)", "Hagemeister, Horst (Einzelbewerber)", "Handorf, Ingo (Einzelbewerber)", "Landt, Uwe (Einzelbewerber)", "Lindner, Detlef (Einzelbewerber)", "Stein, Kathrin (Einzelbewerberin)", "ungültige_zweitstimmen", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "npd_zweit", "fdp_zweit", "PIRATEN_zweit", "FAMILIE_zweit", "FREIE  WÄHLER_zweit", "Die PARTEI_zweit", "Die Achtsamen_zweit", "ALFA_zweit", "afd_zweit", "Bündnis C_zweit", "DKP_zweit", "FREiER HORIZONT_zweit", "Tierschutz- partei_zweit")
+
+ltw16 <- ltw16[-8,]
+ltw16 <- ltw16[-7,]
+ltw16 <- ltw16[-6,]
+ltw16 <- ltw16[-5,]
+ltw16 <- ltw16[-4,]
+ltw16 <- ltw16[-3,]
+ltw16 <- ltw16[-2,]
+ltw16 <- ltw16[-1,]
+
+# rename empty fields to NA
+ltw16[ltw16 == "x"] <- "NA"
+
+ltw16 <- ltw16 |> 
+  mutate(across(c("wahlkreis", "wahlberechtigte", "mit Sperrvermerk", "nach § 25 Abs.1 Nr.1 LKWG M-V", "insgesamt wahlberechtigt (A1+A2+A3)", "wähler", "mit Wahlschein",  "ungültige_erststimmen", "gültige_erststimmen", "spd", "cdu", "linke", "gruene", "NPD", "FDP", "PIRATEN", "FAMILIE", "FREIE  WÄHLER", "Die PARTEI", "Die Achtsamen", "ALFA", "AfD", "Bündnis C", "DKP", "FREiER HORIZONT", "Tierschutz- partei", "Ahlers, Uwe (Einzelbewerber)", "Bonn, Guido (Einzelbewerber)", "Hagemeister, Horst (Einzelbewerber)", "Handorf, Ingo (Einzelbewerber)", "Landt, Uwe (Einzelbewerber)", "Lindner, Detlef (Einzelbewerber)", "Stein, Kathrin (Einzelbewerberin)", "ungültige_zweitstimmen", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "npd_zweit", "fdp_zweit", "PIRATEN_zweit", "FAMILIE_zweit", "FREIE  WÄHLER_zweit", "Die PARTEI_zweit", "Die Achtsamen_zweit", "ALFA_zweit", "afd_zweit", "Bündnis C_zweit", "DKP_zweit", "FREiER HORIZONT_zweit", "Tierschutz- partei_zweit"), as.numeric))
+
+# sum other votes
+ltw16$others_erst <- rowSums(ltw16[, c("NPD", "PIRATEN", "FAMILIE", "FREIE  WÄHLER", "Die PARTEI", "Die Achtsamen", "ALFA", "Bündnis C", "DKP", "FREiER HORIZONT", "Tierschutz- partei", "Ahlers, Uwe (Einzelbewerber)", "Bonn, Guido (Einzelbewerber)", "Hagemeister, Horst (Einzelbewerber)", "Handorf, Ingo (Einzelbewerber)", "Landt, Uwe (Einzelbewerber)", "Lindner, Detlef (Einzelbewerber)", "Stein, Kathrin (Einzelbewerberin)")], na.rm = TRUE) 
+
+ltw16$others_zweit <- rowSums(ltw16[, c("npd_zweit", "PIRATEN_zweit", "FAMILIE_zweit", "FREIE  WÄHLER_zweit", "Die PARTEI_zweit", "Die Achtsamen_zweit", "ALFA_zweit","Bündnis C_zweit", "DKP_zweit", "FREiER HORIZONT_zweit", "Tierschutz- partei_zweit")], na.rm = TRUE) 
+
+# wahlbeteiligung is not included in sheet calculated as follows: insgesamt wahlberechtigt (A1+A2+A3) / wähler
+
+ltw16$wahlbeteiligung <- ltw16$wähler/ltw16$`insgesamt wahlberechtigt (A1+A2+A3)`
+
+# keep rows needed
+ltw16 <- ltw16[c("wahlkreis", "wahlbeteiligung", "gültige_erststimmen", "spd", "cdu", "linke", "gruene", "FDP", "AfD", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+
+# test whether all votes are included
+ltw16$gesamt_erst <- rowSums(ltw16[, c("spd", "cdu", "linke", "gruene", "FDP", "AfD", "others_erst")], na.rm = TRUE) 
+ltw16$test_1 <- ltw16$gültige_erststimmen - ltw16$gesamt_erst
+
+ltw16$gesamt_zweit <- rowSums(ltw16[, c("spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")], na.rm = TRUE) 
+ltw16$test_2 <- ltw16$gültige_zweitstimmen - ltw16$gesamt_zweit
+
+# drop test columns
+ltw16 <- ltw16[c("wahlkreis", "wahlbeteiligung", "gültige_erststimmen", "spd", "cdu", "linke", "gruene", "FDP", "AfD", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+
+# add year
+ltw16$year <- 2016
+
+#rename and restructure for big merge
+colnames(ltw16) <- c("wahlkreis", "wahlbeteiligung", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit", "year")
+
+ltw16 <- ltw16[c("wahlkreis", "wahlbeteiligung", "year", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+```
+
+# 2011
+```{r}
+#ltw wahlergebnisse 2011 nach wahlkreisen 16 -> taken from exel sheet provided by the Landeswahlleitung Mecklenburg-Vorpommern
+ltw11 <- read_excel("raw-data/Wk2011nach WK2016.xls")
+#clean data
+colnames(ltw11) <- c("wahlkreis", "wahlberechtigte", "mit Sperrvermerk", "nach § 25 Abs.1 Nr.1 LKWG M-V", "insgesamt wahlberechtigt (A1+A2+A3)", "wähler", "mit Wahlschein",  "ungültige_erststimmen", "gültige_erststimmen", "spd", "cdu", "linke", "fdp", "NPD", "gruene", "FAMILIE", "PBC", "AB", "APD", "AUF", "REP", "FREIE WÄHLER", "ödp", "Die PARTEI", "PIRATEN", "Fischer, Peter (Einzelbewerber)", "Fothke, Steven (Einzelbewerber)", "Fritzsche, Hans-Jürgen (Einzelbewerber)", "Golze, Andreas (Einzelbewerber)", "ungültig_zweitstimmen", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "fdp_zweit", "NPD_zweit", "gruene_zweit", "FAMILIE_zweit", "PBC_zweit", "AB_zweit", "APD_zweit", "AUF_zweit", "REP_zweit", "FREIE WÄHLER_zweit", "ödp_zweit", "Die PARTEI_zweit", "PIRATEN_zweit")
+
+ltw11 <- ltw11[-11,]
+ltw11 <- ltw11[-10,]
+ltw11 <- ltw11[-9,]
+ltw11 <- ltw11[-8,]
+ltw11 <- ltw11[-7,]
+ltw11 <- ltw11[-6,]
+ltw11 <- ltw11[-5,]
+ltw11 <- ltw11[-4,]
+ltw11 <- ltw11[-3,]
+ltw11 <- ltw11[-2,]
+ltw11 <- ltw11[-1,]
+
+ltw11[ltw11 == "x"] <- "NA"
+
+# remove empty row and overall Meckpom Row
+ltw11 <- ltw11[-38,]
+ltw11 <- ltw11[-37,]
+
+ltw11 <- ltw11 |> 
+  mutate(across(c("wahlkreis", "wahlberechtigte", "mit Sperrvermerk", "nach § 25 Abs.1 Nr.1 LKWG M-V", "insgesamt wahlberechtigt (A1+A2+A3)", "wähler", "mit Wahlschein",  "ungültige_erststimmen", "gültige_erststimmen", "spd", "cdu", "linke", "fdp", "NPD", "gruene", "FAMILIE", "PBC", "AB", "APD", "AUF", "REP", "FREIE WÄHLER", "ödp", "Die PARTEI", "PIRATEN", "Fischer, Peter (Einzelbewerber)", "Fothke, Steven (Einzelbewerber)", "Fritzsche, Hans-Jürgen (Einzelbewerber)", "Golze, Andreas (Einzelbewerber)", "ungültig_zweitstimmen", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "fdp_zweit", "NPD_zweit", "gruene_zweit", "FAMILIE_zweit", "PBC_zweit", "AB_zweit", "APD_zweit", "AUF_zweit", "REP_zweit", "FREIE WÄHLER_zweit", "ödp_zweit", "Die PARTEI_zweit", "PIRATEN_zweit"), as.numeric))
+
+# calculate wahlbeteiligung 
+ltw11$wahlbeteiligung <- ltw11$wähler/ltw11$`insgesamt wahlberechtigt (A1+A2+A3)`
+
+# sum other votes
+ltw11$others_erst <- rowSums(ltw11[, c("NPD", "FAMILIE", "PBC", "AB", "APD", "AUF", "REP", "FREIE WÄHLER", "ödp", "Die PARTEI", "PIRATEN", "Fischer, Peter (Einzelbewerber)", "Fothke, Steven (Einzelbewerber)", "Fritzsche, Hans-Jürgen (Einzelbewerber)", "Golze, Andreas (Einzelbewerber)")], na.rm = TRUE)
+
+ltw11$others_zweit <- rowSums(ltw11[, c("NPD_zweit", "FAMILIE_zweit", "PBC_zweit", "AB_zweit", "APD_zweit", "AUF_zweit", "REP_zweit", "FREIE WÄHLER_zweit", "ödp_zweit", "Die PARTEI_zweit", "PIRATEN_zweit")], na.rm = TRUE)
+
+# AfD was not part of 2011 election -> for merging add Afd Variable with no votes
+ltw11$AfD <- 0
+
+ltw11$afd_zweit <- 0
+
+
+ltw11 <- ltw11[c("wahlkreis", "wahlbeteiligung", "gültige_erststimmen", "spd", "cdu", "linke", "gruene", "fdp", "AfD", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+
+# test whether all votes are kept
+ltw11$gesamt_erst <- rowSums(ltw11[, c("spd", "cdu", "linke", "gruene", "fdp", "AfD", "others_erst")], na.rm = TRUE) 
+ltw11$test_1 <- ltw11$gültige_erststimmen - ltw11$gesamt_erst
+
+ltw11$gesamt_zweit <- rowSums(ltw11[, c("spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")], na.rm = TRUE) 
+ltw11$test_2 <- ltw11$gültige_zweitstimmen - ltw11$gesamt_zweit
+
+# add year
+ltw11$year <- 2011
+
+# rename and restructure for big merge
+colnames(ltw11) <- c("wahlkreis", "wahlbeteiligung",  "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit", "gesamt_erst", "test_1", "gesamt_zweit", "test_2", "year")
+
+ltw11 <- ltw11[c("wahlkreis", "wahlbeteiligung", "year", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+```
+
+```{r}
+# exel sheet for 2011 and 2016 only has wahlkreisnumbers and not the names -> need to assign wahlkreisname for 2011 und 2016
+wk <- ltw21[,c("wahlkreis", "wahlkreisname")]
+
+ltw16 <- full_join(ltw16, wk, by = "wahlkreis")
+ltw11 <- full_join(ltw11, wk, by = "wahlkreis")
+
+# order variables
+ltw11 <- ltw11[c("wahlkreis", "wahlkreisname", "wahlbeteiligung", "year", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+
+ltw16 <- ltw16[c("wahlkreis", "wahlkreisname", "wahlbeteiligung", "year", "gültige_erststimmen", "spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst", "gültige_zweitstimmen", "spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")]
+
+# round wahlbeteiligung 
+ltw11$wahlbeteiligung <- round(ltw11$wahlbeteiligung*100, 1)
+ltw16$wahlbeteiligung <- round(ltw16$wahlbeteiligung*100, 1)
+
+# merge datasets into panel
+meckpom <- rbind(ltw11, ltw16)
+meckpom <- rbind(meckpom, ltw21)
+
+# test
+#meckpom$gesamt_erst <- rowSums(meckpom[, c("spd_erst", "cdu_erst", "linke_erst", "gruene_erst", "fdp_erst", "afd_erst", "others_erst")], na.rm = TRUE) 
+#meckpom$test_1 <- meckpom$gültige_erststimmen - meckpom$gesamt_erst
+
+#meckpom$gesamt_zweit <- rowSums(meckpom[, c("spd_zweit", "cdu_zweit", "linke_zweit", "gruene_zweit", "fdp_zweit", "afd_zweit", "others_zweit")], na.rm = TRUE) 
+#meckpom$test_2 <- meckpom$gültige_zweitstimmen - meckpom$gesamt_zweit
+
+write.csv(meckpom, "ltw11-21_meckpom_abs.csv", row.names = FALSE)
+```
+
+
+

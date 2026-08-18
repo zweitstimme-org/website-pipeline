@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "period": "1m",
+    "total_polls": 14,
+    "date_range": {
+      "earliest": "2025-07-28",
+      "latest": "2025-08-15"
+    },
+    "extracted_at": "2025-08-25T11:45:03.723357",
+    "format": "key_value_pairs",
+    "party_order": [
+      "CDU/CSU",
+      "SPD",
+      "GRÜNE",
+      "FDP",
+      "LINKE",
+      "AfD",
+      "BSW",
+      "Sonstige"
+    ]
+  },
+  "polls": [
+    {
+      "id": 8987,
+      "date": "2025-08-15",
+      "fieldwork_start": "2025-08-06",
+      "fieldwork_end": "2025-08-12",
+      "respondents": 1082,
+      "institute": "Verian (Emnid)",
+      "source": "html_scraper",
+      "scope": "federal",
+      "state": null,
+      "method": "Unknown",
+      "parties": {
+        "CDU/CSU": 26.0,
+        "SPD": 14.0,
+        "GRÜNE": 12.0,
+        "FDP": 4.0,
+        "LINKE": 10.0,
+        "AfD": 25.0,
+        "BSW": 3.0,
+        "Sonstige": 6.0
+      }
+    },
+    {
+      "id": 8936,
+      "date": "2025-08-14",
+      "fieldwork_start": "2025-08-11",
+      "fieldwork_end": "2025-08-13",
+      "respondents": 1370,
+      "institute": "Forschungsgruppe Wahlen",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone and Online",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 23.0,
+        "SPD": 15.0,
+        "Grüne": 12.0,
+        "Linke": 11.0,
+        "Sonstige": 6.0,
+        "FDP": 3.0,
+        "BSW": 3.0
+      }
+    },
+    {
+      "id": 8937,
+      "date": "2025-08-12",
+      "fieldwork_start": "2025-08-05",
+      "fieldwork_end": "2025-08-11",
+      "respondents": 2505,
+      "institute": "Forsa",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone",
+      "parties": {
+        "AfD": 26.0,
+        "CDU/CSU": 24.0,
+        "SPD": 13.0,
+        "Grüne": 13.0,
+        "Linke": 11.0,
+        "Sonstige": 6.0,
+        "BSW": 4.0,
+        "FDP": 3.0
+      }
+    },
+    {
+      "id": 8938,
+      "date": "2025-08-11",
+      "fieldwork_start": "2025-08-08",
+      "fieldwork_end": "2025-08-11",
+      "respondents": 2008,
+      "institute": "INSA",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Online",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 25.0,
+        "SPD": 14.5,
+        "Grüne": 10.5,
+        "Linke": 9.5,
+        "Sonstige": 5.5,
+        "BSW": 4.5,
+        "FDP": 3.5
+      }
+    },
+    {
+      "id": 8939,
+      "date": "2025-08-09",
+      "fieldwork_start": "2025-08-03",
+      "fieldwork_end": "2025-08-08",
+      "respondents": 1204,
+      "institute": "INSA",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone and Online",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 25.0,
+        "SPD": 15.0,
+        "Grüne": 11.0,
+        "Linke": 9.0,
+        "Sonstige": 5.0,
+        "FDP": 4.0,
+        "BSW": 4.0
+      }
+    },
+    {
+      "id": 8940,
+      "date": "2025-08-07",
+      "fieldwork_start": "2025-08-04",
+      "fieldwork_end": "2025-08-06",
+      "respondents": 1321,
+      "institute": "Infratest dimap",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone and Online",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 24.0,
+        "SPD": 13.0,
+        "Grüne": 12.0,
+        "Linke": 10.0,
+        "Sonstige": 7.0,
+        "FDP": 4.0,
+        "BSW": 3.0
+      }
+    },
+    {
+      "id": 8941,
+      "date": "2025-08-07",
+      "fieldwork_start": "2025-08-01",
+      "fieldwork_end": "2025-08-03",
+      "respondents": 1000,
+      "institute": "Ipsos",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Online",
+      "parties": {
+        "CDU/CSU": 25.0,
+        "AfD": 25.0,
+        "SPD": 15.0,
+        "Grüne": 11.0,
+        "Linke": 11.0,
+        "Sonstige": 5.0,
+        "BSW": 5.0,
+        "FDP": 3.0
+      }
+    },
+    {
+      "id": 8942,
+      "date": "2025-08-05",
+      "fieldwork_start": "2025-07-29",
+      "fieldwork_end": "2025-08-04",
+      "respondents": 2503,
+      "institute": "Forsa",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone",
+      "parties": {
+        "CDU/CSU": 25.0,
+        "AfD": 25.0,
+        "SPD": 13.0,
+        "Grüne": 12.0,
+        "Linke": 12.0,
+        "Sonstige": 6.0,
+        "BSW": 4.0,
+        "FDP": 3.0
+      }
+    },
+    {
+      "id": 8943,
+      "date": "2025-08-05",
+      "fieldwork_start": "2025-08-01",
+      "fieldwork_end": "2025-08-04",
+      "respondents": 2004,
+      "institute": "INSA",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Online",
+      "parties": {
+        "CDU/CSU": 27.5,
+        "AfD": 25.0,
+        "SPD": 14.5,
+        "Grüne": 10.5,
+        "Linke": 9.5,
+        "Sonstige": 5.5,
+        "BSW": 4.5,
+        "FDP": 3.0
+      }
+    },
+    {
+      "id": 8944,
+      "date": "2025-08-04",
+      "fieldwork_start": "2025-07-20",
+      "fieldwork_end": "2025-08-04",
+      "respondents": 2500,
+      "institute": "Civey",
+      "source": "DAWUM",
+      "scope": "state",
+      "state": "SN",
+      "method": "Online",
+      "parties": {
+        "AfD": 35.0,
+        "CDU": 27.0,
+        "Linke": 10.0,
+        "BSW": 9.0,
+        "SPD": 6.0,
+        "Grüne": 6.0,
+        "Sonstige": 4.0,
+        "Freie Wähler": 2.0,
+        "FDP": 1.0
+      }
+    },
+    {
+      "id": 8945,
+      "date": "2025-08-02",
+      "fieldwork_start": "2025-07-28",
+      "fieldwork_end": "2025-08-01",
+      "respondents": 1203,
+      "institute": "INSA",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone and Online",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 25.0,
+        "SPD": 15.0,
+        "Grüne": 11.0,
+        "Linke": 10.0,
+        "Sonstige": 5.0,
+        "BSW": 4.0,
+        "FDP": 3.0
+      }
+    },
+    {
+      "id": 8946,
+      "date": "2025-08-01",
+      "fieldwork_start": "2025-07-23",
+      "fieldwork_end": "2025-07-29",
+      "respondents": 1473,
+      "institute": "Verian (Emnid)",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone",
+      "parties": {
+        "CDU/CSU": 27.0,
+        "AfD": 24.0,
+        "SPD": 14.0,
+        "Grüne": 12.0,
+        "Linke": 11.0,
+        "Sonstige": 5.0,
+        "FDP": 4.0,
+        "BSW": 3.0
+      }
+    },
+    {
+      "id": 8947,
+      "date": "2025-07-29",
+      "fieldwork_start": "2025-07-22",
+      "fieldwork_end": "2025-07-28",
+      "respondents": 2502,
+      "institute": "Forsa",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Telephone",
+      "parties": {
+        "CDU/CSU": 26.0,
+        "AfD": 25.0,
+        "SPD": 13.0,
+        "Grüne": 12.0,
+        "Linke": 12.0,
+        "Sonstige": 6.0,
+        "FDP": 3.0,
+        "BSW": 3.0
+      }
+    },
+    {
+      "id": 8948,
+      "date": "2025-07-28",
+      "fieldwork_start": "2025-07-25",
+      "fieldwork_end": "2025-07-28",
+      "respondents": 2006,
+      "institute": "INSA",
+      "source": "DAWUM",
+      "scope": "federal",
+      "state": null,
+      "method": "Online",
+      "parties": {
+        "CDU/CSU": 27.5,
+        "AfD": 24.0,
+        "SPD": 14.5,
+        "Grüne": 10.5,
+        "Linke": 10.0,
+        "Sonstige": 5.5,
+        "BSW": 4.5,
+        "FDP": 3.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+wkr,party,partei,name,source
+3,afd,AfD,Sebastian Killinger,official:scrape_00.pdf
+4,afd,AfD,Matthias Büttner,official:scrape_00.pdf
+7,afd,AfD,Dirk Lassowski,official:scrape_17.pdf
+8,afd,AfD,Felix Zietmann,official:scrape_17.pdf
+9,afd,AfD,Thomas Schmirander,official:scrape_17.pdf
+14,afd,AfD,Christian Ulrich Hecht,official:scrape_05.pdf
+15,afd,AfD,Armin Friese,official:scrape_05.pdf
+16,afd,AfD,Frank-Ronald Bischoff,official:scrape_05.pdf
+17,afd,AfD,Dennis Möhring,official:scrape_05.pdf
+22,afd,AfD,Volker Alternative für Deutschland Olenicak,official:scrape_12.pdf
+23,afd,AfD,Phillipp-Anders Rau,official:scrape_12.pdf
+26,afd,AfD,Burkhardt Ratzmann,official:dessau_zugelassen.pdf
+27,afd,AfD,Nadine Koppehel,official:wk27_oranienbaum.pdf
+28,afd,AfD,Daniel Roi,official:scrape_12.pdf
+29,afd,AfD,Florian Schröder,official:scrape_26.pdf
+30,afd,AfD,Reiner Kretschmann,official:scrape_27.pdf
+31,afd,AfD,Andreas Gehlmann,official:scrape_27.pdf
+32,afd,AfD,Dr. Hans-Thomas Tillschneider,official:scrape_26.pdf
+33,afd,AfD,Daniel Wald,official:scrape_26.pdf
+34,afd,AfD,Gordon Köhler,official:scrape_26.pdf
+3,bsw,BSW,Holger Köhne,official:scrape_00.pdf
+4,bsw,BSW,Volkmar Gryschok,official:scrape_00.pdf
+7,bsw,BSW,Oliver Bart,official:scrape_17.pdf
+8,bsw,BSW,Stefan Lehfeld,official:scrape_17.pdf
+9,bsw,BSW,Carsten Reiche,official:scrape_17.pdf
+14,bsw,BSW,Monika Gehlis,official:scrape_05.pdf
+15,bsw,BSW,Maximilian Schwartz,official:scrape_05.pdf
+16,bsw,BSW,Joachim Pasemann,official:scrape_05.pdf
+17,bsw,BSW,Michael Reim,official:scrape_05.pdf
+34,bsw,BSW,Läszlö Müller,official:scrape_26.pdf
+3,cdu,CDU/CSU,Chris Schulenburg,official:scrape_00.pdf
+4,cdu,CDU/CSU,Thomas Weise,official:scrape_00.pdf
+7,cdu,CDU/CSU,Tim Teßmann,official:scrape_17.pdf
+8,cdu,CDU/CSU,Christopher Schult,official:scrape_17.pdf
+9,cdu,CDU/CSU,Guido Heuer,official:scrape_17.pdf
+14,cdu,CDU/CSU,Artjom Pusch,official:scrape_05.pdf
+15,cdu,CDU/CSU,Alexander Räuscher,official:scrape_05.pdf
+16,cdu,CDU/CSU,Bianca Heine,official:scrape_05.pdf
+17,cdu,CDU/CSU,Ulrich Thomas,official:scrape_05.pdf
+22,cdu,CDU/CSU,Olaf Christlich Demokratische Union Feuerborn,official:scrape_12.pdf
+23,cdu,CDU/CSU,Jonas Döhring,official:scrape_12.pdf
+26,cdu,CDU/CSU,Dr. Anja Schneider,official:dessau_zugelassen.pdf
+27,cdu,CDU/CSU,Karin Tschernich-Weiske,official:wk27_oranienbaum.pdf
+29,cdu,CDU/CSU,Michael Scheffler,official:scrape_26.pdf
+30,cdu,CDU/CSU,René Barthel,official:scrape_27.pdf
+31,cdu,CDU/CSU,Matthias Redlich,official:scrape_27.pdf
+32,cdu,CDU/CSU,Eva Feußner,official:scrape_26.pdf
+33,cdu,CDU/CSU,Ilka Reckmann,official:scrape_26.pdf
+34,cdu,CDU/CSU,Frank Hartmut Uwe Bommersbach,official:scrape_26.pdf
+3,fdp,FDP,Gunnar Salomon,official:scrape_00.pdf
+4,fdp,FDP,Marco Slotta,official:scrape_00.pdf
+7,fdp,FDP,Pascal Weiser,official:scrape_17.pdf
+8,fdp,FDP,Björn Wasserthal,official:scrape_17.pdf
+9,fdp,FDP,Adrian Gusinde,official:scrape_17.pdf
+14,fdp,FDP,Felix Julius Krüger,official:scrape_05.pdf
+15,fdp,FDP,Steffen Mente,official:scrape_05.pdf
+16,fdp,FDP,Max Henrik Schröder,official:scrape_05.pdf
+17,fdp,FDP,Florian Pascal Feger,official:scrape_05.pdf
+22,fdp,FDP,John Matthias Freie Demokratische Partei Kaube,official:scrape_12.pdf
+23,fdp,FDP,Marco Airoldi,official:scrape_12.pdf
+26,fdp,FDP,Jörg Bernstein,official:dessau_zugelassen.pdf
+27,fdp,FDP,Philipp Stavenow,official:wk27_oranienbaum.pdf
+29,fdp,FDP,Dr. Maximilian Georg Philipp,official:scrape_26.pdf
+30,fdp,FDP,Kathrin Tarricone,official:scrape_27.pdf
+31,fdp,FDP,Karsten Pille,official:scrape_27.pdf
+32,fdp,FDP,Ramona Hoyer,official:scrape_26.pdf
+33,fdp,FDP,Markus Göhricke,official:scrape_26.pdf
+34,fdp,FDP,Dirk Taschner,official:scrape_26.pdf
+14,fw,FW,Danny Becker,official:scrape_05.pdf
+15,fw,FW,Andre Weber,official:scrape_05.pdf
+16,fw,FW,Bianka Willke,official:scrape_05.pdf
+17,fw,FW,Jerome Querfurth,official:scrape_05.pdf
+27,fw,FW,Holger Wenzel,official:wk27_oranienbaum.pdf
+3,gruene,GRÜNE,Michael Dihlmann,official:scrape_00.pdf
+4,gruene,GRÜNE,Miriam Zeller,official:scrape_00.pdf
+7,gruene,GRÜNE,Philipp Händler,official:scrape_17.pdf
+9,gruene,GRÜNE,Kristin Schuller,official:scrape_17.pdf
+14,gruene,GRÜNE,Elke Ruth Lampka,official:scrape_05.pdf
+15,gruene,GRÜNE,Klaus Plitzkat,official:scrape_05.pdf
+16,gruene,GRÜNE,Lennox Schrickel,official:scrape_05.pdf
+17,gruene,GRÜNE,Susan Sziborra-Seidlitz,official:scrape_05.pdf
+23,gruene,GRÜNE,Luise Globig,official:scrape_12.pdf
+26,gruene,GRÜNE,Leonie Bronkalla,official:dessau_zugelassen.pdf
+27,gruene,GRÜNE,Felix Fugmann,official:wk27_oranienbaum.pdf
+29,gruene,GRÜNE,Sandra Sabine Lüder,official:scrape_26.pdf
+30,gruene,GRÜNE,Lisa Mertens,official:scrape_27.pdf
+31,gruene,GRÜNE,Christine Reimann,official:scrape_27.pdf
+32,gruene,GRÜNE,Susanne Otto,official:scrape_26.pdf
+33,gruene,GRÜNE,Dennis Tobias Helmich,official:scrape_26.pdf
+34,gruene,GRÜNE,Leon Lenny Elias Eisfelder-Mylius,official:scrape_26.pdf
+3,linke,LINKE,René Schernikau,official:scrape_00.pdf
+4,linke,LINKE,Rico Goroncy,official:scrape_00.pdf
+7,linke,LINKE,Arne Hornung,official:scrape_17.pdf
+8,linke,LINKE,Vanessa Mertens,official:scrape_17.pdf
+9,linke,LINKE,Sophie Manleitner,official:scrape_17.pdf
+14,linke,LINKE,Alexander Luft,official:scrape_05.pdf
+15,linke,LINKE,Lukas Franke,official:scrape_05.pdf
+16,linke,LINKE,Katja Käfer,official:scrape_05.pdf
+17,linke,LINKE,Maik Fye,official:scrape_05.pdf
+22,linke,LINKE,Andreas Die Linke Pulst,official:scrape_12.pdf
+26,linke,LINKE,Kevin Goldhahn,official:dessau_zugelassen.pdf
+27,linke,LINKE,Stine Rummel-Strebelow,official:wk27_oranienbaum.pdf
+28,linke,LINKE,Antonia Die Linke Kaloff,official:scrape_12.pdf
+29,linke,LINKE,Isabell Anton,official:scrape_26.pdf
+30,linke,LINKE,Stefan Gebhardt,official:scrape_27.pdf
+31,linke,LINKE,André Röthel,official:scrape_27.pdf
+32,linke,LINKE,Andreas Tschurn,official:scrape_26.pdf
+33,linke,LINKE,Leila Kim Eisfelder-Mylius,official:scrape_26.pdf
+34,linke,LINKE,Julia Mayer,official:scrape_26.pdf
+3,spd,SPD,Eric Böllstorf,official:scrape_00.pdf
+4,spd,SPD,Juliane Kleemann,official:scrape_00.pdf
+7,spd,SPD,Philipp Morgner,official:scrape_17.pdf
+8,spd,SPD,Katrin Gensecke,official:scrape_17.pdf
+9,spd,SPD,Thorben Nick Rehak,official:scrape_17.pdf
+14,spd,SPD,Nils Johannson,official:scrape_05.pdf
+15,spd,SPD,Florian Fahrtmann,official:scrape_05.pdf
+17,spd,SPD,Nadine Hillecke,official:scrape_05.pdf
+23,spd,SPD,Tobias Böttcher,official:scrape_12.pdf
+26,spd,SPD,Larissa Wallner,official:dessau_zugelassen.pdf
+27,spd,SPD,Daniel Frank Kutsche,official:wk27_oranienbaum.pdf
+29,spd,SPD,Danilo Pee-Moch,official:scrape_26.pdf
+30,spd,SPD,Aick Pietschmann,official:scrape_27.pdf
+31,spd,SPD,Friedrich Ruschke,official:scrape_27.pdf
+32,spd,SPD,Raphael Coccejus,official:scrape_26.pdf
+33,spd,SPD,Dr. Andreas Schmidt,official:scrape_26.pdf
+34,spd,SPD,Ines Seeger,official:scrape_26.pdf

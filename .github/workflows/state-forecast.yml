@@ -1,0 +1,170 @@
+name: State Forecasts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/state-forecast.yml"
+      - "R/**"
+      - "state-model/**"
+      - "data/**"
+      - "scripts/publish_to_pages_preview.sh"
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Run even if no newer poll is published"
+        required: false
+        default: false
+        type: boolean
+
+# Preview target while production publish is optional:
+# https://zweitstimme-org.github.io/website-pipeline/
+# GITHUB_TOKEN pushes do not trigger other workflows, so we deploy Pages here.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-preview-data
+  cancel-in-progress: false
+
+jobs:
+  state-forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    environment:
+      name: github-pages
+      url: ${{ steps.pages_deployment.outputs.page_url }}
+    steps:
+      - name: Checkout pipeline
+        uses: actions/checkout@v4
+
+      # state-models is public. Token still works if you point at a private fork.
+      - name: Checkout state-models (exact-lead pipeline)
+        uses: actions/checkout@v4
+        with:
+          repository: zweitstimme-org/state-models
+          path: state-models
+          token: ${{ secrets.STATE_MODELS_TOKEN || secrets.WEBSITE_DEPLOY_TOKEN || github.token }}
+
+      - name: Check poll freshness
+        id: gate
+        env:
+          POLLING_API_BASE: https://api.zweitstimme.org
+          FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
+        run: |
+          if [ "${FORCE_REFRESH}" = "true" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "reason=force_refresh" >> "$GITHUB_OUTPUT"
+            echo "details=[]" >> "$GITHUB_OUTPUT"
+          else
+            python3 scripts/check_poll_freshness.py --mode state --github-output "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup R
+        if: steps.gate.outputs.run == 'true'
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.4"
+
+      - name: Install system dependencies for Stan
+        if: steps.gate.outputs.run == 'true'
+        run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libglpk40 libgmp-dev
+
+      - name: Install R dependencies
+        if: steps.gate.outputs.run == 'true'
+        env:
+          INSTALL_STATE_MODEL_DEPS: "true"
+        run: Rscript R/install.R
+
+      - name: Install Python dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install --quiet -r requirements.txt
+
+      - name: Scrape election dates
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          python3 code/scrape_election_dates.py --output data/json_output/election_dates.json
+          Rscript -e 'source("R/config.R"); source("R/display_mode.R"); build_election_calendar()'
+
+      - name: Run Stimmung (federal trend input)
+        if: steps.gate.outputs.run == 'true'
+        run: Rscript R/run_stimmung.R
+
+      - name: Run exact-lead state forecasts (state-models)
+        if: steps.gate.outputs.run == 'true'
+        env:
+          STATE_MODELS_DIR: ${{ github.workspace }}/state-models
+          MODEL_ONLY_ALL: "0"
+          MODEL_POLLS_ONLY: "1"
+        run: bash scripts/run_state_models_forecast.sh
+
+      - name: Upload pipeline artifacts
+        if: always() && steps.gate.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: state-forecast-output
+          path: |
+            output/forecast_state_*.json
+            output/forecast_districts_*.json
+            output/forecast_parliament_size.json
+            output/ltw_wahlkreise_*.geojson
+            output/display_mode.json
+            output/stimmung_federal.json
+            output/stimmung_states.json
+            output/current_stimmung.json
+
+      - name: Publish data to Pages preview
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER_NAME: zweitstimme-pipeline-bot
+          GIT_USER_EMAIL: pipeline@zweitstimme.org
+          PAGES_COMMIT_MESSAGE: "chore(pages): refresh forecasts from State Forecasts"
+        run: bash scripts/publish_to_pages_preview.sh
+
+      - name: Checkout gh-pages for Pages deploy
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-site
+
+      - name: Setup Pages
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages-site
+
+      - name: Deploy to GitHub Pages
+        if: steps.gate.outputs.run == 'true'
+        id: pages_deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Publish to website-source
+        if: steps.gate.outputs.run == 'true'
+        env:
+          WEBSITE_DEPLOY_TOKEN: ${{ secrets.WEBSITE_DEPLOY_TOKEN }}
+          GIT_USER_NAME: zweitstimme-pipeline-bot
+          GIT_USER_EMAIL: pipeline@zweitstimme.org
+        run: |
+          if [ -z "${WEBSITE_DEPLOY_TOKEN}" ]; then
+            echo "WEBSITE_DEPLOY_TOKEN not configured — skipping production publish."
+            exit 0
+          fi
+          git clone --depth 1 "https://x-access-token:${WEBSITE_DEPLOY_TOKEN}@github.com/zweitstimme-org/website-source.git" website-source
+          bash scripts/publish_to_website.sh
+
+      - name: Skip summary
+        if: steps.gate.outputs.run != 'true'
+        run: |
+          echo "Skipping State Forecasts: ${{ steps.gate.outputs.reason }}"

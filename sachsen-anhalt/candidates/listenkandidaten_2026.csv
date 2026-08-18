@@ -1,0 +1,456 @@
+party,list_type,bezirk,list_pos,name,person_id,wkr_direct,source,is_placeholder
+spd,landes,,1,Dr. Armin Willingmann,st:spd:person:armin willingmann,16,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,2,Dr. Katja Pähle,st:spd:person:katja paehle,36,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,3,Dr. Andreas Schmidt,st:spd:person:andreas schmidt,33,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,4,Juliane Kleemann,st:spd:person:juliane kleemann,4,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,5,Dr. Falko Grube,st:spd:person:falko grube,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,6,Katrin Gensecke,st:spd:person:katrin gensecke,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,7,Florian Fahrtmann,st:spd:person:florian fahrtmann,15,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,8,Katharina Kohl,st:spd:person:katharina kohl,28,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,9,René Wölfer,st:spd:person:rene woelfer,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,10,Elrid Pasbrig,st:spd:person:elrid pasbrig,6,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,11,Jens Mende,st:spd:person:jens mende,39,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,12,Tina Führer,st:spd:person:tina fuehrer,24,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,13,Aick Pietschmann,st:spd:person:aick pietschmann,30,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,14,Skady Luisa Herkenrath,st:spd:person:skady luisa herkenrath,2,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,15,Daniel Frank Kutsche,st:spd:person:daniel frank kutsche,27,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,16,Larissa Wallner,st:spd:person:larissa wallner,26,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,17,Yves Metzing,st:spd:person:yves metzing,18,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,18,Julia Brandt,st:spd:person:julia brandt,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,19,Tobias Böttcher,st:spd:person:tobias boettcher,23,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,20,Nadine Hillecke,st:spd:person:nadine hillecke,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,21,Timm Haußen,st:spd:person:timm haussen,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,22,Caroline Müller,st:spd:person:caroline mueller,21,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,23,Julius Neumann,st:spd:person:julius neumann,38,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,24,Ines Seeger,st:spd:person:ines seeger,34,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,25,Philipp Morgner,st:spd:person:philipp morgner,7,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,26,Dr. Christine Fuhrmann,st:spd:person:christine fuhrmann,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,27,Ralph Günter Blümel,st:spd:person:ralph bluemel,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,28,Felix Giesa,st:spd:person:felix giesa,22,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,29,Raphael Coccejus,st:spd:person:raphael coccejus,32,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,30,Friedrich Klaus Ruschke,st:spd:person:friedrich ruschke,31,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,31,Seluan Al-Chakmakchi,st:spd:person:seluan al-chakmakchi,19,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,32,Alexander Riedle,st:spd:person:alexander riedle,25,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,33,Danilo Pee-Moch,st:spd:person:danilo pee-moch,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,34,Stephan Scherf,st:spd:person:stephan scherf,37,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,35,Stefan Schneider,st:spd:person:stefan schneider,41,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,36,Dieter Diederichs,st:spd:person:dieter diederichs,1,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,37,Christian Hausmann,st:spd:person:christian hausmann,12,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,38,Eric Böllstorf,st:spd:person:eric boellstorf,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,39,Paul Kley,st:spd:person:paul kley,40,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,40,Nils Johannson,st:spd:person:nils johannson,14,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+spd,landes,,41,Listenplatz 41 · unbekannt,st:spd:list:landes:land:41,,,1
+spd,landes,,42,Listenplatz 42 · unbekannt,st:spd:list:landes:land:42,,,1
+spd,landes,,43,Listenplatz 43 · unbekannt,st:spd:list:landes:land:43,,,1
+spd,landes,,44,Listenplatz 44 · unbekannt,st:spd:list:landes:land:44,,,1
+spd,landes,,45,Listenplatz 45 · unbekannt,st:spd:list:landes:land:45,,,1
+spd,landes,,46,Listenplatz 46 · unbekannt,st:spd:list:landes:land:46,,,1
+spd,landes,,47,Listenplatz 47 · unbekannt,st:spd:list:landes:land:47,,,1
+spd,landes,,48,Listenplatz 48 · unbekannt,st:spd:list:landes:land:48,,,1
+spd,landes,,49,Listenplatz 49 · unbekannt,st:spd:list:landes:land:49,,,1
+spd,landes,,50,Listenplatz 50 · unbekannt,st:spd:list:landes:land:50,,,1
+spd,landes,,51,Listenplatz 51 · unbekannt,st:spd:list:landes:land:51,,,1
+spd,landes,,52,Listenplatz 52 · unbekannt,st:spd:list:landes:land:52,,,1
+spd,landes,,53,Listenplatz 53 · unbekannt,st:spd:list:landes:land:53,,,1
+spd,landes,,54,Listenplatz 54 · unbekannt,st:spd:list:landes:land:54,,,1
+spd,landes,,55,Listenplatz 55 · unbekannt,st:spd:list:landes:land:55,,,1
+spd,landes,,56,Listenplatz 56 · unbekannt,st:spd:list:landes:land:56,,,1
+spd,landes,,57,Listenplatz 57 · unbekannt,st:spd:list:landes:land:57,,,1
+spd,landes,,58,Listenplatz 58 · unbekannt,st:spd:list:landes:land:58,,,1
+spd,landes,,59,Listenplatz 59 · unbekannt,st:spd:list:landes:land:59,,,1
+spd,landes,,60,Listenplatz 60 · unbekannt,st:spd:list:landes:land:60,,,1
+spd,landes,,61,Listenplatz 61 · unbekannt,st:spd:list:landes:land:61,,,1
+spd,landes,,62,Listenplatz 62 · unbekannt,st:spd:list:landes:land:62,,,1
+spd,landes,,63,Listenplatz 63 · unbekannt,st:spd:list:landes:land:63,,,1
+spd,landes,,64,Listenplatz 64 · unbekannt,st:spd:list:landes:land:64,,,1
+spd,landes,,65,Listenplatz 65 · unbekannt,st:spd:list:landes:land:65,,,1
+afd,landes,,1,Ulrich Siegmund,st:afd:person:ulrich siegmund,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,2,Oliver Kirchner,st:afd:person:oliver kirchner,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,3,Dr. Hans-Thomas Tillschneider,st:afd:person:hans-thomas tillschneider,32,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,4,Tobias Rausch,st:afd:person:tobias rausch,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,5,Gordon Köhler,st:afd:person:gordon koehler,34,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,6,Matthias Michael Andreas Büttner,st:afd:person:matthias buettner,19,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,7,Dr. Jan Moldenhauer,st:afd:person:jan moldenhauer,21,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,8,Sebastian Koch,st:afd:person:sebastian koch,2,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,9,Jan Scharfenort,st:afd:person:jan scharfenort,6,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,10,Daniel Wald,st:afd:person:daniel wald,33,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,11,Felix Zietmann,st:afd:person:felix zietmann,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,12,Dennis Möhring,st:afd:person:dennis moehring,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,13,Matthias Büttner,st:afd:person:matthias buettner,19,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,14,Christian Ulrich Hecht,st:afd:person:christian ulrich hecht,14,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,15,Nadine Koppehel,st:afd:person:nadine koppehel,27,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,16,Florian Schröder,st:afd:person:florian schroeder,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,17,Hagen Kohl,st:afd:person:hagen kohl,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,18,Lothar Otto Waehler,st:afd:person:lothar waehler,41,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,19,Simon Lansmann,st:afd:person:simon lansmann,1,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,20,Matthias Lieschke,st:afd:person:matthias lieschke,25,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,21,Dirk Lassowski,st:afd:person:dirk lassowski,7,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,22,Daniel Rausch,st:afd:person:daniel rausch,18,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,23,Frank Otto Lizureck,st:afd:person:frank otto lizureck,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,24,Christian Mertens,st:afd:person:christian mertens,12,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,25,Andreas Best,st:afd:person:andreas best,24,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,26,Margret Wendt,st:afd:person:margret wendt,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,27,Ronny Kumpf,st:afd:person:ronny kumpf,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,28,Thomas Schmirander,st:afd:person:thomas schmirander,9,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,29,Phillipp-Anders Rau,st:afd:person:phillipp-anders rau,23,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,30,Andreas Gehlmann,st:afd:person:andreas gehlmann,31,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,31,Juliane Waehler,st:afd:person:juliane waehler,40,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,32,Fabian Lüdecke,st:afd:person:fabian luedecke,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,33,Frank-Ronald Bischoff,st:afd:person:frank-ronald bischoff,16,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,34,Sebastian Killinger,st:afd:person:sebastian killinger,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,35,Nils Reichenbach,st:afd:person:nils reichenbach,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,36,Bernd Horst Schwebel,st:afd:person:bernd horst schwebel,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,37,Marcel Pries,st:afd:person:marcel pries,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,38,Stefanie Ahlfeld-Bangemann,st:afd:person:stefanie ahlfeld-bangemann,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,39,Michaela Kämpfert,st:afd:person:michaela kaempfert,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,40,Birgit Albrecht,st:afd:person:birgit albrecht,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,41,Dirk Jonas,st:afd:person:dirk jonas,39,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,42,Kai Behrens,st:afd:person:kai behrens,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,43,Marcel Hahn,st:afd:person:marcel hahn,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,44,Mario Merten,st:afd:person:mario merten,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,45,Reinhard Lothar Otto Wernicke,st:afd:person:reinhard lothar otto wernicke,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,46,Nana Baltgund Yvonne Posch,st:afd:person:nana baltgund yvonne posch,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,47,Burkhardt Ratzmann,st:afd:person:burkhardt ratzmann,26,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,48,Jürgen Treder,st:afd:person:juergen treder,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,49,Alexander Raue,st:afd:person:alexander raue,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,50,Felix Martin Richter,st:afd:person:felix martin richter,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,51,Benjamin Hellmann,st:afd:person:benjamin hellmann,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,52,Dirk Tischmeier,st:afd:person:dirk tischmeier,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,53,Ralf Miegel,st:afd:person:ralf miegel,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,54,Lars Witaszak,st:afd:person:lars witaszak,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,55,Vanessa Schade,st:afd:person:vanessa schade,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,56,Erik Seibicke,st:afd:person:erik seibicke,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,57,Uwe Wolf Dieter Arendt,st:afd:person:uwe wolf dieter arendt,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,58,Gerald Kloth,st:afd:person:gerald kloth,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,59,Frank Wolfin,st:afd:person:frank wolfin,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+afd,landes,,60,Listenplatz 60 · unbekannt,st:afd:list:landes:land:60,,,1
+afd,landes,,61,Listenplatz 61 · unbekannt,st:afd:list:landes:land:61,,,1
+afd,landes,,62,Listenplatz 62 · unbekannt,st:afd:list:landes:land:62,,,1
+afd,landes,,63,Listenplatz 63 · unbekannt,st:afd:list:landes:land:63,,,1
+afd,landes,,64,Listenplatz 64 · unbekannt,st:afd:list:landes:land:64,,,1
+afd,landes,,65,Listenplatz 65 · unbekannt,st:afd:list:landes:land:65,,,1
+cdu,landes,,1,Sven Schulze,st:cdu:person:sven schulze,12,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,2,Chris Schulenburg,st:cdu:person:chris schulenburg,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,3,Guido Heuer,st:cdu:person:guido heuer,9,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,4,Lars-Jörn Zimmer,st:cdu:person:lars-joern zimmer,28,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,5,Tobias Krull,st:cdu:person:tobias krull,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,6,Ulrich Thomas,st:cdu:person:ulrich thomas,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,7,Daniel Sturm,st:cdu:person:daniel sturm,40,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,8,Sandra Hietel-Heuer,st:cdu:person:sandra hietel-heuer,2,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,9,Stefan Ruland,st:cdu:person:stefan ruland,21,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,10,Karin Tschernich-Weiske,st:cdu:person:karin tschernich-weiske,27,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,11,Marco Tullner,st:cdu:person:marco tullner,36,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,12,René Barthel,st:cdu:person:rene barthel,30,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,13,Frank Bommersbach,st:cdu:person:frank hartmut uwe bommersbach,34,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,14,Carsten Borchert,st:cdu:person:carsten borchert,1,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,15,Tim Teßmann,st:cdu:person:tim tessmann,7,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,16,Dr. Anja Schneider,st:cdu:person:anja schneider,26,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,17,Tim Rohne,st:cdu:person:tim rohne,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,18,Artjom Pusch,st:cdu:person:artjom pusch,14,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,19,Elke Simon-Kuch,st:cdu:person:elke simon-kuch,39,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,20,Thomas Staudt,st:cdu:person:thomas staudt,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,21,Detlef Gürth,st:cdu:person:detlef guerth,18,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,22,Olaf Feuerborn,st:cdu:person:olaf feuerborn,22,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,23,Kerstin Godenrath,st:cdu:person:kerstin godenrath,37,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,24,Matthias Redlich,st:cdu:person:matthias redlich,31,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,25,Michael Scheffler,st:cdu:person:michael scheffler,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,26,Thomas Weise,st:cdu:person:thomas weise,4,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,27,Christopher Schult,st:cdu:person:christopher schult,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,28,Nico Elsner,st:cdu:person:nico elsner,24,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,29,Andreas Konstantin Schumann,st:cdu:person:andreas schumann,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,30,Bianca Heine,st:cdu:person:bianca heine,16,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,31,Dr. Ulf Altmann,st:cdu:person:ulf altmann,41,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,32,Lisa Willy,st:cdu:person:lisa willy,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,33,Sven Rosomkiewicz,st:cdu:person:sven rosomkiewicz,19,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,34,Jonas Döhring,st:cdu:person:jonas doehring,23,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,35,Christian Albrecht,st:cdu:person:christian albrecht,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,36,Alexander Räuscher,st:cdu:person:alexander raeuscher,15,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,37,Ilka Reckmann,st:cdu:person:ilka reckmann,33,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,38,Dr. Daniel Schlothmann-Jeschek,st:cdu:person:daniel schlothmann-jeschek,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,39,Patrick Schubert,st:cdu:person:patrick schubert,25,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,40,Claudia Freia Schmidt,st:cdu:person:claudia freia schmidt,38,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,41,Franziska Beyer,st:cdu:person:franziska beyer,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,42,Sebastian Jörg Weise,st:cdu:person:sebastian joerg weise,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,43,Martin Steffen,st:cdu:person:martin steffen,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,44,Michel Karl Otto Kleinhans,st:cdu:person:michel karl otto kleinhans,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,45,Michél Odenthal,st:cdu:person:michel odenthal,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,46,Frank Stiele,st:cdu:person:frank stiele,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,47,Jörg Anschütz,st:cdu:person:joerg anschuetz,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,48,Britta Goehring,st:cdu:person:britta goehring,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,49,Winfried Pethe,st:cdu:person:winfried pethe,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,50,Anna Kreye,st:cdu:person:anna kreye,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+cdu,landes,,51,Listenplatz 51 · unbekannt,st:cdu:list:landes:land:51,,,1
+cdu,landes,,52,Listenplatz 52 · unbekannt,st:cdu:list:landes:land:52,,,1
+cdu,landes,,53,Listenplatz 53 · unbekannt,st:cdu:list:landes:land:53,,,1
+cdu,landes,,54,Listenplatz 54 · unbekannt,st:cdu:list:landes:land:54,,,1
+cdu,landes,,55,Listenplatz 55 · unbekannt,st:cdu:list:landes:land:55,,,1
+cdu,landes,,56,Listenplatz 56 · unbekannt,st:cdu:list:landes:land:56,,,1
+cdu,landes,,57,Listenplatz 57 · unbekannt,st:cdu:list:landes:land:57,,,1
+cdu,landes,,58,Listenplatz 58 · unbekannt,st:cdu:list:landes:land:58,,,1
+cdu,landes,,59,Listenplatz 59 · unbekannt,st:cdu:list:landes:land:59,,,1
+cdu,landes,,60,Listenplatz 60 · unbekannt,st:cdu:list:landes:land:60,,,1
+cdu,landes,,61,Listenplatz 61 · unbekannt,st:cdu:list:landes:land:61,,,1
+cdu,landes,,62,Listenplatz 62 · unbekannt,st:cdu:list:landes:land:62,,,1
+cdu,landes,,63,Listenplatz 63 · unbekannt,st:cdu:list:landes:land:63,,,1
+cdu,landes,,64,Listenplatz 64 · unbekannt,st:cdu:list:landes:land:64,,,1
+cdu,landes,,65,Listenplatz 65 · unbekannt,st:cdu:list:landes:land:65,,,1
+linke,landes,,1,Eva von Angern,st:linke:person:eva von angern,12,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,2,Eric Roman Stehr,st:linke:person:eric roman stehr,39,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,3,Antonia Kaloff,st:linke:person:antonia kaloff,28,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,4,Hendrik Lange,st:linke:person:hendrik lange,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,5,Henriette Krebs,st:linke:person:henriette krebs,21,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,6,Thomas Erich Herbert Lippmann,st:linke:person:thomas erich herbert lippmann,24,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,7,Vanessa Mertens,st:linke:person:vanessa mertens,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,8,Stefan Gebhardt,st:linke:person:stefan gebhardt,30,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,9,Julia Mayer,st:linke:person:julia mayer,34,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,10,René Schernikau,st:linke:person:rene schernikau,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,11,Natalie Nagel,st:linke:person:natalie nagel,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,12,Alexander Luft,st:linke:person:alexander luft,14,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,13,Natalie Winzenhöller,st:linke:person:natalie winzenhoeller,23,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,14,Noah Elias Biswanger,st:linke:person:noah elias biswanger,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,15,Sophie Manleitner,st:linke:person:sophie manleitner,9,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,16,Raik Ohlmeyer,st:linke:person:raik ohlmeyer,1,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,17,Wenke Marie Dargel,st:linke:person:wenke marie dargel,38,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,18,Denis Kreuzadler,st:linke:person:denis kreuzadler,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,19,Leila Kim Eisfelder-Mylius,st:linke:person:leila kim eisfelder-mylius,33,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,20,Dennis Jannack,st:linke:person:dennis jannack,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,21,Isabell Anton,st:linke:person:isabell anton,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,22,Veit Kuhr,st:linke:person:veit kuhr,19,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,23,Jasmin Blume,st:linke:person:jasmin blume,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,24,Kay Lorenz,st:linke:person:kay lorenz,18,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,25,Lisa Marie Tuchen,st:linke:person:lisa marie tuchen,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,26,Michael Scholz,st:linke:person:michael scholz,40,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,27,Katja Käfer,st:linke:person:katja kaefer,16,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,28,Nicklas Kurzweil,st:linke:person:nicklas kurzweil,41,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,29,Claudia Bolde,st:linke:person:claudia bolde,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,30,Arne Hornung,st:linke:person:arne hornung,7,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,31,Anne Siebert,st:linke:person:anne siebert,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,32,André Röthel,st:linke:person:andre roethel,31,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,33,Nathalie Jasmin Roscher,st:linke:person:nathalie jasmin roscher,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,34,Georg Drechsler,st:linke:person:georg drechsler,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+linke,landes,,35,Listenplatz 35 · unbekannt,st:linke:list:landes:land:35,,,1
+linke,landes,,36,Listenplatz 36 · unbekannt,st:linke:list:landes:land:36,,,1
+linke,landes,,37,Listenplatz 37 · unbekannt,st:linke:list:landes:land:37,,,1
+linke,landes,,38,Listenplatz 38 · unbekannt,st:linke:list:landes:land:38,,,1
+linke,landes,,39,Listenplatz 39 · unbekannt,st:linke:list:landes:land:39,,,1
+linke,landes,,40,Listenplatz 40 · unbekannt,st:linke:list:landes:land:40,,,1
+linke,landes,,41,Listenplatz 41 · unbekannt,st:linke:list:landes:land:41,,,1
+linke,landes,,42,Listenplatz 42 · unbekannt,st:linke:list:landes:land:42,,,1
+linke,landes,,43,Listenplatz 43 · unbekannt,st:linke:list:landes:land:43,,,1
+linke,landes,,44,Listenplatz 44 · unbekannt,st:linke:list:landes:land:44,,,1
+linke,landes,,45,Listenplatz 45 · unbekannt,st:linke:list:landes:land:45,,,1
+linke,landes,,46,Listenplatz 46 · unbekannt,st:linke:list:landes:land:46,,,1
+linke,landes,,47,Listenplatz 47 · unbekannt,st:linke:list:landes:land:47,,,1
+linke,landes,,48,Listenplatz 48 · unbekannt,st:linke:list:landes:land:48,,,1
+linke,landes,,49,Listenplatz 49 · unbekannt,st:linke:list:landes:land:49,,,1
+linke,landes,,50,Listenplatz 50 · unbekannt,st:linke:list:landes:land:50,,,1
+linke,landes,,51,Listenplatz 51 · unbekannt,st:linke:list:landes:land:51,,,1
+linke,landes,,52,Listenplatz 52 · unbekannt,st:linke:list:landes:land:52,,,1
+linke,landes,,53,Listenplatz 53 · unbekannt,st:linke:list:landes:land:53,,,1
+linke,landes,,54,Listenplatz 54 · unbekannt,st:linke:list:landes:land:54,,,1
+linke,landes,,55,Listenplatz 55 · unbekannt,st:linke:list:landes:land:55,,,1
+linke,landes,,56,Listenplatz 56 · unbekannt,st:linke:list:landes:land:56,,,1
+linke,landes,,57,Listenplatz 57 · unbekannt,st:linke:list:landes:land:57,,,1
+linke,landes,,58,Listenplatz 58 · unbekannt,st:linke:list:landes:land:58,,,1
+linke,landes,,59,Listenplatz 59 · unbekannt,st:linke:list:landes:land:59,,,1
+linke,landes,,60,Listenplatz 60 · unbekannt,st:linke:list:landes:land:60,,,1
+linke,landes,,61,Listenplatz 61 · unbekannt,st:linke:list:landes:land:61,,,1
+linke,landes,,62,Listenplatz 62 · unbekannt,st:linke:list:landes:land:62,,,1
+linke,landes,,63,Listenplatz 63 · unbekannt,st:linke:list:landes:land:63,,,1
+linke,landes,,64,Listenplatz 64 · unbekannt,st:linke:list:landes:land:64,,,1
+linke,landes,,65,Listenplatz 65 · unbekannt,st:linke:list:landes:land:65,,,1
+gruene,landes,,1,Susan Sziborra-Seidlitz,st:gruene:person:susan sziborra-seidlitz,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,2,Olaf Meister,st:gruene:person:olaf meister,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,3,Madeleine Linke,st:gruene:person:madeleine linke,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,4,Mamad Mohamad,st:gruene:person:mamad mohamad,36,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,5,Leonie Bronkalla,st:gruene:person:leonie bronkalla,26,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,6,Wolfgang Aldag,st:gruene:person:wolfgang aldag,37,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,7,Beatrice Lindhorst,st:gruene:person:beatrice lindhorst,24,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,8,Dennis-Tobias Helmich,st:gruene:person:dennis tobias helmich,33,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,9,Miriam Bettina Zeller,st:gruene:person:miriam zeller,4,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,10,Sandra Sinner,st:gruene:person:sandra sinner,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,11,Friederike Larek,st:gruene:person:friederike larek,6,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,12,Jascha Rihm,st:gruene:person:jascha rihm,1,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,13,Darlin Höckendorff,st:gruene:person:darlin hoeckendorff,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,14,Sascha Greiner,st:gruene:person:sascha greiner,22,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,15,Lena Zehne,st:gruene:person:lena zehne,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,16,Martin Schäfer,st:gruene:person:martin schaefer,25,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,17,Susanne Otto,st:gruene:person:susanne otto,32,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,18,Lennox Schrickel,st:gruene:person:lennox schrickel,16,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,19,Sandra Sabine Lüder,st:gruene:person:sandra sabine lueder,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,20,Marlyn Waga,st:gruene:person:marlyn waga,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+gruene,landes,,21,Listenplatz 21 · unbekannt,st:gruene:list:landes:land:21,,,1
+gruene,landes,,22,Listenplatz 22 · unbekannt,st:gruene:list:landes:land:22,,,1
+gruene,landes,,23,Listenplatz 23 · unbekannt,st:gruene:list:landes:land:23,,,1
+gruene,landes,,24,Listenplatz 24 · unbekannt,st:gruene:list:landes:land:24,,,1
+gruene,landes,,25,Listenplatz 25 · unbekannt,st:gruene:list:landes:land:25,,,1
+gruene,landes,,26,Listenplatz 26 · unbekannt,st:gruene:list:landes:land:26,,,1
+gruene,landes,,27,Listenplatz 27 · unbekannt,st:gruene:list:landes:land:27,,,1
+gruene,landes,,28,Listenplatz 28 · unbekannt,st:gruene:list:landes:land:28,,,1
+gruene,landes,,29,Listenplatz 29 · unbekannt,st:gruene:list:landes:land:29,,,1
+gruene,landes,,30,Listenplatz 30 · unbekannt,st:gruene:list:landes:land:30,,,1
+gruene,landes,,31,Listenplatz 31 · unbekannt,st:gruene:list:landes:land:31,,,1
+gruene,landes,,32,Listenplatz 32 · unbekannt,st:gruene:list:landes:land:32,,,1
+gruene,landes,,33,Listenplatz 33 · unbekannt,st:gruene:list:landes:land:33,,,1
+gruene,landes,,34,Listenplatz 34 · unbekannt,st:gruene:list:landes:land:34,,,1
+gruene,landes,,35,Listenplatz 35 · unbekannt,st:gruene:list:landes:land:35,,,1
+gruene,landes,,36,Listenplatz 36 · unbekannt,st:gruene:list:landes:land:36,,,1
+gruene,landes,,37,Listenplatz 37 · unbekannt,st:gruene:list:landes:land:37,,,1
+gruene,landes,,38,Listenplatz 38 · unbekannt,st:gruene:list:landes:land:38,,,1
+gruene,landes,,39,Listenplatz 39 · unbekannt,st:gruene:list:landes:land:39,,,1
+gruene,landes,,40,Listenplatz 40 · unbekannt,st:gruene:list:landes:land:40,,,1
+gruene,landes,,41,Listenplatz 41 · unbekannt,st:gruene:list:landes:land:41,,,1
+gruene,landes,,42,Listenplatz 42 · unbekannt,st:gruene:list:landes:land:42,,,1
+gruene,landes,,43,Listenplatz 43 · unbekannt,st:gruene:list:landes:land:43,,,1
+gruene,landes,,44,Listenplatz 44 · unbekannt,st:gruene:list:landes:land:44,,,1
+gruene,landes,,45,Listenplatz 45 · unbekannt,st:gruene:list:landes:land:45,,,1
+gruene,landes,,46,Listenplatz 46 · unbekannt,st:gruene:list:landes:land:46,,,1
+gruene,landes,,47,Listenplatz 47 · unbekannt,st:gruene:list:landes:land:47,,,1
+gruene,landes,,48,Listenplatz 48 · unbekannt,st:gruene:list:landes:land:48,,,1
+gruene,landes,,49,Listenplatz 49 · unbekannt,st:gruene:list:landes:land:49,,,1
+gruene,landes,,50,Listenplatz 50 · unbekannt,st:gruene:list:landes:land:50,,,1
+gruene,landes,,51,Listenplatz 51 · unbekannt,st:gruene:list:landes:land:51,,,1
+gruene,landes,,52,Listenplatz 52 · unbekannt,st:gruene:list:landes:land:52,,,1
+gruene,landes,,53,Listenplatz 53 · unbekannt,st:gruene:list:landes:land:53,,,1
+gruene,landes,,54,Listenplatz 54 · unbekannt,st:gruene:list:landes:land:54,,,1
+gruene,landes,,55,Listenplatz 55 · unbekannt,st:gruene:list:landes:land:55,,,1
+gruene,landes,,56,Listenplatz 56 · unbekannt,st:gruene:list:landes:land:56,,,1
+gruene,landes,,57,Listenplatz 57 · unbekannt,st:gruene:list:landes:land:57,,,1
+gruene,landes,,58,Listenplatz 58 · unbekannt,st:gruene:list:landes:land:58,,,1
+gruene,landes,,59,Listenplatz 59 · unbekannt,st:gruene:list:landes:land:59,,,1
+gruene,landes,,60,Listenplatz 60 · unbekannt,st:gruene:list:landes:land:60,,,1
+gruene,landes,,61,Listenplatz 61 · unbekannt,st:gruene:list:landes:land:61,,,1
+gruene,landes,,62,Listenplatz 62 · unbekannt,st:gruene:list:landes:land:62,,,1
+gruene,landes,,63,Listenplatz 63 · unbekannt,st:gruene:list:landes:land:63,,,1
+gruene,landes,,64,Listenplatz 64 · unbekannt,st:gruene:list:landes:land:64,,,1
+gruene,landes,,65,Listenplatz 65 · unbekannt,st:gruene:list:landes:land:65,,,1
+fdp,landes,,1,Dr. Lydia Maria Hüskens,st:fdp:person:lydia maria hueskens,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,2,Andreas Silbersack,st:fdp:person:andreas silbersack,37,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,3,Jörg Bernstein,st:fdp:person:joerg bernstein,26,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,4,Kathrin Tarricone,st:fdp:person:kathrin tarricone,30,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,5,Guido Lars Kosmehl,st:fdp:person:guido lars kosmehl,28,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,6,Dr. Maximilian Georg Philipp,st:fdp:person:maximilian philipp,29,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,7,Adrian Gusinde,st:fdp:person:adrian gusinde,9,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,8,Florian Pascal Feger,st:fdp:person:florian pascal feger,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,9,Marco Airoldi,st:fdp:person:marco airoldi,23,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,10,Gunnar Salomon,st:fdp:person:gunnar salomon,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,11,Thomas Gürke,st:fdp:person:thomas guerke,12,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,12,Johanna Engel,st:fdp:person:johanna engel,20,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,13,Annelie Brune,st:fdp:person:annelie brune,2,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,14,Björn Wasserthal,st:fdp:person:bjoern wasserthal,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,15,Maximilian Gludau,st:fdp:person:maximilian gludau,39,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,16,Oliver Mank,st:fdp:person:oliver mank,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,17,John Matthias Kaube,st:fdp:person:john matthias kaube,22,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,18,Dr. Frank Odemar,st:fdp:person:frank odemar,21,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,19,Christian Sascha Daehre,st:fdp:person:christian daehre,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,20,Daniela Tost,st:fdp:person:daniela tost,13,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+fdp,landes,,21,Listenplatz 21 · unbekannt,st:fdp:list:landes:land:21,,,1
+fdp,landes,,22,Listenplatz 22 · unbekannt,st:fdp:list:landes:land:22,,,1
+fdp,landes,,23,Listenplatz 23 · unbekannt,st:fdp:list:landes:land:23,,,1
+fdp,landes,,24,Listenplatz 24 · unbekannt,st:fdp:list:landes:land:24,,,1
+fdp,landes,,25,Listenplatz 25 · unbekannt,st:fdp:list:landes:land:25,,,1
+fdp,landes,,26,Listenplatz 26 · unbekannt,st:fdp:list:landes:land:26,,,1
+fdp,landes,,27,Listenplatz 27 · unbekannt,st:fdp:list:landes:land:27,,,1
+fdp,landes,,28,Listenplatz 28 · unbekannt,st:fdp:list:landes:land:28,,,1
+fdp,landes,,29,Listenplatz 29 · unbekannt,st:fdp:list:landes:land:29,,,1
+fdp,landes,,30,Listenplatz 30 · unbekannt,st:fdp:list:landes:land:30,,,1
+fdp,landes,,31,Listenplatz 31 · unbekannt,st:fdp:list:landes:land:31,,,1
+fdp,landes,,32,Listenplatz 32 · unbekannt,st:fdp:list:landes:land:32,,,1
+fdp,landes,,33,Listenplatz 33 · unbekannt,st:fdp:list:landes:land:33,,,1
+fdp,landes,,34,Listenplatz 34 · unbekannt,st:fdp:list:landes:land:34,,,1
+fdp,landes,,35,Listenplatz 35 · unbekannt,st:fdp:list:landes:land:35,,,1
+fdp,landes,,36,Listenplatz 36 · unbekannt,st:fdp:list:landes:land:36,,,1
+fdp,landes,,37,Listenplatz 37 · unbekannt,st:fdp:list:landes:land:37,,,1
+fdp,landes,,38,Listenplatz 38 · unbekannt,st:fdp:list:landes:land:38,,,1
+fdp,landes,,39,Listenplatz 39 · unbekannt,st:fdp:list:landes:land:39,,,1
+fdp,landes,,40,Listenplatz 40 · unbekannt,st:fdp:list:landes:land:40,,,1
+fdp,landes,,41,Listenplatz 41 · unbekannt,st:fdp:list:landes:land:41,,,1
+fdp,landes,,42,Listenplatz 42 · unbekannt,st:fdp:list:landes:land:42,,,1
+fdp,landes,,43,Listenplatz 43 · unbekannt,st:fdp:list:landes:land:43,,,1
+fdp,landes,,44,Listenplatz 44 · unbekannt,st:fdp:list:landes:land:44,,,1
+fdp,landes,,45,Listenplatz 45 · unbekannt,st:fdp:list:landes:land:45,,,1
+fdp,landes,,46,Listenplatz 46 · unbekannt,st:fdp:list:landes:land:46,,,1
+fdp,landes,,47,Listenplatz 47 · unbekannt,st:fdp:list:landes:land:47,,,1
+fdp,landes,,48,Listenplatz 48 · unbekannt,st:fdp:list:landes:land:48,,,1
+fdp,landes,,49,Listenplatz 49 · unbekannt,st:fdp:list:landes:land:49,,,1
+fdp,landes,,50,Listenplatz 50 · unbekannt,st:fdp:list:landes:land:50,,,1
+fdp,landes,,51,Listenplatz 51 · unbekannt,st:fdp:list:landes:land:51,,,1
+fdp,landes,,52,Listenplatz 52 · unbekannt,st:fdp:list:landes:land:52,,,1
+fdp,landes,,53,Listenplatz 53 · unbekannt,st:fdp:list:landes:land:53,,,1
+fdp,landes,,54,Listenplatz 54 · unbekannt,st:fdp:list:landes:land:54,,,1
+fdp,landes,,55,Listenplatz 55 · unbekannt,st:fdp:list:landes:land:55,,,1
+fdp,landes,,56,Listenplatz 56 · unbekannt,st:fdp:list:landes:land:56,,,1
+fdp,landes,,57,Listenplatz 57 · unbekannt,st:fdp:list:landes:land:57,,,1
+fdp,landes,,58,Listenplatz 58 · unbekannt,st:fdp:list:landes:land:58,,,1
+fdp,landes,,59,Listenplatz 59 · unbekannt,st:fdp:list:landes:land:59,,,1
+fdp,landes,,60,Listenplatz 60 · unbekannt,st:fdp:list:landes:land:60,,,1
+fdp,landes,,61,Listenplatz 61 · unbekannt,st:fdp:list:landes:land:61,,,1
+fdp,landes,,62,Listenplatz 62 · unbekannt,st:fdp:list:landes:land:62,,,1
+fdp,landes,,63,Listenplatz 63 · unbekannt,st:fdp:list:landes:land:63,,,1
+fdp,landes,,64,Listenplatz 64 · unbekannt,st:fdp:list:landes:land:64,,,1
+fdp,landes,,65,Listenplatz 65 · unbekannt,st:fdp:list:landes:land:65,,,1
+bsw,landes,,1,Thomas Schulze,st:bsw:person:thomas schulze,5,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,2,Dr. Claudia Wittig,st:bsw:person:claudia wittig,37,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,3,Margitta Kriebel,st:bsw:person:margitta kriebel,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,4,Michael Reim,st:bsw:person:michael reim,17,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,5,John Lucas Dittrich,st:bsw:person:john lucas dittrich,11,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,6,Rudenz Schramm,st:bsw:person:rudenz schramm,38,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,7,László Müller,st:bsw:person:laszlo mueller,34,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,8,Michael Benecke,st:bsw:person:michael benecke,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,9,Michael Wolfgang Fürst,st:bsw:person:michael fuerst,8,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,10,Holger Köhne,st:bsw:person:holger koehne,3,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,11,Andreas Neubert,st:bsw:person:andreas neubert,35,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,12,Maximilian Schwartz,st:bsw:person:maximilian schwartz,15,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,13,Michael Deckert,st:bsw:person:michael deckert,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,14,Monika Karin Gehlis,st:bsw:person:monika gehlis,14,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,15,Oliver Bart,st:bsw:person:oliver bart,7,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,16,Matthias Hohmann,st:bsw:person:matthias hohmann,6,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,17,Vinzenz Louis Mühlbach,st:bsw:person:vinzenz louis muehlbach,10,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,18,Christine Meier,st:bsw:person:christine meier,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,19,Sven Krüger,st:bsw:person:sven krueger,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,20,Jörg Peter Vogt,st:bsw:person:joerg peter vogt,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,21,Michael Kühne,st:bsw:person:michael kuehne,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,22,Thomas Moritz,st:bsw:person:thomas moritz,,https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Tabellen/Auswertung_VOeff_FgMI.xlsx,0
+bsw,landes,,23,Listenplatz 23 · unbekannt,st:bsw:list:landes:land:23,,,1
+bsw,landes,,24,Listenplatz 24 · unbekannt,st:bsw:list:landes:land:24,,,1
+bsw,landes,,25,Listenplatz 25 · unbekannt,st:bsw:list:landes:land:25,,,1
+bsw,landes,,26,Listenplatz 26 · unbekannt,st:bsw:list:landes:land:26,,,1
+bsw,landes,,27,Listenplatz 27 · unbekannt,st:bsw:list:landes:land:27,,,1
+bsw,landes,,28,Listenplatz 28 · unbekannt,st:bsw:list:landes:land:28,,,1
+bsw,landes,,29,Listenplatz 29 · unbekannt,st:bsw:list:landes:land:29,,,1
+bsw,landes,,30,Listenplatz 30 · unbekannt,st:bsw:list:landes:land:30,,,1
+bsw,landes,,31,Listenplatz 31 · unbekannt,st:bsw:list:landes:land:31,,,1
+bsw,landes,,32,Listenplatz 32 · unbekannt,st:bsw:list:landes:land:32,,,1
+bsw,landes,,33,Listenplatz 33 · unbekannt,st:bsw:list:landes:land:33,,,1
+bsw,landes,,34,Listenplatz 34 · unbekannt,st:bsw:list:landes:land:34,,,1
+bsw,landes,,35,Listenplatz 35 · unbekannt,st:bsw:list:landes:land:35,,,1
+bsw,landes,,36,Listenplatz 36 · unbekannt,st:bsw:list:landes:land:36,,,1
+bsw,landes,,37,Listenplatz 37 · unbekannt,st:bsw:list:landes:land:37,,,1
+bsw,landes,,38,Listenplatz 38 · unbekannt,st:bsw:list:landes:land:38,,,1
+bsw,landes,,39,Listenplatz 39 · unbekannt,st:bsw:list:landes:land:39,,,1
+bsw,landes,,40,Listenplatz 40 · unbekannt,st:bsw:list:landes:land:40,,,1
+bsw,landes,,41,Listenplatz 41 · unbekannt,st:bsw:list:landes:land:41,,,1
+bsw,landes,,42,Listenplatz 42 · unbekannt,st:bsw:list:landes:land:42,,,1
+bsw,landes,,43,Listenplatz 43 · unbekannt,st:bsw:list:landes:land:43,,,1
+bsw,landes,,44,Listenplatz 44 · unbekannt,st:bsw:list:landes:land:44,,,1
+bsw,landes,,45,Listenplatz 45 · unbekannt,st:bsw:list:landes:land:45,,,1
+bsw,landes,,46,Listenplatz 46 · unbekannt,st:bsw:list:landes:land:46,,,1
+bsw,landes,,47,Listenplatz 47 · unbekannt,st:bsw:list:landes:land:47,,,1
+bsw,landes,,48,Listenplatz 48 · unbekannt,st:bsw:list:landes:land:48,,,1
+bsw,landes,,49,Listenplatz 49 · unbekannt,st:bsw:list:landes:land:49,,,1
+bsw,landes,,50,Listenplatz 50 · unbekannt,st:bsw:list:landes:land:50,,,1
+bsw,landes,,51,Listenplatz 51 · unbekannt,st:bsw:list:landes:land:51,,,1
+bsw,landes,,52,Listenplatz 52 · unbekannt,st:bsw:list:landes:land:52,,,1
+bsw,landes,,53,Listenplatz 53 · unbekannt,st:bsw:list:landes:land:53,,,1
+bsw,landes,,54,Listenplatz 54 · unbekannt,st:bsw:list:landes:land:54,,,1
+bsw,landes,,55,Listenplatz 55 · unbekannt,st:bsw:list:landes:land:55,,,1
+bsw,landes,,56,Listenplatz 56 · unbekannt,st:bsw:list:landes:land:56,,,1
+bsw,landes,,57,Listenplatz 57 · unbekannt,st:bsw:list:landes:land:57,,,1
+bsw,landes,,58,Listenplatz 58 · unbekannt,st:bsw:list:landes:land:58,,,1
+bsw,landes,,59,Listenplatz 59 · unbekannt,st:bsw:list:landes:land:59,,,1
+bsw,landes,,60,Listenplatz 60 · unbekannt,st:bsw:list:landes:land:60,,,1
+bsw,landes,,61,Listenplatz 61 · unbekannt,st:bsw:list:landes:land:61,,,1
+bsw,landes,,62,Listenplatz 62 · unbekannt,st:bsw:list:landes:land:62,,,1
+bsw,landes,,63,Listenplatz 63 · unbekannt,st:bsw:list:landes:land:63,,,1
+bsw,landes,,64,Listenplatz 64 · unbekannt,st:bsw:list:landes:land:64,,,1
+bsw,landes,,65,Listenplatz 65 · unbekannt,st:bsw:list:landes:land:65,,,1
