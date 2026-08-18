@@ -123,12 +123,23 @@ if [[ -d "${INTEGRATION}/static/js" ]]; then
   rm -f "${WEBSITE_DIR}/static/js/candidate-profile.js"
   echo "Synced static/js (without district-forecast-map.js / candidate-entry.js / candidate-profile.js)"
 fi
+if [[ -d "${INTEGRATION}/static/images" ]]; then
+  mkdir -p "${WEBSITE_DIR}/static/images"
+  cp -r "${INTEGRATION}/static/images/." "${WEBSITE_DIR}/static/images/"
+  echo "Synced static/images"
+fi
 
 if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" ]]; then
   mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/partials"
   cp "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" \
     "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
   echo "Synced home_info_de.html"
+fi
+if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/_default/api-docs.html" ]]; then
+  mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/_default"
+  cp "${INTEGRATION}/themes/PaperMod/layouts/_default/api-docs.html" \
+    "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/api-docs.html"
+  echo "Copied Forecast API Swagger layout"
 fi
 
 # Wahlkreis-Vorhersage UI is mock-only (website-mock / gh-pages).

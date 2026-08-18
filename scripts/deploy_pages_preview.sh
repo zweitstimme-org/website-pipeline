@@ -71,10 +71,19 @@ done
 if [[ -d "${REPO_ROOT}/website-integration/static/js" ]]; then
   cp -r "${REPO_ROOT}/website-integration/static/js/." "${MOCK_DIR}/static/js/"
 fi
+if [[ -d "${REPO_ROOT}/website-integration/static/images" ]]; then
+  mkdir -p "${MOCK_DIR}/static/images"
+  cp -r "${REPO_ROOT}/website-integration/static/images/." "${MOCK_DIR}/static/images/"
+fi
 if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/home_info_de.html" ]]; then
   mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/partials"
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/home_info_de.html" \
     "${MOCK_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
+fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/api-docs.html" ]]; then
+  mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/api-docs.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/_default/api-docs.html"
 fi
 # Unlinked internal preview page (Direktmandate) — not in menus.
 if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/district_forecast_map.html" ]]; then

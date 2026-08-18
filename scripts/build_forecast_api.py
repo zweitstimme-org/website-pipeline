@@ -3,6 +3,7 @@
 
 Writes:
   api/index.json
+  api/openapi.json
   api/v1/federal/{index,forecast,pred_probabilities,forecast_districts?}.json
   api/v1/federal/archive/{index,YYYY-MM-DD}.json
   api/v2/state/{index,st,be,…}.json
@@ -64,6 +65,22 @@ def _unwrap_api_payload(raw: Any) -> Any:
     ):
         return raw["data"]
     return raw
+
+
+def _openapi_spec() -> dict[str, Any]:
+    try:
+        from forecast_api_openapi import openapi_spec
+    except ImportError:
+        import importlib.util
+
+        spec_path = Path(__file__).with_name("forecast_api_openapi.py")
+        spec = importlib.util.spec_from_file_location("forecast_api_openapi", spec_path)
+        if spec is None or spec.loader is None:
+            raise ImportError(f"could not load {spec_path}")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod.openapi_spec()
+    return openapi_spec()
 
 
 def _write_json(path: Path, payload: Any, *, compact: bool = False) -> None:
@@ -511,6 +528,14 @@ def _state_payload_from_file(
     return election, data
 
 
+_DRAWS_NOTES = (
+    "Each draw is a posterior predictive vote-share vector (0–1), "
+    "normalized so party shares sum to 1. summary.parties repeats the "
+    "published point estimates and ~83% interval in percentage points, "
+    "computed from these draws."
+)
+
+
 def _state_draws_from_file(path: Path) -> dict[str, Any] | None:
     payload = _load_json(path)
     if not isinstance(payload, dict):
@@ -530,17 +555,62 @@ def _state_draws_from_file(path: Path) -> dict[str, Any] | None:
         "parties": parties or [],
         "draws": draws,
     }
-    # Preserve forecast-run timestamps (last_update / asof_date / last_poll_date).
     meta = inner.get("metadata")
     if isinstance(meta, dict) and meta:
         out["metadata"] = meta
-        for key in ("last_update", "asof_date", "last_poll_date"):
-            if meta.get(key) and key not in out:
-                out[key] = meta[key]
-    for key in ("last_update", "asof_date", "last_poll_date"):
+    summary = inner.get("summary")
+    if isinstance(summary, dict) and summary:
+        out["summary"] = summary
+    for key in (
+        "last_update",
+        "asof_date",
+        "last_poll_date",
+        "normalization",
+        "notes",
+        "forecast_path",
+    ):
         if inner.get(key) and key not in out:
             out[key] = inner[key]
     return out
+
+
+def _enrich_state_draws(
+    data: dict[str, Any],
+    *,
+    forecast_data: dict[str, Any] | None = None,
+    forecast_path: str | None = None,
+) -> dict[str, Any]:
+    """Make draws self-contained: timing, last poll, and summary forecast + CIs."""
+    forecast_meta = None
+    forecast_parties = None
+    if isinstance(forecast_data, dict):
+        if isinstance(forecast_data.get("metadata"), dict):
+            forecast_meta = forecast_data["metadata"]
+        if isinstance(forecast_data.get("parties"), list):
+            forecast_parties = forecast_data["parties"]
+
+    meta = data.get("metadata") if isinstance(data.get("metadata"), dict) else {}
+    if forecast_meta:
+        merged = dict(forecast_meta)
+        merged.update({k: v for k, v in meta.items() if v is not None})
+        meta = merged
+    if meta:
+        data["metadata"] = meta
+        for key in ("last_update", "asof_date", "last_poll_date"):
+            if meta.get(key):
+                data[key] = meta[key]
+
+    summary = data.get("summary") if isinstance(data.get("summary"), dict) else {}
+    if forecast_parties:
+        summary["parties"] = forecast_parties
+    if summary:
+        data["summary"] = summary
+
+    if forecast_path:
+        data["forecast_path"] = forecast_path
+    data.setdefault("normalization", "shares_sum_to_1")
+    data.setdefault("notes", _DRAWS_NOTES)
+    return data
 
 
 def _write_state_draws(
@@ -549,12 +619,18 @@ def _write_state_draws(
     draws_file: Path | None,
     dest_rel: Path,
     extra: dict[str, Any] | None = None,
+    *,
+    forecast_data: dict[str, Any] | None = None,
+    forecast_path: str | None = None,
 ) -> str | None:
     if draws_file is None or not draws_file.is_file():
         return None
     data = _state_draws_from_file(draws_file)
     if not data:
         return None
+    data = _enrich_state_draws(
+        data, forecast_data=forecast_data, forecast_path=forecast_path
+    )
     env = _envelope("v2", election, data, extra=extra)
     _write_json(api_root / dest_rel, env, compact=True)
     return "/api/" + dest_rel.as_posix()
@@ -654,6 +730,8 @@ def build_v2_state(
             election,
             draws_file,
             Path("v2") / "state" / code_lower / "draws.json",
+            forecast_data=data,
+            forecast_path=f"/api/v2/state/{code_lower}.json",
         )
         if draws_url:
             meta = data.get("metadata")
@@ -743,6 +821,8 @@ def build_v2_state_archive(
             draws_file,
             Path("v2") / "state" / "archive" / key / "draws.json",
             extra={"archived": True},
+            forecast_data=data,
+            forecast_path=f"/api/v2/state/archive/{rel}",
         )
         if draws_url:
             meta = data.get("metadata")
@@ -933,12 +1013,15 @@ def build(
     if write_legacy_aliases and out_root is not None:
         write_legacy_root_aliases(out_root, root_aliases)
 
+    _write_json(api_root / "openapi.json", _openapi_spec())
+
     _write_json(
         api_root / "index.json",
         {
             "name": "Zweitstimme Forecast API",
             "generated_at": _now_iso(),
             "docs": "https://zweitstimme.org/docs/api/",
+            "openapi": "/api/openapi.json",
             "versions": {
                 "v1": {
                     "description": "Federal (Bundestag) forecasts",
