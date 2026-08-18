@@ -4,32 +4,7 @@ Automated data pipeline for [zweitstimme.org](https://zweitstimme.org): server-s
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  API["Polling API<br/>api.zweitstimme.org"]
-  CAL["election_calendar.json"]
-  STIM["R: Kalman Stimmung<br/>daily GitHub Action"]
-  STATE["R: state model<br/>self-hosted runner"]
-  FED["R: Zweitstimme model<br/>self-hosted runner"]
-  OUT["website-source/static/data/"]
-  SITE["Hugo → zweitstimme.org"]
-
-  API --> STIM
-  API --> STATE
-  CAL --> STIM
-  CAL --> STATE
-  CAL --> FED
-  STIM --> OUT
-  STATE --> OUT
-  FED --> OUT
-  OUT --> SITE
-```
-
-The website still fetches **live polls** from the API for poll tables and scatter dots. All model computation (Kalman, forecasts) runs in this pipeline.
-
-## Repo boundaries
-
-This project is the **integration and publishing layer** in the zweitstimme.org stack.
+This repo is the **integration and publishing layer**. Forecast computation lives in `state-models`; the live site is a built artifact.
 
 ```mermaid
 flowchart LR
@@ -45,6 +20,10 @@ flowchart LR
   PIPE --> SRC
   SRC --> SITE
 ```
+
+The website still fetches **live polls** from the API for poll tables and scatter dots. Kalman **Stimmung** runs here; Landtag **forecasts** are computed in [state-models](https://github.com/zweitstimme-org/state-models) and published from this pipeline.
+
+## Repo boundaries
 
 ### Responsibility split
 
