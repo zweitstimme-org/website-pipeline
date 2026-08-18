@@ -17,7 +17,7 @@ on:
 
 jobs:
   federal-forecast:
-    runs-on: [self-hosted, heavy-r]
+    runs-on: ubuntu-latest
     timeout-minutes: 1440
     steps:
       - name: Checkout pipeline
