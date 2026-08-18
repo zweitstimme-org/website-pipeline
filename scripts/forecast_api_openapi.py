@@ -382,25 +382,14 @@ def schemas() -> dict[str, Any]:
         },
         "StateDrawsData": {
             "type": "object",
-            "description": "Self-contained posterior draws for one state forecast: raw simulations plus last-poll timing and the published summary with CIs. Regenerated whenever the state forecast is rerun.",
+            "description": (
+                "Self-contained posterior draws. Header fields come first "
+                "(`metadata`, timing, `summary`, notes), then `n_draws` / `unit` / "
+                "`parties`, then the raw `draws` array. Regenerated whenever the "
+                "state forecast is rerun."
+            ),
             "properties": {
-                "n_draws": {"type": "integer", "example": 4000},
-                "unit": {
-                    "type": "string",
-                    "enum": ["share"],
-                    "description": "`share` means 0–1 vote shares, not percentage points.",
-                },
-                "normalization": {
-                    "type": "string",
-                    "example": "shares_sum_to_1",
-                    "description": "Each draw's party shares sum to 1.",
-                },
-                "notes": {"type": "string"},
-                "forecast_path": {
-                    "type": "string",
-                    "example": "/api/v2/state/st.json",
-                    "description": "Companion summary endpoint for this same run.",
-                },
+                "metadata": _ref("StateForecastMetadata"),
                 "last_update": {
                     "type": "string",
                     "description": "Forecast-run timestamp (UTC). Distinct from envelope `generated_at`.",
@@ -415,13 +404,29 @@ def schemas() -> dict[str, Any]:
                     "format": "date",
                     "description": "Newest poll included in this forecast.",
                 },
-                "metadata": _ref("StateForecastMetadata"),
                 "summary": {
                     "type": "object",
                     "description": "Published point estimates and ~83% intervals in percentage points, computed from these draws.",
                     "properties": {
                         "parties": {"type": "array", "items": _ref("StatePartyRow")},
                     },
+                },
+                "forecast_path": {
+                    "type": "string",
+                    "example": "/api/v2/state/st.json",
+                    "description": "Companion summary endpoint for this same run.",
+                },
+                "normalization": {
+                    "type": "string",
+                    "example": "shares_sum_to_1",
+                    "description": "Each draw's party shares sum to 1.",
+                },
+                "notes": {"type": "string"},
+                "n_draws": {"type": "integer", "example": 4000},
+                "unit": {
+                    "type": "string",
+                    "enum": ["share"],
+                    "description": "`share` means 0–1 vote shares, not percentage points.",
                 },
                 "parties": {
                     "type": "array",
@@ -627,7 +632,7 @@ def paths() -> dict[str, Any]:
         "/api/v2/state/{code}/draws.json": _get(
             operation_id="get_v2_state_draws",
             summary="State posterior draws",
-            description="Raw posterior simulations (`unit: share`, 0–1) behind the summary and scenarios, plus last-poll timing and the published forecast with CIs so the file is self-contained. Regenerated on every state-forecast run. Large file (~4000 draws).",
+            description="Raw posterior simulations (`unit: share`, 0–1) behind the summary and scenarios. The JSON header (`data.metadata`, last poll, published `summary` with CIs) comes first; the `draws` array follows. Regenerated on every state-forecast run. Large file (~4000 draws).",
             tags=["state"],
             schema=_envelope_schema("StateDrawsData"),
             params=[code],

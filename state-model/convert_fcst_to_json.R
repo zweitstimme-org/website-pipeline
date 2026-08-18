@@ -298,19 +298,20 @@ convert_all <- function(fcst_path = file.path(STATE_MODELS_DIR, "data", "output"
       )
       draws_out <- list(
         metadata = payload$metadata,
+        last_update = payload$metadata$last_update,
+        asof_date = payload$metadata$asof_date,
+        last_poll_date = payload$metadata$last_poll_date,
         summary = list(parties = parties_out),
-        n_draws = draws_payload$n_draws,
-        unit = draws_payload$unit,
+        forecast_path = paste0("/api/v2/state/", state_lower, ".json"),
         normalization = "shares_sum_to_1",
         notes = paste(
           "Each draw is a posterior predictive vote-share vector (0-1),",
           "normalized so party shares sum to 1. summary.parties repeats the",
-          "published point estimates and ~83% interval in percentage points."
+          "published point estimates and ~83% interval in percentage points,",
+          "computed from these draws."
         ),
-        last_update = payload$metadata$last_update,
-        asof_date = payload$metadata$asof_date,
-        last_poll_date = payload$metadata$last_poll_date,
-        forecast_path = paste0("/api/v2/state/", state_lower, ".json"),
+        n_draws = draws_payload$n_draws,
+        unit = draws_payload$unit,
         parties = draws_payload$parties,
         draws = draws_payload$draws
       )

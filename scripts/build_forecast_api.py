@@ -549,28 +549,25 @@ def _state_draws_from_file(path: Path) -> dict[str, Any] | None:
     parties = inner.get("parties")
     if not parties and isinstance(draws[0], dict):
         parties = [k for k in draws[0].keys() if k != "draw"]
-    out: dict[str, Any] = {
-        "n_draws": int(inner.get("n_draws") or len(draws)),
-        "unit": inner.get("unit") or "share",
-        "parties": parties or [],
-        "draws": draws,
-    }
+    out: dict[str, Any] = {}
     meta = inner.get("metadata")
     if isinstance(meta, dict) and meta:
         out["metadata"] = meta
+    for key in ("last_update", "asof_date", "last_poll_date"):
+        if inner.get(key):
+            out[key] = inner[key]
+        elif isinstance(meta, dict) and meta.get(key):
+            out[key] = meta[key]
     summary = inner.get("summary")
     if isinstance(summary, dict) and summary:
         out["summary"] = summary
-    for key in (
-        "last_update",
-        "asof_date",
-        "last_poll_date",
-        "normalization",
-        "notes",
-        "forecast_path",
-    ):
-        if inner.get(key) and key not in out:
+    for key in ("forecast_path", "normalization", "notes"):
+        if inner.get(key):
             out[key] = inner[key]
+    out["n_draws"] = int(inner.get("n_draws") or len(draws))
+    out["unit"] = inner.get("unit") or "share"
+    out["parties"] = parties or []
+    out["draws"] = draws
     return out
 
 
@@ -610,7 +607,35 @@ def _enrich_state_draws(
         data["forecast_path"] = forecast_path
     data.setdefault("normalization", "shares_sum_to_1")
     data.setdefault("notes", _DRAWS_NOTES)
-    return data
+    return _order_state_draws_payload(data)
+
+
+_DRAWS_KEY_ORDER = (
+    "metadata",
+    "last_update",
+    "asof_date",
+    "last_poll_date",
+    "summary",
+    "forecast_path",
+    "normalization",
+    "notes",
+    "n_draws",
+    "unit",
+    "parties",
+    "draws",
+)
+
+
+def _order_state_draws_payload(data: dict[str, Any]) -> dict[str, Any]:
+    """Header/metadata first, raw simulations last — so clients can read the file prefix."""
+    ordered: dict[str, Any] = {}
+    for key in _DRAWS_KEY_ORDER:
+        if key in data:
+            ordered[key] = data[key]
+    for key, value in data.items():
+        if key not in ordered:
+            ordered[key] = value
+    return ordered
 
 
 def _write_state_draws(
