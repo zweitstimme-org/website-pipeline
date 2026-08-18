@@ -150,10 +150,12 @@ rm -f "${DATA_TARGET}"/forecast_districts.json \
   "${WEBSITE_DIR}/static/js/candidate-profile.js"
 echo "Ensured Wahlkreis / candidate-entry preview assets are absent from live website-source"
 
-if [[ -f "${INTEGRATION}/content/api.md" ]]; then
-  cp "${INTEGRATION}/content/api.md" "${WEBSITE_DIR}/content/api.md"
-  echo "Copied api.md"
-fi
+for page in api.md impressum.md faq.md; do
+  if [[ -f "${INTEGRATION}/content/${page}" ]]; then
+    cp "${INTEGRATION}/content/${page}" "${WEBSITE_DIR}/content/${page}"
+    echo "Copied ${page}"
+  fi
+done
 
 # Footer label + URL: human docs at /docs/api (JSON catalog stays under /api/).
 if [[ -f "${WEBSITE_DIR}/config.toml" ]]; then

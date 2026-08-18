@@ -122,9 +122,11 @@ if [[ -d "${REPO_ROOT}/website-integration/content/preview" ]]; then
   mkdir -p "${MOCK_DIR}/content/preview"
   cp -r "${REPO_ROOT}/website-integration/content/preview/." "${MOCK_DIR}/content/preview/"
 fi
-if [[ -f "${REPO_ROOT}/website-integration/content/api.md" ]]; then
-  cp "${REPO_ROOT}/website-integration/content/api.md" "${MOCK_DIR}/content/api.md"
-fi
+for page in api.md impressum.md faq.md; do
+  if [[ -f "${REPO_ROOT}/website-integration/content/${page}" ]]; then
+    cp "${REPO_ROOT}/website-integration/content/${page}" "${MOCK_DIR}/content/${page}"
+  fi
+done
 # Footer: human docs at /docs/api (JSON catalog stays under /api/).
 if [[ -f "${MOCK_DIR}/config.toml" ]]; then
   python3 - "${MOCK_DIR}/config.toml" <<'PY'
@@ -281,7 +283,7 @@ base = sys.argv[2].rstrip("/")
 # "/research/posts/", "/archive/posts/" and doubles the base path.
 prefixes = (
     "/images/", "/data/", "/js/", "/assets/", "/blog/",
-    "/team/", "/faq/", "/research/", "/archive/", "/api/",
+    "/team/", "/faq/", "/impressum/", "/research/", "/archive/", "/api/",
     "/pred_probabilities.json", "/forecast.json", "/forecast_districts.json",
     "/draws.json", "/last_updated.json", "/pred_vacant.json",
 )
