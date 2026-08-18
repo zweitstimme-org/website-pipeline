@@ -296,11 +296,24 @@ convert_all <- function(fcst_path = file.path(STATE_MODELS_DIR, "data", "output"
       draws_file <- file.path(
         OUTPUT_DIR, paste0("forecast_state_", state_lower, "_draws.json")
       )
+      meta <- payload$metadata
       draws_out <- list(
-        metadata = payload$metadata,
-        last_update = payload$metadata$last_update,
-        asof_date = payload$metadata$asof_date,
-        last_poll_date = payload$metadata$last_poll_date,
+        last_update = meta$last_update,
+        asof_date = meta$asof_date,
+        last_poll_date = meta$last_poll_date,
+        state_code = meta$state_code,
+        election_id = meta$election_id,
+        election_name = meta$election_name,
+        election_date = meta$election_date,
+        model = meta$model,
+        lead = meta$lead,
+        lead_model = meta$lead_model,
+        lead_horizon_days = meta$lead_horizon_days,
+        poll_window_days = meta$poll_window_days,
+        scenario_config_md5 = meta$scenario_config_md5,
+        predictor_encoding = meta$predictor_encoding,
+        shares_normalized_to_100 = meta$shares_normalized_to_100,
+        source_repo = meta$source_repo,
         summary = list(parties = parties_out),
         forecast_path = paste0("/api/v2/state/", state_lower, ".json"),
         normalization = "shares_sum_to_1",
