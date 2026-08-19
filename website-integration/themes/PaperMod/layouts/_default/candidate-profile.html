@@ -1,7 +1,6 @@
 {{- define "main" }}
 <article class="post-single">
   <header class="post-header">
-    {{ partial "preview_notice.html" . }}
     <h1 class="post-title" id="cp-title">{{ .Title }}</h1>
     {{- if .Description }}
     <div class="post-description" id="cp-description">{{ .Description }}</div>

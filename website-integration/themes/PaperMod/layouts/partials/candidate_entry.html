@@ -1,5 +1,5 @@
 {{/*
-  Preview: Einzugswahrscheinlichkeiten Direkt + Liste (BE/MV/ST).
+  Preview: Einzugschancen Direkt + Liste (BE/MV/ST).
 */}}
 <style>
 .ce-wrap { max-width: 960px; margin: 0 auto; }
@@ -205,6 +205,25 @@ a.ce-incumbent:hover {
   border-color: var(--primary, #003d80);
   background: #e8eef6;
 }
+.ce-aw {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #445;
+  background: #eef1f4;
+  border: 1px solid #c5ccd4;
+  border-radius: 0.2rem;
+  padding: 0.05rem 0.28rem;
+  line-height: 1.2;
+  text-decoration: none !important;
+  vertical-align: baseline;
+}
+a.ce-aw:hover {
+  color: var(--primary, #003d80);
+  border-color: var(--primary, #003d80);
+  background: #e8eef6;
+}
 .ce-cand-info {
   position: relative;
   display: inline-block;
@@ -349,20 +368,20 @@ a.ce-incumbent:hover {
 </style>
 
 <details class="ce-explainer">
-  <summary>So lesen Sie die Einzugswahrscheinlichkeiten</summary>
+  <summary>So lesen Sie die Einzugschancen</summary>
   <div class="ce-explainer-body">
     <p>
       Pro Person schätzen wir, wie oft sie in unserem Modell ins Parlament käme —
       über ein <strong>Direktmandat</strong>, über die <strong>Liste</strong>, oder beides.
       Grundlage sind dieselben Umfrage- und Wahlkreis-Simulationen wie bei der
-      <a href="{{ "preview/direktmandate/" | relURL }}">Direktmandate-Karte</a>.
+      <a href="{{ "direktmandate/" | relURL }}">Direktmandate-Karte</a>.
     </p>
     <ul>
       <li><strong>Einzug</strong> — Anteil der Simulationen, in denen die Person einen Sitz erhält (Direkt und/oder Liste).</li>
       <li><strong>Direkt</strong> — Anteil, in dem sie ihren Wahlkreis gewinnt.</li>
       <li><strong>Liste&nbsp;%</strong> — Anteil, in dem sie über die Liste nachrückt (nur wenn ein Listenplatz bekannt ist).</li>
       <li><strong>Listenplatz / WK</strong> — bekannter Listenplatz bzw. Direktwahlkreis. Ohne Listenplatz steht <code>—</code>, Liste&nbsp;% ebenfalls, und <strong>Einzug = Direkt</strong>.</li>
-      <li><strong>Quellen</strong> — auf der <a href="{{ "preview/kandidat/" | relURL }}">Profilseite</a> der Person ausgewiesen; Namen verlinken dorthin.</li>
+      <li><strong>Quellen</strong> — auf der <a href="{{ "kandidat/" | relURL }}">Profilseite</a> der Person ausgewiesen; Namen verlinken dorthin.</li>
       <li><strong>i-Button</strong> (Sachsen-Anhalt) — Geburtsjahr/-ort, Wohnort und Beruf laut Landeswahlleiterin / StaLa.</li>
       <li><strong>Geschlechteranteil</strong> — geschätzt anhand der Vornamen (Wörterbuch + manuelle Korrekturen), nicht amtlich.
         Getrennt ausgewiesen: <em>Gesamt</em>, nur <em>Liste</em>, nur <em>Direkt</em>,
@@ -392,6 +411,7 @@ a.ce-incumbent:hover {
 </details>
 
 <div id="candidate-entry-root"></div>
+<script src="{{ "js/chart-logo-watermark.js" | relURL }}?v=6"></script>
 <script src="{{ "js/pipeline-data.js" | relURL }}?v=9" defer></script>
-<script src="{{ "js/candidate-entry.js" | relURL }}?v=15" defer></script>
+<script src="{{ "js/candidate-entry.js" | relURL }}?v=19" defer></script>
 {{/* candidate-entry.js auto-mounts #candidate-entry-root when ready */}}

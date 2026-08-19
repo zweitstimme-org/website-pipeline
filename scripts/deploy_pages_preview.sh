@@ -17,6 +17,10 @@ if [[ ! -x "${HUGO}" ]]; then
   exit 1
 fi
 
+echo "Refreshing Polymarket comparison snapshot ..."
+python3 "${REPO_ROOT}/scripts/fetch_polymarket_compare.py" \
+  || echo "Polymarket snapshot failed (using existing JSON if any)."
+
 echo "Seeding forecast / stimmung JSON into website-mock/static/data ..."
 mkdir -p "${MOCK_DIR}/static/data" "${MOCK_DIR}/static/js"
 shopt -s nullglob
@@ -33,7 +37,9 @@ for f in \
   "${REPO_ROOT}"/output/stimmung_*.json \
   "${REPO_ROOT}"/output/current_stimmung.json \
   "${REPO_ROOT}"/output/party_order.json \
-  "${REPO_ROOT}"/output/polls_supplement.json
+  "${REPO_ROOT}"/output/polls_supplement.json \
+  "${REPO_ROOT}"/output/polymarket_compare.json \
+  "${REPO_ROOT}"/website-integration/static/data/polymarket_compare.json
 do
   [[ -f "$f" ]] || continue
   cp "$f" "${MOCK_DIR}/static/data/"
@@ -71,6 +77,10 @@ done
 if [[ -d "${REPO_ROOT}/website-integration/static/js" ]]; then
   cp -r "${REPO_ROOT}/website-integration/static/js/." "${MOCK_DIR}/static/js/"
 fi
+if [[ -d "${REPO_ROOT}/website-integration/static/data" ]]; then
+  mkdir -p "${MOCK_DIR}/static/data"
+  cp -r "${REPO_ROOT}/website-integration/static/data/." "${MOCK_DIR}/static/data/"
+fi
 if [[ -d "${REPO_ROOT}/website-integration/static/images" ]]; then
   mkdir -p "${MOCK_DIR}/static/images"
   cp -r "${REPO_ROOT}/website-integration/static/images/." "${MOCK_DIR}/static/images/"
@@ -84,6 +94,11 @@ if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/api-
   mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/api-docs.html" \
     "${MOCK_DIR}/themes/PaperMod/layouts/_default/api-docs.html"
+fi
+if [[ -f "${REPO_ROOT}/website-integration/layouts/partials/extend_head.html" ]]; then
+  mkdir -p "${MOCK_DIR}/layouts/partials"
+  cp "${REPO_ROOT}/website-integration/layouts/partials/extend_head.html" \
+    "${MOCK_DIR}/layouts/partials/extend_head.html"
 fi
 # Unlinked internal preview page (Direktmandate) — not in menus.
 if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/district_forecast_map.html" ]]; then
@@ -127,49 +142,39 @@ if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahl
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahlabend-preview.html" \
     "${MOCK_DIR}/themes/PaperMod/layouts/_default/wahlabend-preview.html"
 fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/polymarket_compare.html" ]]; then
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/polymarket_compare.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/partials/polymarket_compare.html"
+fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/polymarket-preview.html" ]]; then
+  mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/polymarket-preview.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/_default/polymarket-preview.html"
+fi
 if [[ -d "${REPO_ROOT}/website-integration/content/preview" ]]; then
   mkdir -p "${MOCK_DIR}/content/preview"
   cp -r "${REPO_ROOT}/website-integration/content/preview/." "${MOCK_DIR}/content/preview/"
 fi
-for page in api.md impressum.md faq.md; do
+# Public Wahlkreis / Einzug / Kandidat pages (moved off /preview/).
+rm -rf \
+  "${MOCK_DIR}/content/preview/direktmandate" \
+  "${MOCK_DIR}/content/preview/einzug" \
+  "${MOCK_DIR}/content/preview/kandidat"
+for page_dir in direktmandate einzug kandidat; do
+  if [[ -d "${REPO_ROOT}/website-integration/content/${page_dir}" ]]; then
+    mkdir -p "${MOCK_DIR}/content/${page_dir}"
+    cp -r "${REPO_ROOT}/website-integration/content/${page_dir}/." \
+      "${MOCK_DIR}/content/${page_dir}/"
+  fi
+done
+for page in api.md impressum.md faq.md datenschutz.md; do
   if [[ -f "${REPO_ROOT}/website-integration/content/${page}" ]]; then
     cp "${REPO_ROOT}/website-integration/content/${page}" "${MOCK_DIR}/content/${page}"
   fi
 done
-# Footer: human docs at /docs/api (JSON catalog stays under /api/).
+# Footer: Forecast API (/docs/api) + Polling API + LinkedIn.
 if [[ -f "${MOCK_DIR}/config.toml" ]]; then
-  python3 - "${MOCK_DIR}/config.toml" <<'PY'
-from pathlib import Path
-import re
-import sys
-path = Path(sys.argv[1])
-text = path.read_text(encoding="utf-8")
-changed = False
-new, n = re.subn(
-    r'name\s*=\s*"API"(\s*\n\s*url\s*=\s*")(?:/api"|/docs/api")',
-    r'name = "Forecast API"\1"/docs/api"',
-    text,
-    count=1,
-)
-if n:
-    text = new
-    changed = True
-else:
-    new, n = re.subn(
-        r'(name\s*=\s*"Forecast API"\s*\n\s*url\s*=\s*)"/api"',
-        r'\1"/docs/api"',
-        text,
-        count=1,
-    )
-    if n:
-        text = new
-        changed = True
-if changed:
-    path.write_text(text, encoding="utf-8")
-    print("Updated preview footer → Forecast API @ /docs/api")
-else:
-    print("Preview footer Forecast API /docs/api already set (or not found)")
-PY
+  python3 "${REPO_ROOT}/scripts/patch_hugo_footer.py" "${MOCK_DIR}/config.toml"
 fi
 # Keep methodology explainers in sync with website-integration.
 for meth in district-forecast-methodology state-forecast-methodology wahlabend-nowcast-methodology; do
@@ -179,6 +184,45 @@ for meth in district-forecast-methodology state-forecast-methodology wahlabend-n
       "${MOCK_DIR}/content/blog/posts/${meth}/"
   fi
 done
+
+# Research / FAQ / Team / blog-archive hubs (same as live, plus preview-only pages above).
+INT="${REPO_ROOT}/website-integration"
+if [[ -f "${INT}/content/research/_index.md" ]]; then
+  mkdir -p "${MOCK_DIR}/content/research"
+  cp "${INT}/content/research/_index.md" "${MOCK_DIR}/content/research/_index.md"
+fi
+if [[ -d "${INT}/content/research/posts" ]]; then
+  mkdir -p "${MOCK_DIR}/content/research/posts"
+  cp -r "${INT}/content/research/posts/." "${MOCK_DIR}/content/research/posts/"
+fi
+if [[ -f "${INT}/content/blog/_index.md" ]]; then
+  mkdir -p "${MOCK_DIR}/content/blog"
+  cp "${INT}/content/blog/_index.md" "${MOCK_DIR}/content/blog/_index.md"
+fi
+if [[ -f "${INT}/content/archive/_index.md" ]]; then
+  mkdir -p "${MOCK_DIR}/content/archive"
+  cp "${INT}/content/archive/_index.md" "${MOCK_DIR}/content/archive/_index.md"
+fi
+if [[ -f "${INT}/content/team/index.md" ]]; then
+  mkdir -p "${MOCK_DIR}/content/team"
+  cp "${INT}/content/team/index.md" "${MOCK_DIR}/content/team/index.md"
+fi
+if [[ -f "${INT}/data/faq.yaml" ]]; then
+  mkdir -p "${MOCK_DIR}/data"
+  cp "${INT}/data/faq.yaml" "${MOCK_DIR}/data/faq.yaml"
+fi
+if [[ -f "${INT}/assets/css/extended/custom.css" ]]; then
+  mkdir -p "${MOCK_DIR}/assets/css/extended"
+  cp "${INT}/assets/css/extended/custom.css" "${MOCK_DIR}/assets/css/extended/custom.css"
+fi
+if [[ -d "${INT}/layouts/_default" ]]; then
+  mkdir -p "${MOCK_DIR}/layouts/_default"
+  for layout in forschung.html faq.html article.html posts-hub.html; do
+    if [[ -f "${INT}/layouts/_default/${layout}" ]]; then
+      cp "${INT}/layouts/_default/${layout}" "${MOCK_DIR}/layouts/_default/${layout}"
+    fi
+  done
+fi
 
 # hugo-cite still uses echoParam; Hugo 0.134+ errors on that deprecation.
 if [[ -d "${MOCK_DIR}/themes/hugo-cite" ]]; then
@@ -209,9 +253,14 @@ rsync -a --copy-links "${MOCK_DIR}/public/" "${TMP_PUBLISH}/"
 rm -f "${TMP_PUBLISH}/CNAME"
 touch "${TMP_PUBLISH}/.nojekyll"
 
-# Prefer newer pipeline JSON already on gh-pages over stale local output/.
-# UI-only redeploys must not clobber fresh Action-published forecasts/stimmung.
+# Prefer newer pipeline JSON from gh-pages *and* the live site over stale local output/.
+# UI-only redeploys used to clobber Action-published forecasts because this script
+# force-pushes an orphan gh-pages tree seeded from local output/ (often days old).
+# Merging only origin/gh-pages is not enough: once a stale force-push lands, later
+# deploys keep copying that stale tree. Live zweitstimme.org/data/ is the source of
+# truth for statewide forecasts / Stimmung.
 # Set SKIP_REMOTE_DATA_MERGE=1 to publish local output/ as-is (e.g. date corrections).
+LIVE_DATA_BASE="${LIVE_DATA_BASE:-https://zweitstimme.org/data}"
 if [[ "${SKIP_REMOTE_DATA_MERGE:-0}" == "1" ]]; then
   echo "Skipping remote data/ merge (SKIP_REMOTE_DATA_MERGE=1)."
 else
@@ -267,9 +316,85 @@ for remote in remote_dir.rglob("*"):
 print(f"Merged {kept} newer remote data file(s).")
 PY
 else
-  echo "  (could not clone ${BRANCH}; publishing local data as-is)"
+  echo "  (could not clone ${BRANCH}; will still merge from live site)"
 fi
 rm -rf "${REMOTE_DATA}"
+
+echo "Merging newer statewide JSON from ${LIVE_DATA_BASE}/ ..."
+python3 - <<'PY' "${TMP_PUBLISH}/data" "${LIVE_DATA_BASE}"
+import json, sys, urllib.error, urllib.request
+from pathlib import Path
+
+local_dir = Path(sys.argv[1])
+live_base = sys.argv[2].rstrip("/")
+local_dir.mkdir(parents=True, exist_ok=True)
+
+def stamp_bytes(raw: bytes):
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except Exception:
+        return None
+    if not isinstance(payload, dict):
+        return None
+    meta = payload.get("metadata")
+    if isinstance(meta, dict) and meta.get("last_update"):
+        return str(meta["last_update"])
+    if payload.get("last_update"):
+        return str(payload["last_update"])
+    return None
+
+def stamp_path(path: Path):
+    try:
+        return stamp_bytes(path.read_bytes())
+    except Exception:
+        return None
+
+# Live does not ship mock-only district/geo files. Statewide forecasts + Stimmung only.
+names = [
+    "display_mode.json",
+    "election_calendar.json",
+    "election_dates.json",
+    "current_stimmung.json",
+    "stimmung_federal.json",
+    "stimmung_states.json",
+    "party_order.json",
+    "polls_supplement.json",
+    "forecast_federal.json",
+]
+for path in sorted(local_dir.glob("forecast_state_*.json")):
+    names.append(path.name)
+# Always try the current Landtag files even if local output/ omitted them.
+for code in ("st", "be", "mv"):
+    names.append(f"forecast_state_{code}.json")
+    names.append(f"forecast_state_{code}_draws.json")
+
+kept = 0
+seen = set()
+for name in names:
+    if name in seen:
+        continue
+    seen.add(name)
+    url = f"{live_base}/{name}"
+    try:
+        with urllib.request.urlopen(url, timeout=60) as resp:
+            raw = resp.read()
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            continue
+        print(f"  skip live {name}: HTTP {e.code}", file=sys.stderr)
+        continue
+    except Exception as e:
+        print(f"  skip live {name}: {e}", file=sys.stderr)
+        continue
+    dest = local_dir / name
+    live_stamp = stamp_bytes(raw)
+    local_stamp = stamp_path(dest) if dest.exists() else None
+    if (not dest.exists()) or (live_stamp and (not local_stamp or live_stamp > local_stamp)):
+        dest.write_bytes(raw)
+        kept += 1
+        print(f"  keep live data/{name}")
+print(f"Merged {kept} newer live data file(s).")
+PY
 fi
 
 # Root-absolute /images/, /data/, /js/, etc. break on project Pages.
@@ -283,29 +408,40 @@ PY
 )"
 if [[ -n "${BASE_PATH}" ]]; then
   echo "Rewriting root-absolute asset paths for ${BASE_PATH}/ ..."
-  python3 - <<'PY' "${TMP_PUBLISH}" "${BASE_PATH}"
-import pathlib, re, sys
+  python3 - <<'PY' "${TMP_PUBLISH}" "${BASE_PATH}" "${BASE_URL}"
+import pathlib
+import re
+import sys
+from urllib.parse import urlparse
 
 root = pathlib.Path(sys.argv[1])
 base = sys.argv[2].rstrip("/")
-# Do NOT include bare "/posts/" — it matches inside "/blog/posts/",
-# "/research/posts/", "/archive/posts/" and doubles the base path.
+base_url = sys.argv[3]
+parsed = urlparse(base_url)
+host = f"{parsed.scheme}://{parsed.netloc}"
+
 prefixes = (
     "/images/", "/data/", "/js/", "/assets/", "/blog/",
-    "/team/", "/faq/", "/impressum/", "/research/", "/archive/", "/api/",
+    "/team/", "/faq/", "/impressum/", "/datenschutz/", "/research/", "/archive/", "/api/",
+    "/preview/",
+    "/direktmandate/", "/einzug/", "/kandidat/",
     "/pred_probabilities.json", "/forecast.json", "/forecast_districts.json",
     "/draws.json", "/last_updated.json", "/pred_vacant.json",
 )
-# Only rewrite root-absolute paths (start of an href/url value), and only
-# when they are not already prefixed with the project base path.
-pats = [
-    re.compile(
-        r"(?<!" + re.escape(base) + r")"
-        r'(?<=["\'=\s(,])'
-        r"(" + re.escape(p) + r")"
+pats = []
+for p in prefixes:
+    # Directory prefixes must be followed by a path segment. Otherwise
+    # JS detectors like indexOf('/preview/') become indexOf('/<repo>/preview/')
+    # and siteBase() collapses to '/'.
+    tail = r"(?=[A-Za-z0-9._~-])" if p.endswith("/") else ""
+    pats.append(
+        re.compile(
+            r"(?<!" + re.escape(base) + r")"
+            r'(?<=["\'=\s(,])'
+            r"(" + re.escape(p) + r")"
+            + tail
+        )
     )
-    for p in prefixes
-]
 files = (
     list(root.rglob("*.html"))
     + list(root.rglob("*.js"))
@@ -318,6 +454,17 @@ for f in files:
     orig = text
     for pat in pats:
         text = pat.sub(base + r"\1", text)
+    if host and base:
+        text = text.replace(host + "/api/", host + base + "/api/")
+        text = re.sub(
+            r"(data-root=)"
+            + re.escape(host + "/")
+            + r"(?!"
+            + re.escape(base.lstrip("/") + "/")
+            + r")",
+            r"\1" + host + base + "/",
+            text,
+        )
     if text != orig:
         f.write_text(text, encoding="utf-8", errors="surrogateescape")
         n += 1

@@ -105,8 +105,30 @@ print("Reconciled display_mode forecast_available with static/data/*.json")
 PY
 fi
 
-# District / Wahlkreis forecasts stay on the mock (gh-pages) preview only —
-# do not publish forecast_districts_*.json or Wahlkreis geojson to live.
+# District / Wahlkreis + Einzugschancen (live). Wahlabend stays preview-only.
+copy_if_exists "${OUTPUT_DIR}/forecast_candidate_entry.json" \
+  "${DATA_TARGET}/forecast_candidate_entry.json"
+for forecast in "${OUTPUT_DIR}"/forecast_districts_*.json; do
+  [[ -f "${forecast}" ]] || continue
+  cp "${forecast}" "${DATA_TARGET}/"
+  echo "Copied $(basename "${forecast}")"
+done
+for geo in "${OUTPUT_DIR}"/ltw_wahlkreise_*.geojson; do
+  [[ -f "${geo}" ]] || continue
+  cp "${geo}" "${DATA_TARGET}/"
+  echo "Copied $(basename "${geo}")"
+done
+for state_geo in \
+  "${REPO_ROOT}/berlin/geo/ltw_wahlkreise_be.geojson" \
+  "${REPO_ROOT}/mecklenburg-vorpommern/geo/ltw_wahlkreise_mv.geojson" \
+  "${REPO_ROOT}/sachsen-anhalt/geo/ltw_wahlkreise_st.geojson"
+do
+  base="$(basename "${state_geo}")"
+  if [[ -f "${state_geo}" && ! -f "${DATA_TARGET}/${base}" ]]; then
+    cp "${state_geo}" "${DATA_TARGET}/${base}"
+    echo "Copied ${base} (from state geo/)"
+  fi
+done
 
 if [[ -d "${OUTPUT_DIR}/archive" ]]; then
   mkdir -p "${DATA_TARGET}/archive"
@@ -117,16 +139,20 @@ fi
 if [[ -d "${INTEGRATION}/static/js" ]]; then
   mkdir -p "${WEBSITE_DIR}/static/js"
   cp -r "${INTEGRATION}/static/js/." "${WEBSITE_DIR}/static/js/"
-  # Mock-only: do not ship Wahlkreis / candidate-entry preview scripts to live.
-  rm -f "${WEBSITE_DIR}/static/js/district-forecast-map.js"
-  rm -f "${WEBSITE_DIR}/static/js/candidate-entry.js"
-  rm -f "${WEBSITE_DIR}/static/js/candidate-profile.js"
-  echo "Synced static/js (without district-forecast-map.js / candidate-entry.js / candidate-profile.js)"
+  # Wahlabend replay UI stays on the Pages mock only.
+  rm -f "${WEBSITE_DIR}/static/js/wahlabend-nowcast.js"
+  echo "Synced static/js (without wahlabend-nowcast)"
 fi
 if [[ -d "${INTEGRATION}/static/images" ]]; then
   mkdir -p "${WEBSITE_DIR}/static/images"
   cp -r "${INTEGRATION}/static/images/." "${WEBSITE_DIR}/static/images/"
   echo "Synced static/images"
+fi
+if [[ -f "${INTEGRATION}/assets/css/extended/custom.css" ]]; then
+  mkdir -p "${WEBSITE_DIR}/assets/css/extended"
+  cp "${INTEGRATION}/assets/css/extended/custom.css" \
+    "${WEBSITE_DIR}/assets/css/extended/custom.css"
+  echo "Synced custom.css"
 fi
 
 if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" ]]; then
@@ -141,67 +167,117 @@ if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/_default/api-docs.html" ]]; the
     "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/api-docs.html"
   echo "Copied Forecast API Swagger layout"
 fi
+if [[ -f "${INTEGRATION}/layouts/partials/extend_head.html" ]]; then
+  mkdir -p "${WEBSITE_DIR}/layouts/partials"
+  cp "${INTEGRATION}/layouts/partials/extend_head.html" \
+    "${WEBSITE_DIR}/layouts/partials/extend_head.html"
+  echo "Synced extend_head.html (cookie-less hit pixel)"
+fi
+# Research / FAQ / blog-archive hub layouts.
+if [[ -d "${INTEGRATION}/layouts/_default" ]]; then
+  mkdir -p "${WEBSITE_DIR}/layouts/_default"
+  for layout in forschung.html faq.html article.html posts-hub.html; do
+    if [[ -f "${INTEGRATION}/layouts/_default/${layout}" ]]; then
+      cp "${INTEGRATION}/layouts/_default/${layout}" \
+        "${WEBSITE_DIR}/layouts/_default/${layout}"
+      echo "Copied layout ${layout}"
+    fi
+  done
+fi
 
-# Wahlkreis-Vorhersage UI is mock-only (website-mock / gh-pages).
-# Strip any previously published preview assets from website-source.
+copy_theme_file() {
+  local rel="$1"
+  local src="${INTEGRATION}/themes/PaperMod/${rel}"
+  local dest="${WEBSITE_DIR}/themes/PaperMod/${rel}"
+  if [[ -f "${src}" ]]; then
+    mkdir -p "$(dirname "${dest}")"
+    cp "${src}" "${dest}"
+    echo "Copied ${rel}"
+  fi
+}
+
+# Wahlkreise + Einzug + Kandidat:innen (public).
+copy_theme_file "layouts/partials/district_forecast_map.html"
+copy_theme_file "layouts/_default/districts-preview.html"
+copy_theme_file "layouts/partials/candidate_entry.html"
+copy_theme_file "layouts/_default/candidate-entry.html"
+copy_theme_file "layouts/partials/candidate_profile.html"
+copy_theme_file "layouts/_default/candidate-profile.html"
+
+copy_content_dir() {
+  local name="$1"
+  local src="${INTEGRATION}/content/${name}"
+  local dest="${WEBSITE_DIR}/content/${name}"
+  if [[ -d "${src}" ]]; then
+    mkdir -p "${dest}"
+    cp -r "${src}/." "${dest}/"
+    echo "Copied content/${name}"
+  fi
+}
+copy_content_dir "direktmandate"
+copy_content_dir "einzug"
+copy_content_dir "kandidat"
+
+# Preview-only: Polymarket comparison. Strip Wahlabend + map-only embed.
 rm -rf "${WEBSITE_DIR}/content/preview"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/district_forecast_map.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/districts-preview.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/candidate_entry.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/candidate-entry.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/candidate_profile.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/candidate-profile.html"
-rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/preview_notice.html"
-rm -f "${DATA_TARGET}"/forecast_districts.json \
-  "${DATA_TARGET}"/forecast_districts_*.json \
-  "${DATA_TARGET}"/forecast_candidate_entry.json \
-  "${DATA_TARGET}"/ltw_wahlkreise_*.geojson \
-  "${WEBSITE_DIR}/static/js/district-forecast-map.js" \
-  "${WEBSITE_DIR}/static/js/candidate-entry.js" \
-  "${WEBSITE_DIR}/static/js/candidate-profile.js"
-echo "Ensured Wahlkreis / candidate-entry preview assets are absent from live website-source"
+mkdir -p "${WEBSITE_DIR}/content/preview/polymarket"
+if [[ -f "${INTEGRATION}/content/preview/polymarket/index.md" ]]; then
+  cp "${INTEGRATION}/content/preview/polymarket/index.md" \
+    "${WEBSITE_DIR}/content/preview/polymarket/index.md"
+fi
+copy_theme_file "layouts/partials/preview_notice.html"
+copy_theme_file "layouts/partials/polymarket_compare.html"
+copy_theme_file "layouts/_default/polymarket-preview.html"
+if [[ -f "${INTEGRATION}/static/data/polymarket_compare.json" ]]; then
+  mkdir -p "${WEBSITE_DIR}/static/data"
+  cp "${INTEGRATION}/static/data/polymarket_compare.json" \
+    "${WEBSITE_DIR}/static/data/polymarket_compare.json"
+elif [[ -f "${OUTPUT_DIR}/polymarket_compare.json" ]]; then
+  mkdir -p "${WEBSITE_DIR}/static/data"
+  cp "${OUTPUT_DIR}/polymarket_compare.json" \
+    "${WEBSITE_DIR}/static/data/polymarket_compare.json"
+fi
+rm -f "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/wahlabend_nowcast.html" \
+  "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/wahlabend-preview.html" \
+  "${WEBSITE_DIR}/themes/PaperMod/layouts/_default/districts-preview-maponly.html" \
+  "${WEBSITE_DIR}/static/js/wahlabend-nowcast.js"
+echo "Published Wahlkreise / Einzug / Kandidat:innen; kept Polymarket preview; omitted Wahlabend"
 
-for page in api.md impressum.md faq.md; do
+for page in api.md impressum.md faq.md datenschutz.md; do
   if [[ -f "${INTEGRATION}/content/${page}" ]]; then
     cp "${INTEGRATION}/content/${page}" "${WEBSITE_DIR}/content/${page}"
     echo "Copied ${page}"
   fi
 done
 
-# Footer label + URL: human docs at /docs/api (JSON catalog stays under /api/).
+# Section index pages (Forschung hub, Blog/Archiv cards, Team).
+copy_index_page() {
+  local src="$1"
+  local dest="$2"
+  if [[ -f "${src}" ]]; then
+    mkdir -p "$(dirname "${dest}")"
+    cp "${src}" "${dest}"
+    echo "Copied $(basename "$(dirname "${dest}")")/$(basename "${dest}")"
+  fi
+}
+copy_index_page "${INTEGRATION}/content/research/_index.md" \
+  "${WEBSITE_DIR}/content/research/_index.md"
+copy_index_page "${INTEGRATION}/content/blog/_index.md" \
+  "${WEBSITE_DIR}/content/blog/_index.md"
+copy_index_page "${INTEGRATION}/content/archive/_index.md" \
+  "${WEBSITE_DIR}/content/archive/_index.md"
+copy_index_page "${INTEGRATION}/content/team/index.md" \
+  "${WEBSITE_DIR}/content/team/index.md"
+
+if [[ -f "${INTEGRATION}/data/faq.yaml" ]]; then
+  mkdir -p "${WEBSITE_DIR}/data"
+  cp "${INTEGRATION}/data/faq.yaml" "${WEBSITE_DIR}/data/faq.yaml"
+  echo "Copied faq.yaml"
+fi
+
+# Footer: Forecast API (/docs/api) + Polling API + LinkedIn.
 if [[ -f "${WEBSITE_DIR}/config.toml" ]]; then
-  python3 - "${WEBSITE_DIR}/config.toml" <<'PY'
-from pathlib import Path
-import re
-import sys
-path = Path(sys.argv[1])
-text = path.read_text(encoding="utf-8")
-changed = False
-new, n = re.subn(
-    r'name\s*=\s*"API"(\s*\n\s*url\s*=\s*")(?:/api"|/docs/api")',
-    r'name = "Forecast API"\1"/docs/api"',
-    text,
-    count=1,
-)
-if n:
-    text = new
-    changed = True
-else:
-    new, n = re.subn(
-        r'(name\s*=\s*"Forecast API"\s*\n\s*url\s*=\s*)"/api"',
-        r'\1"/docs/api"',
-        text,
-        count=1,
-    )
-    if n:
-        text = new
-        changed = True
-if changed:
-    path.write_text(text, encoding="utf-8")
-    print('Updated footer → Forecast API @ /docs/api')
-else:
-    print("Footer Forecast API /docs/api already set (or not found)")
-PY
+  python3 "${REPO_ROOT}/scripts/patch_hugo_footer.py" "${WEBSITE_DIR}/config.toml"
 fi
 
 # Versioned Forecast API under static/api/ (v1 legacy federal, v2 federal + state + Stimmung).
@@ -214,9 +290,8 @@ python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
   --legacy-static "${WEBSITE_DIR}/static"
 
 BLOG_POSTS_DIR="${INTEGRATION}/content/blog/posts"
-# Preview-only methodology (Wahlkreis / Wahlabend) stays on gh-pages mock, not live.
+# Wahlabend-Nowcast methodology stays on the Pages mock only.
 LIVE_BLOG_SKIP=(
-  district-forecast-methodology
   wahlabend-nowcast-methodology
 )
 if [[ -d "${BLOG_POSTS_DIR}" ]]; then
@@ -277,6 +352,12 @@ if [[ -d "${RESEARCH_POSTS_DIR}" ]]; then
       echo "Copied research file ${name}"
     fi
   done
+fi
+
+# Overview text now lives on the Forschung hub; drop the old list item.
+if [[ -d "${WEBSITE_DIR}/content/research/posts/overview" ]]; then
+  rm -rf "${WEBSITE_DIR}/content/research/posts/overview"
+  echo "Removed research/posts/overview (merged into Forschung hub)"
 fi
 
 if [[ -f "${INTEGRATION}/data/bibliography.json" ]]; then

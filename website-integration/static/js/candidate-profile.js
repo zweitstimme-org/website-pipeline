@@ -1,5 +1,5 @@
 /**
- * Preview: single-candidate profile page.
+ * Single-candidate profile page.
  * Load via ?id=<person_id> or state/party/name[/wkr] query params.
  */
 (function () {
@@ -68,7 +68,7 @@
   /**
    * Plain-language German explanation of P(Einzug)/P(Direkt)/P(Liste).
    * p_list is mutually exclusive with p_direct (Direkt winners are skipped on the list),
-   * so Einzug ≈ Direkt + Liste. Conditional P(Liste | kein Direkt) ≈ p_list / (100 − p_direct).
+   * so Einzug ≈ Direkt + Liste.
    */
   function probabilityNarrative(c) {
     const hasList = c.list_pos != null;
@@ -109,14 +109,7 @@
         );
       }
 
-      // Easy approximation: among sims without a Direkt win, how often still enter via list?
-      if (pD < 100 && pL != null && pL > 0) {
-        const cond = Math.round((100 * pL) / (100 - pD));
-        const condClamped = Math.max(0, Math.min(100, cond));
-        paras.push(
-          `Näherung: In den Simulationen, in denen der Wahlkreis <em>nicht</em> gewonnen wird, käme die Person zu etwa <strong>${escapeHtml(String(condClamped))}&nbsp;%</strong> trotzdem über die Liste. (Das ist P(Liste) ÷ (100&nbsp;% − P(Direkt)) — nicht identisch mit einer echten Gegenrechnung ohne Direktkandidatur, aber die praktikable Abschätzung aus denselben Simulationen.)`
-        );
-      } else if (pD < 100 && pL === 0 && hasList) {
+      if (pD < 100 && pL === 0 && hasList) {
         paras.push(
           `Auch wenn der Wahlkreis verloren geht, reicht der Listenplatz in unseren Simulationen praktisch nie für einen Sitz — die bedingte Listen-Chance ohne Direktmandat liegt nahe 0&nbsp;%.`
         );
@@ -130,8 +123,8 @@
     const nsim = c._nsim;
     paras.push(
       nsim
-        ? `Grundlage sind ${escapeHtml(String(nsim))} Simulationen aus demselben Modell wie die Wahlkreis- und Einzugs-Vorhersage.`
-        : `Grundlage sind dieselben Simulationen wie bei der Wahlkreis- und Einzugs-Vorhersage.`
+        ? `Grundlage sind ${escapeHtml(String(nsim))} Simulationen — dieselben Zweitstimmen-Züge wie die Landes- und Wahlkreis-Vorhersage.`
+        : `Grundlage sind dieselben Zweitstimmen-Züge wie die Landes- und Wahlkreis-Vorhersage.`
     );
 
     return paras.map((p) => `<p class="cp-explain">${p}</p>`).join("");
@@ -216,34 +209,52 @@
     return pool[0] || null;
   }
 
+  function districtHref(hit) {
+    const c = hit.candidate;
+    if (c.wkr_direct == null || c.wkr_direct === "") return "";
+    const u = new URLSearchParams();
+    u.set("state", hit.stateCode);
+    u.set("wkr", String(c.wkr_direct));
+    return siteBase() + "direktmandate/?" + u.toString();
+  }
+
+  function listHref(hit) {
+    const c = hit.candidate;
+    if (c.list_pos == null) return "";
+    const u = new URLSearchParams();
+    u.set("state", hit.stateCode);
+    if (hit.party.party) u.set("party", hit.party.party);
+    if (c.list_type === "bezirk" && (c.bezirk || c.bezirk_name)) {
+      u.set("bezirk", String(c.bezirk || c.bezirk_name));
+    }
+    if (c.name) u.set("q", c.name);
+    u.set("platz", String(c.list_pos));
+    return siteBase() + "einzug/?" + u.toString();
+  }
+
+  function linkedText(href, html, title) {
+    if (!href) return html;
+    const t = title ? ` title="${escapeHtml(title)}"` : "";
+    return `<a href="${escapeHtml(href)}"${t}>${html}</a>`;
+  }
+
   function backLinks(hit) {
     const base = siteBase();
     const state = hit.stateCode;
     const c = hit.candidate;
     const links = [];
     links.push(
-      `<a class="cp-back" href="${escapeHtml(base + "preview/einzug/?state=" + encodeURIComponent(state))}">← Einzugs-Vorhersage (${escapeHtml(state)})</a>`
+      `<a class="cp-back" href="${escapeHtml(base + "einzug/?state=" + encodeURIComponent(state))}">← Einzugs-Vorhersage (${escapeHtml(state)})</a>`
     );
-    if (c.wkr_direct != null && c.wkr_direct !== "") {
-      const u = new URLSearchParams();
-      u.set("state", state);
-      u.set("wkr", String(c.wkr_direct));
+    const dHref = districtHref(hit);
+    if (dHref) {
       links.push(
-        `<a href="${escapeHtml(base + "preview/direktmandate/?" + u.toString())}">Direktmandat WK ${escapeHtml(String(c.wkr_direct))}</a>`
+        `<a href="${escapeHtml(dHref)}">Direktmandat WK ${escapeHtml(String(c.wkr_direct))}</a>`
       );
     }
-    if (c.list_pos != null) {
-      const u = new URLSearchParams();
-      u.set("state", state);
-      if (hit.party.party) u.set("party", hit.party.party);
-      if (c.list_type === "bezirk" && (c.bezirk || c.bezirk_name)) {
-        u.set("bezirk", String(c.bezirk_name || c.bezirk));
-      }
-      if (c.name) u.set("q", c.name);
-      if (c.list_pos != null) u.set("platz", String(c.list_pos));
-      links.push(
-        `<a href="${escapeHtml(base + "preview/einzug/?" + u.toString())}">Listenplatz in der Tabelle</a>`
-      );
+    const lHref = listHref(hit);
+    if (lHref) {
+      links.push(`<a href="${escapeHtml(lHref)}">Listenplatz in der Tabelle</a>`);
     }
     return links;
   }
@@ -265,10 +276,14 @@
         chamber === "MdA"
           ? "Amtsinhaber:in im Abgeordnetenhaus"
           : "Amtsinhaber:in im Landtag";
-      const href = httpSource(c.incumbent_url);
+      const href = httpSource(c.incumbent_url) || httpSource(c.aw_url);
       badge = href
         ? `<a class="cp-badge" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(title)} (abgeordnetenwatch)">${escapeHtml(chamber)}</a>`
         : `<span class="cp-badge" title="${escapeHtml(title)}">${escapeHtml(chamber)}</span>`;
+    }
+    const awHref = httpSource(c.aw_url);
+    if (awHref) {
+      badge += `<a class="cp-aw" href="${escapeHtml(awHref)}" target="_blank" rel="noopener noreferrer" title="Profil und Fragen bei abgeordnetenwatch">abgeordnetenwatch</a>`;
     }
 
     const metaRows = [];
@@ -288,13 +303,27 @@
       } else if (c.list_type === "landes") {
         listBits.push("Landesliste");
       }
-      metaRows.push(["Liste", escapeHtml(listBits.join(" · "))]);
+      metaRows.push([
+        "Liste",
+        linkedText(
+          listHref(hit),
+          escapeHtml(listBits.join(" · ")),
+          "Zur Einzugs-Vorhersage"
+        ),
+      ]);
     } else {
       metaRows.push(["Liste", "kein Listenplatz bekannt"]);
     }
 
     if (c.wkr_direct != null && c.wkr_direct !== "") {
-      metaRows.push(["Direktwahlkreis", `WK ${escapeHtml(String(c.wkr_direct))}`]);
+      metaRows.push([
+        "Direktwahlkreis",
+        linkedText(
+          districtHref(hit),
+          `WK ${escapeHtml(String(c.wkr_direct))}`,
+          "Zur Direktmandate-Karte"
+        ),
+      ]);
     }
 
     if (c.birth_year || c.birth_place) {
@@ -350,6 +379,13 @@
     `;
 
     const sourceHtml = formatSource(c.source);
+    const awBlock = awHref
+      ? `<div class="cp-card cp-source">
+          <h2 class="cp-section-title">abgeordnetenwatch</h2>
+          <div><a href="${escapeHtml(awHref)}" target="_blank" rel="noopener noreferrer">Profil und Fragen stellen</a></div>
+          <p class="cp-note">Wahlkreisprofil, Positionen und das Frageportal von abgeordnetenwatch (nicht von Zweitstimme betrieben).</p>
+        </div>`
+      : "";
     const sourceBlock = sourceHtml
       ? `<div class="cp-card cp-source">
           <h2 class="cp-section-title">Quelle</h2>
@@ -369,7 +405,7 @@
       descEl.textContent = `${party.partei || party.party} · ${st.label || hit.stateCode}`;
     }
     try {
-      document.title = `${displayName} — Zweitstimme (Vorschau)`;
+      document.title = `${displayName} — zweitstimme.org`;
     } catch (_) { /* ignore */ }
 
     root.innerHTML = `
@@ -377,14 +413,14 @@
       <div class="cp-card">
         <div class="cp-name-row">
           <h2 class="${nameClass}">${escapeHtml(displayName)}</h2>
+          <span class="cp-party" style="color:${escapeHtml(color)}">${escapeHtml(party.partei || party.party)}</span>
           ${badge}
         </div>
-        <p class="cp-party" style="color:${escapeHtml(color)}">${escapeHtml(party.partei || party.party)}</p>
         <dl class="cp-meta">
           ${metaRows
             .map(
               ([k, v]) =>
-                `<dt>${escapeHtml(k)}</dt><dd>${v}</dd>`
+                `<div class="cp-meta-item"><dt>${escapeHtml(k)}</dt><dd>${v}</dd></div>`
             )
             .join("")}
         </dl>
@@ -392,7 +428,9 @@
       <div class="cp-card">
         <h2 class="cp-section-title">Einzugschancen</h2>
         ${probs}
+        <div class="zs-wm-strip" aria-hidden="true"></div>
       </div>
+      ${awBlock}
       ${sourceBlock}
       <div class="cp-links">
         ${links.slice(1).join("")}
@@ -419,7 +457,7 @@
       !params.get("q") &&
       !(params.get("state") && params.get("wkr") && params.get("party"))
     ) {
-      root.innerHTML = `<p class="cp-error">Kein Kandidat angegeben. Bitte über die <a href="${escapeHtml(siteBase() + "preview/einzug/")}">Einzugs-Vorhersage</a> oder die <a href="${escapeHtml(siteBase() + "preview/direktmandate/")}">Direktmandate-Karte</a> öffnen.</p>`;
+      root.innerHTML = `<p class="cp-error">Kein Kandidat angegeben. Bitte über die <a href="${escapeHtml(siteBase() + "einzug/")}">Einzugs-Vorhersage</a> oder die <a href="${escapeHtml(siteBase() + "direktmandate/")}">Direktmandate-Karte</a> öffnen.</p>`;
       return;
     }
 
@@ -429,7 +467,7 @@
       .then((data) => {
         const hit = findCandidate(data, params);
         if (!hit) {
-          root.innerHTML = `<p class="cp-error">Kandidat:in nicht gefunden. <a href="${escapeHtml(siteBase() + "preview/einzug/")}">Zur Einzugs-Vorhersage</a></p>`;
+          root.innerHTML = `<p class="cp-error">Kandidat:in nicht gefunden. <a href="${escapeHtml(siteBase() + "einzug/")}">Zur Einzugs-Vorhersage</a></p>`;
           return;
         }
         render(root, hit);

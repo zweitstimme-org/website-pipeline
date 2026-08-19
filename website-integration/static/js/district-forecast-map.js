@@ -1,6 +1,6 @@
 /**
  * District (Direktmandat) forecast map — Leaflet choropleth + detail panel.
- * Used by the internal preview at /preview/direktmandate/.
+ * Public page: /direktmandate/
  * Method: blog/posts/district-forecast-methodology/
  */
 (function (global) {
@@ -24,6 +24,43 @@
     ST: 'Wahlkreise: StaLA Sachsen-Anhalt',
     BE: 'Wahlkreise: Geoportal Berlin / AfS BBB'
   };
+
+  /** Official last-election size / turnout (amtliches Endergebnis) for 2026 forecasts. */
+  const LAST_ELECTION_REF = {
+    MV: { year: 2021, label: 'LTW 2021', size: 79, turnout: 70.8 },
+    ST: { year: 2021, label: 'LTW 2021', size: 97, turnout: 60.3 },
+    BE: { year: 2023, label: 'AGH 2023', size: 159, turnout: 62.9 }
+  };
+
+  function lastElectionForState(code, st) {
+    const fromJson = st && st.last_election;
+    if (fromJson && (fromJson.size != null || fromJson.turnout != null)) {
+      return {
+        year: fromJson.year,
+        label: fromJson.label || String(fromJson.year || 'letzte Wahl'),
+        size: fromJson.size,
+        turnout: fromJson.turnout
+      };
+    }
+    return LAST_ELECTION_REF[code] || null;
+  }
+
+  function bucketContainsSize(label, size) {
+    if (label == null || size == null || !Number.isFinite(Number(size))) return false;
+    const n = Number(size);
+    const s = String(label).replace(/\s/g, '');
+    if (s.endsWith('+')) {
+      const lo = parseInt(s, 10);
+      return Number.isFinite(lo) && n >= lo;
+    }
+    const m = s.match(/^(\d+)[–\-−](\d+)$/);
+    if (m) {
+      const lo = Number(m[1]);
+      const hi = Number(m[2]);
+      return n >= lo && n <= hi;
+    }
+    return Number(s) === n;
+  }
 
   /** Berlin AWK (Bezirk+lokaler WK) → statewide 1–78 (from berlin/awk_wkr_map.json). */
   const BE_AWK_TO_WKR = {
@@ -315,7 +352,7 @@
     else if (rec && rec.list_type === 'bezirk' && rec.bezirk_name) params.set('bezirk', rec.bezirk_name);
     if (rec && rec.name) params.set('q', rec.name);
     if (rec && rec.list_pos != null) params.set('platz', String(rec.list_pos));
-    return `${siteBase()}preview/einzug/?${params.toString()}`;
+    return `${siteBase()}einzug/?${params.toString()}`;
   }
 
   /** Index Direktkandidat → Listenplatz / P(Liste) from forecast_candidate_entry.json */
@@ -348,7 +385,8 @@
           profession: c.profession,
           is_incumbent: !!c.is_incumbent,
           incumbent_chamber: c.incumbent_chamber || '',
-          incumbent_url: c.incumbent_url || ''
+          incumbent_url: c.incumbent_url || '',
+          aw_url: c.aw_url || ''
         };
         if (c.wkr_direct != null) {
           byWkr[`${code}|${Number(c.wkr_direct)}`] = rec;
@@ -493,7 +531,7 @@
       const pid = (listRec && listRec.person_id) || (row && row.person_id) || '';
       if (pid) {
         params.set('id', String(pid));
-        return `${siteBase()}preview/kandidat/?${params.toString()}`;
+        return `${siteBase()}kandidat/?${params.toString()}`;
       }
       if (stateCode) params.set('state', String(stateCode).toUpperCase());
       const party = (listRec && listRec.party) || normalizePartyCode(row && row.party, row && row.partei);
@@ -501,7 +539,7 @@
       if (displayName) params.set('name', String(displayName));
       const wkr = (row && row.wkr != null) ? row.wkr : (listRec && listRec.wkr_direct);
       if (wkr != null && wkr !== '') params.set('wkr', String(wkr));
-      return `${siteBase()}preview/kandidat/?${params.toString()}`;
+      return `${siteBase()}kandidat/?${params.toString()}`;
     };
     const candidateNameHtml = (displayName, listRec, bioMeta, incumbentMeta, row) => {
       const safe = escapeHtml(displayName);
@@ -516,10 +554,19 @@
           : 'Amtsinhaber:in im Landtag';
         const aw = (incumbentMeta.incumbent_url && /^https?:\/\//i.test(String(incumbentMeta.incumbent_url)))
           ? String(incumbentMeta.incumbent_url)
-          : '';
+          : ((incumbentMeta.aw_url && /^https?:\/\//i.test(String(incumbentMeta.aw_url)))
+            ? String(incumbentMeta.aw_url)
+            : '');
         badge = aw
           ? `<a class="district-incumbent" href="${escapeHtml(aw)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(title)} (abgeordnetenwatch)">${escapeHtml(chamber)}</a>`
           : `<span class="district-incumbent" title="${escapeHtml(title)}">${escapeHtml(chamber)}</span>`;
+      } else {
+        const aw = (incumbentMeta && incumbentMeta.aw_url && /^https?:\/\//i.test(String(incumbentMeta.aw_url)))
+          ? String(incumbentMeta.aw_url)
+          : '';
+        if (aw) {
+          badge = `<a class="district-aw" href="${escapeHtml(aw)}" target="_blank" rel="noopener noreferrer" title="Profil bei abgeordnetenwatch">AW</a>`;
+        }
       }
       return `<span class="district-name-wrap">${name}${badge}${info}</span>`;
     };
@@ -536,12 +583,13 @@
     const winnerInc = {
       is_incumbent: !!(winner.is_incumbent || (winnerList && winnerList.is_incumbent)),
       incumbent_chamber: winner.incumbent_chamber || (winnerList && winnerList.incumbent_chamber) || '',
-      incumbent_url: winner.incumbent_url || (winnerList && winnerList.incumbent_url) || ''
+      incumbent_url: winner.incumbent_url || (winnerList && winnerList.incumbent_url) || '',
+      aw_url: winner.aw_url || (winnerList && winnerList.aw_url) || ''
     };
     const winnerLabel = winnerName
       ? ` · ${candidateNameHtml(winnerName, winnerList, winnerBio, winnerInc, winner)}`
       : ' · <span style="font-weight:400;font-style:italic;color:#888;">Name noch nicht bekannt</span>';
-    const einzugHref = `${siteBase()}preview/einzug/?state=${encodeURIComponent(stateCode || 'BE')}`;
+    const einzugHref = `${siteBase()}einzug/?state=${encodeURIComponent(stateCode || 'BE')}`;
     // Keep deep-link shareable when user clicks a district
     try {
       if (stateCode && Number.isFinite(Number(wkr))) {
@@ -577,7 +625,8 @@
           const incMeta = isOthers ? null : {
             is_incumbent: !!(r.is_incumbent || (listRec && listRec.is_incumbent)),
             incumbent_chamber: r.incumbent_chamber || (listRec && listRec.incumbent_chamber) || '',
-            incumbent_url: r.incumbent_url || (listRec && listRec.incumbent_url) || ''
+            incumbent_url: r.incumbent_url || (listRec && listRec.incumbent_url) || '',
+            aw_url: r.aw_url || (listRec && listRec.aw_url) || ''
           };
           const who = nameUnknown
             ? `<span style="font-style:italic;color:#888;font-weight:400;">Name noch nicht bekannt</span> · ${escapeHtml(r.partei)}`
@@ -1376,6 +1425,7 @@
         ${escapeHtml(note)}
       </p>
       <div class="district-gender-rows">${body}</div>
+      <div class="zs-wm-strip zs-wm-strip--compact" aria-hidden="true"></div>
     `;
   }
 
@@ -1392,12 +1442,16 @@
     const maxPct = Math.max(1, ...buckets.map(b => Number(b.pct) || 0));
     const chamber = st.chamber || 'Parlament';
     const pointSize = st.point && st.point.size;
+    const lastEl = lastElectionForState(code, st);
+    const lastSize = lastEl && lastEl.size != null ? Number(lastEl.size) : null;
+    const lastYear = lastEl ? (lastEl.year != null ? String(lastEl.year) : (lastEl.label || '')) : '';
     const bars = buckets.map(b => {
       const pct = Number(b.pct) || 0;
       const width = Math.max(pct > 0 ? 2 : 0, (pct / maxPct) * 100);
+      const isLast = lastSize != null && bucketContainsSize(b.label, lastSize);
       return `
-        <div class="district-size-row">
-          <span>${escapeHtml(b.label)}</span>
+        <div class="district-size-row${isLast ? ' is-last-election' : ''}">
+          <span>${escapeHtml(b.label)}${isLast ? ` <em title="Letzte Wahl ${escapeHtml(lastYear)}: ${lastSize} Sitze">← ${escapeHtml(lastYear)}</em>` : ''}</span>
           <div class="district-size-bar-track">
             <div class="district-size-bar-fill" style="width:${width}%;"></div>
           </div>
@@ -1479,6 +1533,12 @@
     }
 
     el.style.display = 'block';
+    const lastSizeHtml = lastEl && lastEl.size != null
+      ? `<span>Letzte Wahl (${escapeHtml(lastYear)}): <strong>${escapeHtml(String(lastEl.size))}</strong></span>`
+      : '';
+    const lastToHtml = lastEl && lastEl.turnout != null
+      ? `<span>Wahlbeteiligung ${escapeHtml(lastYear)}: <strong>${escapeHtml(String(lastEl.turnout).replace('.', ','))} %</strong></span>`
+      : '';
     el.innerHTML = `
       <h4>Geschätzte Größe — ${escapeHtml(chamber)}</h4>
       <div class="district-size-stats">
@@ -1486,8 +1546,11 @@
         <span>Median: <strong>${escapeHtml(String(st.size_median))}</strong></span>
         <span>Punktschätzung: <strong>${escapeHtml(String(pointSize))}</strong></span>
         <span>p90: <strong>${escapeHtml(String(st.size_p90))}</strong></span>
+        ${lastSizeHtml}
+        ${lastToHtml}
       </div>
       <div class="district-size-bars">${bars}</div>
+      <div class="zs-wm-strip zs-wm-strip--compact" aria-hidden="true"></div>
       ${note}
     `;
   }
@@ -1541,6 +1604,9 @@
         attributionControl: true,
         scrollWheelZoom: false
       });
+      if (typeof global.attachZweitstimmeWatermark === 'function') {
+        global.attachZweitstimmeWatermark(mapEl, { map: true });
+      }
       const geoAttr = DISTRICT_GEO_ATTRIBUTION[code] || 'Wahlkreise';
       // Voyager: town/village names + streets when zoomed in (light_all was too sparse).
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -1627,6 +1693,17 @@
             : `WK ${wkr}: ${name}`;
           layer.bindTooltip(tip, { sticky: true });
           layer.on('click', () => {
+            if (opts && opts.navigateToWkr) {
+              try {
+                // Navigate to the WK on the full preview page.
+                const url =
+                  `${siteBase()}direktmandate/?state=${encodeURIComponent(code || '')}&wkr=${encodeURIComponent(wkr)}`;
+                window.location.href = url;
+              } catch (_) {
+                /* ignore */
+              }
+              return;
+            }
             clearAddressMarker();
             resetDistrictStyles();
             renderDistrictDetail(wkr, items, name, l1Label, listLookup, meta);
@@ -1661,9 +1738,20 @@
         }
       });
 
+      const extraZoom = opts && Number(opts.extraZoom);
+      const overviewPadding = Number.isFinite(extraZoom) && extraZoom > 0 ? 0 : 12;
+      function fitStateOverview() {
+        if (!mapInstance || !mapLayer) return;
+        mapInstance.fitBounds(mapLayer.getBounds(), { padding: [overviewPadding, overviewPadding] });
+        if (Number.isFinite(extraZoom) && extraZoom > 0) {
+          const z = mapInstance.getZoom();
+          if (Number.isFinite(z)) mapInstance.setZoom(z + extraZoom, { animate: false });
+        }
+      }
+
       const hasFocus = Number.isFinite(focusWkr);
       if (!hasFocus) {
-        mapInstance.fitBounds(mapLayer.getBounds(), { padding: [12, 12] });
+        fitStateOverview();
       }
       // Section was display:none before mount; size can be wrong on first paint.
       // When deep-linking a WK, do NOT refit to the full state after focus.
@@ -1671,12 +1759,13 @@
         if (!mapInstance) return;
         mapInstance.invalidateSize();
         if (hasFocus) focusDistrict(focusWkr);
-        else mapInstance.fitBounds(mapLayer.getBounds(), { padding: [12, 12] });
+        else fitStateOverview();
       });
       setTimeout(() => {
         if (!mapInstance) return;
         mapInstance.invalidateSize();
         if (hasFocus) focusDistrict(focusWkr);
+        else fitStateOverview();
       }, 250);
 
       const used = [...new Set(Object.values(winners).map(w => w.partei))];

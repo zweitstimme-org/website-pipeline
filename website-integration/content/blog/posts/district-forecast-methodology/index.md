@@ -156,7 +156,7 @@ Daraus bauen wir — analog zur [Bundestags-Wahlkreisvorhersage](https://doi.org
     <li class="meth-pipeline-step">
       <div class="meth-pipeline-n">5</div>
       <div class="meth-pipeline-title">Simulation</div>
-      <div class="meth-pipeline-text">Tausende Züge (Land + Koeffizienten) → Siegchance und Band</div>
+      <div class="meth-pipeline-text">4.000 Posterior-Züge der Landesprognose + Koeffizienten → Siegchance und Band</div>
     </li>
   </ol>
 </div>
@@ -171,7 +171,7 @@ Geschätzt wird über gestapelte Wahlkreis×Partei-Beobachtungen aus:
 - **BE:** 2016→2023 (Absolutstimmen im Ergebnisbericht, auf 2023er Wahlkreise)
 
 **2. Landesprognose als Ziel**  
-Die aktuelle [Zweitstimmen-Vorhersage](/blog/posts/state-forecast-methodology/) liefert Punktschätzung und 5/6-Intervall. Daraus ziehen wir in jeder Simulation ein landesweites Ergebnis.
+Die aktuelle [Zweitstimmen-Vorhersage](/blog/posts/state-forecast-methodology/) liefert **4.000 Posterior-Züge**. Jede Wahlkreis-Simulation verwendet eines dieser landesweiten Ergebnisse — dieselben Züge wie Punktschätzung, 5/6-Intervall und Szenarien. Zusätzlich kommt die Unsicherheit der Erststimmen-Regression (Koeffizienten + Restfehler).
 
 **3. Proportionaler Zweitstimmen-Swing**  
 Wie in der Bundestags-Wahlkreislogik:
@@ -192,7 +192,7 @@ Direktmandate hängen von der Erststimme ab. Die Gleichung wird nur mit **Vorwah
 Kandidierenden-Merkmale (Incumbency usw.) fehlen noch — anders als im vollen Bundestags-Modell. Neue Parteien (z. B. BSW) stecken vor allem über die Zweitstimme und den Restanteil.
 
 **5. Simulation und Siegchance**  
-2.000 Züge: jeweils ein Landesergebnis **und** ein Zug aus der Koeffizienten-Unsicherheit (+ Restfehler). Sieger im Wahlkreis = höchste Erststimme; P(Sieg) = Anteil der Siege.
+4.000 Züge: jeweils der zugehörige Posterior-Zug der Landesprognose **und** ein Zug aus der Koeffizienten-Unsicherheit (+ Restfehler). Sieger im Wahlkreis = höchste Erststimme; P(Sieg) = Anteil der Siege.
 
 ### So liest man die Darstellung
 
@@ -213,11 +213,11 @@ Kandidierenden-Merkmale (Incumbency usw.) fehlen noch — anders als im vollen B
 
 Direktmandate allein bestimmen noch nicht die Sitzverteilung. Alle drei Länder nutzen Hare/Niemeyer auf Zweitstimmen — mit Überhang- und Ausgleichsmandaten, die das Parlament vergrößern können:
 
-| Land | Mindestgröße | Ausgleich |
-| --- | --- | --- |
-| **MV** | 71 | Ausgleich bis höchstens **2×** Überhang; bei gerader Zahl +1 |
-| **ST** | 83 | Sitzzahl wird wiederholt um **2×** verbleibende Überhänge erhöht |
-| **Berlin** | 130 | in der Regel **voller** Ausgleich (Formel über Direktmandate / Stimmenanteil); Grundmandatsklausel |
+| Land | Mindestgröße | Letzte Wahl | Ausgleich |
+| --- | --- | --- | --- |
+| **MV** | 71 | 79 Sitze, 70,8 % (2021) | Ausgleich bis höchstens **2×** Überhang; bei gerader Zahl +1 |
+| **ST** | 83 | 97 Sitze, 60,3 % (2021) | Sitzzahl wird wiederholt um **2×** verbleibende Überhänge erhöht |
+| **Berlin** | 130 | 159 Sitze, 62,9 % (2023) | in der Regel **voller** Ausgleich (Formel über Direktmandate / Stimmenanteil); Grundmandatsklausel |
 
 Unter der Wahlkreiskarte zeigen wir die simulierte Größenverteilung (Median, Punktschätzung, p90). Das ist **keine** amtliche Sitzzuteilung, sondern dieselbe Swing-Logik wie die Karte, kombiniert mit den landesspezifischen Regeln.
 

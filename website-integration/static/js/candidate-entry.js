@@ -1,5 +1,5 @@
 /**
- * Candidate entry probabilities (Direkt + Liste) — preview UI.
+ * Candidate entry probabilities (Direkt + Liste).
  * Expects pipelineData.loadCandidateEntry().
  */
 (function () {
@@ -173,7 +173,7 @@
       }),
     ].filter(Boolean);
     if (!rows.length) return "";
-    return `<div class="ce-gender-block">${rows.join("")}</div>`;
+    return `<div class="ce-gender-block">${rows.join("")}<div class="zs-wm-strip zs-wm-strip--compact" aria-hidden="true"></div></div>`;
   }
 
   function pctBar(pct, color) {
@@ -236,7 +236,7 @@
     const params = new URLSearchParams();
     if (c && c.person_id) {
       params.set("id", String(c.person_id));
-      return `${siteBase()}preview/kandidat/?${params.toString()}`;
+      return `${siteBase()}kandidat/?${params.toString()}`;
     }
     if (stateCode) params.set("state", String(stateCode).toUpperCase());
     if (c && c.name) params.set("name", String(c.name));
@@ -245,7 +245,7 @@
     if (c && c.wkr_direct != null && c.wkr_direct !== "") {
       params.set("wkr", String(c.wkr_direct));
     }
-    return `${siteBase()}preview/kandidat/?${params.toString()}`;
+    return `${siteBase()}kandidat/?${params.toString()}`;
   }
 
   function candidateNameHtml(c, stateCode, partyCode) {
@@ -266,10 +266,15 @@
         chamber === "MdA"
           ? "Amtsinhaber:in im Abgeordnetenhaus"
           : "Amtsinhaber:in im Landtag";
-      const aw = httpSource(c.incumbent_url);
+      const aw = httpSource(c.incumbent_url) || httpSource(c.aw_url);
       badge = aw
         ? `<a class="ce-incumbent" href="${escapeHtml(aw)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(title)} (abgeordnetenwatch)">${escapeHtml(chamber)}</a>`
         : `<span class="ce-incumbent" title="${escapeHtml(title)}">${escapeHtml(chamber)}</span>`;
+    } else {
+      const aw = httpSource(c.aw_url);
+      if (aw) {
+        badge = `<a class="ce-aw" href="${escapeHtml(aw)}" target="_blank" rel="noopener noreferrer" title="Profil bei abgeordnetenwatch">AW</a>`;
+      }
     }
     return `<span class="ce-name-wrap">${name}${badge}${info}</span>`;
   }
@@ -281,12 +286,12 @@
         `<p class="ce-error">pipelineData nicht geladen — Seite neu laden.</p>`;
       return;
     }
-    root.innerHTML = `<p class="ce-loading">Lade Einzugswahrscheinlichkeiten…</p>`;
+    root.innerHTML = `<p class="ce-loading">Lade Einzugschancen…</p>`;
 
     const slow = window.setTimeout(() => {
       if (root.querySelector(".ce-loading")) {
         root.innerHTML =
-          `<p class="ce-loading">Lade Einzugswahrscheinlichkeiten… (große Datei, einen Moment)</p>`;
+          `<p class="ce-loading">Lade Einzugschancen… (große Datei, einen Moment)</p>`;
       }
     }, 2500);
 
@@ -342,7 +347,7 @@
     const params = new URLSearchParams();
     params.set("state", String(stateCode || "").toUpperCase());
     params.set("wkr", String(wkr));
-    return `${siteBase()}preview/direktmandate/?${params.toString()}`;
+    return `${siteBase()}direktmandate/?${params.toString()}`;
   }
 
   /** Cached wkr → name maps per state (from Wahlkreise GeoJSON). */
@@ -481,12 +486,21 @@
 
     bindCandInfoExclusive(root);
 
+    const baseCaveat = escapeHtml(meta.caveat_de || "");
+    const beMvNameDisclaimer =
+      stateCode === "BE" || stateCode === "MV"
+        ? "Hinweis (BE/MV): Die hier angezeigten Direktkandidat:innen-Namen stammen überwiegend aus Angaben der Parteien; je Person finden Sie die genutzte Quelle auf der Profilseite. Nichtamtliche Namensstände können sich bis zum amtlichen Bewerberverzeichnis ändern."
+        : "";
+    const caveatCombined = beMvNameDisclaimer
+      ? `${baseCaveat}<br/>${escapeHtml(beMvNameDisclaimer)}`
+      : baseCaveat;
+
     root.innerHTML = `
       <div class="ce-wrap">
-        <p class="ce-caveat">${escapeHtml(meta.caveat_de || "")}</p>
-        <nav class="ce-cross-nav" aria-label="Vorschau-Navigation">
-          <span class="is-here">Einzugswahrscheinlichkeiten</span>
-          <a class="ce-districts-link" href="#">→ Direktmandate / Wahlkreiskarte</a>
+        <p class="ce-caveat">${caveatCombined}</p>
+        <nav class="ce-cross-nav" aria-label="Wahlkreise und Listen">
+          <span class="is-here">Alle Kandidierende</span>
+          <a class="ce-districts-link" href="#">→ Wahlkreise</a>
         </nav>
         <div class="ce-controls">
           <div class="ce-state-tabs" role="tablist"></div>
@@ -506,6 +520,7 @@
         </div>
         <p class="ce-note"></p>
         <div class="ce-table-wrap"></div>
+        <div class="zs-wm-strip zs-wm-strip--compact" aria-hidden="true"></div>
       </div>
     `;
 
@@ -528,7 +543,7 @@
     function syncUrl() {
       writeQuery(stateCode, partyCode, bezirkFilter, q, hidePh, minP, sortKey, sortDir);
       if (districtsLink) {
-        districtsLink.href = `${siteBase()}preview/direktmandate/?state=${encodeURIComponent(stateCode)}`;
+        districtsLink.href = `${siteBase()}direktmandate/?state=${encodeURIComponent(stateCode)}`;
       }
     }
 

@@ -143,7 +143,7 @@ Patches for [website-source](https://github.com/zweitstimme-org/website-source) 
 
 - `static/js/pipeline-data.js` — loads pipeline JSON in the browser
 - `themes/PaperMod/layouts/partials/home_info_de.html` — dedicated **Vorhersage** section (active forecasts) and **Archiv – Vorhersagen** (post-election); Bundestag/Landtage sections show Kalman Stimmung only
-- district / Wahlabend preview (`preview/…`) + methodology posts stay on the Pages mock only; live publish skips those blog posts
+- Wahlkreise (`/direktmandate/`), Einzugschancen (`/einzug/`) and candidate profiles (`/kandidat/`) publish to the live site; Wahlabend-Nowcast (`preview/wahlabend/`) stays on the Pages mock only
 - `.github/workflows/deploy.yml` — Hugo build from repo root → deploy to `zweitstimme-org/website` (`cname: zweitstimme.org`)
 
 `scripts/publish_to_website.sh` copies data JSON + integration files to `website-source` and pushes (triggers the deploy workflow). Requires `WEBSITE_DEPLOY_TOKEN` with write access to both `website-source` and `website`.

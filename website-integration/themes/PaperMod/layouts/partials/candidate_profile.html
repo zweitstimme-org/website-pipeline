@@ -1,5 +1,5 @@
 {{/*
-  Preview: single-candidate profile (JSON-driven via ?id= or state/party/name).
+  Single-candidate profile (JSON-driven via ?id= or state/party/name).
 */}}
 <style>
 .cp-wrap { max-width: 720px; margin: 0 auto; }
@@ -27,11 +27,13 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.45rem 0.65rem;
-  margin: 0 0 0.35rem;
+  gap: 0.35rem 0.65rem;
+  margin: 0 0 0.85rem;
 }
 .cp-name {
   margin: 0;
+  width: auto;
+  flex: 0 1 auto;
   font-size: 1.55rem;
   font-weight: 750;
   line-height: 1.2;
@@ -48,26 +50,62 @@
   text-decoration: none;
 }
 a.cp-badge:hover { opacity: 0.88; }
+.cp-aw {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 650;
+  padding: 0.12rem 0.42rem;
+  border-radius: 4px;
+  border: 1px solid #c5ccd4;
+  background: #eef1f4;
+  color: #334;
+  text-decoration: none;
+}
+a.cp-aw:hover { color: #003d80; border-color: #003d80; background: #e8eef6; }
 .cp-party {
   font-size: 1.05rem;
   font-weight: 650;
-  margin: 0 0 0.85rem;
+  margin: 0;
+  flex: 0 0 auto;
 }
-.cp-meta {
+.cp-wrap .cp-meta {
   display: grid;
-  grid-template-columns: minmax(7.5rem, auto) 1fr;
-  gap: 0.35rem 0.85rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 2rem;
+  margin: 0;
   font-size: 0.92rem;
   line-height: 1.4;
 }
-.cp-meta dt {
+.cp-wrap .cp-meta-item {
+  min-width: 0;
+}
+.cp-wrap .cp-meta dt,
+.cp-wrap .cp-meta dd {
+  width: auto;
+  max-width: 100%;
   margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.cp-wrap .cp-meta dt {
+  margin-bottom: 0.12rem;
   color: #666;
+  font-size: 0.78rem;
   font-weight: 500;
 }
-.cp-meta dd {
-  margin: 0;
+.cp-wrap .cp-meta dd {
   color: #222;
+}
+.cp-wrap .cp-meta a {
+  color: #0056b3;
+  text-decoration: none;
+}
+.cp-wrap .cp-meta a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 520px) {
+  .cp-wrap .cp-meta { grid-template-columns: 1fr; }
 }
 .cp-section-title {
   margin: 0 0 0.55rem;
@@ -154,5 +192,6 @@ a.cp-badge:hover { opacity: 0.88; }
 <div class="cp-wrap" id="candidate-profile-root">
   <p class="cp-loading">Lade Kandidat:innenprofil…</p>
 </div>
+<script src="{{ "js/chart-logo-watermark.js" | relURL }}?v=6"></script>
 <script src="{{ "js/pipeline-data.js" | relURL }}?v=9" defer></script>
-<script src="{{ "js/candidate-profile.js" | relURL }}?v=2" defer></script>
+<script src="{{ "js/candidate-profile.js" | relURL }}?v=9" defer></script>
