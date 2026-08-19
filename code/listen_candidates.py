@@ -60,6 +60,9 @@ STATE_DIRS = {
     "MV": REPO / "mecklenburg-vorpommern" / "candidates",
     "ST": REPO / "sachsen-anhalt" / "candidates",
 }
+# Official Bewerberverzeichnis: missing (party, WK) = no Direktkandidat.
+# Keep in sync with district_forecast.STATE_CONFIG[*]["candidates_complete"].
+DIREKT_COMPLETE = frozenset({"ST"})
 
 LIST_FIELDS = [
     "party",
@@ -565,7 +568,7 @@ def build_state_listen(state: str) -> list[dict]:
             pid = _pid(state, party, "person", normalize_name(d["name"]) or f"d{wkr}")
             name_pid[(party, normalize_name(d["name"]))] = pid
             direkt_by_party_wkr[(party, wkr)] = {**d, "person_id": pid}
-        else:
+        elif state not in DIREKT_COMPLETE:
             pid = _pid(state, party, "direkt", wkr)
             direkt_by_party_wkr[(party, wkr)] = {
                 **d,
@@ -816,7 +819,11 @@ def build_roster(state: str) -> dict:
                 by_pid[pid]["wkr_direct"] = wkr
                 if match.get("source") and not by_pid[pid].get("source"):
                     by_pid[pid]["source"] = match["source"]
+                direkt_index[(party, wkr)] = pid
             else:
+                # Complete official lists: no name = party does not field here.
+                if state in DIREKT_COMPLETE:
+                    continue
                 pid = _pid(state, party, "direkt", wkr)
                 if pid not in by_pid:
                     by_pid[pid] = {
@@ -832,7 +839,7 @@ def build_roster(state: str) -> dict:
                     }
                 else:
                     by_pid[pid]["wkr_direct"] = wkr
-            direkt_index[(party, wkr)] = pid
+                direkt_index[(party, wkr)] = pid
 
     # Attach official bio (ST StaLa etc.) onto named people
     if bio_index and lookup_bio and attach_bio_fields:

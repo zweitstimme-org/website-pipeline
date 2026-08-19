@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Simulate P(entry) for Direkt- and Listenkandidaten (BE / MV / ST).
 
-Reuses statewide draws + district Erst model from parliament_size_sim.
+Reuses statewide posterior draws + district Erst model from parliament_size_sim.
 Berlin Bezirkslisten: sub-allocate party seats to Bezirke via Hare/Niemeyer on
 swung Bezirk Zweitstimmen (historical WK panel → proportional swing → aggregate).
 
@@ -23,12 +23,12 @@ from district_forecast import (
     RNG_SEED,
     STATE_CONFIG,
     apply_fielding,
-    draw_state_shares,
     fielding_mask,
     load_candidates,
     load_erst_model,
     load_panel,
     load_state_forecast,
+    load_statewide_share_draws,
     party_label,
     party_labels,
     predict_erst,
@@ -208,7 +208,7 @@ def _fill_bezirkslisten(
     return entered
 
 
-def simulate_state(state: str, nsim: int, seed: int) -> dict:
+def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
     state = state.upper()
     cfg = STATE_CONFIG[state]
     rules = STATE_RULES[state]
@@ -238,7 +238,10 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
     vcov = np.array(model["vcov"], dtype=float)
     sigma = float(model["sigma"])
     rng = np.random.default_rng(seed)
-    draws = draw_state_shares(fit, low, high, nsim, rng)
+    draws, draws_source = load_statewide_share_draws(
+        cfg["state_forecast"], nsim, rng, fit, low, high
+    )
+    nsim = int(draws.shape[0])
     coef_draws = rng.multivariate_normal(beta_hat, vcov, size=nsim)
     state_l1_vec = np.array([state_l1[p] for p in PARTIES])
     party_index = {p: i for i, p in enumerate(PARTIES)}
@@ -366,6 +369,14 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
         attach_incumbent_fields = None  # type: ignore
         lookup_incumbent = None  # type: ignore
         inc_index = {}
+    try:
+        from aw_candidacies import attach_aw_fields, load_aw_index, lookup_aw
+
+        aw_index = load_aw_index()
+    except Exception:
+        attach_aw_fields = None  # type: ignore
+        lookup_aw = None  # type: ignore
+        aw_index = {}
 
     parties_out = []
     for party in MODELED:
@@ -430,6 +441,10 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
                 if inc_index and lookup_incumbent and attach_incumbent_fields:
                     attach_incumbent_fields(
                         row, lookup_incumbent(inc_index, state, party, row["name"])
+                    )
+                if aw_index and lookup_aw and attach_aw_fields:
+                    attach_aw_fields(
+                        row, lookup_aw(aw_index, state, party, row["name"])
                     )
             cands.append(row)
         # Listenplatz order; Bezirkslisten grouped by Bezirk code then rank
@@ -496,6 +511,7 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
         "label": rules["label"],
         "chamber": rules["chamber"],
         "nsim": nsim,
+        "statewide_draws": draws_source,
         "statewide_last_poll_date": state_meta.get("last_poll_date"),
         "list_note_de": (
             "Berlin: CDU/SPD/Linke mit Bezirkslisten (Sitze nach Bezirk-Zweitstimmen "
@@ -504,10 +520,17 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
             "reicht für den Parteieinzug. Fehlende Namen = Platzhalter "
             "(als verschiedene Personen behandelt)."
             if state == "BE"
-            else "Landesliste: nach Listenplatz, Direktmandatierte werden auf der "
-            "Liste übersprungen. Keine Grundmandatsklausel — unter 5 % gibt es keine "
-            "Listensitze, aber gewonnene Direktmandate bleiben. Fehlende Namen = Platzhalter."
+            else (
+                "Landesliste: nach Listenplatz, Direktmandatierte werden auf der "
+                "Liste übersprungen. Keine Grundmandatsklausel — unter 5 % gibt es keine "
+                "Listensitze, aber gewonnene Direktmandate bleiben."
+                if state == "ST"
+                else "Landesliste: nach Listenplatz, Direktmandatierte werden auf der "
+                "Liste übersprungen. Keine Grundmandatsklausel — unter 5 % gibt es keine "
+                "Listensitze, aber gewonnene Direktmandate bleiben. Fehlende Namen = Platzhalter."
+            )
         ),
+        "sources_official": state == "ST",
         "parties": parties_out,
     }
 
@@ -515,7 +538,12 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--states", nargs="+", default=["BE", "MV", "ST"])
-    ap.add_argument("--nsim", type=int, default=2000)
+    ap.add_argument(
+        "--nsim",
+        type=int,
+        default=None,
+        help="Cap on statewide draws (default: all posterior draws)",
+    )
     ap.add_argument("--seed", type=int, default=RNG_SEED)
     args = ap.parse_args()
 
@@ -528,22 +556,20 @@ def main() -> None:
         except (json.JSONDecodeError, OSError):
             pass
     for st in args.states:
-        print(f"Simulating candidate entry: {st.upper()} (nsim={args.nsim}) ...")
+        print(f"Simulating candidate entry: {st.upper()} ...")
         states_out[st.upper()] = simulate_state(st.upper(), args.nsim, args.seed)
+        print(f"  nsim={states_out[st.upper()]['nsim']}")
 
+    nsims = {s["nsim"] for s in states_out.values()}
+    sources = {s.get("statewide_draws") for s in states_out.values()}
     payload = {
         "metadata": {
             "model": "candidate_entry_v1",
-            "nsim": args.nsim,
+            "nsim": next(iter(nsims), args.nsim),
+            "statewide_draws": next(iter(sources), None),
             "seed": args.seed,
             "last_update": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "caveat_de": (
-                "Indikativ: Listenplätze teilweise Platzhalter bis amtliche "
-                "Bewerbungsverzeichnisse vorliegen. Berlin-Bezirkslisten nutzen "
-                "geswingte historische Bezirk-Zweitstimmen, nicht getrennte "
-                "Landes-/Bezirkslisten-Stimmen. Geschlechteranteile sind aus "
-                "Vornamen geschätzt (nicht amtlich)."
-            ),
+            "caveat_de": "",
             "gender_note_de": (
                 "Geschlechteranteile geschätzt anhand der Vornamen "
                 "(Wörterbuch + manuelle Korrekturen). Keine amtliche Angabe."
