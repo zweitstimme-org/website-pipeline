@@ -15,7 +15,7 @@ POLLING_ENTRY = (
     f'      url = "{POLLING_URL}"\n'
     "      weight = 35\n"
 )
-LINKEDIN_URL = "https://www.linkedin.com/company/zweitstimme-org/posts/"
+LINKEDIN_URL = "https://www.linkedin.com/company/zweitstimme-org"
 LINKEDIN_ENTRY = (
     "\n"
     '      [[languages.de.menu.footer]]\n'
