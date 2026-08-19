@@ -1,0 +1,634 @@
+{
+  "federal": {
+    "current_support": {
+      "CDU/CSU": 20.3,
+      "AfD": 28,
+      "SPD": 12.1,
+      "GRÜNE": 14.3,
+      "LINKE": 11.9,
+      "BSW": 2.9,
+      "FDP": 4.8,
+      "FW": null,
+      "SSW": null,
+      "PIRATEN": null,
+      "REP": null,
+      "Sonstige": 5.7
+    },
+    "trends": {
+      "CDU/CSU": -0.7,
+      "AfD": 0.1,
+      "SPD": 0,
+      "GRÜNE": -0.2,
+      "LINKE": 0.3,
+      "BSW": 0,
+      "FDP": 0.3,
+      "FW": null,
+      "SSW": null,
+      "PIRATEN": null,
+      "REP": null,
+      "Sonstige": 0.2
+    },
+    "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+    "polls_used": 2521,
+    "date_range": {
+      "start": "2016-08-20",
+      "end": "2026-08-18"
+    },
+    "last_update": "2026-08-18T07:47:40"
+  },
+  "states": {
+    "BW": {
+      "current_support": {
+        "CDU/CSU": 26.4,
+        "AfD": 21.2,
+        "SPD": 5.9,
+        "GRÜNE": 30.4,
+        "LINKE": 5.2,
+        "BSW": null,
+        "FDP": 4.4,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 6.5
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP"],
+      "polls_used": 79,
+      "date_range": {
+        "start": "2016-09-15",
+        "end": "2026-04-10"
+      },
+      "last_update": "2026-08-18T07:47:44"
+    },
+    "BY": {
+      "current_support": {
+        "CDU/CSU": 37.8,
+        "AfD": 19.7,
+        "SPD": 6,
+        "GRÜNE": 13.3,
+        "LINKE": 3,
+        "BSW": 3,
+        "FDP": 2,
+        "FW": 12,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 3.2
+      },
+      "trends": {
+        "CDU/CSU": 0.2,
+        "AfD": 0.1,
+        "SPD": 0,
+        "GRÜNE": -0.1,
+        "LINKE": 0,
+        "BSW": 0,
+        "FDP": 0,
+        "FW": 0,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": -0.2
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP", "FW"],
+      "polls_used": 192,
+      "date_range": {
+        "start": "2016-09-15",
+        "end": "2026-08-14"
+      },
+      "last_update": "2026-08-18T07:47:47"
+    },
+    "BE": {
+      "current_support": {
+        "CDU/CSU": 19.5,
+        "AfD": 17.4,
+        "SPD": 13.8,
+        "GRÜNE": 16.4,
+        "LINKE": 19.6,
+        "BSW": 3.1,
+        "FDP": 3.1,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 7.1
+      },
+      "trends": {
+        "CDU/CSU": 0.3,
+        "AfD": -0.3,
+        "SPD": 0.8,
+        "GRÜNE": -0.2,
+        "LINKE": -0.3,
+        "BSW": -0.1,
+        "FDP": -0.1,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": -0.1
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+      "polls_used": 156,
+      "date_range": {
+        "start": "2016-08-29",
+        "end": "2026-08-14"
+      },
+      "last_update": "2026-08-18T07:47:50"
+    },
+    "BB": {
+      "current_support": {
+        "CDU/CSU": 12.1,
+        "AfD": 36.8,
+        "SPD": 22.2,
+        "GRÜNE": 5.9,
+        "LINKE": 11.6,
+        "BSW": 4.3,
+        "FDP": 2,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 5.1
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": 0,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+      "polls_used": 84,
+      "date_range": {
+        "start": "2016-09-30",
+        "end": "2026-06-24"
+      },
+      "last_update": "2026-08-18T07:47:52"
+    },
+    "HB": {
+      "current_support": {
+        "CDU/CSU": 24,
+        "AfD": 14.2,
+        "SPD": 22.8,
+        "GRÜNE": 15.6,
+        "LINKE": 12.5,
+        "BSW": null,
+        "FDP": 4.5,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 6.4
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP"],
+      "polls_used": 25,
+      "date_range": {
+        "start": "2017-01-19",
+        "end": "2026-03-19"
+      },
+      "last_update": "2026-08-18T07:47:54"
+    },
+    "HH": {
+      "current_support": {
+        "CDU/CSU": 17,
+        "AfD": 11.5,
+        "SPD": 30.8,
+        "GRÜNE": 17.7,
+        "LINKE": 13.4,
+        "BSW": 2.2,
+        "FDP": 3,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 4.4
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": 0,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+      "polls_used": 53,
+      "date_range": {
+        "start": "2016-11-24",
+        "end": "2026-06-20"
+      },
+      "last_update": "2026-08-18T07:47:55"
+    },
+    "HE": {
+      "current_support": {
+        "CDU/CSU": 30.1,
+        "AfD": 21.9,
+        "SPD": 15,
+        "GRÜNE": 13,
+        "LINKE": 6.9,
+        "BSW": null,
+        "FDP": 3.1,
+        "FW": 3.9,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 6.1
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": 0,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP", "FW"],
+      "polls_used": 81,
+      "date_range": {
+        "start": "2016-08-24",
+        "end": "2026-04-29"
+      },
+      "last_update": "2026-08-18T07:47:57"
+    },
+    "MV": {
+      "current_support": {
+        "CDU/CSU": 9.8,
+        "AfD": 35.9,
+        "SPD": 28.9,
+        "GRÜNE": 4.9,
+        "LINKE": 11.2,
+        "BSW": 4.1,
+        "FDP": 2.8,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 2.4
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0.1,
+        "GRÜNE": 0,
+        "LINKE": -0.1,
+        "BSW": -0.1,
+        "FDP": 0.1,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+      "polls_used": 59,
+      "date_range": {
+        "start": "2016-08-25",
+        "end": "2026-08-13"
+      },
+      "last_update": "2026-08-18T07:47:59"
+    },
+    "NI": {
+      "current_support": {
+        "CDU/CSU": 25.2,
+        "AfD": 20.1,
+        "SPD": 25.1,
+        "GRÜNE": 11.8,
+        "LINKE": 7,
+        "BSW": null,
+        "FDP": 3.9,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 6.9
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP"],
+      "polls_used": 76,
+      "date_range": {
+        "start": "2016-10-19",
+        "end": "2026-04-22"
+      },
+      "last_update": "2026-08-18T07:48:01"
+    },
+    "NW": {
+      "current_support": {
+        "CDU/CSU": 32.3,
+        "AfD": 17.2,
+        "SPD": 17,
+        "GRÜNE": 15.1,
+        "LINKE": 6.4,
+        "BSW": null,
+        "FDP": 4.7,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 7.3
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP"],
+      "polls_used": 104,
+      "date_range": {
+        "start": "2016-09-11",
+        "end": "2026-06-28"
+      },
+      "last_update": "2026-08-18T07:48:03"
+    },
+    "RP": {
+      "current_support": {
+        "CDU/CSU": 28.5,
+        "AfD": 19.2,
+        "SPD": 26.9,
+        "GRÜNE": 8.9,
+        "LINKE": 5.1,
+        "BSW": null,
+        "FDP": null,
+        "FW": 4.7,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 6.7
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": null,
+        "FW": 0,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FW"],
+      "polls_used": 68,
+      "date_range": {
+        "start": "2016-12-15",
+        "end": "2026-03-19"
+      },
+      "last_update": "2026-08-18T07:48:05"
+    },
+    "SL": {
+      "current_support": {
+        "CDU/CSU": 25,
+        "AfD": 22.9,
+        "SPD": 27,
+        "GRÜNE": 7,
+        "LINKE": 7,
+        "BSW": null,
+        "FDP": 3,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 8.1
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP"],
+      "polls_used": 35,
+      "date_range": {
+        "start": "2016-11-15",
+        "end": "2025-12-03"
+      },
+      "last_update": "2026-08-18T07:48:06"
+    },
+    "SN": {
+      "current_support": {
+        "CDU/CSU": 22.6,
+        "AfD": 40.5,
+        "SPD": 6,
+        "GRÜNE": 6,
+        "LINKE": 9.2,
+        "BSW": 7.3,
+        "FDP": 1,
+        "FW": 2,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 5.4
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": 0,
+        "FDP": 0,
+        "FW": 0,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP", "FW"],
+      "polls_used": 76,
+      "date_range": {
+        "start": "2016-10-05",
+        "end": "2026-05-21"
+      },
+      "last_update": "2026-08-18T07:48:08"
+    },
+    "ST": {
+      "current_support": {
+        "CDU/CSU": 22.8,
+        "AfD": 42.3,
+        "SPD": 6.5,
+        "GRÜNE": 4.6,
+        "LINKE": 13.1,
+        "BSW": 4.4,
+        "FDP": 2.8,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 3.5
+      },
+      "trends": {
+        "CDU/CSU": -0.3,
+        "AfD": 0.5,
+        "SPD": 0.1,
+        "GRÜNE": 0.1,
+        "LINKE": 0,
+        "BSW": 0.1,
+        "FDP": -0.2,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": -0.3
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW", "FDP"],
+      "polls_used": 42,
+      "date_range": {
+        "start": "2017-06-22",
+        "end": "2026-08-12"
+      },
+      "last_update": "2026-08-18T07:48:10"
+    },
+    "SH": {
+      "current_support": {
+        "CDU/CSU": 28.3,
+        "AfD": 17.4,
+        "SPD": 14.4,
+        "GRÜNE": 17.3,
+        "LINKE": 6.8,
+        "BSW": null,
+        "FDP": 5.6,
+        "FW": null,
+        "SSW": 5.8,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 4.4
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": null,
+        "FDP": 0,
+        "FW": null,
+        "SSW": 0,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "FDP", "SSW"],
+      "polls_used": 45,
+      "date_range": {
+        "start": "2016-10-19",
+        "end": "2026-07-14"
+      },
+      "last_update": "2026-08-18T07:48:11"
+    },
+    "TH": {
+      "current_support": {
+        "CDU/CSU": 22.3,
+        "AfD": 39.9,
+        "SPD": 6,
+        "GRÜNE": 3.9,
+        "LINKE": 15.7,
+        "BSW": 7,
+        "FDP": null,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 5.2
+      },
+      "trends": {
+        "CDU/CSU": 0,
+        "AfD": 0,
+        "SPD": 0,
+        "GRÜNE": 0,
+        "LINKE": 0,
+        "BSW": 0,
+        "FDP": null,
+        "FW": null,
+        "SSW": null,
+        "PIRATEN": null,
+        "REP": null,
+        "Sonstige": 0
+      },
+      "active_parties": ["CDU/CSU", "AfD", "SPD", "GRÜNE", "LINKE", "BSW"],
+      "polls_used": 100,
+      "date_range": {
+        "start": "2016-11-22",
+        "end": "2026-07-02"
+      },
+      "last_update": "2026-08-18T07:48:14"
+    }
+  },
+  "last_update": "2026-08-18T07:48:14"
+}

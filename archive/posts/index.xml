@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Archiv on zweitstimme.org</title>
+    <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/</link>
+    <description>Recent content in Archiv on zweitstimme.org</description>
+    <image>
+      <title>zweitstimme.org</title>
+      <url>https://zweitstimme-org.github.io/website-pipeline/papermod-cover.png</url>
+      <link>https://zweitstimme-org.github.io/website-pipeline/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.135.0</generator>
+    <language>de</language>
+    <lastBuildDate>Sat, 28 Feb 2026 12:00:00 +0100</lastBuildDate>
+    <atom:link href="https://zweitstimme-org.github.io/website-pipeline/archive/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vorhersage der Landtagswahlen in Baden-Württemberg und Rheinland-Pfalz</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/forecast-bw-rp-2026/</link>
+      <pubDate>Sat, 28 Feb 2026 12:00:00 +0100</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/forecast-bw-rp-2026/</guid>
+      <description>&lt;p&gt;Heute veröffentlichen wir unsere Vorhersage für die Landtagswahlen in Baden-Württemberg und Rheinland-Pfalz – &lt;strong&gt;8 bzw. 22 Tage vor der nächsten Wahl&lt;/strong&gt;. Unser Vorhersagemodell basiert auf unserem neuen Modell für Landtagswahlen (&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0261379425000459&#34;&gt;Stoetzer et al. (2025), &lt;em&gt;An election forecasting model for subnational elections&lt;/em&gt;, Electoral Studies&lt;/a&gt;). Wir schätzen Bayes&amp;rsquo;sche Regressionsmodelle (Log-Ratio-Stimmenanteil) auf allen deutschen Landtagswahlen von 1990 bis 2025 und erzeugen 5/6-Kredibilitätsintervalle sowie Szenario-Wahrscheinlichkeiten für bevorstehende Wahlen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;die-vorhersage&#34;&gt;Die Vorhersage&lt;/h2&gt;
+&lt;p&gt;Die folgenden Werte sind &lt;strong&gt;Punktschätzungen&lt;/strong&gt; (Median unserer Posterior-Verteilung); die Intervalle in Klammern geben die Unsicherheit an. Unser Modell erwartet, dass das tatsächliche Wahlergebnis mit etwa &lt;strong&gt;83% Wahrscheinlichkeit&lt;/strong&gt; in diesem Bereich liegt (5/6-Kredibilitätsintervall). Dass das Endergebnis außerhalb des Intervalls liegt, ist etwa so wahrscheinlich wie eine 6 mit einem Würfel – möglich, aber nicht sehr wahrscheinlich.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wie gut waren die Bürger:innenprognosen?</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation-citizen-2025/</link>
+      <pubDate>Tue, 25 Feb 2025 12:15:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation-citizen-2025/</guid>
+      <description>&lt;p&gt;Nach der Wahl ist die Zeit gekommen, unsere &lt;a href=&#34;https://zweitstimme.org/posts/blog/citizen-forecast/&#34;&gt;Bürger:innenprognosen&lt;/a&gt;
+zu evaluieren. &lt;strong&gt;Wie nah lagen die Bürger:innen am tatsächlichen Wahlergebnis?&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;überblick&#34;&gt;Überblick&lt;/h2&gt;
+&lt;p&gt;Bei den &lt;strong&gt;Zweitstimmen&lt;/strong&gt; war die Bürger:innenprognose insbesondere für &lt;strong&gt;CDU/CSU, AfD und SPD sehr akkurat&lt;/strong&gt;. Allerdings lagen &lt;strong&gt;BSW und FDP über der 5% Hürde&lt;/strong&gt;. Im Schnitt wich die Prognose um 0,68 Prozentpunkte vom Ergebnis ab.
+Auch die Vorhersage der Wahlkreisgewinner:innen war sehr gut und vergleichbar mit  &lt;a href=&#34;https://zweitstimme.org/posts/blog/evaluation-2025/&#34;&gt;anderen Modellen&lt;/a&gt;. &lt;strong&gt;Über 90% der Gewinner:innen&lt;/strong&gt; wurden &lt;strong&gt;richtig&lt;/strong&gt; vorhergesagt.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evaluation der Zweistimme.org Wahlprognosen zur Bundestagswahl 2025</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation-2025/</link>
+      <pubDate>Sun, 23 Feb 2025 19:30:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation-2025/</guid>
+      <description>Wie gut lagen unsere Zweit- und Erststimmenprognosen zur Bundestagswahl 2025 – inklusive der finalen interaktiven Vorhersagen.</description>
+    </item>
+    <item>
+      <title>Was denken Wähler:innen, wie die Wahl ausgeht?</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/citizen-forecast/</link>
+      <pubDate>Fri, 21 Feb 2025 11:10:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/citizen-forecast/</guid>
+      <description>&lt;p&gt;Wir haben über 20.000 Personen gefragt, was sie erwarten wie die Wahl ausgeht - im Gegensatz zu der Frage &amp;ldquo;Wen werden Sie wählen?&amp;rdquo;.
+Dabei bilden diese Personen keine repräsentative Stichprobe, sie sind entweder Teil eines Online Access Panels oder haben Anzeigen für unsere Arbeit auf facebook oder Instagram gesehen und an unserer Studie teilgenommen. Befragungen fanden zwischen 13. und 20. Februar 2025 statt.&lt;/p&gt;
+&lt;p&gt;Dieser Ansatz beruht auf der Idee der Bürger:innenprognosen (English: Citizen Forecasts).
+Eine Gruppe von Personen wird zu ihren Erwartungen zum Wahlausgang befragt und die aggregierten Antworten dieser Gruppe werden als Prognose für den Wahlausgang genommen.
+Die Idee dahinter ist, dass die Individuen nicht alle richtig liegen, aber die Aggregation der Antworten zu einer besseren Prognose führt, da die einzelnen Fehler sich ausgleichen.
+Die Schwarm-Intelligenz der Gruppe wird ausgenutzt.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Erststimme: Finale Wahlprognose zur Bundestagswahl 2025</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/erststimme-wahlprognose-2025/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/erststimme-wahlprognose-2025/</guid>
+      <description>Archivierte finale Prognose der Direktmandate zur Bundestagswahl 2025 (Stand: 21. Februar 2025).</description>
+    </item>
+    <item>
+      <title>Zweitstimme: Finale Wahlprognose zur Bundestagswahl 2025</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/zweitstimme-wahlprognose-2025/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/zweitstimme-wahlprognose-2025/</guid>
+      <description>Archivierte finale Zweitstimmen-Prognose zur Bundestagswahl 2025 (Stand: 21. Februar 2025).</description>
+    </item>
+    <item>
+      <title>Unser Erststimme-Modell 2025</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/erststimme-model/</link>
+      <pubDate>Tue, 18 Feb 2025 13:00:02 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/erststimme-model/</guid>
+      <description>&lt;h2 id=&#34;unser-modell-zur-vorhersage-der-erststimme&#34;&gt;Unser Modell zur Vorhersage der Erststimme&lt;/h2&gt;
+&lt;p&gt;Im deutschen Wahlsystem können Parteien, die weniger als 5% der Zweitstimmen erhalten, dennoch Sitze im Parlament gewinnen, wenn sie mindestens drei Direktmandate erringen. Die Verteilung der Erststimmen in jedem Wahlkreis bestimmt die Wahrscheinlichkeit, dass ein Kandidat ein Direktmandat gewinnt. Unser Modell zielt darauf ab, diese Wahrscheinlichkeiten vorherzusagen.&lt;/p&gt;
+&lt;h3 id=&#34;grundlage-des-modells&#34;&gt;Grundlage des Modells&lt;/h3&gt;
+&lt;p&gt;Unser Ansatz basiert auf dem Zweitstimme-Modell, das wir erstmals für die Bundestagswahl 2017 entwickelt und 2021 erneut angewendet haben. Wir beginnen mit der Vorhersage der Stimmanteile auf Bundesebene und verwenden eine proportionale Veränderung, um die Parteistimmen auf Wahlkreisebene zu schätzen. Zum Beispiel, wenn die CDU/CSU national einen Anstieg von XX% erwartet, wird diese Veränderung proportional auf alle Wahlkreise angewendet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stimmzettel-Simulation</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/ballot/</link>
+      <pubDate>Fri, 14 Feb 2025 10:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/ballot/</guid>
+      <description>&lt;style&gt;
+    .ballot {
+        max-width: 800px;
+        width: 95vw;
+        margin: 0 auto;
+        background-color: #f8f6ef;
+        padding: 2vw;
+        border: 1px solid #ccc;
+        position: relative;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /* Add MUSTER watermark */
+    .ballot::before {
+        content: &#39;NICHT OFFIZIELL&#39;;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: min(100px, 25vw);
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.12);
+        white-space: nowrap;
+        z-index: 2;
+        pointer-events: none;
+        width: 80%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ballot-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ballot-header h1 {
+        font-size: min(24px, 3vw);
+        margin: 10px 0;
+    }
+    .ballot-header p {
+        font-size: min(16px, 2.5vw);
+        line-height: 1.3;
+    }
+    .large-text {
+        font-size: min(32px, 4vw);
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .large-text .number {
+        font-size: min(48px, 6vw);
+    }
+    .arrows {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 0;
+        height: 90px;
+        gap: 30px;
+    }
+    .arrow {
+        height: 90px;
+        width: auto;
+    }
+    @media screen and (max-width: 768px) {
+        .arrows {
+            height: 60px;
+            gap: 20px;
+        }
+        .arrow {
+            height: 60px;
+        }
+        .ballot-header p {
+            font-size: 11px;
+            line-height: 1.2;
+        }
+        .ballot-header h1 {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+    }
+    .ballot-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0px;
+    }
+    .first-vote, .second-vote {
+        width: 48%;
+    }
+    .first-vote {
+        text-align: right;
+    }
+    .second-vote {
+        color: #2596be;
+    }
+    .vote-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .vote-item input {
+        margin-right: 10px;
+    }
+    .vote-description {
+        font-size: min(14px, 1.8vw);
+        margin-bottom: 20px;
+    }
+    .vote-description b {
+        font-weight: bold;
+    }
+    .candidate-row, .party-row {
+        display: flex;
+        align-items: stretch;
+        padding: min(8px, 1vw);
+        height: min(90px, 13vw);
+        position: relative;
+        box-sizing: border-box;
+    }
+    .candidate-row {
+        display: flex;
+        align-items: stretch;
+        border: 1px solid black;
+        border-bottom: none;
+        padding: 0;
+        height: min(90px, 13vw);
+        position: relative;
+        box-sizing: border-box;
+        background-color: #f8f6ef;
+    }
+    .candidate-row:last-child {
+        border-bottom: 1px solid black;
+    }
+    .party-row {
+        display: flex;
+        align-items: stretch;
+        border: 1px solid #2596be;
+        border-bottom: none;
+        border-right: none;
+        padding: 8px;
+        position: relative;
+        background-color: #f8f6ef;
+    }
+    .party-row:last-child {
+        border-bottom: 1px solid #2596be;
+    }
+    .candidate-number, .party-number {
+        width: 15px;
+        font-weight: bold;
+        text-align: center !important;
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 8px;
+        justify-content: center !important;
+        box-sizing: border-box;
+        font-size: min(14px, 1.8vw);
+    }
+    .candidate-number {
+        color: black;
+        border-right: 1px solid black;
+    }
+    .party-number {
+        color: #2596be;
+        border-right: 1px solid #2596be;
+    }
+    .candidate-info {
+        flex-grow: 1;
+        padding: 0px 10px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid black;
+        align-self: stretch;
+        margin: 0;
+        min-height: min(80px, 10vw);
+    }
+    .party-info {
+        width: 60%;
+        font-size: min(14px, 1.8vw);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .party-info b {
+        margin-bottom: 2px;
+    }
+
+    .party-info-main {
+        flex-grow: 1;
+        display: flex;
+        align-items: stretch;
+        border-right: 1px solid #2596be;
+        margin: -8px 0;
+        padding: 8px 0;
+    }
+    .party-short-name {
+        width: 35%;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        font-weight: bold;
+        font-size: min(14px, 1.7vw);
+        white-space: normal;
+        word-wrap: normal;
+        overflow: hidden;
+        line-height: 1.2;
+    }
+    .party-details-column {
+        width: 75%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .party-long-name {
+        font-weight: bold;
+        font-size: min(12px, 1.5vw);
+    }
+    /* Update font size for long party names */
+    .party-long-name.long {
+        font-size: min(10px, 1.3vw);
+        line-height: 1.1;
+    }
+    .party-long-name.very-long {
+        font-size: min(9px, 1.1vw);
+        line-height: 1.1;
+    }
+    .party-long-name.extra-long {
+        font-size: min(8.5px, 0.9vw);
+        line-height: 1;
+    }
+    .party-long-name.super-long {
+        font-size: min(8px, 0.8vw);
+        line-height: 1;
+    }
+    .party-candidates {
+        font-size: min(10px, 1.3vw);
+        line-height: 1.2;
+    }
+    .vote-circle-container {
+        width: min(35px, 4.2vw);
+        min-width: min(35px, 4.2vw);
+        max-width: min(35px, 4.2vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border-right: 1px solid black;
+        box-sizing: border-box;
+    }
+    .vote-circle-container-left {
+        width: min(35px, 4.2vw);
+        min-width: min(35px, 4.2vw);
+        max-width: min(35px, 4.2vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .vote-circle-container {
+        width: min(35px, 4.2vw);
+        min-width: min(35px, 4.2vw);
+        max-width: min(35px, 4.2vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border-right: 1px solid black;
+        box-sizing: border-box;
+    }
+    .vote-circle-container.blue-border {
+        border-right: 1px solid #2596be;
+        margin: -8px 8px -8px -8px;
+        width: min(45px, 5.4vw);
+    }
+    .vote-circle, .vote-circle-left {
+        width: min(25px, 3vw);
+        height: min(25px, 3vw);
+        border: min(2px, 0.25vw) solid black;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin: 0;
+        background-color: #f5f2e9;
+    }
+    .vote-circle-left {
+        border-color: #2596be;
+    }
+    .vote-circle-container &gt; div {
+        position: static;
+    }
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: auto;
+        padding-top: 5px;
+        flex-shrink: 0;
+    }
+    .candidate-details, .party-details {
+        font-size: min(10px, 1.3vw);
+        width: 70%;
+        padding-right: min(10px, 1.2vw);
+    }
+    .party-short {
+        width: 50%;
+        text-align: left;
+        padding-left: 10px;
+    }
+    .party-short b {
+        display: block;
+        font-size: min(14px, 1.8vw);
+    }
+    .party-long {
+        font-size: min(10px, 1.3vw);
+        line-height: 1.1;
+    }
+    /* Add font size scaling for long party names */
+    .party-long.long {
+        font-size: min(10px, 1.3vw);
+        line-height: 1.1;
+    }
+    .party-long.very-long {
+        font-size: min(8.5px, 1.1vw);
+        line-height: 1.1;
+    }
+    .party-long.extra-long {
+        font-size: min(7.5px, 0.9vw);
+        line-height: 1;
+    }
+    .party-long.super-long {
+        font-size: min(6.5px, 0.8vw);
+        line-height: 1;
+    }
+    .candidate-name {
+        font-size: min(14px, 1.8vw);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: min(5px, 0.6vw);
+        flex-shrink: 0;
+    }
+    .vote-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .vote-column {
+        width: 48%;
+    }
+    .vote-header {
+        margin-bottom: 10px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    .vote-header h2 {
+        margin: 0 0 10px 0;
+    }
+    .vote-explanation {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .vote-table {
+        width: 100%;
+    }
+    .ballot-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .first-vote h2, .second-vote h2 {
+        margin: 0;
+        padding-top: 5px;
+        font-size: min(18px, 2.2vw);
+    }
+    .second-vote h2 {
+        color: #2596be;
+    }
+    .candidate-row.empty {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: none;
+        background-color: transparent;
+    }
+    .candidate-row.empty:last-child {
+        border-bottom: 1px solid black;
+    }
+    .candidate-row.empty + .candidate-row.empty {
+        border-top: none;
+    }
+    /* Remove all internal borders in empty rows */
+    .candidate-row.empty .candidate-number,
+    .candidate-row.empty .candidate-info,
+    .candidate-row.empty .vote-circle-container-left {
+        border-right: none;
+        background-color: transparent;
+    }
+    .search-result-item {
+        padding: 10px 15px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-result-item:hover {
+        background-color: #f5f5f5;
+    }
+
+    .search-result-type {
+        color: #666;
+        font-size: 0.8em;
+        margin-left: 8px;
+    }
+
+    .ballot::after {
+        content: &#39;&#39;;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        background-image: url(&#34;data:image/svg+xml,%3Csvg width=&#39;100&#39; height=&#39;100&#39; viewBox=&#39;0 0 100 100&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39;%3E%3Cfilter id=&#39;noise&#39;%3E%3CfeTurbulence type=&#39;fractalNoise&#39; baseFrequency=&#39;0.8&#39; numOctaves=&#39;4&#39; stitchTiles=&#39;stitch&#39;/%3E%3C/filter%3E%3Crect width=&#39;100&#39; height=&#39;100&#39; filter=&#39;url(%23noise)&#39; opacity=&#39;0.08&#39;/%3E%3C/svg%3E&#34;),
+            linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px),
+            linear-gradient(0deg, rgba(0,0,0,.03) 1px, transparent 1px);
+        background-size: auto,
+            calc(100% / 20) 100%,
+            100% calc(100% / 30);
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    /* Update the search container styles */
+    .search-container-wrapper {
+        max-width: 500px;
+        width: 70%;
+        margin: 0 auto 20px auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search-container {
+        flex-grow: 1;
+        position: relative;
+    }
+
+    /* Update the warning box */
+    .warning-box {
+        max-width: 600px;
+        width: 85vw;
+        margin: 0 auto 20px auto;
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 10px;
+        border: 1px solid #ffeeba;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    /* Update mobile styles */
+    @media screen and (max-width: 600px) {
+        .search-container-wrapper {
+            width: calc(100% - 20px);  /* Take up almost full width */
+            min-width: 200px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Ensure the input text is readable */
+        .search-input {
+            font-size: 16px !important;  /* Prevent iOS zoom on focus */
+            padding: 8px 12px 8px 36px;
+        }
+
+        .party-number {
+            min-width: 12px;
+            color: #2596be;
+            border-right: 1px solid #2596be;
+        }
+
+        .candidate-number {
+            min-width: 12px;
+            font-size: min(12px, 1.5vw);
+            padding-top: 5px;
+        }
+
+        .party-candidates {
+            font-size: min(7px, 1.3vw);
+            line-height: 1;
+        }
+
+        .party-short-name {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            padding: 0 0px;
+            font-weight: bold;
+            font-size: min(14px, 1.7vw);
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+
+        body {
+            margin: 5px;
+        }
+        
+        .ballot {
+            width: calc(100vw - 10px);
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .warning-box {
+            width: calc(100vw - 20px);
+            margin: 0 auto 10px auto;
+            padding: 8px;
+        }
+
+        /* Update ballot header styles */
+        .ballot-header {
+            margin-bottom: 15px;
+        }
+
+        .ballot-header h1 {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        .ballot-header p {
+            font-size: 11px;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        /* Also adjust the district text that gets dynamically added */
+        #ballot-header p {
+            font-size: 11px;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        /* Adjust the arrows section spacing */
+        .arrows {
+            margin-bottom: 15px;
+            margin-top: 0;
+            height: 50px;
+        }
+
+        /* Reduce vote description spacing */
+        .vote-description {
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        /* Adjust ballot section spacing */
+        .ballot-section {
+            margin-bottom: 0;
+        }
+
+        /* Adjust the large text spacing */
+        .large-text {
+            font-size: 16px;
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .large-text .number {
+            font-size: 24px;
+        }
+
+        /* Adjust search input placeholder for mobile */
+        .search-input::placeholder {
+            content: &#34;Wahlkreis, PLZ oder Kandidat:in...&#34;;
+        }
+
+        /* Adjust number columns width for mobile */
+        .candidate-number {
+            width: 3px;
+            width-max: 3px;
+            font-size: min(12px, 1.5vw);
+            padding-top: 5px;
+        }
+
+        /* Adjust number columns width for mobile */
+        .party-number {
+            width: 5px;
+            font-size: min(12px, 1.5vw);
+            padding-top: 5px;
+        }
+
+        /* Keep circle containers the same size */
+        .vote-circle-container {
+            width: min(35px, 4.2vw);
+        }
+
+        .vote-circle-container.blue-border {
+            width: min(35px, 4.2vw);
+        }
+
+        /* Adjust info columns to use the extra space */
+        .candidate-info {
+            width: calc(100% - 45px);  /* 35px for circle + 10px for number */
+        }
+
+        .party-info-main {
+            width: calc(100% - 45px);
+        }
+    }
+
+    /* Update the empty party row styles */
+    .party-row.empty {
+        border-left: 1px solid #2596be;
+        border-right: 1px solid #2596be;
+        border-bottom: none;
+        height: min(90px, 13vw);
+        background-color: transparent;
+    }
+
+    .party-row.empty:last-child {
+        border-bottom: 1px solid #2596be;
+    }
+
+    .party-row.empty + .party-row.empty {
+        border-top: none;
+    }
+
+    /* Hide circle in empty rows */
+    .party-row.empty .vote-circle-left {
+        display: none;
+    }
+
+    /* Remove all internal borders in empty party rows */
+    .party-row.empty .party-number,
+    .party-row.empty .party-info-main,
+    .party-row.empty .vote-circle-container {
+        border-right: none;
+        background-color: transparent;
+    }
+
+    /* Only allow wrapping on mobile screens */
+    @media screen and (max-width: 768px) {
+        .party-short-name {
+            word-wrap: break-word;
+            white-space: normal;
+        }
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&#34;warning-box&#34;&gt;
+    &lt;strong&gt;Hinweis:&lt;/strong&gt; Dies ist eine inoffizielle Simulation eines Stimmzettels. Die dargestellten Informationen dienen nur zu Demonstrationszwecken und erheben keinen Anspruch auf Vollständigkeit oder Richtigkeit. Für offizielle Wahlinformationen wenden Sie sich bitte an die zuständigen Wahlbehörden.
+&lt;/div&gt;
+
+&lt;div style=&#34;text-align: right; font-size: 0.9em; color: #666; margin-bottom: 20px;&#34;&gt;
+    Daten: &lt;a href=&#34;https://www.bundeswahlleiterin.de&#34; style=&#34;color: #2196f3; text-decoration: none;&#34;&gt;bundeswahlleiterin.de&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;search-container-wrapper&#34;&gt;
+    &lt;div class=&#34;nav-buttons&#34;&gt;
+        &lt;button onclick=&#34;navigateDistrict(-1)&#34; class=&#34;nav-button&#34; style=&#34;background: #333; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;&#34;&gt;&amp;larr;&lt;/button&gt;
+        &lt;button onclick=&#34;navigateDistrict(1)&#34; class=&#34;nav-button&#34; style=&#34;background: #333; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;&#34;&gt;&amp;rarr;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;search-container&#34;&gt;
+        &lt;svg class=&#34;search-icon&#34; width=&#34;16&#34; height=&#34;16&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; style=&#34;position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #666;&#34;&gt;
+            &lt;circle cx=&#34;11&#34; cy=&#34;11&#34; r=&#34;8&#34;&gt;&lt;/circle&gt;
+            &lt;line x1=&#34;21&#34; y1=&#34;21&#34; x2=&#34;16.65&#34; y2=&#34;16.65&#34;&gt;&lt;/line&gt;
+        &lt;/svg&gt;
+        &lt;input type=&#34;text&#34; 
+               id=&#34;searchInput&#34; 
+               class=&#34;search-input&#34; 
+               placeholder=&#34;Suche nach Wahlkreis, PLZ oder Kandidat:in...&#34;
+               style=&#34;width: 100%; padding: 8px 12px 8px 36px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;&#34;&gt;
+        &lt;div id=&#34;searchResults&#34; class=&#34;search-results&#34; style=&#34;display: none; position: absolute; width: 100%; background: white; border: 1px solid #ddd; border-radius: 4px; margin-top: 4px; max-height: 300px; overflow-y: auto; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;ballot&#34;&gt;
+   
+
+    &lt;div class=&#34;ballot-header&#34; id=&#34;ballot-header&#34;&gt;
+        &lt;h1&gt;Stimmzettel&lt;/h1&gt;
+        &lt;p&gt;für die Wahl zum Deutschen Bundestag am 23. Februar 2025&lt;br&gt;im Wahlkreis&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Berechnung von Wahrscheinlichkeiten</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/probabilities/</link>
+      <pubDate>Wed, 08 Jan 2025 10:00:04 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/probabilities/</guid>
+      <description>&lt;p&gt;Mit einem neuartigen Ansatz berechnen wir Wahrscheinlichkeiten für Koalitionsmehrheiten unter Berücksichtigung der Grundmandatsklausel, die Parteien mit mindestens drei gewonnenen Wahlkreisen von der 5%-Hürde befreit. Dies ist besonders relevant für die Linke, die drei Wahlkreise gewinnen, aber an der 5%-Hürde scheitern könnte – ein Szenario, das die Sitzverteilung im Parlament erheblich beeinflussen würde.&lt;/p&gt;
+&lt;h2 id=&#34;methodisches-vorgehen&#34;&gt;Methodisches Vorgehen&lt;/h2&gt;
+&lt;p&gt;Um das Wahlrecht möglichst genau zu modellieren, kombinieren wir die Vorhersagen für Wahlkreise und Listenstimmen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Wir ziehen 10.000 Stichproben aus der Vorhersageverteilung&lt;/li&gt;
+&lt;li&gt;Für jede Stichprobe identifizieren wir:
+&lt;ul&gt;
+&lt;li&gt;Parteien, die mindestens drei Wahlkreise gewinnen&lt;/li&gt;
+&lt;li&gt;Parteien, die die 5%-Hürde überschreiten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Basierend auf diesen Parteien berechnen wir mögliche Koalitionsmehrheiten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Die Wahrscheinlichkeiten für verschiedene Koalitionsszenarien ergeben sich aus der Aggregation dieser Simulationen. Für jede mögliche Koalition zählen wir, in wie vielen der 10.000 Simulationen sie eine Mehrheit erreicht. Der Anteil der Simulationen mit Mehrheit entspricht dann der Wahrscheinlichkeit für diese Koalition.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unser Zweitstimme-Modell 2025</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/zweitstimme-model/</link>
+      <pubDate>Wed, 08 Jan 2025 10:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/zweitstimme-model/</guid>
+      <description>&lt;h2 id=&#34;unser-modell-zur-vorhersage-der-zweitstimme&#34;&gt;Unser Modell zur Vorhersage der Zweitstimme&lt;/h2&gt;
+&lt;p&gt;Um die Stimmanteile auf Bundesebene für die kommende Wahl vorherzusagen, nutzen wir unser Zweitstimme-Modell. Dieses Modell kombiniert zwei wesentliche Komponenten: ein Fundamentaldaten-Modell und ein Umfragedaten-Modell.&lt;/p&gt;
+&lt;h3 id=&#34;fundamentaldaten-modell&#34;&gt;Fundamentaldaten-Modell&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Langfristige Parteibindung&lt;/strong&gt;: Ergebnisse der vorherigen Wahl.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kurzfristige Kampagnendynamik&lt;/strong&gt;: Durchschnittliche Wahlabsichten in Umfragen 230–200 Tage vor dem Wahltag.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unterstützung der amtierenden Regierung&lt;/strong&gt;: Ein Indikator für die Kanzler*innenpartei.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;umfragedaten-modell&#34;&gt;Umfragedaten-Modell&lt;/h3&gt;
+&lt;p&gt;Um die aktuelle Stimmung miteinzubeziehen, fließen als zweite Komponente öffentliche Meinungsumfragen (Quelle: &lt;a href=&#34;https://www.wahlrecht.de&#34;&gt;wahlrecht.de&lt;/a&gt;) in unser Modell ein.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evaluation der Vorhersage: Vergleich von Modellprognosen und realen Wahlergebnissen</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast_evaluation/</link>
+      <pubDate>Thu, 17 Oct 2024 10:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast_evaluation/</guid>
+      <description>&lt;p&gt;In diesem Beitrag evaluieren wir die auf unserer Seite veröffentlichten Vorhersagen für die Landtagswahlen in Sachsen, Thüringen und Brandenburg und vergleichen diese mit den tatsächlich erzielten Wahlergebnissen. Dabei bezieht sich der folgende Text auf die Vorhersagen, die zwei Tage vor den Wahlen veröffentlicht wurden.&lt;/p&gt;
+&lt;h1 id=&#34;evaluation-der-vorhersagen&#34;&gt;Evaluation der Vorhersagen&lt;/h1&gt;
+&lt;h2 id=&#34;sachsen&#34;&gt;Sachsen&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;./fig/saxony_de.png&#34; alt=&#34;state_election_forecast_evaluation&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;Das Kopf-an-Kopf-Rennen zwischen der CDU und der AfD in Sachsen konnte die CDU knapp für sich gewinnen. Mit &lt;strong&gt;31,9%&lt;/strong&gt; liegt der Wahlanteil der Partei &lt;strong&gt;2,2%&lt;/strong&gt; oberhalb des zwei Tage vor der Wahl prognostizierten Wertes. Die AfD konnte sich auf &lt;strong&gt;30,6%&lt;/strong&gt; verbessern und unterbietet damit unsere Prognose um &lt;strong&gt;0,9%&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vorhersage der Landtagswahl in Brandenburg - 2 Tage vor der Wahl</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/brandenburg_election_forecast_2days/</link>
+      <pubDate>Fri, 20 Sep 2024 11:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/brandenburg_election_forecast_2days/</guid>
+      <description>&lt;p&gt;Vor zwei Wochen haben wir Vorhersagen für die Landtagswahl in Brandenburg hier publiziert. Diese aktualisieren wir heute – zwei Tage vor der Wahl – mit unserem Vorhersagemodell, basierend auf den in der Zwischenzeit veröffentlichten Umfragen. Anhand der vorherigen Landtagswahlen von 2010 bis 2023 wissen wir, dass unsere Vorhersagen zwei Tage vorher bereits sehr genau sind. Wir liegen mit einer durchschnittlichen absoluten Abweichung von 1,46 Prozentpunkten für alle Parteien sehr nahe am Endergebnis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vorhersage der Landtagswahl in Brandenburg</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/brandenburg_election_forecast/</link>
+      <pubDate>Fri, 06 Sep 2024 10:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/brandenburg_election_forecast/</guid>
+      <description>&lt;p&gt;In zwei Wochen findet die Landtagswahl in Brandenburg statt. Wir von Zweitstimme haben nun auch ein Vorhersagemodell für Landtagswahlen entwickelt und freuen uns, die Vorhersage mit zwei Wochen Vorlaufzeit auf dieser Seite präsentieren zu können &amp;ndash; wie bereits für Sachsen und Thüringen.&lt;/p&gt;
+&lt;h1 id=&#34;die-vorhersage&#34;&gt;Die Vorhersage&lt;/h1&gt;
+&lt;h2 id=&#34;brandenburg&#34;&gt;Brandenburg&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;./fig/fig_fcst_bb_2weekslead_de.png&#34; alt=&#34;Wahlprognose Brandenburg&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;In Brandenburg zeigt unsere aktuelle Vorhersage ein &lt;strong&gt;enges Rennen&lt;/strong&gt; zwischen vier Parteien; AfD, SPD, BSW und CDU liegen alle um die 20%. Für die &lt;strong&gt;SPD&lt;/strong&gt;, die bei der letzten Wahl die stärkste Partei wurde, erwarten wir &lt;strong&gt;21,0%&lt;/strong&gt; der Stimmen, wobei unsere Vorhersage zwei Wochen vor der Wahl noch eine 5/6-Wahrscheinlichkeit zulässt, dass dieser Wert im Intervall zwischen &lt;strong&gt;15,8%&lt;/strong&gt; und &lt;strong&gt;26,6%&lt;/strong&gt; liegen wird (in bayesscher Sprache: 5/6-Kredibilitätsintervall). &lt;strong&gt;Die AfD&lt;/strong&gt; dürfte sich hingegen deutlich verbessern und wird unseren Erwartungen nach mit &lt;strong&gt;24,3%&lt;/strong&gt; knapp vor der SPD liegen. Hier reicht das Intervall allerdings ebenfalls noch von &lt;strong&gt;18,5%&lt;/strong&gt; bis &lt;strong&gt;30,5%&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vorhersage der Landtagswahlen in Sachsen und Thüringen - 2 Tage vor der Wahl</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast_2days/</link>
+      <pubDate>Fri, 30 Aug 2024 12:30:34 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast_2days/</guid>
+      <description>&lt;p&gt;Vor zwei Wochen haben wir Vorhersagen für die Landtagswahlen in Sachsen und Thüringen hier publiziert. Diese aktualisieren wir heute – zwei Tage vor der Wahl – mit unserem Vorhersagemodell, basierend auf den in der Zwischenzeit veröffentlichten Umfragen für Sachsen und Thüringen. Anhand der vorherigen Landtagswahlen von 2010 bis 2023 wissen wir, dass unsere Vorhersagen zwei Tage vorher bereits sehr genau sind. Wir liegen mit einer durchschnittlichen absoluten Abweichung von 1,46 Prozentpunkten für alle Parteien sehr nahe am Endergebnis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vorhersage der Landtagswahlen in Sachsen und Thüringen</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast/</link>
+      <pubDate>Sun, 18 Aug 2024 12:30:34 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/state_election_forecast/</guid>
+      <description>&lt;p&gt;In zwei Wochen finden die Landtagswahlen in Sachsen und Thüringen statt. Wir von Zweitstimme haben nun auch ein Vorhersagemodell für Landtagswahlen entwickelt und freuen uns, die Vorhersagen mit zwei Wochen Vorlaufzeit auf dieser Seite präsentieren zu können.&lt;/p&gt;
+&lt;h1 id=&#34;die-vorhersage&#34;&gt;Die Vorhersage&lt;/h1&gt;
+&lt;h2 id=&#34;sachsen&#34;&gt;Sachsen&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;./fig/fig_fcst_sn_2weekslead_de.png&#34; alt=&#34;Wahlprognose Sachsen&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;In Sachsen zeigt unsere aktuelle Vorhersage ein spannendes Kopf-an-Kopf-Rennen zwischen der CDU und der AfD. Für die CDU, die bei der letzten Wahl die größte Partei wurde, erwarten wir &lt;strong&gt;30,0%&lt;/strong&gt; der Stimmen, wobei unsere Vorhersage zwei Wochen vor der Wahl noch eine 5/6-Wahrscheinlichkeit zulässt, dass dieser Wert im Kredibilitätsintervall zwischen &lt;strong&gt;23,5%&lt;/strong&gt; und &lt;strong&gt;37,0%&lt;/strong&gt; liegen wird. Die AfD dürfte sich hingegen deutlich verbessern und in unseren Erwartungen überholt sie mit &lt;strong&gt;30,6%&lt;/strong&gt; sogar knapp die CDU. Hier reicht das Intervall allerdings ebenfalls noch von &lt;strong&gt;24,0%&lt;/strong&gt; bis &lt;strong&gt;37,6%&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Eine Evaluation der Wahlkreisprognosen zur Bundestagswahl 2021</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation/</link>
+      <pubDate>Tue, 05 Oct 2021 19:30:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/evaluation/</guid>
+      <description>&lt;p&gt;Wer gewinnt die Bundestagswahl 2021 in den Wahlkreisen? Das war 2021
+eine besonders spannende Frage. Nicht nur, weil viele Wahlkreise
+prominent besetzt waren - z. B. 061 Potsdam, wo die
+Kanzlerkandidat:innen Scholz und Baerbock um das Direktmandat rangen –,
+in einigen Wahlkreisen ein sehr knapper Ausgang erwartet wurde, die
+Grünen auf mehr und die AfD auf den Wiedergewinn von Direktmandaten
+hofften, sondern auch weil die Verteilung der Direktmandate ganz
+entscheidenden Einfluss auf die Gesamtmandatszahl hat.[1]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Einzugswahrscheinlichkeiten von zweitstimme.org</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/candidates/</link>
+      <pubDate>Wed, 08 Sep 2021 19:00:00 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/candidates/</guid>
+      <description>&lt;p&gt;Basierend auf unseren Modellen können wir für alle Kandidierenden eine Wahrscheinlichkeit für den Einzug in den Bundestag berechnen. Die Daten zu den Kandiderenden sind öffentlich beim &lt;a href=&#34;https://www.bundeswahlleiter.de/bundestagswahlen/2021/wahlbewerber.html&#34;&gt;Bundeswahlleiter&lt;/a&gt; verfügbar.&lt;/p&gt;
+&lt;iframe src=&#34;https://api.zweitstimme.org/cand_prob&#34; height=&#34;750px&#34; width=&#34;100%&#34; title=&#34;Einzugswahrscheinlichkeiten&#34; frameBorder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
+    </item>
+    <item>
+      <title>Die aktuellen Zahlen von zweitstimme.org</title>
+      <link>https://zweitstimme-org.github.io/website-pipeline/archive/posts/forecast/</link>
+      <pubDate>Thu, 19 Aug 2021 22:33:16 +0200</pubDate>
+      <guid>https://zweitstimme-org.github.io/website-pipeline/archive/posts/forecast/</guid>
+      <description>&lt;iframe src=&#34;https://gfx.sueddeutsche.de/apps/e342301/www/index.html&#34; height=&#34;750px&#34; width=&#34;100%&#34; title=&#34;Die aktuellen Zahlen&#34;&gt;&lt;/iframe&gt;</description>
+    </item>
+  </channel>
+</rss>
