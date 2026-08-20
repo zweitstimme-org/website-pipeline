@@ -1,6 +1,6 @@
 {
   "api_version": "v1",
-  "generated_at": "2026-08-19T13:09:58Z",
+  "generated_at": "2026-08-20T06:08:46Z",
   "election": {
     "id": "bund_2025-02-23",
     "name": "Bundestagswahl",
@@ -14,9 +14,7 @@
     "status": "legacy",
     "successor": "/api/v2/federal/index.json",
     "endpoints": [
-      "/api/v1/federal/forecast.json",
-      "/api/v1/federal/pred_probabilities.json",
-      "/api/v1/federal/forecast_districts.json"
+      "/api/v1/federal/forecast.json"
     ],
     "archive_index": "/api/v1/federal/archive/index.json",
     "archive_count": 0,

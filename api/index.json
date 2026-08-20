@@ -1,6 +1,6 @@
 {
   "name": "Zweitstimme Forecast API",
-  "generated_at": "2026-08-19T13:10:15Z",
+  "generated_at": "2026-08-20T06:08:47Z",
   "docs": "https://zweitstimme.org/docs/api/",
   "openapi": "/api/openapi.json",
   "versions": {
@@ -11,9 +11,7 @@
       "archive_index": "/api/v1/federal/archive/index.json",
       "successor": "/api/v2/federal/index.json",
       "endpoints": [
-        "/api/v1/federal/forecast.json",
-        "/api/v1/federal/pred_probabilities.json",
-        "/api/v1/federal/forecast_districts.json"
+        "/api/v1/federal/forecast.json"
       ]
     },
     "v2": {
@@ -24,8 +22,6 @@
       "state_index": "/api/v2/state/index.json",
       "state_archive_index": "/api/v2/state/archive/index.json",
       "stimmung_federal": "/api/v2/stimmung/federal.json",
-      "stimmung_federal_current": "/api/v2/stimmung/federal/current.json",
-      "stimmung_federal_index": "/api/v2/stimmung/federal/index.json",
       "stimmung_state_index": "/api/v2/stimmung/state/index.json",
       "forecast_window_days": 90
     }
@@ -53,8 +49,8 @@
     "archive": "After election day, forecasts move to /api/v2/federal/archive/ and /api/v2/state/archive/ (v1 federal archive remains for the legacy contract). No backfill of earlier elections."
   },
   "counts": {
-    "v1_federal_endpoints": 3,
-    "v2_federal_endpoints": 3,
+    "v1_federal_endpoints": 1,
+    "v2_federal_endpoints": 1,
     "v2_state_forecasts": 3,
     "v2_state_archive": 1,
     "v2_stimmung_states": 16
