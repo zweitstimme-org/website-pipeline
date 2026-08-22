@@ -1,6 +1,6 @@
 {
   "api_version": "v2",
-  "generated_at": "2026-08-21T06:08:08Z",
+  "generated_at": "2026-08-22T06:06:16Z",
   "election": {
     "id": "hb_2027-05-30",
     "name": "Landtagswahl Bremen",
@@ -10,7 +10,7 @@
     "date_is_estimated": false
   },
   "data": {
-    "as_of": "2026-08-21",
+    "as_of": "2026-08-22",
     "parties": {
       "CDU/CSU": 22.4,
       "AfD": 16.3,
@@ -55,7 +55,7 @@
     },
     "trends": {
       "CDU/CSU": -0.1,
-      "AfD": 0.1,
+      "AfD": 0,
       "SPD": -0.1,
       "GRÜNE": 0,
       "LINKE": 0,
@@ -65,7 +65,7 @@
       "SSW": null,
       "PIRATEN": null,
       "REP": null,
-      "Sonstige": 0.1
+      "Sonstige": 0.2
     },
     "active_parties": [
       "CDU/CSU",
@@ -77,5 +77,5 @@
     ],
     "note": "Kalman latent support for this calendar day (filled on days without a new poll)."
   },
-  "as_of": "2026-08-21"
+  "as_of": "2026-08-22"
 }
