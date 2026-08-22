@@ -8,16 +8,27 @@ Writes:
   api/v1/federal/archive/{index,YYYY-MM-DD}.json
   api/v2/federal/{index,forecast,districts,draws?}.json
   api/v2/federal/archive/{index,YYYY-MM-DD}.json
+  api/v2/federal/archive/{YYYY-MM-DD}/districts.json
   api/v2/state/{index,st,be,…}.json
+  api/v2/state/{st,…}/{draws,districts,candidates,parliament}.json
   api/v2/state/archive/{index,st_YYYY-MM-DD}.json
+  api/v2/state/archive/{st_YYYY-MM-DD}/{draws,districts,candidates,parliament}.json
   api/v2/stimmung/federal.json
-  api/v2/stimmung/federal/current.json
+  api/v2/stimmung/federal/{index,current}.json
+  api/v2/stimmung/federal/day/{YYYY-MM-DD}.json
+  api/v2/stimmung/federal/month/{YYYY-MM}.json
+  api/v2/stimmung/federal/year/{YYYY}.json
   api/v2/stimmung/state/index.json
   api/v2/stimmung/state/{st,…}.json
-  api/v2/stimmung/state/{st,…}/current.json
+  api/v2/stimmung/state/{st,…}/{index,current}.json
+  api/v2/stimmung/state/{st,…}/day/{YYYY-MM-DD}.json
+  api/v2/stimmung/state/{st,…}/month/{YYYY-MM}.json
+  api/v2/stimmung/state/{st,…}/year/{YYYY}.json
 
 v1 is the legacy federal-only contract. v2 is the current contract
-(federal + state + Stimmung). Unversioned root files alias v1.
+(federal + state + Stimmung, including state districts / candidates /
+parliament sims that the website already publishes under /data/).
+Unversioned root files alias v1.
 
 Also (unless --no-legacy-aliases):
   _redirects (301 root → /api/v1/federal/…)
@@ -88,14 +99,17 @@ def _openapi_spec() -> dict[str, Any]:
     return openapi_spec()
 
 
-def _write_json(path: Path, payload: Any, *, compact: bool = False) -> None:
+def _write_json(
+    path: Path, payload: Any, *, compact: bool = False, verbose: bool = True
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if compact:
         text = json.dumps(payload, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
     else:
         text = json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False)
     path.write_text(text + "\n", encoding="utf-8")
-    print(f"  wrote {path}")
+    if verbose:
+        print(f"  wrote {path}")
 
 
 def _find_first(name: str, dirs: list[Path]) -> Path | None:
@@ -312,75 +326,232 @@ def _envelope(
     return out
 
 
-def _build_by_date(stimmung: dict) -> dict[str, Any]:
-    """Date → party shares. Uncertainty stays in parallel series arrays to limit size."""
-    dates = stimmung.get("dates") or []
-    series = stimmung.get("series") or {}
-    by_date: dict[str, Any] = {}
-    for i, d in enumerate(dates):
-        parties = {
-            party: (vals[i] if isinstance(vals, list) and i < len(vals) else None)
-            for party, vals in series.items()
-        }
-        by_date[str(d)] = {"parties": parties}
-    return by_date
+def _stimmung_dates(stimmung: dict) -> list[str]:
+    return [str(d) for d in (stimmung.get("dates") or [])]
+
+
+def _values_at(obj: dict | None, index: int) -> dict[str, Any]:
+    if not isinstance(obj, dict):
+        return {}
+    return {
+        party: (vals[index] if isinstance(vals, list) and index < len(vals) else None)
+        for party, vals in obj.items()
+    }
+
+
+def _slice_party_arrays(obj: Any, start: int, end: int) -> Any:
+    """Slice aligned party → list maps. `end` is exclusive."""
+    if not isinstance(obj, dict):
+        return obj
+    return {
+        party: (vals[start:end] if isinstance(vals, list) else vals)
+        for party, vals in obj.items()
+    }
+
+
+def _group_date_indices(dates: list[str]) -> tuple[dict[str, tuple[int, int]], dict[str, tuple[int, int]]]:
+    """Month YYYY-MM and year YYYY → (start_idx, end_idx exclusive). Dates must be sorted."""
+    months: dict[str, tuple[int, int]] = {}
+    years: dict[str, tuple[int, int]] = {}
+    for i, day in enumerate(dates):
+        month = day[:7]
+        year = day[:4]
+        if month not in months:
+            months[month] = (i, i + 1)
+        else:
+            months[month] = (months[month][0], i + 1)
+        if year not in years:
+            years[year] = (i, i + 1)
+        else:
+            years[year] = (years[year][0], i + 1)
+    return months, years
 
 
 def _day_uncertainty(stimmung: dict, index: int) -> tuple[dict, dict]:
-    unc_low = stimmung.get("uncertainty_low") or {}
-    unc_high = stimmung.get("uncertainty_high") or {}
-    low = {
-        party: (vals[index] if isinstance(vals, list) and index < len(vals) else None)
-        for party, vals in unc_low.items()
-    }
-    high = {
-        party: (vals[index] if isinstance(vals, list) and index < len(vals) else None)
-        for party, vals in unc_high.items()
-    }
-    return low, high
+    return _values_at(stimmung.get("uncertainty_low"), index), _values_at(
+        stimmung.get("uncertainty_high"), index
+    )
 
 
-def _stimmung_series_payload(stimmung: dict) -> dict[str, Any]:
-    """Public series shape: dates, series, by_date, current, trends, active_parties."""
-    by_date = _build_by_date(stimmung)
-    dates = [str(d) for d in (stimmung.get("dates") or [])]
-    as_of = dates[-1] if dates else None
-    return {
+def _stimmung_series_payload(
+    stimmung: dict, *, start: int = 0, end: int | None = None
+) -> dict[str, Any]:
+    """Public series shape. Pass start/end to emit a date range instead of the full history."""
+    dates = _stimmung_dates(stimmung)
+    if end is None:
+        end = len(dates)
+    sliced = dates[start:end]
+    as_of = sliced[-1] if sliced else None
+    is_full = start == 0 and end == len(dates)
+    payload: dict[str, Any] = {
         "as_of": as_of,
-        "dates": dates,
-        "series": stimmung.get("series") or {},
-        "by_date": by_date,
-        "current": stimmung.get("current"),
-        "trends": stimmung.get("trends"),
+        "from": sliced[0] if sliced else None,
+        "to": as_of,
+        "dates": sliced,
+        "series": _slice_party_arrays(stimmung.get("series") or {}, start, end),
+        "uncertainty_low": _slice_party_arrays(stimmung.get("uncertainty_low"), start, end),
+        "uncertainty_high": _slice_party_arrays(stimmung.get("uncertainty_high"), start, end),
         "active_parties": stimmung.get("active_parties"),
-        "uncertainty_low": stimmung.get("uncertainty_low"),
-        "uncertainty_high": stimmung.get("uncertainty_high"),
-        "metadata": stimmung.get("metadata"),
     }
+    if is_full:
+        payload["current"] = stimmung.get("current")
+        payload["trends"] = stimmung.get("trends")
+        payload["metadata"] = stimmung.get("metadata")
+    return payload
 
 
-def _stimmung_current_payload(stimmung: dict) -> dict[str, Any]:
-    dates = [str(d) for d in (stimmung.get("dates") or [])]
-    as_of = dates[-1] if dates else None
-    parties = stimmung.get("current")
-    low: dict = {}
-    high: dict = {}
-    if as_of and dates:
-        idx = len(dates) - 1
-        day = _build_by_date(stimmung).get(as_of) or {}
-        parties = day.get("parties") or parties
-        low, high = _day_uncertainty(stimmung, idx)
-    return {
-        "as_of": as_of,
+def _stimmung_day_payload(stimmung: dict, index: int) -> dict[str, Any]:
+    dates = _stimmung_dates(stimmung)
+    day = dates[index] if dates else None
+    parties = _values_at(stimmung.get("series") or {}, index) or stimmung.get("current")
+    low, high = _day_uncertainty(stimmung, index)
+    payload: dict[str, Any] = {
+        "as_of": day,
         "parties": parties,
         "uncertainty_low": low or None,
         "uncertainty_high": high or None,
-        "trends": stimmung.get("trends"),
         "active_parties": stimmung.get("active_parties"),
         "note": (
             "Kalman latent support for this calendar day (filled on days without a new poll)."
         ),
     }
+    if dates and index == len(dates) - 1:
+        payload["trends"] = stimmung.get("trends")
+    return payload
+
+
+def _stimmung_current_payload(stimmung: dict) -> dict[str, Any]:
+    dates = _stimmung_dates(stimmung)
+    if not dates:
+        return {
+            "as_of": None,
+            "parties": stimmung.get("current"),
+            "uncertainty_low": None,
+            "uncertainty_high": None,
+            "trends": stimmung.get("trends"),
+            "active_parties": stimmung.get("active_parties"),
+            "note": (
+                "Kalman latent support for this calendar day (filled on days without a new poll)."
+            ),
+        }
+    return _stimmung_day_payload(stimmung, len(dates) - 1)
+
+
+def _write_stimmung_scope(
+    dest_series: Path,
+    dest_dir: Path,
+    *,
+    path_series: str,
+    path_prefix: str,
+    election: dict[str, Any],
+    stimmung: dict,
+) -> dict[str, Any]:
+    """Write full series, current day, per-day, per-month, and per-year files."""
+    dates = _stimmung_dates(stimmung)
+    series = _stimmung_series_payload(stimmung)
+    current = _stimmung_current_payload(stimmung)
+    meta = stimmung.get("metadata") if isinstance(stimmung.get("metadata"), dict) else {}
+    generated_at = _iso_datetime_loose(meta.get("last_update")) or _now_iso()
+    extra_base = {"generated_at": generated_at}
+    _write_json(
+        dest_series,
+        _envelope(
+            "v2",
+            election,
+            series,
+            extra={**extra_base, "as_of": series.get("as_of")},
+        ),
+        compact=True,
+    )
+    _write_json(
+        dest_dir / "current.json",
+        _envelope(
+            "v2",
+            election,
+            current,
+            extra={**extra_base, "as_of": current.get("as_of")},
+        ),
+    )
+
+    month_ranges, year_ranges = _group_date_indices(dates)
+    for i, day in enumerate(dates):
+        payload = _stimmung_day_payload(stimmung, i)
+        _write_json(
+            dest_dir / "day" / f"{day}.json",
+            _envelope(
+                "v2",
+                election,
+                payload,
+                extra={**extra_base, "as_of": day},
+            ),
+            compact=True,
+            verbose=False,
+        )
+    for month, (lo, hi) in month_ranges.items():
+        payload = _stimmung_series_payload(stimmung, start=lo, end=hi)
+        _write_json(
+            dest_dir / "month" / f"{month}.json",
+            _envelope(
+                "v2",
+                election,
+                payload,
+                extra={**extra_base, "as_of": payload.get("as_of")},
+            ),
+            compact=True,
+            verbose=False,
+        )
+    for year, (lo, hi) in year_ranges.items():
+        payload = _stimmung_series_payload(stimmung, start=lo, end=hi)
+        _write_json(
+            dest_dir / "year" / f"{year}.json",
+            _envelope(
+                "v2",
+                election,
+                payload,
+                extra={**extra_base, "as_of": payload.get("as_of")},
+            ),
+            compact=True,
+            verbose=False,
+        )
+    print(
+        f"  wrote {len(dates)} day + {len(month_ranges)} month + "
+        f"{len(year_ranges)} year files under {dest_dir}"
+    )
+
+    catalog = {
+        "path": path_series,
+        "current": f"{path_prefix}/current.json",
+        "day": f"{path_prefix}/day/{{date}}.json",
+        "month": f"{path_prefix}/month/{{YYYY-MM}}.json",
+        "year": f"{path_prefix}/year/{{YYYY}}.json",
+        "from": dates[0] if dates else None,
+        "to": dates[-1] if dates else None,
+        "as_of": series.get("as_of"),
+        "election": election,
+    }
+    _write_json(
+        dest_dir / "index.json",
+        {
+            "api_version": "v2",
+            "generated_at": generated_at,
+            "description": (
+                "Aktuelle Stimmung (Kalman). The full series covers ~10 years. "
+                "Prefer current, day/YYYY-MM-DD, month/YYYY-MM, or year/YYYY."
+            ),
+            "path": catalog["path"],
+            "current": catalog["current"],
+            "day": catalog["day"],
+            "month": catalog["month"],
+            "year": catalog["year"],
+            "from": catalog["from"],
+            "to": catalog["to"],
+            "as_of": catalog["as_of"],
+            "election": election,
+            "months": sorted(month_ranges),
+            "years": sorted(year_ranges),
+        },
+    )
+    return catalog
 
 
 # Root path → versioned path (canonical). Used for _redirects + content aliases.
@@ -598,6 +769,140 @@ def _load_federal_draws_payload(
     return None
 
 
+def _districts_payload_from_raw(raw: Any) -> dict[str, Any] | None:
+    """Normalize website district JSON (list or {metadata,items|districts})."""
+    raw = _unwrap_api_payload(raw)
+    if isinstance(raw, list):
+        return {"metadata": {}, "districts": raw}
+    if not isinstance(raw, dict):
+        return None
+    districts = raw.get("districts")
+    if districts is None:
+        districts = raw.get("items")
+    if not isinstance(districts, list):
+        return None
+    meta = raw.get("metadata") if isinstance(raw.get("metadata"), dict) else {}
+    return {"metadata": dict(meta), "districts": districts}
+
+
+def _state_districts_from_file(path: Path | None) -> dict[str, Any] | None:
+    if path is None or not path.is_file():
+        return None
+    return _districts_payload_from_raw(_load_json(path))
+
+
+def _state_candidates_from_payload(
+    payload: Any, state_code: str
+) -> dict[str, Any] | None:
+    """Build candidates payload from multi-state or archived single-state file."""
+    payload = _unwrap_api_payload(payload)
+    if not isinstance(payload, dict):
+        return None
+    code = state_code.upper()
+    global_meta = (
+        dict(payload.get("metadata") or {})
+        if isinstance(payload.get("metadata"), dict)
+        else {}
+    )
+    # Archived slice: { metadata, state: {…} }
+    if isinstance(payload.get("state"), dict) and "parties" in (payload.get("state") or {}):
+        block = dict(payload["state"])
+    else:
+        states = payload.get("states")
+        if not isinstance(states, dict):
+            return None
+        block = states.get(code) or states.get(code.lower())
+        if not isinstance(block, dict):
+            return None
+        block = dict(block)
+    parties = block.pop("parties", None)
+    if not isinstance(parties, list):
+        return None
+    meta = dict(global_meta)
+    for key, value in block.items():
+        if value is not None and key not in meta:
+            meta[key] = value
+    meta.setdefault("state_code", code)
+    return {"metadata": meta, "parties": parties}
+
+
+def _state_parliament_from_payload(
+    payload: Any, state_code: str
+) -> dict[str, Any] | None:
+    payload = _unwrap_api_payload(payload)
+    if not isinstance(payload, dict):
+        return None
+    code = state_code.upper()
+    global_meta = (
+        dict(payload.get("metadata") or {})
+        if isinstance(payload.get("metadata"), dict)
+        else {}
+    )
+    if isinstance(payload.get("state"), dict) and payload.get("state"):
+        block = dict(payload["state"])
+    else:
+        states = payload.get("states")
+        if not isinstance(states, dict):
+            return None
+        block = states.get(code) or states.get(code.lower())
+        if not isinstance(block, dict):
+            return None
+        block = dict(block)
+    meta = dict(global_meta)
+    for key in (
+        "state_code",
+        "label",
+        "chamber",
+        "nsim",
+        "statewide_draws",
+        "statewide_last_poll_date",
+        "method",
+        "note_de",
+    ):
+        if block.get(key) is not None:
+            meta[key] = block[key]
+    meta.setdefault("state_code", code)
+    data = {"metadata": meta}
+    for key, value in block.items():
+        if key in meta or key == "state_code":
+            continue
+        data[key] = value
+    return data
+
+
+def _write_state_sidecar(
+    api_root: Path,
+    election: dict[str, Any],
+    dest_rel: Path,
+    data: dict[str, Any] | None,
+    *,
+    extra: dict[str, Any] | None = None,
+    compact: bool = True,
+) -> str | None:
+    if not data:
+        return None
+    env = _envelope("v2", election, data, extra=extra)
+    _write_json(api_root / dest_rel, env, compact=compact)
+    return "/api/" + dest_rel.as_posix()
+
+
+def _load_multi_or_archive(
+    data_dirs: list[Path],
+    *,
+    active_name: str,
+    archive_name: str | None = None,
+    archive_only: bool = False,
+) -> Any | None:
+    if archive_name:
+        src = _find_first(f"archive/{archive_name}", data_dirs)
+        if src:
+            return _load_json(src)
+        if archive_only:
+            return None
+    src = _find_first(active_name, data_dirs)
+    return _load_json(src) if src else None
+
+
 def build_v2_federal_archive(
     api_root: Path,
     data_dirs: list[Path],
@@ -651,13 +956,26 @@ def build_v2_federal_archive(
             archive_dir / rel,
             _envelope("v2", election, data, extra={"archived": True}),
         )
-        items.append(
-            {
-                "election": election,
-                "path": f"/api/v2/federal/archive/{rel}",
-                "archived": True,
-            }
-        )
+        item: dict[str, Any] = {
+            "election": election,
+            "path": f"/api/v2/federal/archive/{rel}",
+            "archived": True,
+        }
+        districts_src = _find_first(f"archive/forecast_districts_{ed}.json", data_dirs)
+        districts = _state_districts_from_file(districts_src)
+        if districts:
+            # Federal archived rows use the federal metadata envelope.
+            districts["metadata"] = dict(data["metadata"])
+            districts_url = _write_state_sidecar(
+                api_root,
+                election,
+                Path("v2") / "federal" / "archive" / ed / "districts.json",
+                districts,
+                extra={"archived": True},
+            )
+            if districts_url:
+                item["districts"] = districts_url
+        items.append(item)
 
     _write_json(
         archive_dir / "index.json",
@@ -666,6 +984,7 @@ def build_v2_federal_archive(
             "generated_at": _now_iso(),
             "description": (
                 "Archived federal forecasts after election day. "
+                "District forecasts are linked as `districts` when archived. "
                 "Only elections archived by the pipeline from now on (no backfill)."
             ),
             "forecasts": items,
@@ -699,7 +1018,7 @@ def build_v2_federal(
     districts = None
     src = _find_first("forecast_districts.json", data_dirs + legacy_dirs)
     if src:
-        districts = _unwrap_api_payload(_load_json(src))
+        districts = _districts_payload_from_raw(_load_json(src))
 
     draws_payload = _load_federal_draws_payload(data_dirs, legacy_dirs)
     draws_url = "/api/v2/federal/draws.json" if draws_payload else None
@@ -722,14 +1041,14 @@ def build_v2_federal(
         _write_json(fed_dir / "forecast.json", _envelope("v2", election, forecast_data))
         endpoints.append("/api/v2/federal/forecast.json")
 
-    if isinstance(districts, list):
+    if districts and isinstance(districts.get("districts"), list):
+        districts_data = {
+            "metadata": dict(meta),
+            "districts": districts["districts"],
+        }
         _write_json(
             fed_dir / "districts.json",
-            _envelope(
-                "v2",
-                election,
-                {"metadata": dict(meta), "districts": districts},
-            ),
+            _envelope("v2", election, districts_data),
             compact=True,
         )
         endpoints.append("/api/v2/federal/districts.json")
@@ -1086,6 +1405,13 @@ def build_v2_state(
     for d in data_dirs:
         paths.extend(sorted(d.glob("forecast_state_*.json")))
 
+    candidate_entry = _load_multi_or_archive(
+        data_dirs, active_name="forecast_candidate_entry.json"
+    )
+    parliament = _load_multi_or_archive(
+        data_dirs, active_name="forecast_parliament_size.json"
+    )
+
     for path in paths:
         m = re.match(r"forecast_state_([a-z]{2})\.json$", path.name)
         if not m:
@@ -1098,6 +1424,7 @@ def build_v2_state(
         if not parsed:
             continue
         election, data = parsed
+        state_code = str(election.get("state_code") or code_lower.upper()).upper()
         draws_file = _find_first(f"forecast_state_{code_lower}_draws.json", data_dirs)
         draws_url = _write_state_draws(
             api_root,
@@ -1112,8 +1439,42 @@ def build_v2_state(
             if isinstance(meta, dict):
                 meta["draws_path"] = draws_url
                 meta["n_draws"] = meta.get("n_draws")
+
+        districts = _state_districts_from_file(
+            _find_first(f"forecast_districts_{code_lower}.json", data_dirs)
+        )
+        districts_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / code_lower / "districts.json",
+            districts,
+        )
+        candidates = _state_candidates_from_payload(candidate_entry, state_code)
+        candidates_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / code_lower / "candidates.json",
+            candidates,
+        )
+        parl = _state_parliament_from_payload(parliament, state_code)
+        parliament_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / code_lower / "parliament.json",
+            parl,
+        )
+
+        if isinstance(data.get("metadata"), dict):
+            meta = data["metadata"]
+            if districts_url:
+                meta["districts_path"] = districts_url
+            if candidates_url:
+                meta["candidates_path"] = candidates_url
+            if parliament_url:
+                meta["parliament_path"] = parliament_url
+
         _write_json(state_dir / f"{code_lower}.json", _envelope("v2", election, data))
-        item = {
+        item: dict[str, Any] = {
             "state_code": election.get("state_code"),
             "path": f"/api/v2/state/{code_lower}.json",
             "election": election,
@@ -1121,6 +1482,12 @@ def build_v2_state(
         }
         if draws_url:
             item["draws"] = draws_url
+        if districts_url:
+            item["districts"] = districts_url
+        if candidates_url:
+            item["candidates"] = candidates_url
+        if parliament_url:
+            item["parliament"] = parliament_url
         index_items.append(item)
 
     archive_items = build_v2_state_archive(api_root, calendar, data_dirs)
@@ -1132,6 +1499,8 @@ def build_v2_state(
             "generated_at": _now_iso(),
             "description": (
                 "Active state (Landtag) forecasts within the ~90-day window before election day. "
+                "Includes party forecasts, draws, districts, candidate entry probabilities, "
+                "and parliament-size sims when published. "
                 "Past elections (once archived by the pipeline) are under /api/v2/state/archive/."
             ),
             "forecast_window_days": 90,
@@ -1177,7 +1546,9 @@ def build_v2_state_archive(
         )
         if not m:
             return
-        key = f"{m.group(1)}_{m.group(2)}"
+        code_lower = m.group(1)
+        election_date = m.group(2)
+        key = f"{code_lower}_{election_date}"
         if key in seen:
             return
         parsed = _state_payload_from_file(path, calendar)
@@ -1185,6 +1556,7 @@ def build_v2_state_archive(
             return
         seen.add(key)
         election, data = parsed
+        state_code = str(election.get("state_code") or code_lower.upper()).upper()
         rel = f"{key}.json"
         draws_file = path.with_name(f"forecast_state_{key}_draws.json")
         if not draws_file.is_file():
@@ -1202,11 +1574,61 @@ def build_v2_state_archive(
             meta = data.get("metadata")
             if isinstance(meta, dict):
                 meta["draws_path"] = draws_url
+
+        districts = _state_districts_from_file(
+            _find_first(
+                f"archive/forecast_districts_{code_lower}_{election_date}.json",
+                data_dirs,
+            )
+        )
+        districts_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / "archive" / key / "districts.json",
+            districts,
+            extra={"archived": True},
+        )
+        cand_raw = _load_multi_or_archive(
+            data_dirs,
+            active_name="forecast_candidate_entry.json",
+            archive_name=f"forecast_candidate_entry_{code_lower}_{election_date}.json",
+            archive_only=True,
+        )
+        candidates_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / "archive" / key / "candidates.json",
+            _state_candidates_from_payload(cand_raw, state_code),
+            extra={"archived": True},
+        )
+        parl_raw = _load_multi_or_archive(
+            data_dirs,
+            active_name="forecast_parliament_size.json",
+            archive_name=f"forecast_parliament_{code_lower}_{election_date}.json",
+            archive_only=True,
+        )
+        parliament_url = _write_state_sidecar(
+            api_root,
+            election,
+            Path("v2") / "state" / "archive" / key / "parliament.json",
+            _state_parliament_from_payload(parl_raw, state_code),
+            extra={"archived": True},
+        )
+
+        if isinstance(data.get("metadata"), dict):
+            meta = data["metadata"]
+            if districts_url:
+                meta["districts_path"] = districts_url
+            if candidates_url:
+                meta["candidates_path"] = candidates_url
+            if parliament_url:
+                meta["parliament_path"] = parliament_url
+
         env = _envelope("v2", election, data, extra={"archived": True})
         if archived_at:
             env["archived_at"] = archived_at
         _write_json(archive_dir / rel, env)
-        item = {
+        item: dict[str, Any] = {
             "state_code": election.get("state_code"),
             "path": f"/api/v2/state/archive/{rel}",
             "election": election,
@@ -1215,6 +1637,12 @@ def build_v2_state_archive(
         }
         if draws_url:
             item["draws"] = draws_url
+        if districts_url:
+            item["districts"] = districts_url
+        if candidates_url:
+            item["candidates"] = candidates_url
+        if parliament_url:
+            item["parliament"] = parliament_url
         items.append(item)
 
     for entry in catalog:
@@ -1246,7 +1674,8 @@ def build_v2_state_archive(
             "api_version": "v2",
             "generated_at": _now_iso(),
             "description": (
-                "Archived Landtag forecasts (frozen after election day). "
+                "Archived Landtag forecasts (frozen after election day), including "
+                "districts / candidates / parliament sidecars when archived. "
                 "Populated going forward by the pipeline; past elections are not backfilled."
             ),
             "forecasts": items,
@@ -1270,23 +1699,15 @@ def build_v2_stimmung(
 
     fed_election = _next_federal_election(calendar) or dict(_LEGACY_BTW_2025)
     if isinstance(federal_raw, dict) and federal_raw.get("dates"):
-        series = _stimmung_series_payload(federal_raw)
-        current = _stimmung_current_payload(federal_raw)
-        _write_json(
+        fed_cat = _write_stimmung_scope(
             stim_root / "federal.json",
-            _envelope("v2", fed_election, series, extra={"as_of": series.get("as_of")}),
-            compact=True,
+            stim_root / "federal",
+            path_series="/api/v2/stimmung/federal.json",
+            path_prefix="/api/v2/stimmung/federal",
+            election=fed_election,
+            stimmung=federal_raw,
         )
-        _write_json(
-            stim_root / "federal" / "current.json",
-            _envelope("v2", fed_election, current, extra={"as_of": current.get("as_of")}),
-        )
-        summary["federal"] = {
-            "path": "/api/v2/stimmung/federal.json",
-            "current": "/api/v2/stimmung/federal/current.json",
-            "election": fed_election,
-            "as_of": series.get("as_of"),
-        }
+        summary["federal"] = fed_cat
 
     states_raw = None
     src = _find_first("stimmung_states.json", data_dirs)
@@ -1310,26 +1731,15 @@ def build_v2_stimmung(
             scope="state",
             state_code=code,
         )
-        series = _stimmung_series_payload(stimmung)
-        current = _stimmung_current_payload(stimmung)
-        _write_json(
+        state_cat = _write_stimmung_scope(
             stim_root / "state" / f"{code_lower}.json",
-            _envelope("v2", election, series, extra={"as_of": series.get("as_of")}),
-            compact=True,
+            stim_root / "state" / code_lower,
+            path_series=f"/api/v2/stimmung/state/{code_lower}.json",
+            path_prefix=f"/api/v2/stimmung/state/{code_lower}",
+            election=election,
+            stimmung=stimmung,
         )
-        _write_json(
-            stim_root / "state" / code_lower / "current.json",
-            _envelope("v2", election, current, extra={"as_of": current.get("as_of")}),
-        )
-        state_items.append(
-            {
-                "state_code": code,
-                "path": f"/api/v2/stimmung/state/{code_lower}.json",
-                "current": f"/api/v2/stimmung/state/{code_lower}/current.json",
-                "election": election,
-                "as_of": series.get("as_of"),
-            }
-        )
+        state_items.append({"state_code": code, **state_cat})
 
     _write_json(
         stim_root / "state" / "index.json",
@@ -1338,7 +1748,8 @@ def build_v2_stimmung(
             "generated_at": _now_iso(),
             "description": (
                 "Aktuelle Stimmung (Kalman) per Land. Daily series includes days "
-                "without a new poll. Use data.by_date[YYYY-MM-DD] for a single day."
+                "without a new poll. Use `current` for today, `day` for one date, "
+                "`month` / `year` for a range; `path` is the full ~10-year series."
             ),
             "states": state_items,
         },
@@ -1414,14 +1825,17 @@ def build(
                 "v2": {
                     "status": "current",
                     "description": (
-                        "Current contract: federal and state election-day forecasts, "
-                        "posterior draws, and Aktuelle Stimmung."
+                        "Current contract: federal and state election-day forecasts "
+                        "(including districts, candidate entry probabilities, and "
+                        "parliament-size sims), posterior draws, and Aktuelle Stimmung."
                     ),
                     "federal_index": "/api/v2/federal/index.json",
                     "federal_archive_index": "/api/v2/federal/archive/index.json",
                     "state_index": "/api/v2/state/index.json",
                     "state_archive_index": "/api/v2/state/archive/index.json",
                     "stimmung_federal": "/api/v2/stimmung/federal.json",
+                    "stimmung_federal_current": "/api/v2/stimmung/federal/current.json",
+                    "stimmung_federal_index": "/api/v2/stimmung/federal/index.json",
                     "stimmung_state_index": "/api/v2/stimmung/state/index.json",
                     "forecast_window_days": 90,
                 },

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Landtag / AGH district (Direktmandat) forecast — calibrated federal-style model.
 
-Zweit: proportional swing from last election to statewide forecast draws.
+Zweit: proportional swing from last election to statewide posterior draws
+(`forecast_state_*_draws.json`; fallback: independent normals from the 5/6 interval).
 Erst: OLS  resp_E ~ resp_Z + res_l1_E + no_cand_l1  (coefs in data/district_model_coefs.json).
 When STATE_CONFIG marks candidates_complete (ST), parties without a Direktkandidat
 are set to 0 Erststimme and the remainder is renormalized to 100%.
@@ -55,8 +56,24 @@ def party_labels(state: str | None = None) -> dict[str, str]:
     return {p: party_label(p, state) for p in PARTIES}
 
 CI_Z = 1.4
+# Fallback only when posterior draws are missing. Live runs use all draws
+# from forecast_state_*_draws.json (typically 4000).
 NSIM_DEFAULT = 2000
 RNG_SEED = 20260730
+# state-models draw codes → district PARTIES
+DRAW_CODE_TO_PARTY = {
+    "cdu": "cdu",
+    "spd": "spd",
+    "gru": "gruene",
+    "gruene": "gruene",
+    "fdp": "fdp",
+    "lin": "linke",
+    "linke": "linke",
+    "afd": "afd",
+    "bsw": "bsw",
+    "oth": "others",
+    "others": "others",
+}
 MODEL_PATH = REPO / "data" / "district_model_coefs.json"
 EPS = 1e-6
 
@@ -114,6 +131,9 @@ def load_candidates(
     inc_index: dict = {}
     attach_incumbent_fields = None
     lookup_incumbent = None
+    aw_index: dict = {}
+    attach_aw_fields = None
+    lookup_aw = None
     if state:
         try:
             from incumbents import (
@@ -126,6 +146,13 @@ def load_candidates(
         except Exception:
             attach_incumbent_fields = None  # type: ignore
             lookup_incumbent = None  # type: ignore
+        try:
+            from aw_candidacies import attach_aw_fields, load_aw_index, lookup_aw
+
+            aw_index = load_aw_index()
+        except Exception:
+            attach_aw_fields = None  # type: ignore
+            lookup_aw = None  # type: ignore
     # First-name gender estimate (same pipeline as candidate_entry_sim).
     predict_gender = None
     person_ov: dict = {}
@@ -163,6 +190,10 @@ def load_candidates(
                 if inc_index and lookup_incumbent and attach_incumbent_fields:
                     attach_incumbent_fields(
                         entry, lookup_incumbent(inc_index, state, code, name)
+                    )
+                if aw_index and lookup_aw and attach_aw_fields:
+                    attach_aw_fields(
+                        entry, lookup_aw(aw_index, state or "", code, name)
                     )
                 if predict_gender and normalize_name and state_lc:
                     norm = normalize_name(name) or f"d{wkr}"
@@ -266,6 +297,11 @@ def draw_state_shares(
     nsim: int,
     rng: np.random.Generator,
 ) -> np.ndarray:
+    """Independent-normal fallback from the published 5/6 interval.
+
+    Prefer ``load_statewide_share_draws`` (posterior) whenever the draws
+    file exists — independent margins miss the joint posterior.
+    """
     means = np.array([fit[p] for p in PARTIES], dtype=float)
     sds = []
     for p in PARTIES:
@@ -277,6 +313,96 @@ def draw_state_shares(
     row_sums = draws.sum(axis=1, keepdims=True)
     row_sums = np.where(row_sums <= 0, 1.0, row_sums)
     return draws / row_sums
+
+
+def state_forecast_draws_path(forecast_path: Path) -> Path:
+    return forecast_path.with_name(forecast_path.stem + "_draws.json")
+
+
+def _draw_key_to_party(key: str) -> str | None:
+    k = str(key).strip()
+    if not k or k == "draw":
+        return None
+    low = k.lower()
+    if low in PARTIES:
+        return low
+    if low in DRAW_CODE_TO_PARTY:
+        return DRAW_CODE_TO_PARTY[low]
+    return LABEL_TO_CODE.get(k)
+
+
+def load_state_posterior_draws(path: Path) -> np.ndarray | None:
+    """(n_draws, n_parties) vote shares in PARTIES order, or None if missing."""
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(payload, dict):
+        return None
+    raw = payload.get("draws")
+    if not isinstance(raw, list):
+        inner = payload.get("data")
+        raw = inner.get("draws") if isinstance(inner, dict) else None
+    if not isinstance(raw, list) or not raw:
+        return None
+
+    mat = np.zeros((len(raw), len(PARTIES)), dtype=float)
+    idx = {p: i for i, p in enumerate(PARTIES)}
+    i_oth = idx["others"]
+    for i, row in enumerate(raw):
+        if not isinstance(row, dict):
+            continue
+        for key, val in row.items():
+            code = _draw_key_to_party(key)
+            if code is None:
+                continue
+            try:
+                v = float(val or 0.0)
+            except (TypeError, ValueError):
+                continue
+            if not np.isfinite(v):
+                continue
+            slot = idx.get(code, i_oth)
+            mat[i, slot] += v
+    mat = np.clip(mat, 0.0, None)
+    if float(mat.max()) > 1.5:
+        mat = mat / 100.0
+    row_sums = mat.sum(axis=1, keepdims=True)
+    if not np.any(row_sums > 0):
+        return None
+    row_sums = np.where(row_sums <= 0, 1.0, row_sums)
+    return mat / row_sums
+
+
+def load_statewide_share_draws(
+    forecast_path: Path,
+    nsim: int | None,
+    rng: np.random.Generator,
+    fit: dict[str, float],
+    low: dict[str, float],
+    high: dict[str, float],
+) -> tuple[np.ndarray, str]:
+    """Statewide share matrix: posterior draws, else summary-interval fallback.
+
+    Returns ``(draws, source)`` with ``source`` in ``{"posterior", "summary_normal"}``.
+    Does not consume ``rng`` when posterior draws are used (keeps Erst-model
+    coefficient draws aligned across district / entry / parliament sims).
+    """
+    draws_path = state_forecast_draws_path(forecast_path)
+    post = load_state_posterior_draws(draws_path)
+    if post is not None and post.shape[0] > 0:
+        if nsim is not None and int(nsim) < post.shape[0]:
+            return post[: int(nsim)], "posterior"
+        return post, "posterior"
+    n = int(nsim) if nsim is not None else NSIM_DEFAULT
+    print(
+        f"  note: no posterior draws at {draws_path.name}; "
+        f"sampling {n} from summary 5/6 interval",
+        flush=True,
+    )
+    return draw_state_shares(fit, low, high, n, rng), "summary_normal"
 
 
 def proportional_swing(
@@ -376,7 +502,7 @@ def apply_fielding(shares: np.ndarray, mask: np.ndarray) -> np.ndarray:
     return out / s
 
 
-def run_forecast(state: str, nsim: int = NSIM_DEFAULT, seed: int = RNG_SEED) -> dict:
+def run_forecast(state: str, nsim: int | None = None, seed: int = RNG_SEED) -> dict:
     state = state.upper()
     cfg = STATE_CONFIG[state]
     if not cfg["panel"].exists():
@@ -395,7 +521,10 @@ def run_forecast(state: str, nsim: int = NSIM_DEFAULT, seed: int = RNG_SEED) -> 
     state_l1 = statewide_from_districts(districts, "zweit_l1")
     fit, low, high, state_meta = load_state_forecast(cfg["state_forecast"])
     rng = np.random.default_rng(seed)
-    state_draws = draw_state_shares(fit, low, high, nsim, rng)
+    state_draws, draws_source = load_statewide_share_draws(
+        cfg["state_forecast"], nsim, rng, fit, low, high
+    )
+    nsim = int(state_draws.shape[0])
     # One coefficient draw per statewide simulation (federal-style uncertainty).
     coef_draws = rng.multivariate_normal(beta_hat, vcov, size=nsim)
 
@@ -485,6 +614,8 @@ def run_forecast(state: str, nsim: int = NSIM_DEFAULT, seed: int = RNG_SEED) -> 
                 ):
                     if cand.get(ik) not in (None, ""):
                         item[ik] = cand[ik]
+            if cand.get("aw_url"):
+                item["aw_url"] = cand["aw_url"]
             items.append(item)
 
     now = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%dT%H:%M:%S")
@@ -508,6 +639,8 @@ def run_forecast(state: str, nsim: int = NSIM_DEFAULT, seed: int = RNG_SEED) -> 
         "seed": seed,
         "last_update": now,
         "statewide_source": cfg["state_forecast"].name,
+        "statewide_draws": draws_source,
+        "statewide_draws_file": state_forecast_draws_path(cfg["state_forecast"]).name,
         "panel_source": cfg["panel_source"],
         "l1_label": cfg["l1_label"],
         "last_poll_date": state_meta.get("last_poll_date"),
@@ -539,7 +672,12 @@ def main() -> None:
         default="all",
         help="State code or 'all' (BE, ST, MV)",
     )
-    ap.add_argument("--nsim", type=int, default=NSIM_DEFAULT)
+    ap.add_argument(
+        "--nsim",
+        type=int,
+        default=None,
+        help="Cap on statewide draws (default: all posterior draws)",
+    )
     ap.add_argument("--seed", type=int, default=RNG_SEED)
     ap.add_argument("--out", type=Path, default=None, help="Override output path (single state only)")
     args = ap.parse_args()
@@ -557,7 +695,11 @@ def main() -> None:
         for it in payload["items"]:
             if it["winner"]:
                 winners[it["partei"]] = winners.get(it["partei"], 0) + 1
-        print(f"Wrote {out} ({len(payload['items'])} rows)")
+        print(
+            f"Wrote {out} ({len(payload['items'])} rows, "
+            f"nsim={payload['metadata']['nsim']}, "
+            f"draws={payload['metadata'].get('statewide_draws')})"
+        )
         print(f"  {state} predicted Direktmandate:", dict(sorted(winners.items(), key=lambda x: -x[1])))
 
 

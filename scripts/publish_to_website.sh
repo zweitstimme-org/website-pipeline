@@ -51,7 +51,7 @@ for forecast in "${OUTPUT_DIR}"/forecast_state_*.json; do
 done
 
 # Stimmung jobs rebuild display_mode without forecast_*.json in output/, which
-# would flip forecast_available to false and hide Vorhersagen on the live site.
+# would flip forecast_available to false and omit Vorhersagen from the Hugo HTML.
 # Reconcile against forecast files that remain (or were just copied) in static/data.
 if [[ -f "${DATA_TARGET}/display_mode.json" ]]; then
   python3 - "${DATA_TARGET}" <<'PY'
@@ -103,6 +103,14 @@ dm["states"] = states
 dm_path.write_text(json.dumps(dm, indent=2, ensure_ascii=False) + "\n")
 print("Reconciled display_mode forecast_available with static/data/*.json")
 PY
+fi
+
+# Hugo reads data/display_mode.json at build time to include or omit Vorhersage
+# sections (and stripe section-alt backgrounds) without a client-side restripe.
+if [[ -f "${DATA_TARGET}/display_mode.json" ]]; then
+  mkdir -p "${WEBSITE_DIR}/data"
+  cp "${DATA_TARGET}/display_mode.json" "${WEBSITE_DIR}/data/display_mode.json"
+  echo "Copied display_mode.json to Hugo data/"
 fi
 
 # District / Wahlkreis + Einzugschancen (live). Wahlabend stays preview-only.

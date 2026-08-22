@@ -33,7 +33,7 @@ This is **not** the polling API for individual surveys. That lives at [api.zweit
 ## Concepts
 
 - **Forecast** — model output for election day: point estimates, uncertainty intervals, scenario probabilities, and optionally posterior draws.
-- **Stimmung** — Kalman-smoothed latent support by calendar day. Days without a new poll are still present. No seat scenarios.
+- **Stimmung** — Kalman-smoothed latent support by calendar day. Days without a new poll are still present. No seat scenarios. The full series is ~10 years; prefer `/current.json`, `/day/{date}.json`, `/month/{YYYY-MM}.json`, or `/year/{YYYY}.json`.
 - **`election`** — names the next relevant election for that scope. It is not the forecast timestamp. The same path can refer to a later cycle.
 
 ## Versioning
@@ -41,7 +41,7 @@ This is **not** the polling API for individual surveys. That lives at [api.zweit
 | Version | Meaning |
 |---|---|
 | `v1` | Legacy contract from when only federal forecasts existed. Kept for compatibility. |
-| `v2` | Current contract: federal and state election-day forecasts, posterior draws, and Stimmung. |
+| `v2` | Current contract: federal and state election-day forecasts (districts, candidates, parliament sims), posterior draws, and Stimmung. |
 | unversioned `/forecast.json` etc. | Aliases of the `v1` federal files. |
 
 Start at `GET /api/index.json`. Prefer `v2` for new integrations. Federal data exists under both `/api/v1/federal/` (old row shape) and `/api/v2/federal/` (metadata + `fit`/`low`/`high`, same as state).
@@ -62,13 +62,13 @@ Versioned endpoints wrap payloads as:
 ## Availability
 
 - State forecasts exist only inside the **~90-day window** before election day. Outside that window the path returns **404**.
-- After election day the last forecast moves to `/api/v2/federal/archive/` or `/api/v2/state/archive/`.
+- After election day the last forecast moves to `/api/v2/federal/archive/` or `/api/v2/state/archive/` (including districts / candidates / parliament sidecars when archived).
 - Archives start when this API began publishing them; there is no historical backfill.
-- `/data/*.json` files used by the website UI are **not** a public contract.
+- Website `/data/*.json` files mirror the same pipeline outputs for the UI; prefer the versioned `/api/v2/` paths as the public contract.
 
 ## Units
 
-Watch the unit. Party vote shares in summary forecasts are usually **percentage points**. Posterior draws use **shares from 0 to 1**. Federal `probabilities` / `pred_probabilities` are also 0–1. State scenario `probability` values are **percent 0–100**.
+Watch the unit. Party vote shares in summary forecasts are usually **percentage points**. Posterior draws use **shares from 0 to 1**. Federal `probabilities` / `pred_probabilities` are also 0–1. State scenario `probability` values are **percent 0–100**. District win probabilities and candidate `p_entry` / `p_direct` / `p_list` are **integer percents 0–100**.
 
 ## License
 
@@ -350,6 +350,21 @@ def schemas() -> dict[str, Any]:
                     "description": "Present when posterior draws are published.",
                     "example": "/api/v2/state/st/draws.json",
                 },
+                "districts": {
+                    "type": "string",
+                    "description": "Present when Wahlkreis forecasts are published.",
+                    "example": "/api/v2/state/st/districts.json",
+                },
+                "candidates": {
+                    "type": "string",
+                    "description": "Present when candidate entry probabilities are published.",
+                    "example": "/api/v2/state/st/candidates.json",
+                },
+                "parliament": {
+                    "type": "string",
+                    "description": "Present when parliament-size / seat sims are published.",
+                    "example": "/api/v2/state/st/parliament.json",
+                },
                 "active": {"type": "boolean"},
                 "election": _ref("Election"),
             },
@@ -418,6 +433,18 @@ def schemas() -> dict[str, Any]:
                 },
                 "n_draws": {"type": "integer", "example": 4000},
                 "draws_path": {"type": "string", "example": "/api/v2/state/st/draws.json"},
+                "districts_path": {
+                    "type": "string",
+                    "example": "/api/v2/state/st/districts.json",
+                },
+                "candidates_path": {
+                    "type": "string",
+                    "example": "/api/v2/state/st/candidates.json",
+                },
+                "parliament_path": {
+                    "type": "string",
+                    "example": "/api/v2/state/st/parliament.json",
+                },
                 "model": {"type": "string"},
                 "source_repo": {"type": "string"},
             },
@@ -436,6 +463,109 @@ def schemas() -> dict[str, Any]:
                     },
                 },
             },
+        },
+        "StateDistrictRow": {
+            "type": "object",
+            "description": "Landtag Wahlkreis × party row with candidate bio fields when available.",
+            "properties": {
+                "wkr": {"type": "integer"},
+                "wkr_name": {"type": "string"},
+                "land": {"type": "string"},
+                "party": {"type": "string"},
+                "partei": {"type": "string"},
+                "name": {"type": ["string", "null"]},
+                "winner": {"type": ["boolean", "integer", "string", "null"]},
+                "probability": {
+                    "type": "number",
+                    "description": "Direktmandat win probability, integer percent 0–100.",
+                },
+                "value": {"type": "number", "description": "Erststimme %, point estimate."},
+                "low": {"type": "number"},
+                "high": {"type": "number"},
+                "zs_value": {"type": "number", "description": "Zweitstimme %."},
+                "zs_value_l1": {"type": "number"},
+                "gender": {"type": ["string", "null"]},
+                "is_incumbent": {"type": ["boolean", "null"]},
+                "aw_url": {"type": ["string", "null"]},
+            },
+        },
+        "StateDistrictsData": {
+            "type": "object",
+            "properties": {
+                "metadata": {"type": "object"},
+                "districts": {
+                    "type": "array",
+                    "items": _ref("StateDistrictRow"),
+                },
+            },
+        },
+        "StateCandidateRow": {
+            "type": "object",
+            "description": "List/direct candidate with entry probabilities.",
+            "properties": {
+                "person_id": {"type": "string"},
+                "name": {"type": "string"},
+                "list_pos": {"type": ["integer", "null"]},
+                "wkr_direct": {"type": ["integer", "null"]},
+                "list_type": {"type": "string"},
+                "p_entry": {
+                    "type": "number",
+                    "description": "Probability of entering parliament, integer percent 0–100.",
+                },
+                "p_direct": {
+                    "type": "number",
+                    "description": "Probability via Direktmandat, integer percent 0–100.",
+                },
+                "p_list": {
+                    "type": "number",
+                    "description": "Probability via list seat, integer percent 0–100.",
+                },
+                "is_placeholder": {"type": "boolean"},
+                "gender": {"type": ["string", "null"]},
+                "aw_url": {"type": ["string", "null"]},
+            },
+        },
+        "StateCandidatesData": {
+            "type": "object",
+            "description": "Candidate list/direct entry probabilities for one Land.",
+            "properties": {
+                "metadata": {"type": "object"},
+                "parties": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "party": {"type": "string"},
+                            "partei": {"type": "string"},
+                            "list_type": {"type": "string"},
+                            "candidates": {
+                                "type": "array",
+                                "items": _ref("StateCandidateRow"),
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        "StateParliamentData": {
+            "type": "object",
+            "description": (
+                "Parliament-size and per-party seat simulation for one Land "
+                "(Hare/Niemeyer + district overhang/Ausgleich)."
+            ),
+            "properties": {
+                "metadata": {"type": "object"},
+                "base_seats": {"type": "integer"},
+                "size_mean": {"type": "number"},
+                "size_median": {"type": "integer"},
+                "buckets": {"type": "array", "items": {"type": "object"}},
+                "party_seats": {
+                    "type": "object",
+                    "additionalProperties": {"type": "object"},
+                    "description": "Per-party seat distribution stats from the simulation.",
+                },
+            },
+            "additionalProperties": True,
         },
         "StateDraw": {
             "type": "object",
@@ -528,28 +658,43 @@ def schemas() -> dict[str, Any]:
         },
         "StimmungSeriesData": {
             "type": "object",
-            "description": "Full daily series. There is no `?date=` query because the API is statically hosted. Index `by_date[YYYY-MM-DD]` locally.",
+            "description": (
+                "Daily series for a date range. `from`/`to` mark the inclusive window. "
+                "The unfiltered file (`federal.json` / `{code}.json`) is the full ~10-year history. "
+                "For a subset use `/month/{YYYY-MM}.json` or `/year/{YYYY}.json`."
+            ),
             "properties": {
                 "as_of": {"type": "string", "format": "date"},
+                "from": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "First calendar day in this payload (inclusive).",
+                },
+                "to": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last calendar day in this payload (inclusive).",
+                },
                 "dates": {"type": "array", "items": {"type": "string", "format": "date"}},
                 "series": {
                     "type": "object",
                     "additionalProperties": {"type": "array", "items": {"type": ["number", "null"]}},
                     "description": "Party label → array aligned with `dates`.",
                 },
-                "by_date": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "object",
-                        "properties": {"parties": party_map},
-                    },
-                    "description": "Calendar date → `{ parties: { … } }`.",
+                "current": {
+                    **party_map,
+                    "description": "Latest day only; present on the full-series file.",
                 },
-                "current": party_map,
                 "trends": party_map,
                 "active_parties": {"type": "array", "items": {"type": "string"}},
-                "uncertainty_low": party_map,
-                "uncertainty_high": party_map,
+                "uncertainty_low": {
+                    "type": "object",
+                    "additionalProperties": {"type": "array", "items": {"type": ["number", "null"]}},
+                },
+                "uncertainty_high": {
+                    "type": "object",
+                    "additionalProperties": {"type": "array", "items": {"type": ["number", "null"]}},
+                },
                 "metadata": {"type": "object"},
             },
         },
@@ -559,6 +704,20 @@ def schemas() -> dict[str, Any]:
                 "state_code": {"type": "string", "example": "ST"},
                 "path": {"type": "string", "example": "/api/v2/stimmung/state/st.json"},
                 "current": {"type": "string", "example": "/api/v2/stimmung/state/st/current.json"},
+                "day": {
+                    "type": "string",
+                    "example": "/api/v2/stimmung/state/st/day/{date}.json",
+                },
+                "month": {
+                    "type": "string",
+                    "example": "/api/v2/stimmung/state/st/month/{YYYY-MM}.json",
+                },
+                "year": {
+                    "type": "string",
+                    "example": "/api/v2/stimmung/state/st/year/{YYYY}.json",
+                },
+                "from": {"type": "string", "format": "date"},
+                "to": {"type": "string", "format": "date"},
                 "election": _ref("Election"),
                 "as_of": {"type": "string", "format": "date"},
             },
@@ -591,6 +750,24 @@ def paths() -> dict[str, Any]:
         "Archive date `YYYY-MM-DD`.",
         example="2025-02-23",
         pattern=r"^\d{4}-\d{2}-\d{2}$",
+    )
+    stimmung_day = _path_param(
+        "date",
+        "Calendar day `YYYY-MM-DD`.",
+        example="2026-08-18",
+        pattern=r"^\d{4}-\d{2}-\d{2}$",
+    )
+    stimmung_month = _path_param(
+        "month",
+        "Calendar month `YYYY-MM`.",
+        example="2026-08",
+        pattern=r"^\d{4}-\d{2}$",
+    )
+    stimmung_year = _path_param(
+        "year",
+        "Calendar year `YYYY`.",
+        example="2026",
+        pattern=r"^\d{4}$",
     )
 
     return {
@@ -653,6 +830,15 @@ def paths() -> dict[str, Any]:
             schema=_envelope_schema("FederalForecastData"),
             params=[federal_date],
             missing="No archived federal forecast for that date.",
+        ),
+        "/api/v2/federal/archive/{date}/districts.json": _get(
+            operation_id="get_v2_federal_archive_districts",
+            summary="Archived federal district forecast",
+            description="Wahlkreis forecast frozen with the archived federal run. Large file.",
+            tags=["federal"],
+            schema=_envelope_schema("FederalDistrictsData"),
+            params=[federal_date],
+            missing="No archived federal districts for that date.",
         ),
         "/api/v1/federal/index.json": _get(
             operation_id="get_v1_federal_index",
@@ -743,7 +929,7 @@ def paths() -> dict[str, Any]:
         "/api/v2/state/index.json": _get(
             operation_id="get_v2_state_index",
             summary="Active state forecasts",
-            description="States currently inside the ~90-day forecast window. Prefer this over hardcoding state codes. Each item includes `path` and, when published, `draws`.",
+            description="States currently inside the ~90-day forecast window. Prefer this over hardcoding state codes. Each item includes `path` and, when published, `draws`, `districts`, `candidates`, and `parliament`.",
             tags=["state"],
             schema=_ref("StateIndex"),
         ),
@@ -764,6 +950,33 @@ def paths() -> dict[str, Any]:
             schema=_envelope_schema("StateDrawsData"),
             params=[code],
             missing="No draws published for that state.",
+        ),
+        "/api/v2/state/{code}/districts.json": _get(
+            operation_id="get_v2_state_districts",
+            summary="State district forecast",
+            description="Landtag Wahlkreis-level Erst/Zweit estimates, Direktmandat win probabilities, and district candidates. Large file.",
+            tags=["state"],
+            schema=_envelope_schema("StateDistrictsData"),
+            params=[code],
+            missing="No district forecast published for that state.",
+        ),
+        "/api/v2/state/{code}/candidates.json": _get(
+            operation_id="get_v2_state_candidates",
+            summary="State candidate entry probabilities",
+            description="List and direct candidates with `p_entry` / `p_direct` / `p_list` (integer percents 0–100). Same data the website shows on Einzug.",
+            tags=["state"],
+            schema=_envelope_schema("StateCandidatesData"),
+            params=[code],
+            missing="No candidate entry probabilities for that state.",
+        ),
+        "/api/v2/state/{code}/parliament.json": _get(
+            operation_id="get_v2_state_parliament",
+            summary="State parliament-size simulation",
+            description="Seat-total and per-party seat distribution from the district swing + Hare/Niemeyer simulation.",
+            tags=["state"],
+            schema=_envelope_schema("StateParliamentData"),
+            params=[code],
+            missing="No parliament simulation for that state.",
         ),
         "/api/v2/state/archive/index.json": _get(
             operation_id="get_v2_state_archive_index",
@@ -790,6 +1003,33 @@ def paths() -> dict[str, Any]:
             params=[archive_id],
             missing="No archived draws for that id.",
         ),
+        "/api/v2/state/archive/{id}/districts.json": _get(
+            operation_id="get_v2_state_archive_districts",
+            summary="Archived state districts",
+            description="Wahlkreis forecast frozen with the archived state run.",
+            tags=["state"],
+            schema=_envelope_schema("StateDistrictsData"),
+            params=[archive_id],
+            missing="No archived districts for that id.",
+        ),
+        "/api/v2/state/archive/{id}/candidates.json": _get(
+            operation_id="get_v2_state_archive_candidates",
+            summary="Archived state candidates",
+            description="Candidate entry probabilities frozen with the archived state run.",
+            tags=["state"],
+            schema=_envelope_schema("StateCandidatesData"),
+            params=[archive_id],
+            missing="No archived candidates for that id.",
+        ),
+        "/api/v2/state/archive/{id}/parliament.json": _get(
+            operation_id="get_v2_state_archive_parliament",
+            summary="Archived state parliament sim",
+            description="Parliament-size simulation frozen with the archived state run.",
+            tags=["state"],
+            schema=_envelope_schema("StateParliamentData"),
+            params=[archive_id],
+            missing="No archived parliament sim for that id.",
+        ),
         "/api/v2/stimmung/federal/current.json": _get(
             operation_id="get_v2_stimmung_federal_current",
             summary="Federal Stimmung, current day",
@@ -797,17 +1037,51 @@ def paths() -> dict[str, Any]:
             tags=["stimmung"],
             schema=_envelope_schema("StimmungCurrentData"),
         ),
+        "/api/v2/stimmung/federal/index.json": _get(
+            operation_id="get_v2_stimmung_federal_index",
+            summary="Federal Stimmung catalog",
+            description="Paths for the full series, today, a single day, a month, or a year. `months` and `years` list what exists.",
+            tags=["stimmung"],
+            schema=_ref("Envelope"),
+        ),
+        "/api/v2/stimmung/federal/day/{date}.json": _get(
+            operation_id="get_v2_stimmung_federal_day",
+            summary="Federal Stimmung, one day",
+            description="Same shape as `current.json`, for any calendar day in the series. **404** if that date was not published.",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungCurrentData"),
+            params=[stimmung_day],
+            missing="No Stimmung for that date.",
+        ),
+        "/api/v2/stimmung/federal/month/{month}.json": _get(
+            operation_id="get_v2_stimmung_federal_month",
+            summary="Federal Stimmung, one month",
+            description="Daily series for one calendar month (`YYYY-MM`). Same shape as the full series, without `current`/`trends`/`metadata`.",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungSeriesData"),
+            params=[stimmung_month],
+            missing="No Stimmung for that month.",
+        ),
+        "/api/v2/stimmung/federal/year/{year}.json": _get(
+            operation_id="get_v2_stimmung_federal_year",
+            summary="Federal Stimmung, one year",
+            description="Daily series for one calendar year (`YYYY`).",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungSeriesData"),
+            params=[stimmung_year],
+            missing="No Stimmung for that year.",
+        ),
         "/api/v2/stimmung/federal.json": _get(
             operation_id="get_v2_stimmung_federal_series",
             summary="Federal Stimmung, full series",
-            description="Daily federal series. Pick a day with `data.by_date[\"YYYY-MM-DD\"]`. No `?date=` parameter.",
+            description="Entire daily history (~10 years). Large file. Prefer `/api/v2/stimmung/federal/current.json`, `/day/{date}.json`, `/month/{YYYY-MM}.json`, or `/year/{YYYY}.json`.",
             tags=["stimmung"],
             schema=_envelope_schema("StimmungSeriesData"),
         ),
         "/api/v2/stimmung/state/index.json": _get(
             operation_id="get_v2_stimmung_state_index",
             summary="State Stimmung catalog",
-            description="All Länder, including those without an active election-day forecast. Use `path` for the full series and `current` for today.",
+            description="All Länder, including those without an active election-day forecast. Use `current` for today, `day` / `month` / `year` for a subset, `path` for the full series.",
             tags=["stimmung"],
             schema=_ref("Envelope"),
         ),
@@ -820,10 +1094,46 @@ def paths() -> dict[str, Any]:
             params=[code],
             missing="Unknown state code.",
         ),
+        "/api/v2/stimmung/state/{code}/index.json": _get(
+            operation_id="get_v2_stimmung_state_scope_index",
+            summary="State Stimmung catalog for one Land",
+            description="Paths for the full series, today, a single day, a month, or a year for this Land.",
+            tags=["stimmung"],
+            schema=_ref("Envelope"),
+            params=[code],
+            missing="Unknown state code.",
+        ),
+        "/api/v2/stimmung/state/{code}/day/{date}.json": _get(
+            operation_id="get_v2_stimmung_state_day",
+            summary="State Stimmung, one day",
+            description="Same shape as `current.json`, for any calendar day in that Land's series.",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungCurrentData"),
+            params=[code, stimmung_day],
+            missing="Unknown state code or no Stimmung for that date.",
+        ),
+        "/api/v2/stimmung/state/{code}/month/{month}.json": _get(
+            operation_id="get_v2_stimmung_state_month",
+            summary="State Stimmung, one month",
+            description="Daily series for one Land and calendar month (`YYYY-MM`).",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungSeriesData"),
+            params=[code, stimmung_month],
+            missing="Unknown state code or no Stimmung for that month.",
+        ),
+        "/api/v2/stimmung/state/{code}/year/{year}.json": _get(
+            operation_id="get_v2_stimmung_state_year",
+            summary="State Stimmung, one year",
+            description="Daily series for one Land and calendar year (`YYYY`).",
+            tags=["stimmung"],
+            schema=_envelope_schema("StimmungSeriesData"),
+            params=[code, stimmung_year],
+            missing="Unknown state code or no Stimmung for that year.",
+        ),
         "/api/v2/stimmung/state/{code}.json": _get(
             operation_id="get_v2_stimmung_state_series",
             summary="State Stimmung, full series",
-            description="Daily series for one Land. Index `data.by_date[YYYY-MM-DD]` locally.",
+            description="Entire daily history for one Land (~10 years). Large file. Prefer `current`, `day/{date}`, `month/{YYYY-MM}`, or `year/{YYYY}`.",
             tags=["stimmung"],
             schema=_envelope_schema("StimmungSeriesData"),
             params=[code],
