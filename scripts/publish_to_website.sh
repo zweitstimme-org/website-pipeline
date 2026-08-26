@@ -25,6 +25,63 @@ copy_if_exists() {
   fi
 }
 
+# Do not overwrite live forecasts with stale output/ (e.g. after a UI-only publish).
+copy_forecast_if_newer() {
+  local src="$1"
+  local dest="$2"
+  if [[ ! -f "${src}" ]]; then
+    return 0
+  fi
+  python3 - "$src" "$dest" <<'PY'
+import json, sys
+from datetime import datetime
+from pathlib import Path
+
+src, dest = Path(sys.argv[1]), Path(sys.argv[2])
+
+def parse_ts(meta: dict):
+    for key in ("last_poll_date", "last_update", "asof_date", "generated_at"):
+        val = meta.get(key)
+        if not val:
+            continue
+        s = str(val)[:10]
+        try:
+            return datetime.strptime(s, "%Y-%m-%d")
+        except ValueError:
+            pass
+        try:
+            return datetime.fromisoformat(str(val).replace("Z", "+00:00")).replace(tzinfo=None)
+        except ValueError:
+            pass
+    return None
+
+def score(path: Path):
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    meta = data.get("metadata") or {}
+    return parse_ts(meta)
+
+if not dest.exists():
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(src.read_bytes())
+    print(f"Copied {src.name} (new)")
+    sys.exit(0)
+
+src_ts = score(src)
+dest_ts = score(dest)
+if src_ts is None:
+    print(f"Skip {src.name}: unreadable source metadata")
+    sys.exit(0)
+if dest_ts is None or src_ts >= dest_ts:
+    dest.write_bytes(src.read_bytes())
+    print(f"Copied {src.name} ({src_ts.date()} >= {dest_ts.date() if dest_ts else 'none'})")
+else:
+    print(f"Keep {dest.name} on website-source ({dest_ts.date()} > {src_ts.date()} in output/)")
+PY
+}
+
 shopt -s nullglob
 for file in \
   stimmung_federal.json \
@@ -46,8 +103,7 @@ copy_if_exists "${REPO_ROOT}/data/election_calendar.json" "${DATA_TARGET}/electi
 copy_if_exists "${REPO_ROOT}/data/json_output/election_dates.json" "${DATA_TARGET}/election_dates.json"
 
 for forecast in "${OUTPUT_DIR}"/forecast_state_*.json; do
-  cp "${forecast}" "${DATA_TARGET}/"
-  echo "Copied $(basename "${forecast}")"
+  copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/$(basename "${forecast}")"
 done
 
 # Stimmung jobs rebuild display_mode without forecast_*.json in output/, which
@@ -114,12 +170,13 @@ if [[ -f "${DATA_TARGET}/display_mode.json" ]]; then
 fi
 
 # District / Wahlkreis + Einzugschancen (live). Wahlabend stays preview-only.
-copy_if_exists "${OUTPUT_DIR}/forecast_candidate_entry.json" \
+copy_forecast_if_newer "${OUTPUT_DIR}/forecast_candidate_entry.json" \
   "${DATA_TARGET}/forecast_candidate_entry.json"
+copy_forecast_if_newer "${OUTPUT_DIR}/forecast_parliament_size.json" \
+  "${DATA_TARGET}/forecast_parliament_size.json"
 for forecast in "${OUTPUT_DIR}"/forecast_districts_*.json; do
   [[ -f "${forecast}" ]] || continue
-  cp "${forecast}" "${DATA_TARGET}/"
-  echo "Copied $(basename "${forecast}")"
+  copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/$(basename "${forecast}")"
 done
 for geo in "${OUTPUT_DIR}"/ltw_wahlkreise_*.geojson; do
   [[ -f "${geo}" ]] || continue
@@ -146,7 +203,18 @@ fi
 
 if [[ -d "${INTEGRATION}/static/js" ]]; then
   mkdir -p "${WEBSITE_DIR}/static/js"
-  cp -r "${INTEGRATION}/static/js/." "${WEBSITE_DIR}/static/js/"
+  for js in "${INTEGRATION}/static/js/"*.js; do
+    [[ -f "${js}" ]] || continue
+    base="$(basename "${js}")"
+    dest="${WEBSITE_DIR}/static/js/${base}"
+    if [[ -f "${dest}" ]] && [[ "${base}" == "candidate-entry.js" || "${base}" == "district-forecast-map.js" ]] \
+      && rg -q 'scenario-prob-panel' "${dest}" 2>/dev/null \
+      && ! rg -q 'scenario-prob-panel' "${js}" 2>/dev/null; then
+      echo "Keep static/js/${base} (website-source has newer Einzug/Wahlkreis UI)"
+      continue
+    fi
+    cp "${js}" "${dest}"
+  done
   # Wahlabend replay UI stays on the Pages mock only.
   rm -f "${WEBSITE_DIR}/static/js/wahlabend-nowcast.js"
   echo "Synced static/js (without wahlabend-nowcast)"
@@ -197,11 +265,18 @@ copy_theme_file() {
   local rel="$1"
   local src="${INTEGRATION}/themes/PaperMod/${rel}"
   local dest="${WEBSITE_DIR}/themes/PaperMod/${rel}"
-  if [[ -f "${src}" ]]; then
-    mkdir -p "$(dirname "${dest}")"
-    cp "${src}" "${dest}"
-    echo "Copied ${rel}"
+  if [[ ! -f "${src}" ]]; then
+    return 0
   fi
+  # Stimmung-only publishes must not roll back Einzug/Wahlkreis UI that is already live.
+  if [[ -f "${dest}" ]] && rg -q 'scenario-prob-panel|district-preview-nav' "${dest}" 2>/dev/null \
+    && ! rg -q 'scenario-prob-panel|district-preview-nav' "${src}" 2>/dev/null; then
+    echo "Keep ${rel} (website-source has newer Einzug/Wahlkreis UI than integration)"
+    return 0
+  fi
+  mkdir -p "$(dirname "${dest}")"
+  cp "${src}" "${dest}"
+  echo "Copied ${rel}"
 }
 
 # Wahlkreise + Einzug + Kandidat:innen (public).

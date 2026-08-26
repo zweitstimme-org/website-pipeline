@@ -57,8 +57,10 @@ jobs:
           FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
         run: |
           if [ "${FORCE_REFRESH}" = "true" ]; then
+            # Empty STATES_TO_FORECAST → all due Länder in the 90-day window.
             echo "run=true" >> "$GITHUB_OUTPUT"
             echo "reason=force_refresh" >> "$GITHUB_OUTPUT"
+            echo "states=" >> "$GITHUB_OUTPUT"
             echo "details=[]" >> "$GITHUB_OUTPUT"
           else
             python3 scripts/check_poll_freshness.py --mode state --github-output "$GITHUB_OUTPUT"
@@ -102,7 +104,15 @@ jobs:
           STATE_MODELS_DIR: ${{ github.workspace }}/state-models
           MODEL_ONLY_ALL: "0"
           MODEL_POLLS_ONLY: "1"
-        run: bash scripts/run_state_models_forecast.sh
+          # Only Länder with newer polls (empty = all due, e.g. force_refresh).
+          STATES_TO_FORECAST: ${{ steps.gate.outputs.states }}
+        run: |
+          if [ -n "${STATES_TO_FORECAST}" ]; then
+            echo "Forecasting only: ${STATES_TO_FORECAST}"
+          else
+            echo "Forecasting all due states in the window"
+          fi
+          bash scripts/run_state_models_forecast.sh
 
       - name: Upload pipeline artifacts
         if: always() && steps.gate.outputs.run == 'true'
@@ -168,3 +178,4 @@ jobs:
         if: steps.gate.outputs.run != 'true'
         run: |
           echo "Skipping State Forecasts: ${{ steps.gate.outputs.reason }}"
+          echo "Details: ${{ steps.gate.outputs.details }}"

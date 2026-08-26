@@ -13,12 +13,15 @@ if [[ ! -f "${STATE_MODELS_DIR}/run_pipeline.R" ]]; then
 fi
 
 # Comma-separated elec_ind list, or derive from election_calendar.json (≤90 days).
+# Optional STATES_TO_FORECAST=BE,ST limits to those Länder (new-poll gating).
 if [[ -z "${ELECTIONS_TO_FORECAST:-}" ]]; then
   ELECTIONS_TO_FORECAST="$(
-    python3 - <<'PY' "${REPO_ROOT}/data/election_calendar.json"
+    python3 - <<'PY' "${REPO_ROOT}/data/election_calendar.json" "${STATES_TO_FORECAST:-}"
 import json, sys
 from datetime import date, datetime
 path = sys.argv[1]
+want_raw = (sys.argv[2] or "").strip()
+want = {c.strip().upper() for c in want_raw.split(",") if c.strip()} if want_raw else None
 with open(path) as f:
     cal = json.load(f)
 today = date.today()
@@ -31,10 +34,13 @@ for e in cal.get("elections", []):
     code = e.get("state_code")
     if not d or not code:
         continue
+    code_u = str(code).upper()
+    if want is not None and code_u not in want:
+        continue
     ed = datetime.strptime(d, "%Y-%m-%d").date()
     days = (ed - today).days
     if 0 < days <= window:
-        due.append(f"{code.lower()}_{d}")
+        due.append(f"{code_u.lower()}_{d}")
 print(",".join(due))
 PY
   )"
@@ -44,6 +50,16 @@ if [[ -z "${ELECTIONS_TO_FORECAST}" ]]; then
   echo "No upcoming state elections in forecast window." >&2
   exit 0
 fi
+
+# State codes actually being forecast this run (for district / entry sims).
+FORECAST_STATE_CODES="$(
+  python3 - <<'PY' "${ELECTIONS_TO_FORECAST}"
+import sys
+codes = sorted({eid.split("_", 1)[0].upper() for eid in sys.argv[1].split(",") if "_" in eid})
+print(" ".join(codes))
+PY
+)"
+echo "FORECAST_STATE_CODES=${FORECAST_STATE_CODES}"
 
 # Lead = election − last poll Stand (API + optional DAWUM scrape), not calendar today.
 # run_pipeline.R recomputes the same; this seeds SKIP_ESTIMATE=1 path and logs.
@@ -151,12 +167,51 @@ Rscript "${REPO_ROOT}/state-model/convert_fcst_to_json.R"
 )
 
 # District swings + parliament-size sim depend on the new statewide fits.
+# Only rebuild Länder that were re-forecast; merge multi-state JSON from live
+# when this is a partial run so publish does not drop unchanged states.
 SKIP_DISTRICTS="${SKIP_DISTRICTS:-0}"
 if [[ "${SKIP_DISTRICTS}" != "1" ]]; then
-  echo "Rebuilding district forecasts from updated state projections…"
+  echo "Rebuilding district forecasts for: ${FORECAST_STATE_CODES}"
   (
     cd "${REPO_ROOT}"
-    make district-forecast
+    mkdir -p output
+    SITE_BASE="${SITE_BASE:-https://zweitstimme.org}"
+    # Seed multi-state payloads so partial --states merges keep BE/MV/ST intact.
+    for multi in forecast_parliament_size.json forecast_candidate_entry.json; do
+      if [[ ! -f "output/${multi}" ]]; then
+        if curl -fsSL "${SITE_BASE}/data/${multi}" -o "output/${multi}"; then
+          echo "Seeded output/${multi} from ${SITE_BASE}"
+        else
+          rm -f "output/${multi}"
+          echo "No live ${multi} to seed (ok on first publish)"
+        fi
+      fi
+    done
+    # prepare_district_data only knows BE/ST (MV uses existing panel); skip if neither.
+    prep_states=()
+    for code in ${FORECAST_STATE_CODES}; do
+      case "${code}" in
+        BE|ST) prep_states+=("${code}") ;;
+      esac
+    done
+    if [[ ${#prep_states[@]} -gt 0 ]]; then
+      if [[ ${#prep_states[@]} -eq 1 ]]; then
+        ${PY:-python3} code/prepare_district_data.py --state "${prep_states[0]}"
+      else
+        ${PY:-python3} code/prepare_district_data.py --state all
+      fi
+    fi
+    ${PY:-python3} code/incumbents.py --offline || ${PY:-python3} code/incumbents.py
+    ${PY:-python3} code/aw_candidacies.py --offline || ${PY:-python3} code/aw_candidacies.py
+    for code in ${FORECAST_STATE_CODES}; do
+      ${PY:-python3} code/district_forecast.py --state "${code}"
+    done
+    # shellcheck disable=SC2086
+    ${PY:-python3} code/parliament_size_sim.py --states ${FORECAST_STATE_CODES}
+    # shellcheck disable=SC2086
+    ${PY:-python3} code/listen_candidates.py --states ${FORECAST_STATE_CODES}
+    # shellcheck disable=SC2086
+    ${PY:-python3} code/candidate_entry_sim.py --states ${FORECAST_STATE_CODES}
   )
 fi
 

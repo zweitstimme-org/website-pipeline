@@ -119,7 +119,7 @@ def federal_due():
 
 def decide_state():
     details = []
-    run = False
+    changed_codes = []
     due = due_state_codes()
     for code in due:
         latest = latest_state_poll_date(code)
@@ -131,10 +131,17 @@ def decide_state():
             "published_last_poll_date": published.isoformat() if published else None,
             "changed": changed,
         })
-        run = run or changed
+        if changed:
+            changed_codes.append(code)
     return {
-        "run": run,
-        "reason": "new_state_poll" if run else ("no_due_state_forecasts" if not due else "no_new_state_polls"),
+        "run": bool(changed_codes),
+        "reason": (
+            "new_state_poll"
+            if changed_codes
+            else ("no_due_state_forecasts" if not due else "no_new_state_polls")
+        ),
+        # Only Länder with a newer poll than the published forecast.
+        "states": changed_codes,
         "details": details,
     }
 
@@ -208,9 +215,11 @@ def main():
 
     print(json.dumps(out, indent=2))
     if args.github_output:
+        states = out.get("states") or []
         with open(args.github_output, "a", encoding="utf-8") as f:
             f.write(f"run={'true' if out['run'] else 'false'}\n")
             f.write(f"reason={out['reason']}\n")
+            f.write(f"states={','.join(states)}\n")
             f.write("details<<EOF\n")
             f.write(json.dumps(out["details"], ensure_ascii=False))
             f.write("\nEOF\n")
