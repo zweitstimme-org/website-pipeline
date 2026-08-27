@@ -1,0 +1,286 @@
+state,party,name,norm_name,match_how,aw_name,aw_party,aw_politician_id,aw_url,aw_wkr,aw_list_pos,source
+ST,afd,Alexander Raue,alexander raue,exact,Alexander Raue,afd,152774,https://www.abgeordnetenwatch.de/profile/alexander-raue,35,50,abgeordnetenwatch
+ST,afd,Andreas Best,andreas best,exact,Andreas Best,afd,185518,https://www.abgeordnetenwatch.de/profile/andreas-best,24,25,abgeordnetenwatch
+ST,afd,Andreas Gehlmann,andreas gehlmann,exact,Andreas Gehlmann,afd,152769,https://www.abgeordnetenwatch.de/profile/andreas-gehlmann,31,30,abgeordnetenwatch
+ST,afd,Armin Friese,armin friese,exact,Armin Friese,afd,185504,https://www.abgeordnetenwatch.de/profile/armin-friese,15,,abgeordnetenwatch
+ST,afd,Benedikt Weiß,benedikt weiss,exact,Benedikt Weiß,afd,185499,https://www.abgeordnetenwatch.de/profile/benedikt-weiss,36,,abgeordnetenwatch
+ST,afd,Burkhardt Ratzmann,burkhardt ratzmann,exact,Burkhardt Ratzmann,afd,185114,https://www.abgeordnetenwatch.de/profile/burkhardt-ratzmann,26,48,abgeordnetenwatch
+ST,afd,Christian Mertens,christian mertens,exact,Christian Mertens,afd,175009,https://www.abgeordnetenwatch.de/profile/christian-mertens,12,24,abgeordnetenwatch
+ST,afd,Christian Ulrich Hecht,christian ulrich hecht,first_last,Christian Hecht,afd,175011,https://www.abgeordnetenwatch.de/profile/christian-hecht,14,14,abgeordnetenwatch
+ST,afd,Daniel Rausch,daniel rausch,exact,Daniel Rausch,afd,152785,https://www.abgeordnetenwatch.de/profile/daniel-rausch,18,22,abgeordnetenwatch
+ST,afd,Daniel Roi,daniel roi,exact,Daniel Roi,afd,121039,https://www.abgeordnetenwatch.de/profile/daniel-roi,28,,abgeordnetenwatch
+ST,afd,Daniel Wald,daniel wald,exact,Daniel Wald,afd,155492,https://www.abgeordnetenwatch.de/profile/daniel-wald,33,10,abgeordnetenwatch
+ST,afd,Dennis Möhring,dennis moehring,exact,Dennis Möhring,afd,175014,https://www.abgeordnetenwatch.de/profile/dennis-moehring,17,12,abgeordnetenwatch
+ST,afd,Dirk Jonas,dirk jonas,exact,Dirk Jonas,afd,185673,https://www.abgeordnetenwatch.de/profile/dirk-jonas,39,41,abgeordnetenwatch
+ST,afd,Dirk Lassowski,dirk lassowski,exact,Dirk Lassowski,afd,185510,https://www.abgeordnetenwatch.de/profile/dirk-lassowski,7,21,abgeordnetenwatch
+ST,afd,Dr. Hans-Thomas Tillschneider,hans-thomas tillschneider,exact,Hans-Thomas Tillschneider,afd,152773,https://www.abgeordnetenwatch.de/profile/hans-thomas-tillschneider,32,3,abgeordnetenwatch
+ST,afd,Dr. Jan Moldenhauer,jan moldenhauer,exact,Jan Moldenhauer,afd,175010,https://www.abgeordnetenwatch.de/profile/jan-moldenhauer,21,7,abgeordnetenwatch
+ST,afd,Felix Zietmann,felix zietmann,exact,Felix Zietmann,afd,175007,https://www.abgeordnetenwatch.de/profile/felix-zietmann,8,11,abgeordnetenwatch
+ST,afd,Florian Schröder,florian schroeder,exact,Florian Schröder,afd,175020,https://www.abgeordnetenwatch.de/profile/florian-schroeder,29,16,abgeordnetenwatch
+ST,afd,Frank-Ronald Bischoff,frank-ronald bischoff,wkr_lastname,Ronald Bischoff,afd,145729,https://www.abgeordnetenwatch.de/profile/ronald-bischoff,16,33,abgeordnetenwatch
+ST,afd,Gordon Köhler,gordon koehler,exact,Gordon Köhler,afd,175016,https://www.abgeordnetenwatch.de/profile/gordon-koehler,34,5,abgeordnetenwatch
+ST,afd,Hagen Kohl,hagen kohl,exact,Hagen Kohl,afd,152752,https://www.abgeordnetenwatch.de/profile/hagen-kohl,11,17,abgeordnetenwatch
+ST,afd,Jan Scharfenort,jan scharfenort,exact,Jan Scharfenort,afd,175005,https://www.abgeordnetenwatch.de/profile/jan-scharfenort,6,9,abgeordnetenwatch
+ST,afd,Juliane Waehler,juliane waehler,exact,Juliane Waehler,afd,185115,https://www.abgeordnetenwatch.de/profile/juliane-waehler,40,31,abgeordnetenwatch
+ST,afd,Lothar Waehler,lothar waehler,exact,Lothar Waehler,afd,175026,https://www.abgeordnetenwatch.de/profile/lothar-waehler,41,18,abgeordnetenwatch
+ST,afd,Martin Sehrndt,martin sehrndt,exact,Martin Sehrndt,afd,175024,https://www.abgeordnetenwatch.de/profile/martin-sehrndt,37,,abgeordnetenwatch
+ST,afd,Matthias Büttner,matthias buettner,exact,Matthias Büttner,afd,145727,https://www.abgeordnetenwatch.de/profile/matthias-buettner,4,13,abgeordnetenwatch
+ST,afd,Matthias Lieschke,matthias lieschke,exact,Matthias Lieschke,afd,152765,https://www.abgeordnetenwatch.de/profile/matthias-lieschke,25,20,abgeordnetenwatch
+ST,afd,Nadine Koppehel,nadine koppehel,exact,Nadine Koppehel,afd,175018,https://www.abgeordnetenwatch.de/profile/nadine-koppehel,27,15,abgeordnetenwatch
+ST,afd,Oliver Kirchner,oliver kirchner,exact,Oliver Kirchner,afd,152751,https://www.abgeordnetenwatch.de/profile/oliver-kirchner,10,2,abgeordnetenwatch
+ST,afd,Paul Backmund,paul backmund,exact,Paul Backmund,afd,185494,https://www.abgeordnetenwatch.de/profile/paul-backmund,38,,abgeordnetenwatch
+ST,afd,Phillipp-Anders Rau,phillipp-anders rau,exact,Phillipp-Anders Rau,afd,185505,https://www.abgeordnetenwatch.de/profile/phillipp-anders-rau,23,29,abgeordnetenwatch
+ST,afd,Reiner Kretschmann,reiner kretschmann,exact,Reiner Kretschmann,afd,175021,https://www.abgeordnetenwatch.de/profile/reiner-kretschmann,30,,abgeordnetenwatch
+ST,afd,Ronny Kumpf,ronny kumpf,exact,Ronny Kumpf,afd,185680,https://www.abgeordnetenwatch.de/profile/ronny-kumpf,13,27,abgeordnetenwatch
+ST,afd,Sebastian Killinger,sebastian killinger,exact,Sebastian Killinger,afd,185500,https://www.abgeordnetenwatch.de/profile/sebastian-killinger,3,34,abgeordnetenwatch
+ST,afd,Sebastian Koch,sebastian koch,exact,Sebastian Koch,afd,185497,https://www.abgeordnetenwatch.de/profile/sebastian-koch-0,2,8,abgeordnetenwatch
+ST,afd,Simon Lansmann,simon lansmann,exact,Simon Lansmann,afd,185495,https://www.abgeordnetenwatch.de/profile/simon-lansmann,1,19,abgeordnetenwatch
+ST,afd,Thomas Schmirander,thomas schmirander,exact,Thomas Schmirander,afd,185513,https://www.abgeordnetenwatch.de/profile/thomas-schmirander,9,,abgeordnetenwatch
+ST,afd,Tobias Rausch,tobias rausch,exact,Tobias Rausch,afd,152760,https://www.abgeordnetenwatch.de/profile/tobias-rausch,20,4,abgeordnetenwatch
+ST,afd,Ulrich Siegmund,ulrich siegmund,exact,Ulrich Siegmund,afd,152749,https://www.abgeordnetenwatch.de/profile/ulrich-siegmund,5,1,abgeordnetenwatch
+ST,afd,Volker Olenicak,volker olenicak,exact,Volker Olenicak,afd,152767,https://www.abgeordnetenwatch.de/profile/volker-olenicak,22,,abgeordnetenwatch
+ST,bsw,Andreas Holger Kendelbacher,andreas holger kendelbacher,first_last,Andreas Kendelbacher,bsw,185107,https://www.abgeordnetenwatch.de/profile/andreas-kendelbacher,41,,abgeordnetenwatch
+ST,bsw,Andreas Michelmann,andreas michelmann,exact,Andreas Michelmann,bsw,185096,https://www.abgeordnetenwatch.de/profile/andreas-michelmann,18,,abgeordnetenwatch
+ST,bsw,Andreas Neubert,andreas neubert,exact,Andreas Neubert,bsw,185103,https://www.abgeordnetenwatch.de/profile/andreas-neubert,35,11,abgeordnetenwatch
+ST,bsw,Carsten Reiche,carsten reiche,exact,Carsten Reiche,bsw,185088,https://www.abgeordnetenwatch.de/profile/carsten-reiche,9,,abgeordnetenwatch
+ST,bsw,Christian Samter,christian samter,exact,Christian Samter,bsw,185099,https://www.abgeordnetenwatch.de/profile/christian-samter,22,,abgeordnetenwatch
+ST,bsw,Dr. Claudia Wittig,claudia wittig,exact,Claudia Wittig,bsw,185105,https://www.abgeordnetenwatch.de/profile/claudia-wittig,37,2,abgeordnetenwatch
+ST,bsw,Dr. Sylvia Winkelmann-Witkowsky,sylvia winkelmann-witkowsky,exact,Sylvia Winkelmann-Witkowsky,bsw,185104,https://www.abgeordnetenwatch.de/profile/sylvia-winkelmann-witkowsky,36,,abgeordnetenwatch
+ST,bsw,Frank Roßband,frank rossband,exact,Frank Roßband,bsw,185082,https://www.abgeordnetenwatch.de/profile/frank-rossband,2,,abgeordnetenwatch
+ST,bsw,Heiko Behne,heiko behne,exact,Heiko Behne,bsw,185081,https://www.abgeordnetenwatch.de/profile/heiko-behne,1,,abgeordnetenwatch
+ST,bsw,Holger Köhne,holger koehne,exact,Holger Köhne,bsw,185083,https://www.abgeordnetenwatch.de/profile/holger-koehne,3,10,abgeordnetenwatch
+ST,bsw,Hugo Boeck,hugo boeck,exact,Hugo Boeck,bsw,124195,https://www.abgeordnetenwatch.de/profile/hugo-boeck,13,,abgeordnetenwatch
+ST,bsw,Joachim Pasemann,joachim pasemann,exact,Joachim Pasemann,bsw,185094,https://www.abgeordnetenwatch.de/profile/joachim-pasemann,16,,abgeordnetenwatch
+ST,bsw,John Lucas Dittrich,john lucas dittrich,exact,John Lucas Dittrich,bsw,185090,https://www.abgeordnetenwatch.de/profile/john-lucas-dittrich,11,5,abgeordnetenwatch
+ST,bsw,Lenny Werner Wapenhans,lenny werner wapenhans,first_last,Lenny Wapenhans,bsw,185091,https://www.abgeordnetenwatch.de/profile/lenny-wapenhans,12,,abgeordnetenwatch
+ST,bsw,László Müller,laszlo mueller,exact,László Müller,bsw,124231,https://www.abgeordnetenwatch.de/profile/laszlo-mueller,34,,abgeordnetenwatch
+ST,bsw,Matthias Hohmann,matthias hohmann,exact,Matthias Hohmann,bsw,185086,https://www.abgeordnetenwatch.de/profile/matthias-hohmann,6,16,abgeordnetenwatch
+ST,bsw,Maximilian Schwartz,maximilian schwartz,exact,Maximilian Schwartz,bsw,185093,https://www.abgeordnetenwatch.de/profile/maximilian-schwartz,15,12,abgeordnetenwatch
+ST,bsw,Michael Fürst,michael fuerst,wkr_lastname,Wolfgang Michael Fürst,bsw,185511,https://www.abgeordnetenwatch.de/profile/wolfgang-michael-fuerst,8,,abgeordnetenwatch
+ST,bsw,Michael Reim,michael reim,exact,Michael Reim,bsw,185095,https://www.abgeordnetenwatch.de/profile/michael-reim,17,4,abgeordnetenwatch
+ST,bsw,Michael Wolfgang Fürst,michael wolfgang fuerst,wkr_lastname,Wolfgang Michael Fürst,bsw,185511,https://www.abgeordnetenwatch.de/profile/wolfgang-michael-fuerst,8,,abgeordnetenwatch
+ST,bsw,Monika Gehlis,monika gehlis,exact,Monika Gehlis,bsw,185092,https://www.abgeordnetenwatch.de/profile/monika-gehlis,14,14,abgeordnetenwatch
+ST,bsw,Oliver Bart,oliver bart,exact,Oliver Bart,bsw,185087,https://www.abgeordnetenwatch.de/profile/oliver-bart,7,15,abgeordnetenwatch
+ST,bsw,Roland Herbert,roland herbert,exact,Roland Herbert,bsw,185097,https://www.abgeordnetenwatch.de/profile/roland-herbert,19,,abgeordnetenwatch
+ST,bsw,Rudenz Schramm,rudenz schramm,exact,Rudenz Schramm,bsw,185106,https://www.abgeordnetenwatch.de/profile/rudenz-schramm,38,6,abgeordnetenwatch
+ST,bsw,Thomas Schulze,thomas schulze,exact,Thomas Schulze,bsw,185085,https://www.abgeordnetenwatch.de/profile/thomas-schulze-0,5,1,abgeordnetenwatch
+ST,bsw,Uwe Erich Georgi,uwe erich georgi,first_last,Uwe Georgi,bsw,185098,https://www.abgeordnetenwatch.de/profile/uwe-georgi,20,,abgeordnetenwatch
+ST,bsw,Vinzenz Louis Mühlbach,vinzenz louis muehlbach,exact,Vinzenz Louis Mühlbach,bsw,185089,https://www.abgeordnetenwatch.de/profile/vinzenz-louis-muehlbach,10,18,abgeordnetenwatch
+ST,bsw,Volkmar Gryschok,volkmar gryschok,exact,Volkmar Gryschok,bsw,185084,https://www.abgeordnetenwatch.de/profile/volkmar-gryschok,4,,abgeordnetenwatch
+ST,cdu,Alexander Räuscher,alexander raeuscher,exact,Alexander Räuscher,cdu,175203,https://www.abgeordnetenwatch.de/profile/alexander-raeuscher,15,36,abgeordnetenwatch
+ST,cdu,Andreas Schumann,andreas schumann,exact,Andreas Schumann,cdu,118110,https://www.abgeordnetenwatch.de/profile/andreas-schumann,13,29,abgeordnetenwatch
+ST,cdu,Artjom Pusch,artjom pusch,exact,Artjom Pusch,cdu,181063,https://www.abgeordnetenwatch.de/profile/artjom-pusch,14,18,abgeordnetenwatch
+ST,cdu,Bianca Heine,bianca heine,exact,Bianca Heine,cdu,184950,https://www.abgeordnetenwatch.de/profile/bianca-heine,16,30,abgeordnetenwatch
+ST,cdu,Carsten Borchert,carsten borchert,exact,Carsten Borchert,cdu,152746,https://www.abgeordnetenwatch.de/profile/carsten-borchert,1,14,abgeordnetenwatch
+ST,cdu,Chris Schulenburg,chris schulenburg,exact,Chris Schulenburg,cdu,152748,https://www.abgeordnetenwatch.de/profile/chris-schulenburg,3,2,abgeordnetenwatch
+ST,cdu,Christian Albrecht,christian albrecht,exact,Christian Albrecht,cdu,175224,https://www.abgeordnetenwatch.de/profile/christian-albrecht,35,35,abgeordnetenwatch
+ST,cdu,Christopher Schult,christopher schult,exact,Christopher Schult,cdu,184948,https://www.abgeordnetenwatch.de/profile/christopher-schult,8,27,abgeordnetenwatch
+ST,cdu,Claudia Freia Schmidt,claudia freia schmidt,first_last,Claudia Schmidt,cdu,184956,https://www.abgeordnetenwatch.de/profile/claudia-schmidt-1,38,40,abgeordnetenwatch
+ST,cdu,Daniel Sturm,daniel sturm,exact,Daniel Sturm,cdu,124093,https://www.abgeordnetenwatch.de/profile/daniel-sturm,40,7,abgeordnetenwatch
+ST,cdu,Detlef Gürth,detlef guerth,exact,Detlef Gürth,cdu,124096,https://www.abgeordnetenwatch.de/profile/detlef-guerth,18,21,abgeordnetenwatch
+ST,cdu,Dr. Anja Schneider,anja schneider,exact,Anja Schneider,cdu,175207,https://www.abgeordnetenwatch.de/profile/anja-schneider,26,16,abgeordnetenwatch
+ST,cdu,Dr. Daniel Schlothmann-Jeschek,daniel schlothmann-jeschek,exact,Daniel Schlothmann-Jeschek,cdu,184951,https://www.abgeordnetenwatch.de/profile/daniel-schlothmann-jeschek,20,38,abgeordnetenwatch
+ST,cdu,Dr. Ulf Altmann,ulf altmann,exact,Ulf Altmann,cdu,184957,https://www.abgeordnetenwatch.de/profile/ulf-altmann,41,31,abgeordnetenwatch
+ST,cdu,Elke Simon-Kuch,elke simon-kuch,exact,Elke Simon-Kuch,cdu,175212,https://www.abgeordnetenwatch.de/profile/elke-simon-kuch,39,19,abgeordnetenwatch
+ST,cdu,Eva Feußner,eva feussner,exact,Eva Feußner,cdu,124130,https://www.abgeordnetenwatch.de/profile/eva-feussner,32,,abgeordnetenwatch
+ST,cdu,Frank Bommersbach,frank bommersbach,exact,Frank Bommersbach,cdu,124134,https://www.abgeordnetenwatch.de/profile/frank-bommersbach,34,13,abgeordnetenwatch
+ST,cdu,Guido Heuer,guido heuer,exact,Guido Heuer,cdu,152761,https://www.abgeordnetenwatch.de/profile/guido-heuer,9,3,abgeordnetenwatch
+ST,cdu,Ilka Reckmann,ilka reckmann,exact,Ilka Reckmann,cdu,184955,https://www.abgeordnetenwatch.de/profile/ilka-reckmann,33,37,abgeordnetenwatch
+ST,cdu,Jonas Döhring,jonas doehring,exact,Jonas Döhring,cdu,184952,https://www.abgeordnetenwatch.de/profile/jonas-doehring,23,34,abgeordnetenwatch
+ST,cdu,Karin Tschernich-Weiske,karin tschernich-weiske,exact,Karin Tschernich-Weiske,cdu,175213,https://www.abgeordnetenwatch.de/profile/karin-tschernich-weiske,27,10,abgeordnetenwatch
+ST,cdu,Kerstin Godenrath,kerstin godenrath,exact,Kerstin Godenrath,cdu,165100,https://www.abgeordnetenwatch.de/profile/kerstin-godenrath,37,23,abgeordnetenwatch
+ST,cdu,Lars-Jörn Zimmer,lars-joern zimmer,exact,Lars-Jörn Zimmer,cdu,124230,https://www.abgeordnetenwatch.de/profile/lars-joern-zimmer,28,4,abgeordnetenwatch
+ST,cdu,Marco Tullner,marco tullner,exact,Marco Tullner,cdu,124241,https://www.abgeordnetenwatch.de/profile/marco-tullner,36,11,abgeordnetenwatch
+ST,cdu,Markus Kurze,markus kurze,exact,Markus Kurze,cdu,124245,https://www.abgeordnetenwatch.de/profile/markus-kurze,6,,abgeordnetenwatch
+ST,cdu,Matthias Redlich,matthias redlich,exact,Matthias Redlich,cdu,175210,https://www.abgeordnetenwatch.de/profile/matthias-redlich,31,24,abgeordnetenwatch
+ST,cdu,Michael Scheffler,michael scheffler,exact,Michael Scheffler,cdu,175208,https://www.abgeordnetenwatch.de/profile/michael-scheffler-0,29,25,abgeordnetenwatch
+ST,cdu,Nico Elsner,nico elsner,exact,Nico Elsner,cdu,184953,https://www.abgeordnetenwatch.de/profile/nico-elsner,24,28,abgeordnetenwatch
+ST,cdu,Olaf Feuerborn,olaf feuerborn,exact,Olaf Feuerborn,cdu,175206,https://www.abgeordnetenwatch.de/profile/olaf-feuerborn,22,22,abgeordnetenwatch
+ST,cdu,Patrick Schubert,patrick schubert,exact,Patrick Schubert,cdu,184954,https://www.abgeordnetenwatch.de/profile/patrick-schubert,25,39,abgeordnetenwatch
+ST,cdu,René Barthel,rene barthel,exact,René Barthel,cdu,175209,https://www.abgeordnetenwatch.de/profile/rene-barthel,30,12,abgeordnetenwatch
+ST,cdu,Sandra Hietel-Heuer,sandra hietel-heuer,exact,Sandra Hietel-Heuer,cdu,175197,https://www.abgeordnetenwatch.de/profile/sandra-hietel-heuer,2,8,abgeordnetenwatch
+ST,cdu,Stefan Ruland,stefan ruland,exact,Stefan Ruland,cdu,175205,https://www.abgeordnetenwatch.de/profile/stefan-ruland,21,9,abgeordnetenwatch
+ST,cdu,Sven Rosomkiewicz,sven rosomkiewicz,exact,Sven Rosomkiewicz,cdu,175204,https://www.abgeordnetenwatch.de/profile/sven-rosomkiewicz,19,33,abgeordnetenwatch
+ST,cdu,Sven Schulze,sven schulze,exact,Sven Schulze,cdu,29484,https://www.abgeordnetenwatch.de/profile/sven-schulze,12,1,abgeordnetenwatch
+ST,cdu,Thomas Staudt,thomas staudt,exact,Thomas Staudt,cdu,175198,https://www.abgeordnetenwatch.de/profile/thomas-staudt,5,20,abgeordnetenwatch
+ST,cdu,Thomas Weise,thomas weise,exact,Thomas Weise,cdu,184947,https://www.abgeordnetenwatch.de/profile/thomas-weise,4,26,abgeordnetenwatch
+ST,cdu,Tim Rohne,tim rohne,exact,Tim Rohne,cdu,184949,https://www.abgeordnetenwatch.de/profile/tim-rohne,10,17,abgeordnetenwatch
+ST,cdu,Tim Teßmann,tim tessmann,exact,Tim Teßmann,cdu,175199,https://www.abgeordnetenwatch.de/profile/tim-tessmann,7,15,abgeordnetenwatch
+ST,cdu,Tobias Krull,tobias krull,exact,Tobias Krull,cdu,152753,https://www.abgeordnetenwatch.de/profile/tobias-krull,11,5,abgeordnetenwatch
+ST,cdu,Ulrich Thomas,ulrich thomas,exact,Ulrich Thomas,cdu,124331,https://www.abgeordnetenwatch.de/profile/ulrich-thomas,17,6,abgeordnetenwatch
+ST,fdp,Adrian Gusinde,adrian gusinde,exact,Adrian Gusinde,fdp,185056,https://www.abgeordnetenwatch.de/profile/adrian-gusinde,9,7,abgeordnetenwatch
+ST,fdp,Allard von Arnim,allard von arnim,exact,Allard von Arnim,fdp,138818,https://www.abgeordnetenwatch.de/profile/allard-von-arnim,6,,abgeordnetenwatch
+ST,fdp,Andreas Silbersack,andreas silbersack,exact,Andreas Silbersack,fdp,146315,https://www.abgeordnetenwatch.de/profile/andreas-silbersack,37,2,abgeordnetenwatch
+ST,fdp,Annelie Brune,annelie brune,exact,Annelie Brune,fdp,185050,https://www.abgeordnetenwatch.de/profile/annelie-brune,2,,abgeordnetenwatch
+ST,fdp,Annett Krake,annett krake,exact,Annett Krake,fdp,185071,https://www.abgeordnetenwatch.de/profile/annett-krake,35,,abgeordnetenwatch
+ST,fdp,Axel Riedel,axel riedel,exact,Axel Riedel,fdp,185508,https://www.abgeordnetenwatch.de/profile/axel-riedel,19,,abgeordnetenwatch
+ST,fdp,Birgit Kansy,birgit kansy,exact,Birgit Kansy,fdp,185674,https://www.abgeordnetenwatch.de/profile/birgit-kansy,41,,abgeordnetenwatch
+ST,fdp,Björn Wasserthal,bjoern wasserthal,exact,Björn Wasserthal,fdp,185055,https://www.abgeordnetenwatch.de/profile/bjoern-wasserthal,8,14,abgeordnetenwatch
+ST,fdp,Christian Daehre,christian daehre,exact,Christian Daehre,fdp,185057,https://www.abgeordnetenwatch.de/profile/christian-daehre,11,19,abgeordnetenwatch
+ST,fdp,Daniela Tost,daniela tost,exact,Daniela Tost,fdp,185058,https://www.abgeordnetenwatch.de/profile/daniela-tost,13,20,abgeordnetenwatch
+ST,fdp,Dirk Taschner,dirk taschner,exact,Dirk Taschner,fdp,185070,https://www.abgeordnetenwatch.de/profile/dirk-taschner,34,,abgeordnetenwatch
+ST,fdp,Dr. Frank Odemar,frank odemar,exact,Frank Odemar,fdp,185062,https://www.abgeordnetenwatch.de/profile/frank-odemar,21,18,abgeordnetenwatch
+ST,fdp,Dr. Lydia Maria Hüskens,lydia maria hueskens,first_last,Lydia Hüskens,fdp,124235,https://www.abgeordnetenwatch.de/profile/lydia-hueskens,10,1,abgeordnetenwatch
+ST,fdp,Dr. Maximilian Philipp,maximilian philipp,exact,Maximilian Philipp,fdp,185068,https://www.abgeordnetenwatch.de/profile/maximilian-philipp,29,6,abgeordnetenwatch
+ST,fdp,Felix Julius Krüger,felix julius krueger,exact,Felix Julius Krüger,fdp,185059,https://www.abgeordnetenwatch.de/profile/felix-julius-krueger,14,,abgeordnetenwatch
+ST,fdp,Florian Pascal Feger,florian pascal feger,exact,Florian Pascal Feger,fdp,185060,https://www.abgeordnetenwatch.de/profile/florian-pascal-feger,17,8,abgeordnetenwatch
+ST,fdp,Guido Lars Kosmehl,guido lars kosmehl,first_last,Guido Kosmehl,fdp,124160,https://www.abgeordnetenwatch.de/profile/guido-kosmehl,28,5,abgeordnetenwatch
+ST,fdp,Gunnar Blache,gunnar blache,exact,Gunnar Blache,fdp,175055,https://www.abgeordnetenwatch.de/profile/gunnar-blache,40,,abgeordnetenwatch
+ST,fdp,Gunnar Salomon,gunnar salomon,exact,Gunnar Salomon,fdp,185051,https://www.abgeordnetenwatch.de/profile/gunnar-salomon,3,10,abgeordnetenwatch
+ST,fdp,Johanna Engel,johanna engel,exact,Johanna Engel,fdp,175042,https://www.abgeordnetenwatch.de/profile/johanna-engel,20,12,abgeordnetenwatch
+ST,fdp,John Matthias Kaube,john matthias kaube,exact,John Matthias Kaube,fdp,185063,https://www.abgeordnetenwatch.de/profile/john-matthias-kaube,22,17,abgeordnetenwatch
+ST,fdp,Jörg Bernstein,joerg bernstein,exact,Jörg Bernstein,fdp,175046,https://www.abgeordnetenwatch.de/profile/joerg-bernstein,26,3,abgeordnetenwatch
+ST,fdp,Karsten Pille,karsten pille,exact,Karsten Pille,fdp,138916,https://www.abgeordnetenwatch.de/profile/karsten-pille,31,,abgeordnetenwatch
+ST,fdp,Kathrin Tarricone,kathrin tarricone,exact,Kathrin Tarricone,fdp,175049,https://www.abgeordnetenwatch.de/profile/kathrin-tarricone,30,4,abgeordnetenwatch
+ST,fdp,Marco Airoldi,marco airoldi,exact,Marco Airoldi,fdp,185064,https://www.abgeordnetenwatch.de/profile/marco-airoldi,23,9,abgeordnetenwatch
+ST,fdp,Marco Slotta,marco slotta,exact,Marco Slotta,fdp,185052,https://www.abgeordnetenwatch.de/profile/marco-slotta,4,,abgeordnetenwatch
+ST,fdp,Marcus Hillwig,marcus hillwig,exact,Marcus Hillwig,fdp,185066,https://www.abgeordnetenwatch.de/profile/marcus-hillwig,25,,abgeordnetenwatch
+ST,fdp,Markus Göhricke,markus goehricke,exact,Markus Göhricke,fdp,185069,https://www.abgeordnetenwatch.de/profile/markus-goehricke,33,,abgeordnetenwatch
+ST,fdp,Max Henrik Schröder,max henrik schroeder,exact,Max Henrik Schröder,fdp,183329,https://www.abgeordnetenwatch.de/profile/max-henrik-schroeder,16,,abgeordnetenwatch
+ST,fdp,Maximilian Frey,maximilian frey,exact,Maximilian Frey,fdp,185065,https://www.abgeordnetenwatch.de/profile/maximilian-frey,24,,abgeordnetenwatch
+ST,fdp,Maximilian Gludau,maximilian gludau,exact,Maximilian Gludau,fdp,175058,https://www.abgeordnetenwatch.de/profile/maximilian-gludau,39,15,abgeordnetenwatch
+ST,fdp,Oliver Mank,oliver mank,exact,Oliver Mank,fdp,185053,https://www.abgeordnetenwatch.de/profile/oliver-mank,5,16,abgeordnetenwatch
+ST,fdp,Pascal Weiser,pascal weiser,exact,Pascal Weiser,fdp,185054,https://www.abgeordnetenwatch.de/profile/pascal-weiser,7,,abgeordnetenwatch
+ST,fdp,Philipp Stavenow,philipp stavenow,exact,Philipp Stavenow,fdp,185067,https://www.abgeordnetenwatch.de/profile/philipp-stavenow,27,,abgeordnetenwatch
+ST,fdp,Ramona Hoyer,ramona hoyer,exact,Ramona Hoyer,fdp,175048,https://www.abgeordnetenwatch.de/profile/ramona-hoyer,32,,abgeordnetenwatch
+ST,fdp,Steffen Mente,steffen mente,exact,Steffen Mente,fdp,175057,https://www.abgeordnetenwatch.de/profile/steffen-mente,15,,abgeordnetenwatch
+ST,fdp,Thomas Dietmar Mothes,thomas dietmar mothes,first_last,Thomas Mothes,fdp,185049,https://www.abgeordnetenwatch.de/profile/thomas-mothes,1,,abgeordnetenwatch
+ST,fdp,Thomas Gürke,thomas guerke,exact,Thomas Gürke,fdp,175035,https://www.abgeordnetenwatch.de/profile/thomas-guerke,12,11,abgeordnetenwatch
+ST,fdp,Tim Kehrwieder,tim kehrwieder,exact,Tim Kehrwieder,fdp,168788,https://www.abgeordnetenwatch.de/profile/tim-kehrwieder,38,,abgeordnetenwatch
+ST,fdp,Torsten Haußmann,torsten haussmann,exact,Torsten Haußmann,fdp,185061,https://www.abgeordnetenwatch.de/profile/torsten-haussmann,18,,abgeordnetenwatch
+ST,fdp,Torsten Schaper,torsten schaper,exact,Torsten Schaper,fdp,175053,https://www.abgeordnetenwatch.de/profile/torsten-schaper,36,,abgeordnetenwatch
+ST,fw,André Weber,andre weber,exact,André Weber,fw,175189,https://www.abgeordnetenwatch.de/profile/andre-weber,15,1,abgeordnetenwatch
+ST,fw,Bianka Willke,bianka willke,exact,Bianka Willke,fw,185074,https://www.abgeordnetenwatch.de/profile/bianka-willke,16,,abgeordnetenwatch
+ST,fw,Danny Becker,danny becker,exact,Danny Becker,fw,185073,https://www.abgeordnetenwatch.de/profile/danny-becker,14,10,abgeordnetenwatch
+ST,fw,Holger Wenzel,holger wenzel,exact,Holger Wenzel,fw,148378,https://www.abgeordnetenwatch.de/profile/holger-wenzel,27,,abgeordnetenwatch
+ST,fw,Jerome Querfurth,jerome querfurth,exact,Jerome Querfurth,fw,185075,https://www.abgeordnetenwatch.de/profile/jerome-querfurth,17,8,abgeordnetenwatch
+ST,fw,Kay Gericke,kay gericke,exact,Kay Gericke,fw,185072,https://www.abgeordnetenwatch.de/profile/kay-gericke,6,3,abgeordnetenwatch
+ST,fw,Maik Mattheis,maik mattheis,exact,Maik Mattheis,fw,184162,https://www.abgeordnetenwatch.de/profile/maik-mattheis,25,,abgeordnetenwatch
+ST,fw,Norman Unger,norman unger,exact,Norman Unger,fw,185076,https://www.abgeordnetenwatch.de/profile/norman-unger,24,4,abgeordnetenwatch
+ST,fw,Rebecca Resch,rebecca resch,exact,Rebecca Resch,fw,184163,https://www.abgeordnetenwatch.de/profile/rebecca-resch,41,2,abgeordnetenwatch
+ST,fw,Ronny Schneider,ronny schneider,exact,Ronny Schneider,fw,148370,https://www.abgeordnetenwatch.de/profile/ronny-schneider,28,6,abgeordnetenwatch
+ST,fw,Yvonne Krause,yvonne krause,exact,Yvonne Krause,fw,185079,https://www.abgeordnetenwatch.de/profile/yvonne-krause,37,,abgeordnetenwatch
+ST,gruene,Alexander Michael,alexander michael,exact,Alexander Michael,gruene,185020,https://www.abgeordnetenwatch.de/profile/alexander-michael,5,,abgeordnetenwatch
+ST,gruene,Beatrice Lindhorst,beatrice lindhorst,wkr_lastname,Bea Lindhorst,gruene,185035,https://www.abgeordnetenwatch.de/profile/bea-lindhorst,24,7,abgeordnetenwatch
+ST,gruene,Christine Reimann,christine reimann,exact,Christine Reimann,gruene,185041,https://www.abgeordnetenwatch.de/profile/christine-reimann,31,,abgeordnetenwatch
+ST,gruene,Dennis Tobias Helmich,dennis tobias helmich,wkr_lastname,Dennis Helmich,gruene,185043,https://www.abgeordnetenwatch.de/profile/dennis-helmich,33,8,abgeordnetenwatch
+ST,gruene,Dennis-Tobias Helmich,dennis-tobias helmich,wkr_lastname,Dennis Helmich,gruene,185043,https://www.abgeordnetenwatch.de/profile/dennis-helmich,33,8,abgeordnetenwatch
+ST,gruene,Elke Ruth Lampka,elke ruth lampka,first_last,Elke Lampka,gruene,185027,https://www.abgeordnetenwatch.de/profile/elke-lampka,14,,abgeordnetenwatch
+ST,gruene,Felix Fugmann,felix fugmann,exact,Felix Fugmann,gruene,185038,https://www.abgeordnetenwatch.de/profile/felix-fugmann,27,,abgeordnetenwatch
+ST,gruene,Friederike Larek,friederike larek,exact,Friederike Larek,gruene,185021,https://www.abgeordnetenwatch.de/profile/friederike-larek,6,11,abgeordnetenwatch
+ST,gruene,Janina Hampel,janina hampel,exact,Janina Hampel,gruene,185039,https://www.abgeordnetenwatch.de/profile/janina-hampel,28,,abgeordnetenwatch
+ST,gruene,Jascha Rihm,jascha rihm,exact,Jascha Rihm,gruene,185017,https://www.abgeordnetenwatch.de/profile/jascha-rihm,1,12,abgeordnetenwatch
+ST,gruene,Kevin Pockrandt,kevin pockrandt,exact,Kevin Pockrandt,gruene,185031,https://www.abgeordnetenwatch.de/profile/kevin-pockrandt,19,,abgeordnetenwatch
+ST,gruene,Klaus Plitzkat,klaus plitzkat,exact,Klaus Plitzkat,gruene,185028,https://www.abgeordnetenwatch.de/profile/klaus-plitzkat,15,,abgeordnetenwatch
+ST,gruene,Kristin Schuller,kristin schuller,exact,Kristin Schuller,gruene,185024,https://www.abgeordnetenwatch.de/profile/kristin-schuller,9,,abgeordnetenwatch
+ST,gruene,Lena Zehne,lena zehne,exact,Lena Zehne,gruene,185045,https://www.abgeordnetenwatch.de/profile/lena-zehne,35,15,abgeordnetenwatch
+ST,gruene,Lennox Schrickel,lennox schrickel,exact,Lennox Schrickel,gruene,185029,https://www.abgeordnetenwatch.de/profile/lennox-schrickel,16,18,abgeordnetenwatch
+ST,gruene,Leon Lenny Elias Eisfelder-Mylius,leon lenny elias eisfelder-mylius,exact,Leon Lenny Elias Eisfelder-Mylius,gruene,185044,https://www.abgeordnetenwatch.de/profile/leon-lenny-elias-eisfelder-mylius,34,,abgeordnetenwatch
+ST,gruene,Leonie Bronkalla,leonie bronkalla,exact,Leonie Bronkalla,gruene,185037,https://www.abgeordnetenwatch.de/profile/leonie-bronkalla,26,5,abgeordnetenwatch
+ST,gruene,Lisa Mertens,lisa mertens,exact,Lisa Mertens,gruene,185040,https://www.abgeordnetenwatch.de/profile/lisa-mertens,30,,abgeordnetenwatch
+ST,gruene,Luise Globig,luise globig,exact,Luise Globig,gruene,185034,https://www.abgeordnetenwatch.de/profile/luise-globig,23,,abgeordnetenwatch
+ST,gruene,Madeleine Linke,madeleine linke,exact,Madeleine Linke,gruene,175064,https://www.abgeordnetenwatch.de/profile/madeleine-linke,11,3,abgeordnetenwatch
+ST,gruene,Mamad Mohamad,mamad mohamad,exact,Mamad Mohamad,gruene,185046,https://www.abgeordnetenwatch.de/profile/mamad-mohamad,36,4,abgeordnetenwatch
+ST,gruene,Marlyn Waga,marlyn waga,exact,Marlyn Waga,gruene,185032,https://www.abgeordnetenwatch.de/profile/marlyn-waga,20,20,abgeordnetenwatch
+ST,gruene,Martin Mertens-Keylock,martin mertens-keylock,exact,Martin Mertens-Keylock,gruene,185030,https://www.abgeordnetenwatch.de/profile/martin-mertens-keylock,18,,abgeordnetenwatch
+ST,gruene,Martin Schäfer,martin schaefer,exact,Martin Schäfer,gruene,185036,https://www.abgeordnetenwatch.de/profile/martin-schaefer-2,25,,abgeordnetenwatch
+ST,gruene,Michael Dihlmann,michael dihlmann,exact,Michael Dihlmann,gruene,185019,https://www.abgeordnetenwatch.de/profile/michael-dihlmann,3,,abgeordnetenwatch
+ST,gruene,Michelle Angeli,michelle angeli,exact,Michelle Angeli,gruene,185679,https://www.abgeordnetenwatch.de/profile/michelle-angeli,12,,abgeordnetenwatch
+ST,gruene,Miriam Zeller,miriam zeller,exact,Miriam Zeller,gruene,183024,https://www.abgeordnetenwatch.de/profile/miriam-zeller,4,9,abgeordnetenwatch
+ST,gruene,Nicole Walldorf,nicole walldorf,exact,Nicole Walldorf,gruene,185047,https://www.abgeordnetenwatch.de/profile/nicole-walldorf,38,,abgeordnetenwatch
+ST,gruene,Olaf Meister,olaf meister,exact,Olaf Meister,gruene,152757,https://www.abgeordnetenwatch.de/profile/olaf-meister,13,2,abgeordnetenwatch
+ST,gruene,Peter Paul Schneider,peter paul schneider,first_last,Peter Schneider,gruene,185048,https://www.abgeordnetenwatch.de/profile/peter-schneider-3,39,,abgeordnetenwatch
+ST,gruene,Philipp Händler,philipp haendler,exact,Philipp Händler,gruene,185023,https://www.abgeordnetenwatch.de/profile/philipp-haendler,7,,abgeordnetenwatch
+ST,gruene,Ralf Hönicke,ralf hoenicke,exact,Ralf Hönicke,gruene,185675,https://www.abgeordnetenwatch.de/profile/ralf-hoenicke,41,,abgeordnetenwatch
+ST,gruene,Rico Herrmann,rico herrmann,exact,Rico Herrmann,gruene,185676,https://www.abgeordnetenwatch.de/profile/rico-herrmann,10,,abgeordnetenwatch
+ST,gruene,Sandra Bauer,sandra bauer,exact,Sandra Bauer,gruene,183025,https://www.abgeordnetenwatch.de/profile/sandra-bauer,21,,abgeordnetenwatch
+ST,gruene,Sandra Sabine Lüder,sandra sabine lueder,first_last,Sandra Lüder,gruene,175220,https://www.abgeordnetenwatch.de/profile/sandra-lueder,29,,abgeordnetenwatch
+ST,gruene,Sascha Greiner,sascha greiner,exact,Sascha Greiner,gruene,185033,https://www.abgeordnetenwatch.de/profile/sascha-greiner,22,14,abgeordnetenwatch
+ST,gruene,Stefan Garthoff,stefan garthoff,exact,Stefan Garthoff,gruene,175223,https://www.abgeordnetenwatch.de/profile/stefan-garthoff,40,,abgeordnetenwatch
+ST,gruene,Stefan Lehfeld,stefan lehfeld,exact,Stefan Lehfeld,gruene,185022,https://www.abgeordnetenwatch.de/profile/stefan-lehfeld,8,,abgeordnetenwatch
+ST,gruene,Susan Sziborra-Seidlitz,susan sziborra-seidlitz,exact,Susan Sziborra-Seidlitz,gruene,145935,https://www.abgeordnetenwatch.de/profile/susan-sziborra-seidlitz,17,1,abgeordnetenwatch
+ST,gruene,Susanne Otto,susanne otto,exact,Susanne Otto,gruene,185042,https://www.abgeordnetenwatch.de/profile/susanne-otto,32,17,abgeordnetenwatch
+ST,gruene,Tobias Kremkau,tobias kremkau,exact,Tobias Kremkau,gruene,185018,https://www.abgeordnetenwatch.de/profile/tobias-kremkau,2,,abgeordnetenwatch
+ST,gruene,Wolfgang Aldag,wolfgang aldag,exact,Wolfgang Aldag,gruene,152775,https://www.abgeordnetenwatch.de/profile/wolfgang-aldag,37,6,abgeordnetenwatch
+ST,linke,Alexander Luft,alexander luft,exact,Alexander Luft,linke,184968,https://www.abgeordnetenwatch.de/profile/alexander-luft,14,12,abgeordnetenwatch
+ST,linke,Andreas Pulst,andreas pulst,exact,Andreas Pulst,linke,184975,https://www.abgeordnetenwatch.de/profile/andreas-pulst,22,,abgeordnetenwatch
+ST,linke,Andreas Tschurn,andreas tschurn,exact,Andreas Tschurn,linke,184981,https://www.abgeordnetenwatch.de/profile/andreas-tschurn,32,,abgeordnetenwatch
+ST,linke,André Röthel,andre roethel,exact,André Röthel,linke,184980,https://www.abgeordnetenwatch.de/profile/andre-roethel,31,32,abgeordnetenwatch
+ST,linke,Antonia Kaloff,antonia kaloff,exact,Antonia Kaloff,linke,184978,https://www.abgeordnetenwatch.de/profile/antonia-kaloff,28,3,abgeordnetenwatch
+ST,linke,Arne Hornung,arne hornung,exact,Arne Hornung,linke,184963,https://www.abgeordnetenwatch.de/profile/arne-hornung,7,30,abgeordnetenwatch
+ST,linke,Denis Kreuzadler,denis kreuzadler,exact,Denis Kreuzadler,linke,184961,https://www.abgeordnetenwatch.de/profile/denis-kreuzadler,5,18,abgeordnetenwatch
+ST,linke,Dennis Jannack,dennis jannack,exact,Dennis Jannack,linke,175124,https://www.abgeordnetenwatch.de/profile/dennis-jannack,13,20,abgeordnetenwatch
+ST,linke,Doreen Hainich,doreen hainich,exact,Doreen Hainich,linke,183183,https://www.abgeordnetenwatch.de/profile/doreen-hainich,25,,abgeordnetenwatch
+ST,linke,Eric Roman Stehr,eric roman stehr,first_last,Eric Stehr,linke,175233,https://www.abgeordnetenwatch.de/profile/eric-stehr,39,2,abgeordnetenwatch
+ST,linke,Eva von Angern,eva von angern,exact,Eva von Angern,linke,124132,https://www.abgeordnetenwatch.de/profile/eva-von-angern,12,1,abgeordnetenwatch
+ST,linke,Gitta Susann Hartenstein-Wiermann,gitta susann hartenstein-wiermann,exact,Gitta Susann Hartenstein-Wiermann,linke,184984,https://www.abgeordnetenwatch.de/profile/gitta-susann-hartenstein-wiermann,36,,abgeordnetenwatch
+ST,linke,Hendrik Lange,hendrik lange,exact,Hendrik Lange,linke,124190,https://www.abgeordnetenwatch.de/profile/hendrik-lange,35,4,abgeordnetenwatch
+ST,linke,Henriette Krebs,henriette krebs,exact,Henriette Krebs,linke,175130,https://www.abgeordnetenwatch.de/profile/henriette-krebs,21,5,abgeordnetenwatch
+ST,linke,Isabell Anton,isabell anton,exact,Isabell Anton,linke,184979,https://www.abgeordnetenwatch.de/profile/isabell-anton,29,21,abgeordnetenwatch
+ST,linke,Jannik-Loris Balint,jannik-loris balint,first_last,Jannik Balint,linke,184985,https://www.abgeordnetenwatch.de/profile/jannik-balint,37,,abgeordnetenwatch
+ST,linke,Julia Mayer,julia mayer,exact,Julia Mayer,linke,184983,https://www.abgeordnetenwatch.de/profile/julia-mayer,34,9,abgeordnetenwatch
+ST,linke,Katja Käfer,katja kaefer,exact,Katja Käfer,linke,184970,https://www.abgeordnetenwatch.de/profile/katja-kaefer,16,27,abgeordnetenwatch
+ST,linke,Kay Lorenz,kay lorenz,exact,Kay Lorenz,linke,184972,https://www.abgeordnetenwatch.de/profile/kay-lorenz,18,24,abgeordnetenwatch
+ST,linke,Kevin Goldhahn,kevin goldhahn,exact,Kevin Goldhahn,linke,184977,https://www.abgeordnetenwatch.de/profile/kevin-goldhahn,26,,abgeordnetenwatch
+ST,linke,Leila Kim Eisfelder-Mylius,leila kim eisfelder-mylius,first_last,Leila Eisfelder-Mylius,linke,184982,https://www.abgeordnetenwatch.de/profile/leila-eisfelder-mylius,33,19,abgeordnetenwatch
+ST,linke,Lukas Franke,lukas franke,exact,Lukas Franke,linke,184969,https://www.abgeordnetenwatch.de/profile/lukas-franke,15,,abgeordnetenwatch
+ST,linke,Maik Fye,maik fye,exact,Maik Fye,linke,184971,https://www.abgeordnetenwatch.de/profile/maik-fye,17,,abgeordnetenwatch
+ST,linke,Michael Scholz,michael scholz,exact,Michael Scholz,linke,183184,https://www.abgeordnetenwatch.de/profile/michael-scholz,40,26,abgeordnetenwatch
+ST,linke,Mustafa Groener,mustafa groener,exact,Mustafa Groener,linke,184967,https://www.abgeordnetenwatch.de/profile/mustafa-groener,11,,abgeordnetenwatch
+ST,linke,Natalie Nagel,natalie nagel,exact,Natalie Nagel,linke,184974,https://www.abgeordnetenwatch.de/profile/natalie-nagel,20,11,abgeordnetenwatch
+ST,linke,Natalie Winzenhöller,natalie winzenhoeller,exact,Natalie Winzenhöller,linke,184976,https://www.abgeordnetenwatch.de/profile/natalie-winzenhoeller,23,13,abgeordnetenwatch
+ST,linke,Nicklas Kurzweil,nicklas kurzweil,exact,Nicklas Kurzweil,linke,184987,https://www.abgeordnetenwatch.de/profile/nicklas-kurzweil,41,,abgeordnetenwatch
+ST,linke,Noah Elias Biswanger,noah elias biswanger,first_last,Noah Biswanger,linke,184966,https://www.abgeordnetenwatch.de/profile/noah-biswanger,10,14,abgeordnetenwatch
+ST,linke,Rafael Rotermund,rafael rotermund,exact,Rafael Rotermund,linke,184962,https://www.abgeordnetenwatch.de/profile/rafael-rotermund,6,,abgeordnetenwatch
+ST,linke,Raik Ohlmeyer,raik ohlmeyer,exact,Raik Ohlmeyer,linke,184958,https://www.abgeordnetenwatch.de/profile/raik-ohlmeyer,1,16,abgeordnetenwatch
+ST,linke,René Schernikau,rene schernikau,exact,René Schernikau,linke,121884,https://www.abgeordnetenwatch.de/profile/rene-schernikau,3,10,abgeordnetenwatch
+ST,linke,Rico Goroncy,rico goroncy,exact,Rico Goroncy,linke,184960,https://www.abgeordnetenwatch.de/profile/rico-goroncy,4,,abgeordnetenwatch
+ST,linke,Sophie Manleitner,sophie manleitner,exact,Sophie Manleitner,linke,184965,https://www.abgeordnetenwatch.de/profile/sophie-manleitner,9,15,abgeordnetenwatch
+ST,linke,Stefan Gebhardt,stefan gebhardt,exact,Stefan Gebhardt,linke,124312,https://www.abgeordnetenwatch.de/profile/stefan-gebhardt,30,8,abgeordnetenwatch
+ST,linke,Stine Rummel-Strebelow,stine rummel-strebelow,exact,Stine Rummel-Strebelow,linke,149582,https://www.abgeordnetenwatch.de/profile/stine-rummel-strebelow,27,,abgeordnetenwatch
+ST,linke,Thomas Erich Herbert Lippmann,thomas erich herbert lippmann,first_last,Thomas Lippmann,linke,152772,https://www.abgeordnetenwatch.de/profile/thomas-lippmann,24,6,abgeordnetenwatch
+ST,linke,Toni Klabis,toni klabis,exact,Toni Klabis,linke,184959,https://www.abgeordnetenwatch.de/profile/toni-klabis,2,,abgeordnetenwatch
+ST,linke,Vanessa Mertens,vanessa mertens,exact,Vanessa Mertens,linke,184964,https://www.abgeordnetenwatch.de/profile/vanessa-mertens,8,7,abgeordnetenwatch
+ST,linke,Veit Kuhr,veit kuhr,exact,Veit Kuhr,linke,184973,https://www.abgeordnetenwatch.de/profile/veit-kuhr,19,22,abgeordnetenwatch
+ST,linke,Wenke Marie Dargel,wenke marie dargel,first_last,Wenke Dargel,linke,184986,https://www.abgeordnetenwatch.de/profile/wenke-dargel,38,17,abgeordnetenwatch
+ST,spd,Aick Pietschmann,aick pietschmann,exact,Aick Pietschmann,spd,175110,https://www.abgeordnetenwatch.de/profile/aick-pietschmann,30,13,abgeordnetenwatch
+ST,spd,Alexander Riedle,alexander riedle,exact,Alexander Riedle,spd,185003,https://www.abgeordnetenwatch.de/profile/alexander-riedle,25,32,abgeordnetenwatch
+ST,spd,Caroline Müller,caroline mueller,exact,Caroline Müller,spd,184999,https://www.abgeordnetenwatch.de/profile/caroline-mueller,21,22,abgeordnetenwatch
+ST,spd,Christian Hausmann,christian hausmann,exact,Christian Hausmann,spd,138840,https://www.abgeordnetenwatch.de/profile/christian-hausmann,12,37,abgeordnetenwatch
+ST,spd,Daniel Frank Kutsche,daniel frank kutsche,first_last,Daniel Kutsche,spd,185005,https://www.abgeordnetenwatch.de/profile/daniel-kutsche,27,15,abgeordnetenwatch
+ST,spd,Danilo Pee-Moch,danilo pee-moch,exact,Danilo Pee-Moch,spd,185007,https://www.abgeordnetenwatch.de/profile/danilo-pee-moch,29,33,abgeordnetenwatch
+ST,spd,Dieter Diederichs,dieter diederichs,exact,Dieter Diederichs,spd,184988,https://www.abgeordnetenwatch.de/profile/dieter-diederichs,1,36,abgeordnetenwatch
+ST,spd,Dr. Andreas Schmidt,andreas schmidt,exact,Andreas Schmidt,spd,121089,https://www.abgeordnetenwatch.de/profile/andreas-schmidt-0,33,3,abgeordnetenwatch
+ST,spd,Dr. Armin Willingmann,armin willingmann,exact,Armin Willingmann,spd,175142,https://www.abgeordnetenwatch.de/profile/armin-willingmann,16,1,abgeordnetenwatch
+ST,spd,Dr. Christine Fuhrmann,christine fuhrmann,exact,Christine Fuhrmann,spd,185011,https://www.abgeordnetenwatch.de/profile/christine-fuhrmann,35,26,abgeordnetenwatch
+ST,spd,Dr. Falko Grube,falko grube,exact,Falko Grube,spd,152754,https://www.abgeordnetenwatch.de/profile/falko-grube,11,5,abgeordnetenwatch
+ST,spd,Dr. Katja Pähle,katja paehle,exact,Katja Pähle,spd,138867,https://www.abgeordnetenwatch.de/profile/katja-paehle,36,2,abgeordnetenwatch
+ST,spd,Elrid Pasbrig,elrid pasbrig,exact,Elrid Pasbrig,spd,175091,https://www.abgeordnetenwatch.de/profile/elrid-pasbrig,6,10,abgeordnetenwatch
+ST,spd,Eric Böllstorf,eric boellstorf,exact,Eric Böllstorf,spd,184990,https://www.abgeordnetenwatch.de/profile/eric-boellstorf,3,38,abgeordnetenwatch
+ST,spd,Felix Giesa,felix giesa,exact,Felix Giesa,spd,185000,https://www.abgeordnetenwatch.de/profile/felix-giesa,22,28,abgeordnetenwatch
+ST,spd,Florian Fahrtmann,florian fahrtmann,exact,Florian Fahrtmann,spd,175098,https://www.abgeordnetenwatch.de/profile/florian-fahrtmann,15,7,abgeordnetenwatch
+ST,spd,Friedrich Ruschke,friedrich ruschke,exact,Friedrich Ruschke,spd,185008,https://www.abgeordnetenwatch.de/profile/friedrich-ruschke,31,30,abgeordnetenwatch
+ST,spd,Ines Seeger,ines seeger,exact,Ines Seeger,spd,185010,https://www.abgeordnetenwatch.de/profile/ines-seeger,34,24,abgeordnetenwatch
+ST,spd,Jens Mende,jens mende,exact,Jens Mende,spd,185014,https://www.abgeordnetenwatch.de/profile/jens-mende,39,11,abgeordnetenwatch
+ST,spd,Julia Brandt,julia brandt,exact,Julia Brandt,spd,175094,https://www.abgeordnetenwatch.de/profile/julia-brandt,10,18,abgeordnetenwatch
+ST,spd,Juliane Kleemann,juliane kleemann,exact,Juliane Kleemann,spd,175089,https://www.abgeordnetenwatch.de/profile/juliane-kleemann,4,4,abgeordnetenwatch
+ST,spd,Julius Neumann,julius neumann,exact,Julius Neumann,spd,185013,https://www.abgeordnetenwatch.de/profile/julius-neumann,38,23,abgeordnetenwatch
+ST,spd,Katharina Kohl,katharina kohl,exact,Katharina Kohl,spd,185006,https://www.abgeordnetenwatch.de/profile/katharina-kohl,28,8,abgeordnetenwatch
+ST,spd,Katrin Gensecke,katrin gensecke,exact,Katrin Gensecke,spd,175093,https://www.abgeordnetenwatch.de/profile/katrin-gensecke,8,6,abgeordnetenwatch
+ST,spd,Larissa Wallner,larissa wallner,exact,Larissa Wallner,spd,185004,https://www.abgeordnetenwatch.de/profile/larissa-wallner,26,16,abgeordnetenwatch
+ST,spd,Nadine Hillecke,nadine hillecke,exact,Nadine Hillecke,spd,184996,https://www.abgeordnetenwatch.de/profile/nadine-hillecke,17,20,abgeordnetenwatch
+ST,spd,Nils Johannson,nils johannson,exact,Nils Johannson,spd,184995,https://www.abgeordnetenwatch.de/profile/nils-johannson,14,41,abgeordnetenwatch
+ST,spd,Paul Kley,paul kley,exact,Paul Kley,spd,185015,https://www.abgeordnetenwatch.de/profile/paul-kley,40,40,abgeordnetenwatch
+ST,spd,Philipp Morgner,philipp morgner,exact,Philipp Morgner,spd,184992,https://www.abgeordnetenwatch.de/profile/philipp-morgner,7,25,abgeordnetenwatch
+ST,spd,Ralph Blümel,ralph bluemel,exact,Ralph Blümel,spd,184994,https://www.abgeordnetenwatch.de/profile/ralph-bluemel,13,27,abgeordnetenwatch
+ST,spd,Raphael Coccejus,raphael coccejus,exact,Raphael Coccejus,spd,185009,https://www.abgeordnetenwatch.de/profile/raphael-coccejus,32,29,abgeordnetenwatch
+ST,spd,René Wölfer,rene woelfer,exact,René Wölfer,spd,184998,https://www.abgeordnetenwatch.de/profile/rene-woelfer,20,9,abgeordnetenwatch
+ST,spd,Seluan Al-Chakmakchi,seluan al-chakmakchi,exact,Seluan Al-Chakmakchi,spd,184997,https://www.abgeordnetenwatch.de/profile/seluan-al-chakmakchi,19,31,abgeordnetenwatch
+ST,spd,Skady Luisa Herkenrath,skady luisa herkenrath,first_last,Skady Herkenrath,spd,184989,https://www.abgeordnetenwatch.de/profile/skady-herkenrath,2,14,abgeordnetenwatch
+ST,spd,Stefan Schneider,stefan schneider,exact,Stefan Schneider,spd,185016,https://www.abgeordnetenwatch.de/profile/stefan-schneider-1,41,35,abgeordnetenwatch
+ST,spd,Stephan Scherf,stephan scherf,exact,Stephan Scherf,spd,185012,https://www.abgeordnetenwatch.de/profile/stephan-scherf,37,34,abgeordnetenwatch
+ST,spd,Thorben Nick Rehak,thorben nick rehak,exact,Thorben Nick Rehak,spd,185514,https://www.abgeordnetenwatch.de/profile/thorben-nick-rehak,9,,abgeordnetenwatch
+ST,spd,Timm Haußen,timm haussen,exact,Timm Haussen,spd,184991,https://www.abgeordnetenwatch.de/profile/timm-haussen,5,21,abgeordnetenwatch
+ST,spd,Tina Führer,tina fuehrer,exact,Tina Führer,spd,185002,https://www.abgeordnetenwatch.de/profile/tina-fuehrer,24,12,abgeordnetenwatch
+ST,spd,Tobias Böttcher,tobias boettcher,exact,Tobias Böttcher,spd,185001,https://www.abgeordnetenwatch.de/profile/tobias-boettcher,23,19,abgeordnetenwatch
+ST,spd,Yves Metzing,yves metzing,exact,Yves Metzing,spd,175099,https://www.abgeordnetenwatch.de/profile/yves-metzing,18,17,abgeordnetenwatch
