@@ -120,6 +120,35 @@ def _find_first(name: str, dirs: list[Path]) -> Path | None:
     return None
 
 
+def _payload_freshness(payload: dict[str, Any] | None) -> datetime:
+    """Sort key for forecast/draws payloads (newer = larger)."""
+    if not isinstance(payload, dict):
+        return datetime.min
+    meta = payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
+    for key in ("last_update", "asof_date", "last_poll_date", "generated_at"):
+        raw = payload.get(key) or meta.get(key)
+        if not raw:
+            continue
+        text = str(raw).strip().replace("Z", "+00:00")
+        try:
+            if "T" in text:
+                return datetime.fromisoformat(text).replace(tzinfo=None)
+            return datetime.strptime(text[:10], "%Y-%m-%d")
+        except ValueError:
+            continue
+    return datetime.min
+
+
+def _find_freshest(name: str, dirs: list[Path]) -> Path | None:
+    """Like _find_first, but pick the newest payload when several dirs have it."""
+    candidates = [d / name for d in dirs if (d / name).is_file()]
+    if not candidates:
+        return None
+    if len(candidates) == 1:
+        return candidates[0]
+    return max(candidates, key=lambda p: _payload_freshness(_load_json(p)))
+
+
 def _parse_date(value: Any) -> date | None:
     if value is None:
         return None
@@ -745,7 +774,7 @@ def _federal_metadata(
 def _load_federal_draws_payload(
     data_dirs: list[Path], legacy_dirs: list[Path]
 ) -> dict[str, Any] | None:
-    src = _find_first("forecast_federal_draws.json", data_dirs)
+    src = _find_freshest("forecast_federal_draws.json", data_dirs)
     if src:
         parsed = _state_draws_from_file(src)
         if parsed:
@@ -1206,7 +1235,8 @@ def _flatten_draws_meta(data: dict[str, Any], meta: dict[str, Any] | None) -> No
     if not isinstance(meta, dict):
         return
     for key in _DRAWS_TIMING_KEYS:
-        if data.get(key) is None and meta.get(key) is not None:
+        if meta.get(key) is not None:
+            # Forecast timing wins so /draws.json cannot lag the companion summary.
             data[key] = meta[key]
     for key, value in meta.items():
         if key in _DRAWS_SKIP_FROM_META:
@@ -1425,7 +1455,7 @@ def build_v2_state(
             continue
         election, data = parsed
         state_code = str(election.get("state_code") or code_lower.upper()).upper()
-        draws_file = _find_first(f"forecast_state_{code_lower}_draws.json", data_dirs)
+        draws_file = _find_freshest(f"forecast_state_{code_lower}_draws.json", data_dirs)
         draws_url = _write_state_draws(
             api_root,
             election,
@@ -1560,7 +1590,7 @@ def build_v2_state_archive(
         rel = f"{key}.json"
         draws_file = path.with_name(f"forecast_state_{key}_draws.json")
         if not draws_file.is_file():
-            draws_file = _find_first(f"forecast_state_{key}_draws.json", data_dirs)
+            draws_file = _find_freshest(f"forecast_state_{key}_draws.json", data_dirs)
         draws_url = _write_state_draws(
             api_root,
             election,

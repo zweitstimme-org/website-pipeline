@@ -137,11 +137,12 @@ PY
 fi
 
 # Versioned Forecast API at site root /api/ (alongside /data/).
+# Prefer output/ so fresh draws win over any stale files already on gh-pages.
 echo "Building versioned Forecast API for Pages preview ..."
 python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
   --out "${TMP}" \
-  --data "${TMP}/data" \
   --data "${OUTPUT_DIR}" \
+  --data "${TMP}/data" \
   --data "${REPO_ROOT}/data" \
   --legacy-static "${REPO_ROOT}/website-source/static" \
   --legacy-static "${REPO_ROOT}/website-mock/static"

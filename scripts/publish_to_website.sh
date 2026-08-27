@@ -26,11 +26,12 @@ copy_if_exists() {
 }
 
 # Do not overwrite live forecasts with stale output/ (e.g. after a UI-only publish).
+# Exit 0 = copied (or new); exit 1 = kept dest; exit 2 = skipped / missing src.
 copy_forecast_if_newer() {
   local src="$1"
   local dest="$2"
   if [[ ! -f "${src}" ]]; then
-    return 0
+    return 2
   fi
   python3 - "$src" "$dest" <<'PY'
 import json, sys
@@ -40,7 +41,11 @@ from pathlib import Path
 src, dest = Path(sys.argv[1]), Path(sys.argv[2])
 
 def parse_ts(meta: dict):
-    for key in ("last_poll_date", "last_update", "asof_date", "generated_at"):
+    if not isinstance(meta, dict):
+        return None
+    # Prefer model freshness (last_update) over poll Stand so a re-fit on the
+    # same poll still ships. Fall back to poll / as-of dates when needed.
+    for key in ("last_update", "last_poll_date", "asof_date", "generated_at"):
         val = meta.get(key)
         if not val:
             continue
@@ -60,8 +65,14 @@ def score(path: Path):
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
-    meta = data.get("metadata") or {}
-    return parse_ts(meta)
+    if not isinstance(data, dict):
+        return None
+    # Unwrap API envelopes; draws store timing at the top level (no metadata).
+    inner = data.get("data") if data.get("api_version") and isinstance(data.get("data"), dict) else data
+    if not isinstance(inner, dict):
+        return None
+    meta = inner.get("metadata") if isinstance(inner.get("metadata"), dict) else {}
+    return parse_ts(meta) or parse_ts(inner)
 
 if not dest.exists():
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -73,12 +84,13 @@ src_ts = score(src)
 dest_ts = score(dest)
 if src_ts is None:
     print(f"Skip {src.name}: unreadable source metadata")
-    sys.exit(0)
+    sys.exit(2)
 if dest_ts is None or src_ts >= dest_ts:
     dest.write_bytes(src.read_bytes())
     print(f"Copied {src.name} ({src_ts.date()} >= {dest_ts.date() if dest_ts else 'none'})")
-else:
-    print(f"Keep {dest.name} on website-source ({dest_ts.date()} > {src_ts.date()} in output/)")
+    sys.exit(0)
+print(f"Keep {dest.name} on website-source ({dest_ts.date()} > {src_ts.date()} in output/)")
+sys.exit(1)
 PY
 }
 
@@ -102,9 +114,29 @@ done
 copy_if_exists "${REPO_ROOT}/data/election_calendar.json" "${DATA_TARGET}/election_calendar.json"
 copy_if_exists "${REPO_ROOT}/data/json_output/election_dates.json" "${DATA_TARGET}/election_dates.json"
 
-for forecast in "${OUTPUT_DIR}"/forecast_state_*.json; do
-  copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/$(basename "${forecast}")"
+# Summary forecasts only (not *_draws.json). When a summary ships, always ship
+# its companion draws so /api/v2/state/{land}/draws.json cannot lag the forecast.
+for forecast in "${OUTPUT_DIR}"/forecast_state_??.json; do
+  [[ -f "${forecast}" ]] || continue
+  base="$(basename "${forecast}")"
+  if copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/${base}"; then
+    draws="${forecast%.json}_draws.json"
+    if [[ -f "${draws}" ]]; then
+      cp "${draws}" "${DATA_TARGET}/$(basename "${draws}")"
+      echo "Copied $(basename "${draws}") (paired with ${base})"
+    else
+      echo "Warning: ${base} updated but no companion $(basename "${draws}") in output/" >&2
+    fi
+  fi
 done
+# Draws for states whose summary was kept (dest newer) but draws file alone is newer.
+for draws in "${OUTPUT_DIR}"/forecast_state_*_draws.json; do
+  [[ -f "${draws}" ]] || continue
+  copy_forecast_if_newer "${draws}" "${DATA_TARGET}/$(basename "${draws}")" || true
+done
+# Federal posterior draws (timing at top level, same as state draws).
+copy_forecast_if_newer "${OUTPUT_DIR}/forecast_federal_draws.json" \
+  "${DATA_TARGET}/forecast_federal_draws.json" || true
 
 # Stimmung jobs rebuild display_mode without forecast_*.json in output/, which
 # would flip forecast_available to false and omit Vorhersagen from the Hugo HTML.
@@ -392,11 +424,13 @@ if [[ -f "${WEBSITE_DIR}/config.toml" ]]; then
 fi
 
 # Versioned Forecast API under static/api/ (v1 legacy federal, v2 federal + state + Stimmung).
+# Prefer output/ over static/data so a fresh forecast+draws run wins even if a
+# prior publish left stale companion files in website-source.
 echo "Building versioned Forecast API ..."
 python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
   --out "${WEBSITE_DIR}/static" \
-  --data "${DATA_TARGET}" \
   --data "${OUTPUT_DIR}" \
+  --data "${DATA_TARGET}" \
   --data "${REPO_ROOT}/data" \
   --legacy-static "${WEBSITE_DIR}/static"
 

@@ -55,8 +55,8 @@ fi
 echo "Building versioned Forecast API into website-mock/static/api ..."
 python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
   --out "${MOCK_DIR}/static" \
-  --data "${MOCK_DIR}/static/data" \
   --data "${REPO_ROOT}/output" \
+  --data "${MOCK_DIR}/static/data" \
   --data "${REPO_ROOT}/data" \
   --legacy-static "${MOCK_DIR}/static" \
   --legacy-static "${REPO_ROOT}/website-source/static"
