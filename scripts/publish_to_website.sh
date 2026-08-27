@@ -201,6 +201,20 @@ if [[ -d "${OUTPUT_DIR}/archive" ]]; then
   echo "Copied forecast archive files"
 fi
 
+# Live Wahlkreis map UI (stripes / seat ranges) may be ahead of git HEAD.
+# Stimmung-only CI checkouts must not roll that back to an older integration copy.
+integration_map_js_is_older_than_live() {
+  local src="${INTEGRATION}/static/js/district-forecast-map.js"
+  local dest="${WEBSITE_DIR}/static/js/district-forecast-map.js"
+  [[ -f "${dest}" ]] || return 1
+  [[ -f "${src}" ]] || return 0
+  if rg -q 'districtNeedsStripes|dstripe|simulateDirectRanges' "${dest}" 2>/dev/null \
+    && ! rg -q 'districtNeedsStripes|dstripe|simulateDirectRanges' "${src}" 2>/dev/null; then
+    return 0
+  fi
+  return 1
+}
+
 if [[ -d "${INTEGRATION}/static/js" ]]; then
   mkdir -p "${WEBSITE_DIR}/static/js"
   for js in "${INTEGRATION}/static/js/"*.js; do
@@ -211,6 +225,10 @@ if [[ -d "${INTEGRATION}/static/js" ]]; then
       && rg -q 'scenario-prob-panel' "${dest}" 2>/dev/null \
       && ! rg -q 'scenario-prob-panel' "${js}" 2>/dev/null; then
       echo "Keep static/js/${base} (website-source has newer Einzug/Wahlkreis UI)"
+      continue
+    fi
+    if [[ "${base}" == "district-forecast-map.js" ]] && integration_map_js_is_older_than_live; then
+      echo "Keep static/js/${base} (website-source has newer Wahlkreis stripe/seat UI)"
       continue
     fi
     cp "${js}" "${dest}"
@@ -232,10 +250,14 @@ if [[ -f "${INTEGRATION}/assets/css/extended/custom.css" ]]; then
 fi
 
 if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" ]]; then
-  mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/partials"
-  cp "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" \
-    "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
-  echo "Synced home_info_de.html"
+  if integration_map_js_is_older_than_live; then
+    echo "Keep home_info_de.html (paired with live Wahlkreis map UI)"
+  else
+    mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/partials"
+    cp "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" \
+      "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
+    echo "Synced home_info_de.html"
+  fi
 fi
 if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/_default/api-docs.html" ]]; then
   mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/_default"
@@ -272,6 +294,12 @@ copy_theme_file() {
   if [[ -f "${dest}" ]] && rg -q 'scenario-prob-panel|district-preview-nav' "${dest}" 2>/dev/null \
     && ! rg -q 'scenario-prob-panel|district-preview-nav' "${src}" 2>/dev/null; then
     echo "Keep ${rel} (website-source has newer Einzug/Wahlkreis UI than integration)"
+    return 0
+  fi
+  # Same for the Direktmandate map partial when live JS still has stripes/seat ranges.
+  if [[ "${rel}" == "layouts/partials/district_forecast_map.html" ]] \
+    && integration_map_js_is_older_than_live; then
+    echo "Keep ${rel} (paired with live Wahlkreis map UI)"
     return 0
   fi
   mkdir -p "$(dirname "${dest}")"
