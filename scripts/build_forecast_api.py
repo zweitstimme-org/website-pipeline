@@ -928,7 +928,7 @@ def _load_multi_or_archive(
             return _load_json(src)
         if archive_only:
             return None
-    src = _find_first(active_name, data_dirs)
+    src = _find_freshest(active_name, data_dirs)
     return _load_json(src) if src else None
 
 
@@ -1429,7 +1429,6 @@ def build_v2_state(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     state_dir = api_root / "v2" / "state"
     index_items: list[dict[str, Any]] = []
-    seen: set[str] = set()
 
     paths: list[Path] = []
     for d in data_dirs:
@@ -1442,14 +1441,19 @@ def build_v2_state(
         data_dirs, active_name="forecast_parliament_size.json"
     )
 
+    by_code: dict[str, Path] = {}
     for path in paths:
         m = re.match(r"forecast_state_([a-z]{2})\.json$", path.name)
         if not m:
             continue
         code_lower = m.group(1)
-        if code_lower in seen:
-            continue
-        seen.add(code_lower)
+        prev = by_code.get(code_lower)
+        if prev is None or _payload_freshness(_load_json(path)) > _payload_freshness(
+            _load_json(prev)
+        ):
+            by_code[code_lower] = path
+
+    for code_lower, path in sorted(by_code.items()):
         parsed = _state_payload_from_file(path, calendar)
         if not parsed:
             continue
@@ -1471,7 +1475,7 @@ def build_v2_state(
                 meta["n_draws"] = meta.get("n_draws")
 
         districts = _state_districts_from_file(
-            _find_first(f"forecast_districts_{code_lower}.json", data_dirs)
+            _find_freshest(f"forecast_districts_{code_lower}.json", data_dirs)
         )
         districts_url = _write_state_sidecar(
             api_root,

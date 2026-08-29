@@ -203,12 +203,12 @@ fi
 
 # District / Wahlkreis + Einzugschancen (live). Wahlabend stays preview-only.
 copy_forecast_if_newer "${OUTPUT_DIR}/forecast_candidate_entry.json" \
-  "${DATA_TARGET}/forecast_candidate_entry.json"
+  "${DATA_TARGET}/forecast_candidate_entry.json" || true
 copy_forecast_if_newer "${OUTPUT_DIR}/forecast_parliament_size.json" \
-  "${DATA_TARGET}/forecast_parliament_size.json"
+  "${DATA_TARGET}/forecast_parliament_size.json" || true
 for forecast in "${OUTPUT_DIR}"/forecast_districts_*.json; do
   [[ -f "${forecast}" ]] || continue
-  copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/$(basename "${forecast}")"
+  copy_forecast_if_newer "${forecast}" "${DATA_TARGET}/$(basename "${forecast}")" || true
 done
 for geo in "${OUTPUT_DIR}"/ltw_wahlkreise_*.geojson; do
   [[ -f "${geo}" ]] || continue

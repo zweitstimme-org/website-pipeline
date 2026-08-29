@@ -3,7 +3,8 @@
 
 MV: Hare/Niemeyer, Ausgleich capped at 2× Überhang (+1 if even).
 ST: Hare/Niemeyer, iterative +2× remaining overhang (as in LWG LSA).
-BE: Hare/Niemeyer, Berlin-style size = round(max_directs / vote_share).
+BE: Hare/Niemeyer; Bezirkslisten overhang is per-Bezirk (not netted statewide);
+    size = round(seats_incl_oh / vote_share) once, then realloc.
 
 Writes output/forecast_parliament_size.json for the district preview UI.
 """
@@ -22,18 +23,28 @@ from district_forecast import (
     PARTIES,
     RNG_SEED,
     STATE_CONFIG,
-    draw_state_shares,
     load_erst_model,
     load_panel,
     load_state_forecast,
+    load_statewide_share_draws,
+    party_label,
     party_labels,
     predict_erst,
     proportional_swing,
     statewide_from_districts,
 )
+from listen_candidates import BE_LIST_TYPE, BEZ_NAMES, load_wkr_to_bezirk
 
 REPO = Path(__file__).resolve().parents[1]
 OUT = REPO / "output" / "forecast_parliament_size.json"
+
+# Official last-election size / turnout (amtliches Endergebnis).
+# Used as a reference in the forecast UI next to the simulated distribution.
+LAST_ELECTION = {
+    "MV": {"year": 2021, "label": "LTW 2021", "size": 79, "turnout": 70.8},
+    "ST": {"year": 2021, "label": "LTW 2021", "size": 97, "turnout": 60.3},
+    "BE": {"year": 2023, "label": "AGH 2023", "size": 159, "turnout": 62.9},
+}
 
 STATE_RULES = {
     "MV": {
@@ -64,9 +75,12 @@ STATE_RULES = {
         "chamber": "Abgeordnetenhaus",
         "method": "hare_berlin_formula",
         "note_de": (
-            "Mindestens 130 Sitze (Hare/Niemeyer). Überhang wird in der Regel "
-            "vollständig ausgeglichen (Formel über Direktmandate / Stimmenanteil). "
-            "Grundmandatsklausel: ein Direktmandat reicht für den Einzug."
+            "Mindestens 130 Sitze (Hare/Niemeyer). Bei Bezirkslisten (2026: CDU, SPD, "
+            "Linke) zählen Direktmandate je Bezirk; Überhang in einem Bezirk wird "
+            "nicht mit ungenutzten Listenplätzen anderswo verrechnet. Ausgleich über "
+            "die Formel Sitze inkl. Überhang / Stimmenanteil (einmal), dann neue "
+            "Ober- und Unterverteilung. Grundmandatsklausel: ein Direktmandat reicht "
+            "für den Einzug."
         ),
     },
 }
@@ -234,21 +248,128 @@ def allocate_st(votes: dict[str, float], directs: dict[str, int], base: int = 83
     }
 
 
-def allocate_be(votes: dict[str, float], directs: dict[str, int], base: int = 130) -> dict:
+def _be_bezirk_party_keys(vote_keys: dict[str, float] | list[str]) -> set[str]:
+    """Party keys that use Bezirkslisten in 2026, matched to `votes` key style."""
+    codes = {p for p, kind in BE_LIST_TYPE.items() if kind == "bezirk"}
+    keys = set(vote_keys)
+    if keys & codes:
+        return codes & keys
+    return {party_label(p, "BE") for p in codes}
+
+
+def _dir_in_bez(
+    directs_by_bez: dict[str, dict] | None, party: str, bez: str
+) -> int:
+    if not directs_by_bez:
+        return 0
+    inner = directs_by_bez.get(party) or {}
+    val = inner.get(bez, 0)
+    if isinstance(val, (set, frozenset, list, tuple)):
+        return len(val)
+    try:
+        return int(val or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _bezirk_vote_map(bez_votes: dict[str, dict] | None, party: str) -> dict[str, float]:
+    inner = (bez_votes or {}).get(party) or {}
+    votes = {b: max(0.0, float(inner.get(b, 0.0) or 0.0)) for b in BEZ_NAMES}
+    if sum(votes.values()) <= 0:
+        return {b: 1.0 for b in BEZ_NAMES}
+    return votes
+
+
+def _seats_incl_be(
+    party: str,
+    n_prop: int,
+    dir_statewide: int,
+    *,
+    bezirk_parties: set[str],
+    directs_by_bez: dict[str, dict] | None,
+    bez_votes: dict[str, dict] | None,
+) -> int:
+    """Seats a party keeps after Oberverteilung `n_prop` (Bezirk: no statewide netting)."""
+    n_prop = max(0, int(n_prop))
+    use_bezirk = (
+        party in bezirk_parties
+        and directs_by_bez is not None
+        and bez_votes is not None
+    )
+    if not use_bezirk:
+        return max(n_prop, int(dir_statewide))
+    sub = hare_niemeyer(_bezirk_vote_map(bez_votes, party), n_prop)
+    return sum(
+        max(sub.get(b, 0), _dir_in_bez(directs_by_bez, party, b)) for b in BEZ_NAMES
+    )
+
+
+def allocate_be(
+    votes: dict[str, float],
+    directs: dict[str, int],
+    base: int = 130,
+    *,
+    directs_by_bez: dict[str, dict] | None = None,
+    bez_votes: dict[str, dict] | None = None,
+    bezirk_parties: set[str] | list[str] | None = None,
+) -> dict:
+    """Berlin AGH: Hare/Niemeyer + Grundmandat + §19 size formula.
+
+    Landesliste parties: seats = max(prop, statewide Direktmandate).
+    Bezirkslisten (optional ``directs_by_bez`` / ``bez_votes``): seats_incl =
+    sum over Bezirke of max(Unterverteilung, Direktmandate). Overhang in one
+    Bezirk is not offset by unused list seats elsewhere.
+
+    Size: one-shot official formula
+    ``round(seats_incl / vote_share)``, then Ober-/Unterverteilung again.
+    Do not increment the pool until every Bezirk is covered (that overshoots).
+    """
     above = _above_hurdle(votes, directs, grundmandat=True)
     if not above:
-        return {"size": base, "seats": {}, "total_oh": 0, "incomplete": False, "adv": 0}
+        return {
+            "size": base,
+            "seats": {},
+            "alloc": {},
+            "total_oh": 0,
+            "incomplete": False,
+            "adv": 0,
+            "oh_party": None,
+        }
     below_d = sum(d for p, d in directs.items() if p not in above)
     dir_a = {p: int(directs.get(p, 0)) for p in above}
+    if bezirk_parties is None:
+        bezirk_set = _be_bezirk_party_keys(votes)
+    else:
+        bezirk_set = set(bezirk_parties)
+    # Bezirk logic only when both maps are provided (else statewide netting).
+    bez_dir = directs_by_bez
+    bez_v = bez_votes
+    if bez_dir is None or bez_v is None:
+        bezirk_set = set()
+        bez_dir = None
+        bez_v = None
+
     pool = base - below_d
     prop = hare_niemeyer(above, pool)
-    oh = {p: max(0, dir_a[p] - prop[p]) for p in above}
+    seats_incl = {
+        p: _seats_incl_be(
+            p,
+            prop[p],
+            dir_a[p],
+            bezirk_parties=bezirk_set,
+            directs_by_bez=bez_dir,
+            bez_votes=bez_v,
+        )
+        for p in above
+    }
+    oh = {p: max(0, seats_incl[p] - prop[p]) for p in above}
     total_oh = sum(oh.values())
     if total_oh == 0:
-        seats = {p: max(prop[p], dir_a[p]) for p in above}
+        seats = dict(seats_incl)
         return {
             "size": sum(seats.values()) + below_d,
             "seats": seats,
+            "alloc": dict(prop),
             "total_oh": 0,
             "incomplete": False,
             "adv": 0,
@@ -257,24 +378,29 @@ def allocate_be(votes: dict[str, float], directs: dict[str, int], base: int = 13
 
     vsum = sum(above.values())
     s_candidates = [base]
-    for p, d in dir_a.items():
-        if d <= 0 or above[p] <= 0:
+    for p in above:
+        if seats_incl[p] <= 0 or above[p] <= 0:
             continue
-        # Berlin formula: seats_incl_oh / party_votes * all_votes
-        s_candidates.append(int(round(d / (above[p] / vsum))))
+        # Landeswahlamt: Sitze_Partei × Stimmen_gesamt / Stimmen_Partei
+        s_candidates.append(int(round(seats_incl[p] / (above[p] / vsum))))
     s = max(s_candidates)
-    # Ensure all directs fit (rounding can undershoot)
-    for _ in range(20):
-        alloc = hare_niemeyer(above, s)
-        if all(alloc[p] >= dir_a[p] for p in above):
-            break
-        s += 1
     alloc = hare_niemeyer(above, s)
-    seats = {p: max(alloc[p], dir_a[p]) for p in above}
+    seats = {
+        p: _seats_incl_be(
+            p,
+            alloc[p],
+            dir_a[p],
+            bezirk_parties=bezirk_set,
+            directs_by_bez=bez_dir,
+            bez_votes=bez_v,
+        )
+        for p in above
+    }
     adv = sum(max(0, seats[p] - alloc[p]) for p in above)
     return {
         "size": sum(seats.values()) + below_d,
         "seats": seats,
+        "alloc": dict(alloc),
         "total_oh": total_oh,
         "incomplete": adv > 0,
         "adv": adv,
@@ -335,7 +461,59 @@ def _bucket_sizes(sizes: np.ndarray, base: int) -> list[dict]:
     return out
 
 
-def simulate_state(state: str, nsim: int, seed: int) -> dict:
+def _summarize_party_seats(
+    nsim: int,
+    parties: list[str],
+    seat_rows: list[dict[str, int]],
+    vote_rows: list[dict[str, float]],
+    sizes: np.ndarray,
+) -> dict:
+    """Per-party seat distribution + place / majority probabilities.
+
+    Place ranking is by seats, then by vote share (Polymarket tie-break).
+    Absolute majority: seats > half of that simulation's parliament size.
+    """
+    place = {p: [0, 0, 0] for p in parties}
+    abs_maj = {p: 0 for p in parties}
+    hist = {p: Counter() for p in parties}
+    for i in range(nsim):
+        seats = seat_rows[i]
+        vs = vote_rows[i]
+        size = int(sizes[i])
+        ranked = sorted(
+            (
+                (p, int(seats.get(p, 0)), float(vs.get(p, 0.0)))
+                for p in parties
+                if int(seats.get(p, 0)) > 0
+            ),
+            key=lambda t: (t[1], t[2]),
+            reverse=True,
+        )
+        for k, (p, _, _) in enumerate(ranked[:3]):
+            place[p][k] += 1
+        for p in parties:
+            s = int(seats.get(p, 0))
+            hist[p][s] += 1
+            if size > 0 and s * 2 > size:
+                abs_maj[p] += 1
+    out = {}
+    for p in parties:
+        arr = np.array([int(seat_rows[i].get(p, 0)) for i in range(nsim)], dtype=int)
+        out[p] = {
+            "mean": round(float(arr.mean()), 2),
+            "median": int(np.median(arr)),
+            "p10": int(np.percentile(arr, 10)),
+            "p90": int(np.percentile(arr, 90)),
+            "p_most_pct": round(place[p][0] / nsim * 100, 2),
+            "p_second_pct": round(place[p][1] / nsim * 100, 2),
+            "p_third_pct": round(place[p][2] / nsim * 100, 2),
+            "p_abs_majority_pct": round(abs_maj[p] / nsim * 100, 2),
+            "hist": {str(k): int(v) for k, v in sorted(hist[p].items())},
+        }
+    return out
+
+
+def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
     state = state.upper()
     cfg = STATE_CONFIG[state]
     rules = STATE_RULES[state]
@@ -349,7 +527,10 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
     vcov = np.array(model["vcov"], dtype=float)
     sigma = float(model["sigma"])
     rng = np.random.default_rng(seed)
-    draws = draw_state_shares(fit, low, high, nsim, rng)
+    draws, draws_source = load_statewide_share_draws(
+        cfg["state_forecast"], nsim, rng, fit, low, high
+    )
+    nsim = int(draws.shape[0])
     coef_draws = rng.multivariate_normal(beta_hat, vcov, size=nsim)
     state_l1_vec = np.array([state_l1[p] for p in PARTIES])
     party_index = {p: i for i, p in enumerate(PARTIES)}
@@ -362,30 +543,97 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
     adv_by_party: Counter = Counter()
     size_hist: Counter = Counter()
     labels = party_labels(state)
+    seat_parties = [labels[p] for p in PARTIES if p != "others"]
+    seat_rows: list[dict[str, int]] = []
+    vote_rows: list[dict[str, float]] = []
     point_directs = {labels[p]: 0 for p in PARTIES}
+    wkr_to_bez = load_wkr_to_bezirk() if state == "BE" else {}
+
+    def _alloc(vs: dict[str, float], directs: dict[str, int], **bez) -> dict:
+        if state == "BE":
+            return alloc_fn(
+                vs,
+                directs,
+                rules["base"],
+                directs_by_bez=bez.get("directs_by_bez"),
+                bez_votes=bez.get("bez_votes"),
+            )
+        return alloc_fn(vs, directs, rules["base"])
 
     # Point estimate at fit + mean coefs (no residual noise)
     fit_vec = np.array([fit[p] for p in PARTIES])
+    point_dir_bez: dict[str, dict[str, int]] = {
+        labels[p]: {b: 0 for b in BEZ_NAMES} for p in PARTIES if p != "others"
+    }
+    point_bez_votes: dict[str, dict[str, float]] = {
+        labels[p]: {b: 0.0 for b in BEZ_NAMES} for p in PARTIES if p != "others"
+    }
     for d in districts:
         z_l1 = np.array([d["zweit_l1"][p] for p in PARTIES])
         e_l1 = np.array([d["erst_l1"][p] for p in PARTIES])
         z_new = proportional_swing(z_l1, state_l1_vec, fit_vec)
         e_new = predict_erst(z_new, e_l1, beta_hat, 0.0, rng, party_index)
-        point_directs[labels[PARTIES[int(np.argmax(e_new))]]] += 1
+        win_lbl = labels[PARTIES[int(np.argmax(e_new))]]
+        point_directs[win_lbl] += 1
+        if state == "BE":
+            bez = wkr_to_bez.get(int(d["wkr"]))
+            if bez:
+                point_dir_bez.setdefault(win_lbl, {})[bez] = (
+                    point_dir_bez.get(win_lbl, {}).get(bez, 0) + 1
+                )
+                weight = float(d.get("zs_valid_l1") or d.get("valid_l1") or 1.0)
+                for j, p in enumerate(PARTIES):
+                    if p == "others":
+                        continue
+                    point_bez_votes[labels[p]][bez] = point_bez_votes[labels[p]].get(
+                        bez, 0.0
+                    ) + float(z_new[j]) * weight
     vs_fit = {labels[p]: float(fit[p]) for p in PARTIES}
-    point = alloc_fn(vs_fit, point_directs, rules["base"])
+    point = _alloc(
+        vs_fit,
+        point_directs,
+        directs_by_bez=point_dir_bez if state == "BE" else None,
+        bez_votes=point_bez_votes if state == "BE" else None,
+    )
 
     for i in range(nsim):
         draw = draws[i]
         directs = {labels[p]: 0 for p in PARTIES}
+        dir_bez: dict[str, dict[str, int]] = {
+            labels[p]: {b: 0 for b in BEZ_NAMES} for p in PARTIES if p != "others"
+        }
+        bez_votes: dict[str, dict[str, float]] = {
+            labels[p]: {b: 0.0 for b in BEZ_NAMES} for p in PARTIES if p != "others"
+        }
         for d in districts:
             z_l1 = np.array([d["zweit_l1"][p] for p in PARTIES])
             e_l1 = np.array([d["erst_l1"][p] for p in PARTIES])
             z_new = proportional_swing(z_l1, state_l1_vec, draw)
             e_new = predict_erst(z_new, e_l1, coef_draws[i], sigma, rng, party_index)
-            directs[labels[PARTIES[int(np.argmax(e_new))]]] += 1
+            win_lbl = labels[PARTIES[int(np.argmax(e_new))]]
+            directs[win_lbl] += 1
+            if state == "BE":
+                bez = wkr_to_bez.get(int(d["wkr"]))
+                if bez:
+                    dir_bez.setdefault(win_lbl, {})[bez] = (
+                        dir_bez.get(win_lbl, {}).get(bez, 0) + 1
+                    )
+                    weight = float(d.get("zs_valid_l1") or d.get("valid_l1") or 1.0)
+                    for j, p in enumerate(PARTIES):
+                        if p == "others":
+                            continue
+                        bez_votes[labels[p]][bez] = bez_votes[labels[p]].get(
+                            bez, 0.0
+                        ) + float(z_new[j]) * weight
         vs = {labels[p]: float(draw[j]) for j, p in enumerate(PARTIES)}
-        res = alloc_fn(vs, directs, rules["base"])
+        res = _alloc(
+            vs,
+            directs,
+            directs_by_bez=dir_bez if state == "BE" else None,
+            bez_votes=bez_votes if state == "BE" else None,
+        )
+        seat_rows.append(dict(res.get("seats") or {}))
+        vote_rows.append(vs)
         sizes[i] = res["size"]
         ohs[i] = res["total_oh"]
         advs[i] = res["adv"]
@@ -413,6 +661,7 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
         "method": rules["method"],
         "note_de": rules["note_de"],
         "nsim": nsim,
+        "statewide_draws": draws_source,
         "statewide_last_poll_date": state_meta.get("last_poll_date"),
         "p_overhang_pct": round(float(np.mean(ohs > 0) * 100), 1),
         "p_incomplete_pct": round(incomplete / nsim * 100, 2),
@@ -428,6 +677,7 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
         "size_p95": int(np.percentile(sizes, 95)),
         "size_max": int(sizes.max()),
         "p_base_pct": round(float(np.mean(sizes == rules["base"]) * 100), 1),
+        "last_election": LAST_ELECTION[state],
         "buckets": _bucket_sizes(sizes, rules["base"]),
         "point": {
             "size": point["size"],
@@ -437,6 +687,9 @@ def simulate_state(state: str, nsim: int, seed: int) -> dict:
             "incomplete": point["incomplete"],
             "adv": point["adv"],
         },
+        "party_seats": _summarize_party_seats(
+            nsim, seat_parties, seat_rows, vote_rows, sizes
+        ),
     }
     out["majority_impact"] = _majority_impact(
         state,
@@ -509,10 +762,12 @@ def _majority_impact(
     """Quantify vote vs seat majority; for MV also capped vs full Ausgleich."""
     if state == "BE":
         return {
-            "complete_compensation": True,
+            "complete_compensation": False,
             "note_de": (
-                "In Berlin wird Überhang in unseren Simulationen vollständig "
-                "ausgeglichen (0 % unvollständig); Sitzmehrheiten ≈ Zweitstimmenmehrheiten."
+                "In Berlin bleiben Überhangmandate je Bezirksliste erhalten und werden "
+                "nicht landesweit mit ungenutzten Listenplätzen verrechnet. Der "
+                "Ausgleich folgt der amtlichen Formel einmal; ein Restüberhang kann "
+                "stehen bleiben. Die Kammer wird dadurch oft deutlich größer als 130."
             ),
         }
     if state == "ST":
@@ -581,7 +836,12 @@ def _majority_impact(
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--nsim", type=int, default=4000)
+    ap.add_argument(
+        "--nsim",
+        type=int,
+        default=None,
+        help="Cap on statewide draws (default: all posterior draws)",
+    )
     ap.add_argument("--seed", type=int, default=RNG_SEED)
     ap.add_argument("--states", nargs="+", default=["MV", "ST", "BE"])
     args = ap.parse_args()
@@ -609,7 +869,11 @@ def main() -> None:
     payload = {
         "metadata": {
             "model": "district_swing + state Hare/Niemeyer size sim",
-            "nsim": args.nsim,
+            "nsim": next(iter({s["nsim"] for s in states.values()}), args.nsim),
+            "statewide_draws": next(
+                iter({s.get("statewide_draws") for s in states.values()}),
+                None,
+            ),
             "seed": args.seed,
             "last_update": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "caveat_de": (

@@ -1288,49 +1288,34 @@ def allocate_be(
     votes: dict[str, float],
     directs: dict[str, int],
     base: int = AGH_BASE_SEATS,
+    *,
+    directs_by_bez: dict[str, dict] | None = None,
+    bez_votes: dict[str, dict] | None = None,
+    bezirk_parties: set[str] | list[str] | None = None,
 ) -> dict:
-    """Berlin AGH: Hare/Niemeyer + Grundmandat + Größenformel (wie parliament_size_sim)."""
-    above = {
-        p: votes[p]
-        for p in MAIN_PARTIES
-        if votes.get(p, 0.0) >= HURDLE or directs.get(p, 0) >= 1
-    }
-    if not above:
-        return {"size": base, "seats": {p: 0 for p in MAIN_PARTIES}, "total_oh": 0}
-    below_d = sum(d for p, d in directs.items() if p not in above)
-    dir_a = {p: int(directs.get(p, 0)) for p in above}
-    pool = base - below_d
-    prop = hare_niemeyer(above, pool)
-    # hare_niemeyer only fills MAIN keys; restrict
-    prop = {p: prop.get(p, 0) for p in above}
-    oh = {p: max(0, dir_a[p] - prop[p]) for p in above}
-    total_oh = sum(oh.values())
-    if total_oh == 0:
-        seats_a = {p: max(prop[p], dir_a[p]) for p in above}
-        seats = {p: 0 for p in MAIN_PARTIES}
-        seats.update(seats_a)
-        return {
-            "size": sum(seats.values()) + below_d,
-            "seats": seats,
-            "total_oh": 0,
-        }
-    vsum = sum(above.values())
-    s_candidates = [base]
-    for p, d in dir_a.items():
-        if d <= 0 or above[p] <= 0:
-            continue
-        s_candidates.append(int(round(d / (above[p] / vsum))))
-    s = max(s_candidates)
-    for _ in range(20):
-        alloc = {p: hare_niemeyer(above, s).get(p, 0) for p in above}
-        if all(alloc[p] >= dir_a[p] for p in above):
-            break
-        s += 1
-    alloc = {p: hare_niemeyer(above, s).get(p, 0) for p in above}
-    seats_a = {p: max(alloc[p], dir_a[p]) for p in above}
+    """Berlin AGH: same allocator as parliament_size_sim (Bezirk overhang)."""
+    from parliament_size_sim import allocate_be as _alloc
+
+    res = _alloc(
+        votes,
+        directs,
+        base,
+        directs_by_bez=directs_by_bez,
+        bez_votes=bez_votes,
+        bezirk_parties=bezirk_parties if bezirk_parties is not None else set(
+            BE_BEZIRKSLISTE_PARTIES
+        ),
+    )
     seats = {p: 0 for p in MAIN_PARTIES}
-    seats.update(seats_a)
-    return {"size": sum(seats.values()) + below_d, "seats": seats, "total_oh": total_oh}
+    seats.update(res.get("seats") or {})
+    return {
+        "size": res["size"],
+        "seats": seats,
+        "alloc": res.get("alloc") or dict(seats),
+        "total_oh": res.get("total_oh", 0),
+        "incomplete": res.get("incomplete", False),
+        "adv": res.get("adv", 0),
+    }
 
 
 def load_erst_winners_2023() -> dict[str, str]:
@@ -1449,6 +1434,10 @@ def night_entry_mc(
         directs[lead] += 1
         key = (lead, wkr_bez.get(uid, ""))
         directs_bez[key] = directs_bez.get(key, 0) + 1
+    directs_by_bez: dict[str, dict[str, int]] = {p: {} for p in MAIN_PARTIES}
+    for (p, b), n in directs_bez.items():
+        if b:
+            directs_by_bez.setdefault(p, {})[str(b).zfill(2)] = n
 
     bez_ids = sorted(by_bez_pct)
     sizes: list[int] = []
@@ -1464,7 +1453,19 @@ def night_entry_mc(
             draw[p] = max(0.0, float(nc_land_pct.get(p, 0.0)) + rng.normal(0.0, sd))
         tot = sum(draw.values()) or 1.0
         frac = {p: draw[p] / tot for p in PARTIES}
-        alloc = allocate_be(frac, directs)
+        bez_votes = {}
+        for p in MAIN_PARTIES:
+            scale = draw[p] / max(float(nc_land_pct.get(p, 0.0)), EPS)
+            bez_votes[p] = {
+                b: max(0.0, by_bez_pct[b].get(p, 0.0) * scale) for b in bez_ids
+            }
+        alloc = allocate_be(
+            frac,
+            directs,
+            directs_by_bez=directs_by_bez,
+            bez_votes=bez_votes,
+            bezirk_parties=set(BE_BEZIRKSLISTE_PARTIES),
+        )
         sizes.append(int(alloc["size"]))
         for p in MAIN_PARTIES:
             s_p = int(alloc["seats"].get(p, 0))
@@ -1535,22 +1536,24 @@ def _coalition_has_majority(
     hurdle: float = 0.05,
 ) -> bool:
     """Same rule as state-model/compute_scenarios.R (Zweit after hurdle)."""
+    parl = {p: v for p, v in shares.items() if p != "others"}
     for p in parties:
-        if shares.get(p, 0.0) < hurdle:
+        if parl.get(p, 0.0) < hurdle:
             return False
-    above = sum(v for v in shares.values() if v >= hurdle)
+    above = sum(v for v in parl.values() if v >= hurdle)
     if above <= EPS:
         return False
-    return sum(shares.get(p, 0.0) for p in parties) / above > 0.5
+    return sum(parl.get(p, 0.0) for p in parties) / above > 0.5
 
 
 def _eval_scenario(shares: dict[str, float], defn: dict) -> bool:
     cat = defn["category"]
     if cat == "largest_party":
         p = defn["party"]
-        if p not in shares:
+        parl = {k: v for k, v in shares.items() if k != "others"}
+        if p not in parl:
             return False
-        return shares[p] >= max(shares.values()) - EPS
+        return parl[p] >= max(parl.values()) - EPS
     if cat == "above_hurdle":
         return shares.get(defn["party"], 0.0) >= float(defn.get("hurdle", 0.05))
     if cat == "coalition":
@@ -2357,6 +2360,13 @@ def run_replay(
         "erst_l1_meta": erst_l1_meta,
         "final_mae_nowcast": steps[-1]["mae_nowcast"] if steps else None,
         "generated_at": datetime.now(TZ_BERLIN).strftime("%Y-%m-%d %H:%M:%S"),
+        # Official L1 (AGH 2016) vs. this replay of AGH 2023. Live 2026 → AGH 2023.
+        "last_election": {
+            "year": 2016,
+            "label": "AGH 2016",
+            "turnout": 66.9,
+            "parliament_size": 160,
+        },
     }
 
 

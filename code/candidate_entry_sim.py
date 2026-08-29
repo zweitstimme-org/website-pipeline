@@ -157,21 +157,17 @@ def _fill_bezirkslisten(
     directs_by_bez: dict[str, set[str]],
     bez_votes: dict[str, float],
 ) -> set[str]:
-    """Allocate party seats to Bezirke, fill list remainders; cap at S−D."""
+    """Unterverteilung of proportional seats; fill leftover list slots per Bezirk.
+
+    Does not net statewide S−D: unused list seats stay in that Bezirk.
+    ``party_seats`` should be the Hare claim (alloc), not seats incl. overhang.
+    """
     if party_seats <= 0:
         return set()
-    # Drop empty-vote bezirke but keep all 12 keys for stability
     votes = {b: max(0.0, float(bez_votes.get(b, 0.0))) for b in BEZ_NAMES}
     if sum(votes.values()) <= 0:
-        # equal fallback
         votes = {b: 1.0 for b in BEZ_NAMES}
     allocated = hare_niemeyer(votes, party_seats)
-    all_direct = set()
-    for s in directs_by_bez.values():
-        all_direct |= s
-    d_total = len(all_direct)
-    budget = max(0, party_seats - d_total)
-
     slots_by_bez: dict[str, list[dict]] = defaultdict(list)
     for r in slots:
         if r.get("bezirk"):
@@ -179,32 +175,22 @@ def _fill_bezirkslisten(
     for b in slots_by_bez:
         slots_by_bez[b].sort(key=lambda r: r["list_pos"])
 
-    # Prefer Bezirke with unused quota (allocated − directs)
-    remainders = []
+    entered: set[str] = set()
     for b in BEZ_NAMES:
         d = len(directs_by_bez.get(b, set()))
         rem = max(0, allocated.get(b, 0) - d)
-        if rem > 0:
-            remainders.append((b, rem, votes.get(b, 0.0)))
-    # Fill higher vote bezirke first when budget < sum(remainders)
-    remainders.sort(key=lambda x: (-x[1], -x[2], x[0]))
-
-    entered: set[str] = set()
-    for b, rem, _ in remainders:
-        if budget <= 0:
-            break
-        take = min(rem, budget)
+        if rem <= 0:
+            continue
         seated = directs_by_bez.get(b, set())
         n = 0
         for r in slots_by_bez.get(b, []):
-            if n >= take:
+            if n >= rem:
                 break
             pid = r["person_id"]
             if pid in seated or pid in entered:
                 continue
             entered.add(pid)
             n += 1
-        budget -= n
     return entered
 
 
@@ -302,8 +288,24 @@ def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
         bez_votes = sim_bez_votes[i]
 
         vs = {labels[p]: float(draw[j]) for j, p in enumerate(PARTIES)}
-        res = alloc_fn(vs, directs_lbl, rules["base"])
+        if state == "BE":
+            dir_bez_lbl = {
+                labels.get(code, code): inner for code, inner in directs_by_bez.items()
+            }
+            bez_votes_lbl = {
+                labels.get(code, code): inner for code, inner in bez_votes.items()
+            }
+            res = alloc_fn(
+                vs,
+                directs_lbl,
+                rules["base"],
+                directs_by_bez=dir_bez_lbl,
+                bez_votes=bez_votes_lbl,
+            )
+        else:
+            res = alloc_fn(vs, directs_lbl, rules["base"])
         seats_lbl = res["seats"]
+        alloc_lbl = res.get("alloc") or seats_lbl
 
         entered_direct_all: set[str] = set()
         entered_list_all: set[str] = set()
@@ -321,12 +323,13 @@ def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
             if not code or code not in MODELED:
                 continue
             seated_d = winners.get(code, set())
-            n_list_seats = max(0, int(n_seats) - len(seated_d))
+            n_prop = int((alloc_lbl or seats_lbl).get(lbl, n_seats) or 0)
+            n_list_seats = max(0, n_prop - len(seated_d))
             lt = list_type.get(code, "landes")
             if lt == "bezirk" and state == "BE":
                 got = _fill_bezirkslisten(
                     slots_by_party.get(code, []),
-                    int(n_seats),
+                    n_prop,
                     directs_by_bez.get(code, {}),
                     bez_votes.get(code, {}),
                 )
@@ -549,7 +552,8 @@ def main() -> None:
 
     states_out = {}
     # Preserve other states when only a subset is re-simulated.
-    if OUT.exists() and set(s.upper() for s in args.states) != {"BE", "MV", "ST"}:
+    wanted = {s.upper() for s in args.states}
+    if OUT.exists() and wanted != {"BE", "MV", "ST"}:
         try:
             prev = json.loads(OUT.read_text(encoding="utf-8"))
             states_out.update(prev.get("states") or {})
