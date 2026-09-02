@@ -68,7 +68,8 @@ get_posterior_draws_with_oth <- function(data, election_id, model,
 }
 
 # Summarize posterior draws: predict all 8 parties (incl. Sonstige), normalize
-# each draw to 100% (BW/RP adaptation). Scenarios still use the 7-core draws.
+# each draw to 100%. Scenarios use the same 8-party shares so the 5% hurdle
+# is of all valid votes (Sonstige stay in the denominator, get no seats).
 summarize_vote_share_draws <- function(forecast_data, election_id, model,
                                         get_posterior_draws_fn, alpha = 1 / 6,
                                         state_code = NULL) {
@@ -228,7 +229,7 @@ run_state_forecast <- function(state_code, election_date) {
     forecast_data = forecast_data,
     election_id = elec_ind,
     model = model,
-    get_posterior_draws_fn = get_posterior_draws,
+    get_posterior_draws_fn = get_posterior_draws_with_oth,
     config_path = SCENARIO_CONFIG_FILE,
     state_code = state_code
   )

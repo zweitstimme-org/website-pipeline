@@ -33,11 +33,17 @@ function parsePublishDateToUTC(publishDate) {
 }
 
 function formatDateDDMMYYYY(dateLike) {
+  // Calendar dates must not shift by viewer timezone. Prefer the YYYY-MM-DD
+  // prefix from strings (same approach as district-forecast-map / formatDE).
+  if (typeof dateLike === 'string') {
+    const m = dateLike.trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (m) return `${m[3]}.${m[2]}.${m[1]}`;
+  }
   const d = dateLike instanceof Date ? dateLike : new Date(dateLike);
   if (isNaN(d.getTime())) return '';
-  const dd = String(d.getDate()).padStart(2, '0');
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const yyyy = String(d.getFullYear());
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const yyyy = String(d.getUTCFullYear());
   return `${dd}.${mm}.${yyyy}`;
 }
 
@@ -9332,14 +9338,9 @@ document.addEventListener('DOMContentLoaded', function() {
     table.insertBefore(thead, table.firstChild);
   }
 
-  // Format date for display
+  // Format date for display (calendar date — no timezone shift)
   function formatDate(dateStr) {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('de-DE', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
+    return formatDateDDMMYYYY(dateStr);
   }
 
   // Pagination event listeners

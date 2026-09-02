@@ -142,7 +142,7 @@ Skeleton for the [prediction-2025](https://github.com/zweitstimme-org/prediction
 Patches for [website-source](https://github.com/zweitstimme-org/website-source) (Hugo source). The live site [zweitstimme.org](https://zweitstimme.org) is the built output in [website](https://github.com/zweitstimme-org/website) (GitHub Pages, `main`).
 
 - `static/js/pipeline-data.js` — loads pipeline JSON in the browser
-- `themes/PaperMod/layouts/partials/home_info_de.html` — dedicated **Vorhersage** section (active forecasts) and **Archiv – Vorhersagen** (post-election); Bundestag/Landtage sections show Kalman Stimmung only
+- `themes/PaperMod/layouts/partials/home_info_de.html` — dedicated **Vorhersage** section (active forecasts) and **Archiv – Vorhersagen** (post-election), included at Hugo build time from `data/display_mode.json` so empty blocks (and their background stripes) are omitted; Bundestag/Landtage sections show Kalman Stimmung only
 - Wahlkreise (`/direktmandate/`), Einzugschancen (`/einzug/`) and candidate profiles (`/kandidat/`) publish to the live site; Wahlabend-Nowcast (`preview/wahlabend/`) stays on the Pages mock only
 - `.github/workflows/deploy.yml` — Hugo build from repo root → deploy to `zweitstimme-org/website` (`cname: zweitstimme.org`)
 

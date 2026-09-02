@@ -110,6 +110,11 @@ if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/dist
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/districts-preview.html" \
     "${MOCK_DIR}/themes/PaperMod/layouts/_default/districts-preview.html"
 fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/districts-preview-maponly.html" ]]; then
+  mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/districts-preview-maponly.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/_default/districts-preview-maponly.html"
+fi
 if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/preview_notice.html" ]]; then
   mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/partials"
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/preview_notice.html" \
@@ -231,6 +236,12 @@ if [[ -d "${MOCK_DIR}/themes/hugo-cite" ]]; then
     sed -i.bak 's/echoParam \. "\([^"]*\)"/index . "\1"/g' "$f"
     rm -f "${f}.bak"
   done < <(find "${MOCK_DIR}/themes/hugo-cite" -name '*.html' -print0)
+fi
+
+# Hugo includes/omits Vorhersage sections from data/display_mode.json at build time.
+if [[ -f "${MOCK_DIR}/static/data/display_mode.json" ]]; then
+  mkdir -p "${MOCK_DIR}/data"
+  cp "${MOCK_DIR}/static/data/display_mode.json" "${MOCK_DIR}/data/display_mode.json"
 fi
 
 echo "Building Hugo site → ${BASE_URL}"

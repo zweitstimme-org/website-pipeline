@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
 import unicodedata
 from collections import defaultdict
@@ -266,13 +267,37 @@ def prefer_display_name(current: str, candidate: str) -> str:
 
 
 def load_wkr_to_bezirk() -> dict[int, str]:
-    import json
-
     m = json.loads((REPO / "berlin" / "awk_wkr_map.json").read_text(encoding="utf-8"))
     out: dict[int, str] = {}
     for awk, wkr in m["awk_to_wkr"].items():
         out[int(wkr)] = f"{int(awk[:2]):02d}"
     return out
+
+
+def load_awk_to_wkr() -> dict[str, int]:
+    m = json.loads((REPO / "berlin" / "awk_wkr_map.json").read_text(encoding="utf-8"))
+    return {str(k): int(v) for k, v in m["awk_to_wkr"].items()}
+
+
+def statewide_wkr_direct(bezirk: str | None, wkr: int) -> int:
+    """Map in-bezirk local WK (Pankow 1–9) to statewide 1–78.
+
+    Seed CSVs store the number as printed on party sites. If that number is
+    already a statewide WK in the same Bezirk (e.g. 14 = Pankow 2), keep it.
+    """
+    if not bezirk:
+        return wkr
+    try:
+        bez = f"{int(bezirk):02d}"
+    except (TypeError, ValueError):
+        return wkr
+    awk = f"{bez}{int(wkr):02d}"
+    mapped = load_awk_to_wkr().get(awk)
+    if mapped is not None:
+        return mapped
+    if load_wkr_to_bezirk().get(int(wkr)) == bez:
+        return int(wkr)
+    return int(wkr)
 
 
 def load_direkt(path: Path) -> list[dict]:
@@ -441,7 +466,8 @@ def _load_seed_csv(path: Path, *, bezirk: str | None = None) -> dict[int, dict]:
                 "source": public_source_url(r.get("source") or ""),
             }
             if wkr.isdigit():
-                info["wkr_direct"] = int(wkr)
+                row_bez_for_map = bezirk or row_bez or None
+                info["wkr_direct"] = statewide_wkr_direct(row_bez_for_map, int(wkr))
             out[pos] = info
     return out
 

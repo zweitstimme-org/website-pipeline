@@ -1,0 +1,265 @@
+{{- /* Cookie-less pageview ping. Counts zweitstimme.org and the GitHub Pages preview. */ -}}
+<script>
+(function () {
+  var HOSTS = {
+    "zweitstimme.org": 1,
+    "www.zweitstimme.org": 1,
+    "zweitstimme-org.github.io": 1
+  };
+  var ALLOW = ["id", "state", "land", "party", "name", "wkr", "bezirk"];
+  var lastSent = "";
+  var timer = null;
+  var dwellSection = "";
+  var dwellVisibleAt = 0;
+  var dwellAcc = 0;
+  var dwellPinged = 0;
+  var dwellTimer = null;
+
+  function optedOut() {
+    try {
+      if (/[?&]nocount=1(?:&|$)/.test(location.search)) {
+        localStorage.setItem("zweitstimme-nocount", "1");
+      }
+      if (/[?&]nocount=0(?:&|$)/.test(location.search)) {
+        localStorage.removeItem("zweitstimme-nocount");
+      }
+      return localStorage.getItem("zweitstimme-nocount") === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function pageKey() {
+    var path = location.pathname || "/";
+    path = path.replace(/^\/website-pipeline(?=\/|$)/, "") || "/";
+    var params = new URLSearchParams(location.search || "");
+    var bits = [];
+    for (var i = 0; i < ALLOW.length; i++) {
+      var k = ALLOW[i];
+      var v = params.get(k);
+      if (v) bits.push(k + "=" + v);
+    }
+    var key = path;
+    if (bits.length) key += "?" + bits.join("&");
+    if (key.length > 200) key = key.slice(0, 200);
+    return key;
+  }
+
+  function slug(s) {
+    return String(s || "")
+      .replace(/^#/, "")
+      .replace(/[^A-Za-z0-9._~/-]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 40);
+  }
+
+  function detailsName(d) {
+    if (d.id) return d.id;
+    if (d.getAttribute("data-wkr")) return "wkr/" + d.getAttribute("data-wkr");
+    if (d.getAttribute("data-bez")) return "bez/" + d.getAttribute("data-bez");
+    var sum = d.querySelector(":scope > summary") || d.querySelector("summary");
+    var label = (sum && sum.textContent) || "item";
+    if (d.hasAttribute("data-faq-item")) {
+      return "faq/" + (d.getAttribute("data-section") || "all") + "/" + label;
+    }
+    var kind = "details";
+    if (d.classList.contains("wb-coverage")) kind = "wb";
+    else if (d.classList.contains("wb-cov-nest")) kind = "wb-nest";
+    else if (d.classList.contains("wb-entry-party")) kind = "wb-party";
+    else if (d.classList.contains("district-cand-info")) kind = "district-cand";
+    else if (d.classList.contains("ce-explainer")) kind = "ce-explainer";
+    else if (d.classList.contains("ce-cand-info")) kind = "ce-cand";
+    return kind + "/" + label;
+  }
+
+  function clickKey(el) {
+    var arm = el.closest(".state-arm");
+    if (arm) {
+      if (arm.classList.contains("load-more-button")) return "/click/load-more";
+      if (arm.classList.contains("show-less-button")) return "/click/show-less";
+      var section = "landtag";
+      if (arm.closest("#vorhersage-targets")) section = "vorhersage";
+      else if (arm.closest("#vorhersage-archive-targets")) section = "archiv";
+      var st = arm.getAttribute("data-state") || arm.getAttribute("data-forecast-key");
+      return st ? "/click/" + section + "/" + slug(st) : "/click/" + section;
+    }
+    var tab = el.closest(".district-preview-target, .ce-tab, [data-wb-land]");
+    if (tab) {
+      var code = tab.getAttribute("data-code") || tab.getAttribute("data-state") || tab.getAttribute("data-wb-land");
+      var kind = tab.hasAttribute("data-wb-land") ? "wahlabend" : "tab";
+      return "/click/" + kind + "/" + slug(code || "unknown");
+    }
+    var mehr = el.closest(".scenario-prob-toggle, .district-party-toggle");
+    if (mehr) {
+      var action = mehr.getAttribute("aria-expanded") === "true" ? "collapse" : "expand";
+      var where = mehr.id ? slug(mehr.id) : "toggle";
+      return "/click/" + action + "/" + where;
+    }
+    var cap = el.closest("#poll-table-caption-toggle, #state-poll-table-caption-toggle");
+    if (cap) {
+      var capAction = cap.getAttribute("aria-expanded") === "true" ? "collapse" : "expand";
+      return "/click/" + capAction + "/" + slug(cap.id);
+    }
+    var jump = el.closest(".home-jump-btn");
+    if (jump) return "/click/jump/" + slug(jump.getAttribute("href") || "jump");
+    var sw = el.closest(".toggle-switch");
+    if (sw) return "/click/toggle/" + slug(sw.id || "switch");
+    var sum = el.closest("summary");
+    if (sum) {
+      var d = sum.closest("details");
+      if (d) {
+        // Capture runs before the default toggle, so invert current open state.
+        var detAction = d.open ? "collapse" : "expand";
+        return "/click/" + detAction + "/" + slug(detailsName(d));
+      }
+    }
+    return null;
+  }
+
+  function viewport() {
+    try {
+      return window.matchMedia("(max-width: 768px)").matches ? "n" : "w";
+    } catch (e) {
+      return "w";
+    }
+  }
+
+  function cellular() {
+    try {
+      var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (c && String(c.type || "").toLowerCase() === "cellular") return "c";
+    } catch (e) {}
+    return "";
+  }
+
+  function pageSection() {
+    var p = (location.pathname || "/").replace(/^\/website-pipeline(?=\/|$)/, "") || "/";
+    p = p.replace(/\/+$/, "") || "/";
+    if (p === "/" || p === "/index.html") return "home";
+    var parts = p.replace(/^\//, "").split("/");
+    var first = parts[0];
+    if (first === "preview") first = parts[1] || "preview";
+    var known = {
+      direktmandate: 1, einzug: 1, kandidat: 1, faq: 1, blog: 1,
+      research: 1, team: 1, docs: 1, archive: 1, impressum: 1, datenschutz: 1,
+      preview: 1
+    };
+    return known[first] ? first : "other";
+  }
+
+  function send(key, extra) {
+    extra = extra || {};
+    var src = "https://polsci.uni-wh.de/zweitstimme.gif?p=" + encodeURIComponent(key) + "&v=" + viewport();
+    var cell = cellular();
+    if (cell) src += "&c=" + cell;
+    if (extra.d) src += "&d=" + extra.d;
+    if (extra.t) src += "&t=" + extra.t;
+    if (extra.e) src += "&e=1";
+    if (extra.keep) {
+      try {
+        fetch(src, { method: "GET", mode: "no-cors", keepalive: true, credentials: "omit" });
+        return;
+      } catch (err) {}
+    }
+    var img = new Image();
+    img.referrerPolicy = "no-referrer";
+    img.src = src;
+  }
+
+  function dwellNow() {
+    return Date.now() / 1000;
+  }
+
+  function resetDwell() {
+    dwellSection = pageSection();
+    dwellAcc = 0;
+    dwellPinged = 0;
+    dwellVisibleAt = (typeof document !== "undefined" && document.visibilityState === "hidden") ? 0 : dwellNow();
+  }
+
+  function flushDwell(isEnd) {
+    if (!dwellSection) return;
+    if (dwellVisibleAt) {
+      dwellAcc += dwellNow() - dwellVisibleAt;
+      dwellVisibleAt = isEnd ? 0 : dwellNow();
+    }
+    var total = dwellAcc;
+    var delta = total - dwellPinged;
+    if (delta < 1 && !isEnd) return;
+    dwellPinged = total;
+    var extra = {};
+    if (delta >= 1) extra.d = Math.min(90, Math.max(1, Math.round(delta)));
+    if (isEnd && total >= 1) {
+      extra.e = 1;
+      extra.t = Math.min(3600, Math.max(1, Math.round(total)));
+      extra.keep = true;
+    }
+    if (!extra.d && !extra.t) return;
+    send("/dwell/" + dwellSection, extra);
+  }
+
+  function ping() {
+    var key = pageKey();
+    if (key === lastSent) return;
+    if (lastSent) flushDwell(true);
+    lastSent = key;
+    resetDwell();
+    send(key);
+  }
+
+  function schedulePing() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(ping, 400);
+  }
+
+  function wrapHistory(fn) {
+    return function () {
+      var ret = fn.apply(this, arguments);
+      schedulePing();
+      return ret;
+    };
+  }
+
+  try {
+    if (!HOSTS[location.hostname]) return;
+    if (optedOut()) return;
+    if (navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+    history.pushState = wrapHistory(history.pushState);
+    history.replaceState = wrapHistory(history.replaceState);
+    window.addEventListener("popstate", schedulePing);
+    document.addEventListener("click", function (ev) {
+      var t = ev.target;
+      if (!t || !t.closest) return;
+      var key = clickKey(t);
+      if (key) send(key);
+    }, true);
+    document.addEventListener("change", function (ev) {
+      var t = ev.target;
+      if (!t || t.tagName !== "SELECT") return;
+      var val = slug(t.value || "empty");
+      var selKey = null;
+      if (t.id === "time-period-select") selKey = "/click/zeitraum/bundestag/" + val;
+      else if (t.id === "state-time-period-select") selKey = "/click/zeitraum/land/" + val;
+      else if (t.classList && t.classList.contains("ce-bezirk")) selKey = "/click/select/bezirk/" + val;
+      else if (t.id) selKey = "/click/select/" + slug(t.id) + "/" + val;
+      if (selKey) send(selKey);
+    }, true);
+    schedulePing();
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") {
+        if (dwellVisibleAt) {
+          dwellAcc += dwellNow() - dwellVisibleAt;
+          dwellVisibleAt = 0;
+        }
+        flushDwell(false);
+      } else {
+        dwellVisibleAt = dwellNow();
+      }
+    });
+    window.addEventListener("pagehide", function () { flushDwell(true); });
+    dwellTimer = setInterval(function () {
+      if (document.visibilityState === "visible") flushDwell(false);
+    }, 15000);
+  } catch (e) {}
+})();
+</script>

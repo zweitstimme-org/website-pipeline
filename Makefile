@@ -59,6 +59,7 @@ wahlabend-ltw: wahlabend-ltw-fetch
 district-forecast:
 	$(PY) code/prepare_district_data.py --state all
 	$(PY) code/incumbents.py --offline || $(PY) code/incumbents.py
+	$(PY) code/aw_candidacies.py --offline || $(PY) code/aw_candidacies.py
 	$(PY) code/district_forecast.py --state all
 	$(PY) code/parliament_size_sim.py
 	$(PY) code/listen_candidates.py
