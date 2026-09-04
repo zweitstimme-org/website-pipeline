@@ -516,6 +516,7 @@ def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
         "nsim": nsim,
         "statewide_draws": draws_source,
         "statewide_last_poll_date": state_meta.get("last_poll_date"),
+        "last_update": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "list_note_de": (
             "Berlin: CDU/SPD/Linke mit Bezirkslisten (Sitze nach Bezirk-Zweitstimmen "
             "aus proportionalem Swing der historischen WK-Ergebnisse); "

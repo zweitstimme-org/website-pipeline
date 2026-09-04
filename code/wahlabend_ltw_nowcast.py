@@ -542,6 +542,13 @@ def run_state(state: str, *, n_steps: int = 40) -> dict:
         label = "Sachsen-Anhalt"
         election = "LTW2021"
         n_wkr = 41
+        # Official L1 (LTW 2016) vs. this replay of LTW 2021. Live 2026 → LTW 2021.
+        last_election = {
+            "year": 2016,
+            "label": "LTW 2016",
+            "turnout": 61.1,
+            "parliament_size": 87,
+        }
     elif state == "mv":
         raw = REPO / "mecklenburg-vorpommern" / "wahlabend" / "raw"
         truth = load_mv_wbz(raw / "LTW2021_WBZ.xlsx", year=2021)
@@ -549,6 +556,12 @@ def run_state(state: str, *, n_steps: int = 40) -> dict:
         label = "Mecklenburg-Vorpommern"
         election = "LTW2021"
         n_wkr = 36
+        last_election = {
+            "year": 2016,
+            "label": "LTW 2016",
+            "turnout": 61.6,
+            "parliament_size": 71,
+        }
     else:
         raise ValueError(state)
 
@@ -682,6 +695,7 @@ def run_state(state: str, *, n_steps: int = 40) -> dict:
         "election": election,
         "state": state,
         "state_label": label,
+        "last_election": last_election,
         "baseline": "L1 = LTW 2016 matched WB; π₀ = L1-Land (Replay)",
         "parties": list(PARTIES),
         "party_labels": PARTY_LABELS,

@@ -137,6 +137,8 @@
   width: 100%; height: 220px; margin: 0.5rem 0 1.25rem;
   background: #fff; border: 1px solid #e8e8e8; border-radius: 10px;
 }
+#wb-chart-turnout.wb-chart { height: 200px; }
+#wb-chart-size.wb-chart { height: 220px; }
 #wb-chart-shares.wb-chart { height: 280px; }
 .wb-range { font-variant-numeric: tabular-nums; color: #555; font-size: 0.85em; }
 .wb-legend { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.8rem; color: #555; margin-bottom: 0.75rem; }
@@ -421,19 +423,58 @@
   align-items: stretch;
   margin: 0.25rem 0 0.1rem;
 }
-.wb-wkr-bez-sep {
-  flex: 0 0 auto;
-  align-self: center;
-  margin: 0 0.12rem 0 0.28rem;
-  padding-left: 0.42rem;
-  border-left: 2px solid #c8c8c8;
-  font-size: 0.62rem;
+.wb-wkr-tiles-grouped {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.32rem;
+  align-items: stretch;
+}
+.wb-wkr-bez-group {
+  display: grid;
+  grid-template-columns: minmax(7.2rem, 11rem) 1fr;
+  column-gap: 0.65rem;
+  row-gap: 0.18rem;
+  align-items: start;
+  padding: 0.35rem 0.5rem 0.4rem 0.55rem;
+  background: #f7f7f7;
+  border-radius: 6px;
+  border-left: 3px solid #cfcfcf;
+}
+.wb-wkr-bez-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.4rem;
+  padding-top: 0.28rem;
+  line-height: 1.25;
+  user-select: none;
+}
+.wb-wkr-bez-code {
+  font-size: 0.68rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: #888;
-  line-height: 1.85rem;
-  user-select: none;
-  cursor: default;
+  letter-spacing: 0.02em;
+}
+.wb-wkr-bez-name {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: #444;
+}
+.wb-wkr-bez-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  .wb-wkr-bez-group {
+    grid-template-columns: 1fr;
+    padding: 0.32rem 0.45rem 0.38rem;
+  }
+  .wb-wkr-bez-head {
+    padding-top: 0;
+  }
 }
 .wb-wkr-tile {
   display: flex;
@@ -654,6 +695,7 @@
     <p class="wb-coverage-meta">
       Nowcast aus gemeldeten WBs + L1-Rest (oft mit Zweitstimme zuerst verfügbar).
       Band = ± Unsicherheit; Endstand erst wenn Land voll ausgezählt.
+      Punktierte Linie = letzte Wahl (amtliches Endergebnis).
     </p>
     <canvas id="wb-chart-turnout" class="wb-chart" width="900" height="180"></canvas>
 
@@ -669,6 +711,7 @@
     <p class="wb-coverage-meta">
       Kurve/Band nur bis jetzt; X-Achse bis Nachtende (MC p10–p90).
       Endstand-Linie erst wenn Land voll ausgezählt.
+      Punktierte Linie = letzte Wahl (amtliches Endergebnis).
       Wer einzieht: Tabs Listen / Wahlkreise.
     </p>
     <canvas id="wb-chart-size" class="wb-chart" width="900" height="200"></canvas>
@@ -780,4 +823,5 @@
   </p>
 </div>
 
+<script src="{{ printf "%s?v=%d" ("js/chart-logo-watermark.js" | relURL) now.Unix }}"></script>
 <script src="{{ printf "%s?v=%d" ("js/wahlabend-nowcast.js" | relURL) now.Unix }}" defer></script>

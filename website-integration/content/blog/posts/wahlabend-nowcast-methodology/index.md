@@ -272,6 +272,7 @@ In der Replay-Eval zählen wir Fehl-Calls hart: Call-Partei ≠ Erststimmen-Sieg
 Berlin meldet oft **Wahlbeteiligung und Zweitstimme** früh. Der Beteiligungs-Nowcast ist deshalb Teil der **Szenarien**-Ansicht.
 
 - **Wahrheit / Ziel:** Summe Wählende ÷ Summe Wahlberechtigte (stadtweit).  
+- **Letzte Wahl:** punktierte Referenzlinie (amtliches Endergebnis; im Replay AGH 2016 / LTW 2016).  
 - **Besonderheit Briefwahl:** Viele Briefwahlbezirke haben in den Tabellen `Wahlberechtigte = 0` (Berechtigte sitzen auf der Urne). Wir zählen sie über erwartete Wählende aus der Historie mit, sonst unterschätzt man die Beteiligung dramatisch.  
 - **Update:** Faktor „gemeldete Wählende / erwartete Wählende“ (geschrumpft), angewandt auf die noch offenen Bezirke.
 
@@ -283,7 +284,7 @@ Aus dem laufenden Zweitstimmen-Nowcast und dem Unsicherheitsband ziehen wir Mont
 
 - **Politische Szenarien** (stärkste Kraft, Mehrheiten, 5 %-Hürde, …) mit Wahrscheinlichkeit; P ≥ 50 % heißt nur „tritt eher ein“, kein Call.  
 - **Einzug:** 5 % oder mindestens ein Direktmandat; CDU/SPD/Linke über **Bezirkslisten**, übrige große Parteien über **Landesliste**.  
-- **Parlamentsgröße:** Berliner Formel (Grundmandate + Ausgleich) auf den Nowcast-Zügen → Median und p10–p90 über die Nacht.
+- **Parlamentsgröße:** Berliner Formel (Grundmandate + Ausgleich) auf den Nowcast-Zügen → Median und p10–p90 über die Nacht. Punktierte Linie = letzte Wahl (amtliche Sitzzahl).
 
 Details zur Vorwahl-Logik von Direktmandaten und Größe: [Wahlkreis-Vorhersage](/blog/posts/district-forecast-methodology/), [Landesprognose](/blog/posts/state-forecast-methodology/).
 

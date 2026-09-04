@@ -1,0 +1,46 @@
+{{- define "main" }}
+<style>
+  /* "Widget-only" embed view: show only the Leaflet map. */
+  .district-preview-nav,
+  .district-preview-targets,
+  #district-preview-targets,
+  .district-search,
+  #district-search,
+  #vorhersage-districts-legend,
+  #vorhersage-districts-detail,
+  #vorhersage-districts-gender,
+  #vorhersage-parliament-size,
+  .district-size-panel,
+  .district-gender-panel,
+  #vorhersage-districts-note,
+  .scenario-prob-heading,
+  #district-preview-heading {
+    display: none !important;
+  }
+
+  /* Remove the scenario panel chrome; keep map flush. */
+  .scenario-prob-panel {
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  #vorhersage-districts-section {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  #vorhersage-districts-map {
+    height: 100% !important;
+    min-height: 220px;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+</style>
+
+{{ partial "district_forecast_map.html" . }}
+{{- end }}
+

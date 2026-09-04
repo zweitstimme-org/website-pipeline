@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "description": "Latest completed election results used for display party ordering (vote-share descending). Sonstige is never listed here; the UI/pipeline always appends it on the far right when shown.",
+    "description": "Latest completed election results used for display party ordering (vote-share descending) and last-election turnout/parliament-size references. Sonstige is never listed here; the UI/pipeline always appends it on the far right when shown.",
     "updated": "2026-07-15"
   },
   "federal": {
@@ -28,6 +28,9 @@
     },
     "BE": {
       "election_date": "2023-02-12",
+      "turnout": 62.9,
+      "parliament_size": 159,
+      "seats": { "CDU/CSU": 52, "GRÜNE": 34, "SPD": 34, "LINKE": 22, "AfD": 17 },
       "shares": { "CDU/CSU": 28.2, "GRÜNE": 18.4, "SPD": 18.4, "LINKE": 12.2, "AfD": 9.1, "FDP": 4.6 }
     },
     "BB": {
@@ -48,6 +51,9 @@
     },
     "MV": {
       "election_date": "2021-09-26",
+      "turnout": 70.8,
+      "parliament_size": 79,
+      "seats": { "SPD": 34, "AfD": 14, "CDU/CSU": 12, "LINKE": 9, "GRÜNE": 5, "FDP": 5 },
       "shares": { "SPD": 39.6, "AfD": 16.7, "CDU/CSU": 13.3, "LINKE": 9.9, "GRÜNE": 6.3, "FDP": 5.8 }
     },
     "NI": {
@@ -76,6 +82,9 @@
     },
     "ST": {
       "election_date": "2021-06-06",
+      "turnout": 60.3,
+      "parliament_size": 97,
+      "seats": { "CDU/CSU": 40, "AfD": 23, "LINKE": 12, "SPD": 9, "FDP": 7, "GRÜNE": 6 },
       "shares": { "CDU/CSU": 37.1, "AfD": 20.8, "LINKE": 11.0, "SPD": 8.4, "FDP": 6.4, "GRÜNE": 5.9, "FW": 3.1 }
     },
     "TH": {

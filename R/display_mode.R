@@ -92,6 +92,47 @@ archive_forecast_file_field <- function(scope, state_code = NULL, election_date)
   paste0("archive/forecast_state_", tolower(state_code), "_", election_date, ".json")
 }
 
+.archive_move <- function(active_path, archive_path) {
+  if (!file.exists(active_path)) {
+    return(FALSE)
+  }
+  dir.create(dirname(archive_path), recursive = TRUE, showWarnings = FALSE)
+  file.copy(active_path, archive_path, overwrite = TRUE)
+  file.remove(active_path)
+  TRUE
+}
+
+.archive_state_slice <- function(active_path, archive_path, state_code) {
+  if (!file.exists(active_path)) {
+    return(FALSE)
+  }
+  payload <- tryCatch(
+    jsonlite::fromJSON(active_path, simplifyVector = FALSE),
+    error = function(e) NULL
+  )
+  if (is.null(payload) || !is.list(payload$states)) {
+    return(FALSE)
+  }
+  code <- toupper(state_code)
+  block <- payload$states[[code]]
+  if (is.null(block)) {
+    return(FALSE)
+  }
+  slice <- list(
+    metadata = payload$metadata %||% list(),
+    state = block
+  )
+  dir.create(dirname(archive_path), recursive = TRUE, showWarnings = FALSE)
+  jsonlite::write_json(slice, archive_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
+  payload$states[[code]] <- NULL
+  if (length(payload$states) == 0) {
+    file.remove(active_path)
+  } else {
+    jsonlite::write_json(payload, active_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
+  }
+  TRUE
+}
+
 maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   election_date <- entry$election_date
   if (is.null(election_date) || !nzchar(election_date)) {
@@ -107,30 +148,49 @@ maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   state_code <- entry$state_code
   archive_path <- archived_forecast_path(scope, state_code, election_date, output_dir)
   active_path <- active_forecast_path(scope, state_code, output_dir)
+  archive_dir <- forecast_archive_dir(output_dir)
 
   if (is.null(archive_path)) {
     return(NULL)
   }
 
-  dir.create(dirname(archive_path), recursive = TRUE, showWarnings = FALSE)
+  dir.create(archive_dir, recursive = TRUE, showWarnings = FALSE)
 
   if (!is.null(active_path) && file.exists(active_path)) {
-    file.copy(active_path, archive_path, overwrite = TRUE)
-    file.remove(active_path)
+    .archive_move(active_path, archive_path)
+  }
+
+  if (identical(scope, "bund")) {
+    .archive_move(
+      file.path(output_dir, "forecast_districts.json"),
+      file.path(archive_dir, paste0("forecast_districts_", election_date, ".json"))
+    )
+    .archive_move(
+      file.path(output_dir, "forecast_federal_draws.json"),
+      file.path(archive_dir, paste0("forecast_federal_", election_date, "_draws.json"))
+    )
   }
 
   if (!identical(scope, "bund") && !is.null(state_code)) {
-    active_draws <- file.path(
-      output_dir, paste0("forecast_state_", tolower(state_code), "_draws.json")
+    code_lower <- tolower(state_code)
+    .archive_move(
+      file.path(output_dir, paste0("forecast_state_", code_lower, "_draws.json")),
+      file.path(archive_dir, paste0("forecast_state_", code_lower, "_", election_date, "_draws.json"))
     )
-    archive_draws <- file.path(
-      forecast_archive_dir(output_dir),
-      paste0("forecast_state_", tolower(state_code), "_", election_date, "_draws.json")
+    .archive_move(
+      file.path(output_dir, paste0("forecast_districts_", code_lower, ".json")),
+      file.path(archive_dir, paste0("forecast_districts_", code_lower, "_", election_date, ".json"))
     )
-    if (file.exists(active_draws)) {
-      file.copy(active_draws, archive_draws, overwrite = TRUE)
-      file.remove(active_draws)
-    }
+    .archive_state_slice(
+      file.path(output_dir, "forecast_candidate_entry.json"),
+      file.path(archive_dir, paste0("forecast_candidate_entry_", code_lower, "_", election_date, ".json")),
+      state_code
+    )
+    .archive_state_slice(
+      file.path(output_dir, "forecast_parliament_size.json"),
+      file.path(archive_dir, paste0("forecast_parliament_", code_lower, "_", election_date, ".json")),
+      state_code
+    )
   }
 
   if (!file.exists(archive_path)) {

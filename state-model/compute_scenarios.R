@@ -1,6 +1,13 @@
 # Compute scenario probabilities from state-model posterior draws.
 
 FORECAST_SCENARIO_PARTIES <- c("afd", "bsw", "cdu", "fdp", "gru", "lin", "spd")
+FORECAST_OTH_PARTY <- "oth"
+
+# Seat-eligible parties only. Sonstige stay in the vote-share denominator
+# (legal 5% of valid votes) but get no seats and cannot be "stärkste Kraft".
+parliamentary_shares <- function(shares) {
+  shares[setdiff(names(shares), FORECAST_OTH_PARTY)]
+}
 
 PARTY_LABELS_DE <- c(
   afd = "AfD",
@@ -36,14 +43,15 @@ localize_scenario_label <- function(label, state_code = NULL) {
 }
 
 coalition_has_majority <- function(shares, coalition_parties, hurdle = 0.05) {
-  if (length(shares) == 0 || !all(coalition_parties %in% names(shares))) {
+  parl <- parliamentary_shares(shares)
+  if (length(parl) == 0 || !all(coalition_parties %in% names(parl))) {
     return(FALSE)
   }
-  coalition_shares <- shares[coalition_parties]
+  coalition_shares <- parl[coalition_parties]
   if (any(coalition_shares < hurdle)) {
     return(FALSE)
   }
-  above_hurdle <- sum(shares[shares >= hurdle])
+  above_hurdle <- sum(parl[parl >= hurdle])
   if (above_hurdle <= 0) {
     return(FALSE)
   }
@@ -53,23 +61,24 @@ coalition_has_majority <- function(shares, coalition_parties, hurdle = 0.05) {
 # Majority of seats among parties above the hurdle, after dropping `exclude`.
 # E.g. exclude=AfD → “Parlamentsmehrheit ohne AfD”.
 majority_excluding_parties <- function(shares, exclude_parties, hurdle = 0.05) {
-  if (length(shares) == 0) {
+  parl <- parliamentary_shares(shares)
+  if (length(parl) == 0) {
     return(FALSE)
   }
-  above_names <- names(shares)[shares >= hurdle]
+  above_names <- names(parl)[parl >= hurdle]
   if (length(above_names) == 0) {
     return(FALSE)
   }
-  above_sum <- sum(shares[above_names])
+  above_sum <- sum(parl[above_names])
   if (above_sum <= 0) {
     return(FALSE)
   }
-  excl <- intersect(unique(as.character(exclude_parties)), names(shares))
+  excl <- intersect(unique(as.character(exclude_parties)), names(parl))
   bloc <- setdiff(above_names, excl)
   if (length(bloc) == 0) {
     return(FALSE)
   }
-  sum(shares[bloc]) / above_sum > 0.5
+  sum(parl[bloc]) / above_sum > 0.5
 }
 
 normalize_draw_matrix <- function(mat) {
@@ -95,8 +104,9 @@ add_largest_party_scenarios <- function(scenario_defs, parties, hurdle, state_co
       evaluate = local({
         p <- party
         function(shares) {
-          if (!p %in% names(shares)) return(FALSE)
-          shares[[p]] >= max(shares, na.rm = TRUE)
+          parl <- parliamentary_shares(shares)
+          if (!p %in% names(parl)) return(FALSE)
+          shares[[p]] >= max(parl, na.rm = TRUE)
         }
       })
     )
@@ -286,11 +296,24 @@ compute_forecast_scenarios <- function(
     model = model
   )
 
-  parties <- FORECAST_SCENARIO_PARTIES
+  parties_core <- FORECAST_SCENARIO_PARTIES
+  # Keep Sonstige in the denominator when present so 5% is of all valid votes
+  # (same definition as Sitzzuteilung / Listenplätze). Do not drop oth and
+  # renormalize the remaining seven — that inflates small-party hurdle rates.
+  parties_keep <- c(parties_core, FORECAST_OTH_PARTY)
   draws_wide <- draws_long %>%
-    dplyr::filter(party %in% parties) %>%
+    dplyr::filter(party %in% parties_keep) %>%
     dplyr::select(draw, party, posterior_draw) %>%
     tidyr::pivot_wider(names_from = party, values_from = posterior_draw)
+
+  parties <- parties_core
+  if (FORECAST_OTH_PARTY %in% names(draws_wide)) {
+    parties <- c(parties_core, FORECAST_OTH_PARTY)
+  }
+  missing <- setdiff(parties_core, names(draws_wide))
+  if (length(missing) > 0) {
+    return(list(min_probability_pct = min_prob, items = list()))
+  }
 
   mat <- as.matrix(draws_wide[, parties, drop = FALSE])
   mat_norm <- normalize_draw_matrix(mat)
@@ -306,13 +329,13 @@ compute_forecast_scenarios <- function(
   scenario_defs <- list()
   scenario_defs <- add_largest_party_scenarios(
     scenario_defs,
-    unlist(cfg$largest_party_parties %||% parties, use.names = FALSE),
+    unlist(cfg$largest_party_parties %||% parties_core, use.names = FALSE),
     hurdle,
     state_code = state_code
   )
   scenario_defs <- add_above_hurdle_scenarios(
     scenario_defs,
-    resolve_above_hurdle_parties(cfg, parties, state_code),
+    resolve_above_hurdle_parties(cfg, parties_core, state_code),
     hurdle,
     state_code = state_code
   )

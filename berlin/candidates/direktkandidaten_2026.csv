@@ -1,5 +1,4 @@
 wkr,party,partei,name,source
-1,cdu,CDU/CSU,Johannes Kraft,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 1,fdp,FDP,Dr. Maren Jasper-Winter,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 1,gruene,GRÜNE,Silke Gebel,https://gruene-mitte.de/wahl-2026
 1,linke,LINKE,Anna Eiling,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
@@ -12,12 +11,10 @@ wkr,party,partei,name,source
 3,gruene,GRÜNE,Jian Omar,https://gruene-mitte.de/wahl-2026
 3,linke,LINKE,Tobias Schulze,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
 3,spd,SPD,Lucy Merle Demers,https://spd.berlin/kandidatinnen/
-4,cdu,CDU/CSU,Dirk Stettner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 4,fdp,FDP,Beatrice Höllen,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 4,gruene,GRÜNE,Taylan Kurt,https://gruene-mitte.de/wahl-2026
 4,linke,LINKE,Jacky Sanehy,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
 4,spd,SPD,Federico Quadrelli,https://spd.berlin/kandidatinnen/
-5,cdu,CDU/CSU,Denise Bittner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 5,fdp,FDP,Dr. Bettina von Seyfried,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 5,gruene,GRÜNE,Alexandra Bendzko,https://gruene-mitte.de/wahl-2026
 5,linke,LINKE,Andreas Umgelter,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
@@ -33,7 +30,6 @@ wkr,party,partei,name,source
 8,gruene,GRÜNE,Kübra Beydaş,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 8,linke,LINKE,Elif Eralp,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 8,spd,SPD,Sevim Aydin,https://spd.berlin/kandidatinnen/
-9,cdu,CDU/CSU,David Paul,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 9,gruene,GRÜNE,Katrin Schmidberger,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 9,linke,LINKE,Michael Efler,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 9,spd,SPD,Britt Schlünz,https://spd.berlin/kandidatinnen/
@@ -46,6 +42,7 @@ wkr,party,partei,name,source
 12,gruene,GRÜNE,Vasili Franco,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 12,linke,LINKE,Ekkehard Spiegel,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 12,spd,SPD,Steffen Opitz,https://spd.berlin/kandidatinnen/
+13,cdu,CDU/CSU,Johannes Kraft,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 13,fdp,FDP,Stefan Andresen,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 13,gruene,GRÜNE,Bettina Jarasch,https://gruene-pankow.de/team-agh26/
 13,linke,LINKE,Maxi Häber,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
@@ -59,10 +56,12 @@ wkr,party,partei,name,source
 15,gruene,GRÜNE,Oda Hassepaß,https://gruene-pankow.de/team-agh26/
 15,linke,LINKE,Christian Zebisch,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 15,spd,SPD,Paul Krüger,https://spd.berlin/kandidatinnen/
+16,cdu,CDU/CSU,Dirk Stettner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 16,fdp,FDP,Pablo Puente Gamero,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 16,gruene,GRÜNE,Friedrich Ehrhardt,https://gruene-pankow.de/team-agh26/
 16,linke,LINKE,Devran Basbolat,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 16,spd,SPD,Dennis Buchner,https://spd.berlin/kandidatinnen/
+17,cdu,CDU/CSU,Denise Bittner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 17,fdp,FDP,Oliver Simon,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 17,gruene,GRÜNE,Louis Krüger,https://gruene-pankow.de/team-agh26/
 17,linke,LINKE,Enja Springob,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
@@ -79,6 +78,7 @@ wkr,party,partei,name,source
 20,gruene,GRÜNE,Daniela Billig,https://gruene-pankow.de/team-agh26/
 20,linke,LINKE,Gloria Viagra,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 20,spd,SPD,Heiko Kretschmer,https://spd.berlin/kandidatinnen/
+21,cdu,CDU/CSU,David Paul,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 21,fdp,FDP,Julius Grottke,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 21,gruene,GRÜNE,Dr. Oliver Jütting,https://gruene-pankow.de/team-agh26/
 21,linke,LINKE,Maximilian Schirmer,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
