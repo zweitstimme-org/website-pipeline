@@ -29,6 +29,10 @@ PARTIES = ("cdu", "afd", "spd", "linke", "gruene", "bsw", "fdp", "others")
 MAIN = ("cdu", "afd", "spd", "linke", "gruene", "bsw", "fdp")
 EPS = 1e-12
 HALF_LIFE = 0.05
+# z for the central ~83% interval of a normal (low/high band -> sd)
+Z83 = 1.37
+# Monte Carlo draws for scenario probs / seat sim (was 64: +-6pp MC noise)
+N_MC = 2000
 
 PARTY_LABELS = {
     "cdu": "CDU",
@@ -93,6 +97,10 @@ STALA_WKR_CSV = (
 )
 FORECAST_STATE_URL = "https://zweitstimme.org/data/forecast_state_st.json"
 FORECAST_DISTRICT_URL = "https://zweitstimme.org/data/forecast_districts_st.json"
+FORECAST_DRAWS_URL = "https://zweitstimme.org/data/forecast_state_st_draws.json"
+
+# forecast_state_st_draws.json party codes -> internal codes, in PARTIES order
+DRAWS_KEYS = ("cdu", "afd", "spd", "lin", "gru", "bsw", "fdp", "oth")
 
 KIND_LABEL = {
     "L": "Leerdatei (noch keine Auszählung)",
@@ -230,22 +238,16 @@ def night_scenario_probs(
     unc_pp: dict[str, float],
     rng: np.random.Generator,
     *,
-    n_draws: int = 64,
+    n_draws: int = N_MC,
     p_start_by_id: dict[str, float] | None = None,
+    state_draws: np.ndarray | None = None,
+    prior_unc_pp: dict[str, float] | None = None,
 ) -> dict:
     defs = load_st_scenario_defs()
     hits = {d["id"]: 0 for d in defs}
-    for _ in range(n_draws):
-        draw = {
-            p: max(
-                0.0,
-                float(nc_land_pct.get(p, 0.0))
-                + rng.normal(0.0, float(unc_pp.get(p, 0.0)) / 1.28),
-            )
-            for p in PARTIES
-        }
-        tot = sum(draw.values()) or 1.0
-        frac = {p: draw[p] / tot for p in PARTIES}
+    x = sample_land_draws(nc_land_pct, unc_pp, prior_unc_pp, state_draws, rng, n_draws)
+    for i in range(n_draws):
+        frac = {p: float(x[i, j]) for j, p in enumerate(PARTIES)}
         for d in defs:
             if _eval_scenario(frac, d):
                 hits[d["id"]] += 1
@@ -325,6 +327,64 @@ def statewide_prior(forecast: dict) -> dict[str, float]:
             continue
         raw[code] += float(row.get("fit") or 0.0)
     return _shares(raw)
+
+
+def load_state_draws(doc: dict | None) -> np.ndarray | None:
+    """(n, 8) posterior vote shares in pp, columns in PARTIES order.
+
+    Full correlation structure + skew of the zweitstimme.org posterior
+    (e.g. CDU-AfD corr -0.59), unlike independent normals per party.
+    """
+    if not doc:
+        return None
+    rows = []
+    for dr in doc.get("draws") or []:
+        try:
+            rows.append([100.0 * float(dr[k]) for k in DRAWS_KEYS])
+        except (KeyError, TypeError, ValueError):
+            return None
+    if len(rows) < 100:
+        return None
+    return np.asarray(rows, dtype=float)
+
+
+def sample_land_draws(
+    nc_land_pct: dict[str, float],
+    unc_pp: dict[str, float],
+    prior_unc_pp: dict[str, float] | None,
+    state_draws: np.ndarray | None,
+    rng: np.random.Generator,
+    n_draws: int,
+) -> np.ndarray:
+    """(n_draws, 8) simplex vote-share draws around the current nowcast.
+
+    Preferred: recentre the posterior draws on the nowcast and shrink their
+    spread by unc/prior_unc per party (open share, plus Brief floor).
+    Fallback: independent normals with sd = unc/Z83.
+    """
+    nc = np.array([float(nc_land_pct.get(p, 0.0)) for p in PARTIES])
+    if state_draws is not None:
+        idx = rng.integers(0, len(state_draws), size=n_draws)
+        base = state_draws[idx]
+        mean = state_draws.mean(axis=0)
+        scale = np.array(
+            [
+                min(
+                    3.0,
+                    float(unc_pp.get(p, 0.0))
+                    / max(float((prior_unc_pp or {}).get(p, 0.0)), 1e-6),
+                )
+                for p in PARTIES
+            ]
+        )
+        x = nc + (base - mean) * scale
+    else:
+        sd = np.array([float(unc_pp.get(p, 0.0)) / Z83 for p in PARTIES])
+        x = nc + rng.normal(0.0, 1.0, size=(n_draws, len(PARTIES))) * sd
+    x = np.clip(x, 0.0, None)
+    tot = x.sum(axis=1, keepdims=True)
+    tot[tot <= 0.0] = 1.0
+    return x / tot
 
 
 def prior_uncertainty_pp(forecast: dict) -> dict[str, float]:
@@ -523,16 +583,105 @@ def parse_stala_csv(path: Path) -> dict:
         rows = list(csv.DictReader(f, delimiter=";"))
     land = None
     wkrs: dict[str, dict] = {}
+    wkr_ub: dict[str, dict[str, dict]] = {"U": {}, "B": {}}
+    land_ub: dict[str, dict] = {}
     for row in rows:
         satz = (row.get("Satzart") or "").strip()
         art = (row.get("Wahllokal") or "").strip()
-        if art not in ("",):
-            continue
         if satz == "LAN":
-            land = row
+            if art == "":
+                land = row
+            elif art in ("U", "B"):
+                land_ub[art] = row
         elif satz == "WKR":
-            wkrs[_wkr_id(row.get("Schlüsselnummer"))] = row
-    return {"land": land or {}, "wkr": wkrs, "n_rows": len(rows)}
+            wid = _wkr_id(row.get("Schlüsselnummer"))
+            if art == "":
+                wkrs[wid] = row
+            elif art in ("U", "B"):
+                wkr_ub[art][wid] = row
+    return {
+        "land": land or {},
+        "wkr": wkrs,
+        "wkr_ub": wkr_ub,
+        "land_ub": land_ub,
+        "n_rows": len(rows),
+    }
+
+
+def brief_stats(live: dict) -> dict[str, dict]:
+    """Statewide Urne vs Brief counting state from the per-WKR U/B rows."""
+    out: dict[str, dict] = {}
+    ub = live.get("wkr_ub") or {}
+    land_ub = live.get("land_ub") or {}
+    for art in ("U", "B"):
+        rows = list((ub.get(art) or {}).values())
+        if not rows and land_ub.get(art):
+            rows = [land_ub[art]]
+        soll = ist = g = 0.0
+        counts = {p: 0.0 for p in PARTIES}
+        for r in rows:
+            soll += _num(r.get("Soll.Wahlbezirke"))
+            ist += _num(r.get("Ist.Wahlbezirke"))
+            c, gg = row_counts(r, ZWEIT_COL)
+            g += gg
+            for p in PARTIES:
+                counts[p] += c[p]
+        out[art] = {
+            "soll": soll,
+            "ist": ist,
+            "gueltig": g,
+            "frac": (ist / soll) if soll > 0 else 0.0,
+            "shares": _shares(counts) if g > 0 else None,
+        }
+    return out
+
+
+def brief_unc_floor(stats: dict[str, dict]) -> tuple[dict[str, float], dict]:
+    """Extra pp uncertainty for Urne/Brief composition of the open votes.
+
+    The nowcast projects open votes from the counted mix; if Brief lags Urne
+    (or vice versa) the projection is systematically off by roughly
+    gap x (Brief share of open - Brief share of counted) x open share.
+    The gap is estimated live from the U/B rows (no gap data before votes:
+    floor 0, but then the full prior band dominates anyway).
+    """
+    zero = {p: 0.0 for p in PARTIES}
+    u, b = stats.get("U") or {}, stats.get("B") or {}
+    if not u.get("shares") or not b.get("shares"):
+        return zero, {}
+    frac_u = min(1.0, float(u["frac"]))
+    frac_b = min(1.0, float(b["frac"]))
+    if frac_u <= 0.02 or frac_b <= 0.02:
+        return zero, {}
+    est_u = u["gueltig"] / frac_u
+    est_b = b["gueltig"] / frac_b
+    b_hat = est_b / (est_u + est_b + EPS)
+    open_b = b_hat * (1.0 - frac_b)
+    open_u = (1.0 - b_hat) * (1.0 - frac_u)
+    open_tot = open_b + open_u
+    cnt_b = b_hat * frac_b
+    cnt_u = (1.0 - b_hat) * frac_u
+    cnt_tot = cnt_b + cnt_u
+    if open_tot <= 1e-9 or cnt_tot <= 1e-9:
+        return zero, {"b_hat": round(b_hat, 4), "frac_u": round(frac_u, 4), "frac_b": round(frac_b, 4)}
+    mix_shift = abs(open_b / open_tot - cnt_b / cnt_tot)
+    w_g = min(frac_u, frac_b)
+    w_g = w_g / (w_g + HALF_LIFE)
+    floor = {}
+    gap_pp = {}
+    for p in PARTIES:
+        gap = 100.0 * (b["shares"][p] - u["shares"][p]) * w_g
+        gap_pp[p] = round(gap, 2)
+        floor[p] = round(abs(gap) * mix_shift * open_tot, 2)
+    diag = {
+        "b_hat": round(b_hat, 4),
+        "frac_u": round(frac_u, 4),
+        "frac_b": round(frac_b, 4),
+        "mix_shift": round(mix_shift, 4),
+        "gap_pp": gap_pp,
+        "floor_pp": dict(floor),
+    }
+    return floor, diag
 
 
 def row_counts(row: dict, cols: dict[str, str]) -> tuple[dict[str, float], float]:
@@ -610,30 +759,57 @@ def allocate_st(votes: dict[str, float], directs: dict[str, int], base: int = 83
 def night_entry_mc(
     nc_land_pct: dict[str, float],
     unc_pp: dict[str, float],
-    wkr_leaders: dict[str, str],
+    races: dict[str, dict],
     rng: np.random.Generator,
-    n_draws: int = 64,
+    n_draws: int = N_MC,
+    state_draws: np.ndarray | None = None,
+    prior_unc_pp: dict[str, float] | None = None,
 ) -> dict:
+    """Seat MC. `races` per WK: {a, b, margin (pp), sigma (pp), open (0..1)}.
+
+    Direct mandates are resampled per draw: WK margin shifts with the
+    statewide swing of that draw (uniform-swing coupling, scaled by the open
+    share of the WK) plus local noise, so correlated flips (e.g. an AfD
+    sweep with Überhang) show up in the p10-p90 seat bands. Fully counted
+    WKs stay fixed at the observed leader.
+    """
     directs = {p: 0 for p in MAIN}
-    for lead in wkr_leaders.values():
-        if lead in directs:
-            directs[lead] += 1
+    for r in races.values():
+        if r["a"] in directs:
+            directs[r["a"]] += 1
+    x = sample_land_draws(nc_land_pct, unc_pp, prior_unc_pp, state_draws, rng, n_draws)
+    xpct = x * 100.0
+    nc = np.array([float(nc_land_pct.get(p, 0.0)) for p in PARTIES])
+    delta = xpct - nc  # statewide swing per draw, pp
+    pidx = {p: i for i, p in enumerate(PARTIES)}
+    race_list = list(races.values())
+    winners = np.empty((n_draws, len(race_list)), dtype=np.int16)
+    for j, r in enumerate(race_list):
+        ia, ib = pidx[r["a"]], pidx[r["b"]]
+        if r["open"] <= 1e-3:
+            winners[:, j] = ia if r["margin"] >= 0 else ib
+            continue
+        swing = (delta[:, ia] - delta[:, ib]) * float(r["open"])
+        var_sw = float(np.var(swing))
+        sig_local = math.sqrt(max(float(r["sigma"]) ** 2 - var_sw, 0.01))
+        m = float(r["margin"]) + swing + rng.normal(0.0, sig_local, size=n_draws)
+        winners[:, j] = np.where(m > 0.0, ia, ib)
     sizes: list[int] = []
     seats_acc: dict[str, list[int]] = {p: [] for p in MAIN}
     list_acc: dict[str, list[int]] = {p: [] for p in MAIN}
-    for _ in range(n_draws):
-        draw = {p: 0.0 for p in PARTIES}
-        for p in PARTIES:
-            sd = float(unc_pp.get(p, 0.0)) / 1.28
-            draw[p] = max(0.0, float(nc_land_pct.get(p, 0.0)) + rng.normal(0.0, sd))
-        tot = sum(draw.values()) or 1.0
-        frac = {p: draw[p] / tot for p in PARTIES}
-        alloc = allocate_st(frac, directs)
+    for i in range(n_draws):
+        frac = {p: float(x[i, pidx[p]]) for p in PARTIES}
+        dirs = {p: 0 for p in MAIN}
+        for j in range(len(race_list)):
+            wp = PARTIES[winners[i, j]]
+            if wp in dirs:
+                dirs[wp] += 1
+        alloc = allocate_st(frac, dirs)
         sizes.append(int(alloc["size"]))
         for p in MAIN:
             s_p = int(alloc["seats"].get(p, 0))
             seats_acc[p].append(s_p)
-            list_acc[p].append(max(0, s_p - directs.get(p, 0)))
+            list_acc[p].append(max(0, s_p - dirs.get(p, 0)))
 
     def q(vals: list[int]) -> list[int]:
         arr = np.asarray(vals)
@@ -739,11 +915,16 @@ def nowcast_wkrs(
         ist = _num(row.get("Ist.Wahlbezirke"))
         counts, gueltig = row_counts(row, ZWEIT_COL)
         erst_c, erst_g = row_counts(row, ERST_COL)
-        frac = (ist / soll) if soll > 0 else (1.0 if gueltig > 0 else 0.0)
+        frac = (ist / soll) if soll > 0 else 0.0
+        if frac <= 0 and gueltig > 0:
+            # Votes but stale/missing Ist counter: estimate the counted share
+            # from 2021 volume and never lock the WK as complete.
+            g_l1 = panel.get(wid, {}).get("gueltig_l1", 0.0)
+            frac = min(0.98, gueltig / g_l1) if g_l1 > 0 else 0.5
         if frac <= 0 and gueltig <= 0:
             continue
         reported[wid] = {
-            "frac": min(1.0, frac if frac > 0 else 1.0),
+            "frac": min(1.0, frac),
             "ist": ist,
             "soll": soll,
             "counts": counts,
@@ -789,29 +970,32 @@ def nowcast_wkrs(
             mix = 0.0
             raw = {p: max(0.0, pri[p] + w * surprise[p]) for p in PARTIES}
             sh = _shares(raw)
-        erst_sh = None
-        if wid in reported and reported[wid]["erst_shares"] and reported[wid]["frac"] >= 0.5:
-            erst_sh = reported[wid]["erst_shares"]
-        elif erst_prior and wid in erst_prior:
+        # Prior-based Erst projection (used for the open part of the WK)
+        if erst_prior and wid in erst_prior:
             raw_e = {p: max(0.0, erst_prior[wid][p] + w * surprise[p]) for p in PARTIES}
-            erst_sh = _shares(raw_e)
-            if bsw_direkt is not None and wid not in bsw_direkt:
-                erst_sh["bsw"] = 0.0
-                erst_sh = _shares(erst_sh)
         else:
             # Erst ≈ Zweit nowcast + 2021 Erst−Zweit gap
-            gap = {}
             l1e = row["erst_l1"]
             l1z = row["shares_l1"]
             e_tot = sum(l1e.values()) + EPS
             e_sh = {p: l1e[p] / e_tot for p in PARTIES}
-            for p in PARTIES:
-                gap[p] = e_sh[p] - l1z[p]
-            raw_e = {p: max(0.0, sh[p] + gap[p]) for p in PARTIES}
-            erst_sh = _shares(raw_e)
-            if bsw_direkt is not None and wid not in bsw_direkt:
-                erst_sh["bsw"] = 0.0
-                erst_sh = _shares(erst_sh)
+            raw_e = {p: max(0.0, sh[p] + (e_sh[p] - l1z[p])) for p in PARTIES}
+        proj_e = _shares(raw_e)
+        if bsw_direkt is not None and wid not in bsw_direkt:
+            proj_e["bsw"] = 0.0
+            proj_e = _shares(proj_e)
+        # Mix observed Erst continuously by counted fraction (like Zweit),
+        # instead of jumping from prior to fully-observed at frac >= 0.5.
+        if wid in reported and reported[wid]["erst_shares"]:
+            mix_e = reported[wid]["frac"]
+            erst_sh = _shares(
+                {
+                    p: mix_e * reported[wid]["erst_shares"][p] + (1.0 - mix_e) * proj_e[p]
+                    for p in PARTIES
+                }
+            )
+        else:
+            erst_sh = proj_e
         nc[wid] = {
             "nowcast": sh,
             "erst": erst_sh,
@@ -847,6 +1031,11 @@ def turnout_nowcast(panel, live_land, live_wkr, reported_frac: float) -> dict:
     waehler = _num(live_land.get("B.Wähler"))
     if wber > 0 and waehler > 0:
         naive = 100.0 * waehler / wber
+        # StaLA semantics mid-count are ambiguous: A may be the full
+        # electorate (~1.79M in 2021) while B covers only counted WBZ.
+        # If A looks complete, scale counted voters by the reported share.
+        if wber > 1_500_000 and 0.02 < reported_frac < 0.99:
+            naive = min(100.0, 100.0 * (waehler / reported_frac) / wber)
         w = reported_frac / (reported_frac + 0.08) if reported_frac > 0 else 0.0
         nc = prior + (naive - prior) * w
         unc = 0.0 if reported_frac >= 0.999 else round(5.0 * (1.0 - reported_frac), 2)
@@ -902,6 +1091,7 @@ def build_step(
     erst_prior: dict[str, dict] | None = None,
     prior_unc_pp: dict[str, float] | None = None,
     wk_unc_pp: dict[str, dict[str, float]] | None = None,
+    state_draws: np.ndarray | None = None,
 ) -> dict:
     land_row = live["land"]
     nc, diag = nowcast_wkrs(
@@ -918,7 +1108,16 @@ def build_step(
         for p in PARTIES
     }
     unc = diag["uncertainty"]
+    # Urne/Brief composition risk of the still-open votes (live U/B rows);
+    # added in quadrature so the band cannot collapse while Brief lags.
+    b_stats = brief_stats(live)
+    b_floor, b_diag = brief_unc_floor(b_stats)
+    unc = {
+        p: round(math.sqrt(float(unc[p]) ** 2 + float(b_floor.get(p, 0.0)) ** 2), 2)
+        for p in PARTIES
+    }
     wkr_out = {}
+    races: dict[str, dict] = {}
     for wid in sorted(panel, key=lambda x: int(x) if x.isdigit() else 99):
         now = nc[wid]["nowcast"]
         erst = nc[wid]["erst"]
@@ -944,6 +1143,13 @@ def build_step(
         likely = p_lead >= 0.90
         called = p_lead >= 0.999 and frac_w > 0 and (complete or margin >= (1 - frac_w) * 40)
         lp = _leader(erst if erst else now)
+        races[wid] = {
+            "a": top2[0],
+            "b": top2[1],
+            "margin": margin,
+            "sigma": m_u + 0.5,
+            "open": open_w,
+        }
         wkr_out[wid] = {
             "frac_reported": round(frac_w, 4),
             "n_reported": nc[wid]["n_reported"],
@@ -973,12 +1179,20 @@ def build_step(
     entry_mc = night_entry_mc(
         _pct(nc_land),
         unc,
-        {wid: r["direct_pred"] for wid, r in wkr_out.items()},
+        races,
         rng,
+        state_draws=state_draws,
+        prior_unc_pp=prior_unc_pp,
     )
     kind = (land_row.get("Ergebnisart") or "L").strip() or "L"
     clock = clock_from_row(land_row)
-    scen = night_scenario_probs(_pct(nc_land), unc, rng)
+    scen = night_scenario_probs(
+        _pct(nc_land),
+        unc,
+        rng,
+        state_draws=state_draws,
+        prior_unc_pp=prior_unc_pp,
+    )
     return {
         "frac_reported": round(frac_wb if soll > 0 else diag["frac_votes"], 4),
         "n_reported": int(ist),
@@ -1005,11 +1219,13 @@ def build_step(
         "eval": None,
         "result_kind": kind,
         "n_wkr_touch": diag["n_wkr_touch"],
+        "brief": b_diag or None,
         "uncertainty_note": {
             "phase": unc_phase(frac_wb if soll > 0 else diag["frac_votes"]),
             "land": (
                 "Landes-± = Band der zweitstimme.org-Landesprognose (ca. 83 %). "
-                "Vor der Auszählung die volle Prognose; danach offener Stimmenanteil × dieses Band. "
+                "Vor der Auszählung die volle Prognose; danach offener Stimmenanteil × dieses Band, "
+                "plus Zuschlag für noch offene Briefwahl (Urne-Brief-Differenz live geschätzt). "
                 "Ausgezählte Wahlbezirke ohne Fehler."
             ),
             "wkr": (
@@ -1060,7 +1276,19 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
     panel = load_wkr_panel()
     state_fc = _load_json(REPO / "output" / "forecast_state_st.json", FORECAST_STATE_URL)
     dist_fc = _load_json(REPO / "output" / "forecast_districts_st.json", FORECAST_DISTRICT_URL)
+    try:
+        draws_doc = _load_json(
+            REPO / "output" / "forecast_state_st_draws.json", FORECAST_DRAWS_URL
+        )
+    except Exception:
+        draws_doc = None
+    state_draws = load_state_draws(draws_doc)
     land_prior = statewide_prior(state_fc)
+    if state_draws is not None:
+        # Unrounded posterior mean (forecast_state fit/low/high are integers;
+        # the 1pp grid distorts 5%-hurdle probabilities).
+        m = state_draws.mean(axis=0)
+        land_prior = _shares({p: float(m[i]) for i, p in enumerate(PARTIES)})
     prior_unc = prior_uncertainty_pp(state_fc)
     prior, erst_prior, bsw_direkt = district_priors(dist_fc, panel, land_prior)
     wk_unc = district_wk_unc_pp(dist_fc)
@@ -1076,6 +1304,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
         erst_prior=erst_prior,
         prior_unc_pp=prior_unc,
         wk_unc_pp=wk_unc,
+        state_draws=state_draws,
     )
     prev = None
     if prev_path and prev_path.exists():
@@ -1111,7 +1340,10 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
                 "Zweit = WK-Prognose; Erst = dieselbe WK-Regression "
                 "(Zweit + LTW 2021, ohne Kandidateneffekte; 0 ohne Direktkandidat). "
                 "BSW ohne Historie: Landesanteil, proportional "
-                "von allen anderen; Erst 0 wo kein Direktkandidat."
+                "von allen anderen; Erst 0 wo kein Direktkandidat. "
+                "Szenario- und Sitz-MC auf den zweitstimme.org-Posterior-Draws "
+                "(Korrelationen/Schiefe), Direktmandate pro Draw neu gezogen; "
+                "±-Band mit Briefwahl-Zuschlag."
             )
         },
         "call_threshold": 0.90,

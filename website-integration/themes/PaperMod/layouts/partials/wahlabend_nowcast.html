@@ -662,7 +662,8 @@
 .wb-wrap[data-wb-lock-land] .wb-land-tabs { display: none; }
 .wb-wrap[data-wb-live="1"] .wb-eval-block,
 .wb-wrap[data-wb-live="1"] [data-wb-replay-eval] { display: none; }
-.wb-wrap[data-wb-live="1"][data-wb-single-step="1"] .wb-slider-row { display: none; }
+/* Live: immer nur der aktuelle Stand, kein Zeitpunkt-Scrubbing */
+.wb-wrap[data-wb-live="1"] .wb-slider-row { display: none; }
 .wb-live-status {
   margin: 0 0 0.75rem;
   padding: 0.65rem 0.85rem;
