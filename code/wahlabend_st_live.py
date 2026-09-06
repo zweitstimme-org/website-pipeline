@@ -608,6 +608,32 @@ def parse_stala_csv(path: Path) -> dict:
     }
 
 
+def live_precincts(panel: dict[str, dict], live: dict) -> list[dict]:
+    """One UI 'precinct' per Wahlkreis so Rohstand can show StaLA counts."""
+    wkrs = live.get("wkr") or {}
+    out: list[dict] = []
+    for wid in sorted(panel, key=lambda x: int(x) if str(x).isdigit() else 99):
+        row = wkrs.get(wid) or {}
+        counts, gueltig = row_counts(row, ZWEIT_COL) if row else ({p: 0.0 for p in PARTIES}, 0.0)
+        erst_c, erst_g = row_counts(row, ERST_COL) if row else ({p: 0.0 for p in PARTIES}, 0.0)
+        out.append(
+            {
+                "id": wid,
+                "wkr": wid,
+                "art": "S",
+                "name": panel[wid]["name"],
+                "bezirk": None,
+                "gueltig": int(round(gueltig)),
+                "gueltig_erst": int(round(erst_g)),
+                "wber": int(round(_num(row.get("A.Wahlberechtigte")))),
+                "waehler": int(round(_num(row.get("B.Wähler")))),
+                "counts": {p: int(round(counts[p])) for p in PARTIES},
+                "counts_erst": {p: int(round(erst_c[p])) for p in PARTIES},
+            }
+        )
+    return out
+
+
 def brief_stats(live: dict) -> dict[str, dict]:
     """Statewide Urne vs Brief counting state from the per-WKR U/B rows."""
     out: dict[str, dict] = {}
@@ -1399,7 +1425,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
                 else None
             ),
         },
-        "precincts": [],
+        "precincts": live_precincts(panel, live),
     }
     return payload
 
