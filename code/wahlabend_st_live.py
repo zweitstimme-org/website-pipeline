@@ -842,10 +842,50 @@ def _apply_one_city(
     return out_live, out_base, diag
 
 
+def turnout_ratio(gem_live: dict[str, dict], gem21: dict[str, dict]) -> tuple[float, dict]:
+    """2026/2021 valid-vote volume ratio from fully counted Gemeinden.
+
+    Basis for vote-based counted fractions: the StaLA Ist/Soll counters count
+    WAHLBEZIRKE, but early counting is Urne-heavy and Brief-Bezirke hold ~2x
+    the votes, so the Bezirk fraction overstates the vote fraction. City
+    sub-units (":" keys) are excluded: their baselines are Urne-only.
+    """
+    g26 = g21s = 0.0
+    n = 0
+    for a, g in (gem_live or {}).items():
+        if ":" in a:
+            continue
+        b = (gem21 or {}).get(a)
+        if not b or g["soll"] <= 0 or g["ist"] < g["soll"] or g["gueltig"] <= 0:
+            continue
+        g26 += g["gueltig"]
+        g21s += b["gueltig"]
+        n += 1
+    if n == 0 or g21s <= 0:
+        return 1.0, {"n_complete": 0, "tr": 1.0}
+    tr_hat = g26 / g21s
+    w = n / (n + 5.0)
+    tr = float(np.clip(w * tr_hat + (1.0 - w), 0.7, 1.4))
+    return tr, {"n_complete": n, "tr_hat": round(tr_hat, 4), "tr": round(tr, 4)}
+
+
+def _frac_votes_unit(gueltig: float, ist: float, soll: float, g21: float, tr: float) -> float:
+    """Vote-based counted fraction of a unit (1.0 only when Bezirk-complete)."""
+    if soll > 0 and ist >= soll:
+        return 1.0
+    if gueltig <= 0:
+        return 0.0
+    exp_final = g21 * tr
+    if exp_final <= 0:
+        return 0.5
+    return min(0.99, gueltig / exp_final)
+
+
 def gem_land_nowcast(
     gem_live: dict[str, dict],
     gem21: dict[str, dict],
     land_prior: dict[str, float],
+    tr: float = 1.0,
 ) -> tuple[dict[str, float] | None, dict]:
     """Composition-corrected statewide Zweit nowcast from the 218 Gemeinden.
 
@@ -882,11 +922,10 @@ def gem_land_nowcast(
     frac_g: dict[str, float] = {}
     for a in matched:
         g = gem_live[a]
-        f = (g["ist"] / g["soll"]) if g["soll"] > 0 else 0.0
-        if f <= 0 and g["gueltig"] > 0:
-            # votes but stale Ist counter: estimate from 2021 volume, never lock
-            f = min(0.98, g["gueltig"] / max(1.0, gem21[a]["gueltig"]))
-        frac_g[a] = min(1.0, f)
+        # Vote-based fraction: Bezirk counters overstate progress while the
+        # (bigger) Brief-Bezirke are still open; a unit counts as complete
+        # only when ist >= soll.
+        frac_g[a] = _frac_votes_unit(g["gueltig"], g["ist"], g["soll"], gem21[a]["gueltig"], tr)
         if g["gueltig"] > 0:
             reported.append(a)
     diag["n_gem_reported"] = len(reported)
@@ -905,17 +944,13 @@ def gem_land_nowcast(
             )
             / cnt_tot
         )
-    # Live volume ratio 2026/2021 from reported parts (turnout drift), guarded.
-    exp_cnt = sum(frac_g[a] * gem21[a]["gueltig"] for a in reported)
-    vol_ratio = (cnt_tot / exp_cnt) if exp_cnt > 50 else 1.0
-    vol_ratio = float(np.clip(vol_ratio, 0.5, 2.0))
     frac_votes = sum(gem21[a]["gueltig"] * frac_g[a] for a in matched) / tot21
     w = frac_votes / (frac_votes + HALF_LIFE)
 
     proj = {p: 0.0 for p in PARTIES}
     for a in matched:
         g = gem_live[a]
-        open_vol = max(0.0, (1.0 - frac_g[a]) * gem21[a]["gueltig"] * vol_ratio)
+        open_vol = max(0.0, (1.0 - frac_g[a]) * gem21[a]["gueltig"] * tr)
         open_sh = _shares({p: max(0.0, prior_g[a][p] + w * surprise[p]) for p in PARTIES})
         for p in PARTIES:
             proj[p] += g["counts"][p] + open_vol * open_sh[p]
@@ -925,7 +960,7 @@ def gem_land_nowcast(
             "used": True,
             "frac_votes": round(frac_votes, 4),
             "learn_weight": round(w, 4),
-            "vol_ratio": round(vol_ratio, 4),
+            "tr": round(tr, 4),
             "surprise": {p: round(surprise[p] * 100, 3) for p in PARTIES},
             "ist": int(sum(gem_live[a]["ist"] for a in gem_live)),
             "soll": int(sum(gem_live[a]["soll"] for a in gem_live)),
@@ -1372,6 +1407,7 @@ def nowcast_wkrs(
     bsw_direkt: set[str] | None = None,
     erst_prior: dict[str, dict] | None = None,
     prior_unc_pp: dict[str, float] | None = None,
+    tr: float = 1.0,
 ) -> tuple[dict[str, dict], dict]:
     reported: dict[str, dict] = {}
     for wid, row in live_wkr.items():
@@ -1387,8 +1423,14 @@ def nowcast_wkrs(
             frac = min(0.98, gueltig / g_l1) if g_l1 > 0 else 0.5
         if frac <= 0 and gueltig <= 0:
             continue
+        # Vote-based fraction for all mixing weights: Bezirk counters
+        # overstate progress while the bigger Brief-Bezirke are open.
+        frac_v = _frac_votes_unit(
+            gueltig, ist, soll, panel.get(wid, {}).get("gueltig_l1", 0.0), tr
+        )
         reported[wid] = {
             "frac": min(1.0, frac),
+            "frac_v": frac_v,
             "ist": ist,
             "soll": soll,
             "counts": counts,
@@ -1415,7 +1457,7 @@ def nowcast_wkrs(
         pri_r = {p: sum(reported[w]["gueltig"] * prior[w][p] for w in rep_ids) / tw for p in PARTIES}
         surprise = {p: obs[p] - pri_r[p] for p in PARTIES}
         total_g = sum(panel[w]["gueltig_l1"] for w in panel) + EPS
-        frac_votes = sum(panel[w]["gueltig_l1"] * reported.get(w, {}).get("frac", 0.0) for w in panel) / total_g
+        frac_votes = sum(panel[w]["gueltig_l1"] * reported.get(w, {}).get("frac_v", 0.0) for w in panel) / total_g
         w = frac_votes / (frac_votes + HALF_LIFE)
 
     nc: dict[str, dict] = {}
@@ -1425,7 +1467,7 @@ def nowcast_wkrs(
             sh = dict(reported[wid]["shares"])
             mix = 1.0
         elif wid in reported and reported[wid]["gueltig"] > 0:
-            mix = reported[wid]["frac"]
+            mix = reported[wid]["frac_v"]
             raw_open = {p: max(0.0, pri[p] + w * surprise[p]) for p in PARTIES}
             open_sh = _shares(raw_open)
             sh = {p: mix * reported[wid]["shares"][p] + (1.0 - mix) * open_sh[p] for p in PARTIES}
@@ -1451,7 +1493,7 @@ def nowcast_wkrs(
         # Mix observed Erst continuously by counted fraction (like Zweit),
         # instead of jumping from prior to fully-observed at frac >= 0.5.
         if wid in reported and reported[wid]["erst_shares"]:
-            mix_e = reported[wid]["frac"]
+            mix_e = reported[wid]["frac_v"]
             erst_sh = _shares(
                 {
                     p: mix_e * reported[wid]["erst_shares"][p] + (1.0 - mix_e) * proj_e[p]
@@ -1464,6 +1506,7 @@ def nowcast_wkrs(
             "nowcast": sh,
             "erst": erst_sh,
             "frac": reported.get(wid, {}).get("frac", 0.0),
+            "frac_v": reported.get(wid, {}).get("frac_v", 0.0),
             "n_reported": int(reported.get(wid, {}).get("ist", 0)),
             "n_total": int(reported.get(wid, {}).get("soll", 0)),
             "reported": wid in reported,
@@ -1560,6 +1603,7 @@ def build_step(
     gem_baseline: dict[str, dict] | None = None,
 ) -> dict:
     land_row = live["land"]
+    tr, tr_diag = turnout_ratio(gem_live or {}, gem_baseline or {})
     nc, diag = nowcast_wkrs(
         panel,
         prior,
@@ -1567,6 +1611,7 @@ def build_step(
         bsw_direkt=bsw_direkt,
         erst_prior=erst_prior,
         prior_unc_pp=prior_unc_pp,
+        tr=tr,
     )
     total_g = sum(panel[w]["gueltig_l1"] for w in panel) + EPS
     nc_land = {
@@ -1577,7 +1622,8 @@ def build_step(
     # WHICH municipalities inside each WK have reported). Used when the
     # Gemeinden CSV is fresh enough vs the WKR file; otherwise WK aggregate.
     nowcast_source = "wkr"
-    gem_nc, gem_diag = gem_land_nowcast(gem_live or {}, gem_baseline or {}, land_prior)
+    gem_nc, gem_diag = gem_land_nowcast(gem_live or {}, gem_baseline or {}, land_prior, tr=tr)
+    gem_diag.update(tr_diag)
     if gem_nc is not None:
         land_ist = _num(land_row.get("Ist.Wahlbezirke"))
         gem_ist = float(gem_diag.get("ist") or 0)
@@ -1612,7 +1658,8 @@ def build_step(
         erst = nc[wid]["erst"]
         frac_w = nc[wid]["frac"]
         complete = frac_w >= 0.999
-        open_w = max(0.0, 1.0 - frac_w)
+        # Open share on a VOTE basis (Bezirk counters overstate progress)
+        open_w = max(0.0, 1.0 - (nc[wid]["frac_v"] if not complete else 1.0))
         wk_base = (wk_unc_pp or {}).get(wid) or {}
         u_w = {}
         for p in PARTIES:
