@@ -24,6 +24,7 @@ zweitstimme_intro.mp4
 # Scraper / election-night raw dumps (regenerable; keep curated CSVs)
 **/candidates/raw/
 **/wahlabend/raw/
+sachsen-anhalt/wahlabend/live/
 mecklenburg-vorpommern/LTWMeckPom/raw-data/
 
 # Local pipeline scratch (keep AW incumbents cache for offline CI)

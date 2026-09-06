@@ -37,16 +37,36 @@
   }
 
   function landFromQuery() {
+    var root = $('wahlabend-root');
+    var locked = root && root.getAttribute('data-wb-lock-land');
+    if (locked) return String(locked).toLowerCase();
     var q = new URLSearchParams(window.location.search || '');
     var s = (q.get('state') || q.get('land') || 'st').toLowerCase();
     if (s === 'st' || s === 'mv' || s === 'be') return s;
     return 'st';
   }
 
+  function isLivePage() {
+    var root = $('wahlabend-root');
+    return !!(root && root.getAttribute('data-wb-live') === '1');
+  }
+
   function replayFileForLand(land) {
+    if (isLivePage() && land === 'st') return 'wahlabend_nowcast_st_live.json';
     if (land === 'st') return 'wahlabend_nowcast_st.json';
     if (land === 'mv') return 'wahlabend_nowcast_mv.json';
     return 'wahlabend_nowcast_replay.json';
+  }
+
+  function applyPartyOrderFromData(data) {
+    var from = (data && data.parties) || [];
+    from.forEach(function (p) {
+      if (PARTIES_ORDER.indexOf(p) < 0) {
+        var i = PARTIES_ORDER.indexOf('others');
+        if (i >= 0) PARTIES_ORDER.splice(i, 0, p);
+        else PARTIES_ORDER.push(p);
+      }
+    });
   }
 
   var SCENARIO_LABELS = {
@@ -69,7 +89,7 @@
   var BEZIRKSLISTE_PARTIES = ['spd', 'cdu', 'linke'];
   var BEZIRKSLISTE_LABEL = 'CDU/SPD/Linke';
 
-  var PARTIES_ORDER = ['cdu', 'spd', 'gruene', 'linke', 'afd', 'fdp', 'others'];
+  var PARTIES_ORDER = ['cdu', 'spd', 'gruene', 'linke', 'afd', 'fdp', 'bsw', 'others'];
 
   var state = {
     data: null,
@@ -93,6 +113,7 @@
     linke: '#BE3075',
     afd: '#009EE0',
     fdp: '#C4A000',
+    bsw: '#7878C8',
     others: '#8a8a8a'
   };
 
@@ -166,6 +187,34 @@
   function lastElectionShort(ref) {
     if (!ref) return 'letzte Wahl';
     return ref.year != null ? String(ref.year) : (ref.label || 'letzte Wahl');
+  }
+
+  function uncLandNote(s) {
+    var frac = (s && s.frac_reported) || 0;
+    var fromJson = s && s.uncertainty_note && s.uncertainty_note.land;
+    if (frac >= 0.999) return '± = 0: das Land ist ausgezählt.';
+    if (fromJson && isLivePage()) {
+      if (frac <= 0) {
+        return fromJson + ' Gerade: noch 100 % Prognose, 0 % Live.';
+      }
+      return fromJson;
+    }
+    return '± = offener Stimmenanteil × Ausgangslage-Band. Kein formales Konfidenzintervall.';
+  }
+
+  function uncWkrNote(r) {
+    var frac = (r && r.frac_reported) || 0;
+    var st = steps();
+    var s = st.length ? st[Math.min(state.step, st.length - 1)] : null;
+    var fromJson = s && s.uncertainty_note && s.uncertainty_note.wkr;
+    if (frac >= 0.999) return '± = 0: dieser Wahlkreis ist ausgezählt.';
+    if (fromJson) {
+      if (frac <= 0) {
+        return fromJson + ' Noch keine Meldung in diesem Kreis — volle Regressionsunsicherheit.';
+      }
+      return fromJson;
+    }
+    return '± in diesem WK kommt aus der Wahlkreis-Prognose, nicht aus dem Landesband.';
   }
 
   function drawHRef(ctx, pad, w, yAt, value, text, color) {
@@ -1018,10 +1067,10 @@
 
 
   function candidateFor(wkrId, party) {
-    // AGH2023-Replay: immer Platzhalter (keine 2023-Namen; 2026 wäre falsch).
     var roster = (state.data && state.data.direkt_candidates_2026) || {};
     var cell = ((roster[String(wkrId)] || {})[party]) || null;
-    if (cell && cell.is_placeholder) return cell;
+    if (cell) return cell;
+    if (isLivePage()) return { name: 'kein Direktkandidat', missing: true };
     return {
       name: partyShort(party) + ' · WK ' + wkrId + ' · Platzhalter',
       is_placeholder: true
@@ -1030,10 +1079,19 @@
 
   function nameHtml(cell) {
     if (!cell) return '—';
+    if (cell.missing) {
+      return '<span class="wb-ph">kein Direktkandidat</span>';
+    }
     if (cell.is_placeholder) {
       return '<span class="wb-ph">' + escapeHtml(cell.name) + '</span>';
     }
     return escapeHtml(cell.name);
+  }
+
+  function wkrErst(r) {
+    if (r && r.erst) return r.erst;
+    if (r && r.nowcast) return r.nowcast;
+    return {};
   }
 
   function drawAxisFrame(ctx, pad, w, h, cssH, yMin, yMax, yFmt) {
@@ -1067,14 +1125,14 @@
     var sCur = st[ci];
     var showTruth = isWkrComplete(sCur, state.unit);
     var cur = regions[ci] || {};
+    var erstCur = wkrErst(cur);
     var parties = PARTIES_ORDER.filter(function (p) { return p !== 'others'; })
       .sort(function (a, b) {
-        return ((cur.nowcast && cur.nowcast[b]) || 0) - ((cur.nowcast && cur.nowcast[a]) || 0);
-      })
-      .slice(0, 4);
+        return (erstCur[b] || 0) - (erstCur[a] || 0);
+      });
 
     if (legend) {
-      legend.innerHTML = parties.map(function (p) {
+      legend.innerHTML = parties.slice(0, 6).map(function (p) {
         var c = PARTY_COLORS[p] || '#888';
         return '<span><i style="background:' + c +
           ';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>' +
@@ -1101,7 +1159,7 @@
     var vals = [];
     parties.forEach(function (p) {
       regions.forEach(function (r) {
-        var nc = (r.nowcast && r.nowcast[p]) || 0;
+        var nc = (wkrErst(r)[p]) || 0;
         var u = (r.uncertainty && r.uncertainty[p]) || 0;
         vals.push(nc + u);
       });
@@ -1120,7 +1178,7 @@
       var hi = [];
       var lo = [];
       regions.forEach(function (r, i) {
-        var nc = (r.nowcast && r.nowcast[p]) || 0;
+        var nc = (wkrErst(r)[p]) || 0;
         var u = (r.uncertainty && r.uncertainty[p]) || 0;
         hi.push({ i: i, y: nc + u });
         lo.push({ i: i, y: Math.max(0, nc - u) });
@@ -1176,7 +1234,7 @@
       ctx.lineWidth = 2.25;
       ctx.beginPath();
       regions.forEach(function (r, i) {
-        var val = (r.nowcast && r.nowcast[p]) || 0;
+        var val = wkrErst(r)[p] || 0;
         var x = xAt(i), y = yAt(val);
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
@@ -1193,7 +1251,7 @@
     ctx.setLineDash([]);
     parties.forEach(function (p) {
       var r = regions[ci];
-      var val = (r.nowcast && r.nowcast[p]) || 0;
+      var val = wkrErst(r)[p] || 0;
       var u = (r.uncertainty && r.uncertainty[p]) || 0;
       var x = xAt(ci);
       ctx.strokeStyle = PARTY_COLORS[p] || '#888';
@@ -1315,22 +1373,23 @@
     var call = wkrCalls()[state.unit] || {};
     var doneNow = isCompleteNow(region, call, cur);
     var uncNow = region.uncertainty || {};
-    var leadShare = predParty && region.nowcast ? region.nowcast[predParty] : null;
+    var erstNow = wkrErst(region);
+    var leadShare = predParty ? erstNow[predParty] : null;
     var leadU = predParty ? uncNow[predParty] : null;
     var runP = region.runner_up;
-    var runShare = runP && region.nowcast ? region.nowcast[runP] : null;
+    var runShare = runP ? erstNow[runP] : null;
     var runU = runP ? uncNow[runP] : null;
     var mU = marginUnc(region);
 
+    var roster = ((state.data && state.data.direkt_candidates_2026) || {})[String(state.unit)] || {};
+    var extra = roster._extra || [];
     var topParties = PARTIES_ORDER.filter(function (p) { return p !== 'others'; })
       .sort(function (a, b) {
-        return ((region.nowcast && region.nowcast[b]) || 0) -
-          ((region.nowcast && region.nowcast[a]) || 0);
-      })
-      .slice(0, 4);
+        return (erstNow[b] || 0) - (erstNow[a] || 0);
+      });
 
     var chips = topParties.map(function (p) {
-      var sh = region.nowcast ? region.nowcast[p] : null;
+      var sh = erstNow[p];
       var u = uncNow[p];
       var c = candidateFor(state.unit, p);
       var win = (doneNow && p === truthParty)
@@ -1344,6 +1403,10 @@
             (u != null ? ' <span class="wb-range">±\u00a0' + fmtNum(u, 1) + '</span>' : '')
           : '') +
         lead + win + '</span>';
+    }).join('') + extra.map(function (c) {
+      return '<span class="wb-wkr-chip" style="border-left:3px solid #8a8a8a;">' +
+        '<strong>' + escapeHtml(c.party_raw || 'Sonstige') + '</strong> ' +
+        escapeHtml(c.name || '') + '</span>';
     }).join('');
 
     var tier = callTier(region);
@@ -1366,6 +1429,10 @@
 
     el.innerHTML =
       '<h3>Direktmandat · Erststimmen-Nowcast</h3>' +
+      '<p class="wb-coverage-meta" style="margin:0 0 0.4rem;">' +
+        'Führung und Zahlen hier sind <strong>Erststimme</strong> (Direktmandat). ' +
+        'Die Zweitstimme-Anteile stehen oben unter Zweitstimme.' +
+      '</p>' +
       '<div class="wb-wkr-hero">' +
         '<div class="wb-wkr-lead">' +
           (predParty ? partyShort(predParty) : '—') + ' — ' + nameHtml(predCand) +
@@ -1385,6 +1452,8 @@
             : '') +
         '</div>' +
         '<div class="wb-wkr-chips">' + chips + '</div>' +
+        '<p class="wb-coverage-meta" id="wb-wkr-unc-note" style="margin:0.45rem 0 0;">' +
+          escapeHtml(uncWkrNote(region)) + '</p>' +
         '<div class="wb-wkr-meta">' +
           '<div class="wb-wkr-plead">' +
             '<span class="wb-wkr-plead-k">P(Führung hält)</span>' +
@@ -1510,11 +1579,31 @@
       })
       .filter(function (x) { return Math.abs(x.d) >= 0.8; })
       .sort(function (a, b) { return Math.abs(b.d) - Math.abs(a.d); });
+    var lastEl = lastElectionRef();
+    var lastYear = lastEl && lastEl.year != null ? String(lastEl.year) : '2021';
     var nRep = stats.W.rep + stats.B.rep;
     var html;
-    if (!nRep) {
+    var liveWk = isLivePage() && plist.length === 0;
+    if (liveWk) {
+      nRep = r.n_reported || 0;
+      var nTot = r.n_total || 0;
+      var fracW = r.frac_reported || 0;
+      if (fracW <= 0 && nRep <= 0) {
+        html = 'Im Wahlkreis ist noch nichts gemeldet — die Anzeige ist die ' +
+          '<strong>zweitstimme.org-Wahlkreisprognose</strong> auf Basis von <strong>LTW&nbsp;' +
+          lastYear + '</strong> (Erststimme: WK-Regression ohne Kandidateneffekte). ' +
+          'Andere bereits gezählte Kreise können den Landestrend noch leicht verschieben.';
+      } else if (fracW >= 0.999 || (nTot > 0 && nRep >= nTot)) {
+        html = 'Dieser Wahlkreis ist ausgezählt — Nowcast = gemeldetes Ergebnis.';
+      } else {
+        html = 'Gemeldet: <strong>' + nRep + (nTot ? '/' + nTot : '') +
+          '</strong> Wahlbezirke in diesem WK. Der offene Rest bleibt die ' +
+          lastYear + 'er Wahlkreisprognose plus Swing aus den gezählten Bezirken.';
+      }
+    } else if (!nRep) {
       html = 'Im Wahlkreis ist noch nichts gemeldet — die Anzeige ist die ' +
-        '<strong>Ausgangslage</strong> (2016-Lean + Swing auf das Vorwahl-Ziel), ' +
+        '<strong>Ausgangslage</strong> (' + lastYear +
+        ' plus Swing auf das Vorwahl-Ziel), ' +
         'korrigiert nur um das, was andere Gebiete bereits über den Landestrend verraten.';
     } else if (nRep >= plist.length) {
       var cwhenWhy = completeWhen(wkrCalls()[state.unit] || {});
@@ -1525,7 +1614,8 @@
       html = 'Gemeldet: <strong>' + nRep + '/' + plist.length + '</strong> Wahlbezirke ' +
         '(Urne ' + stats.W.rep + '/' + stats.W.n + ', Brief ' + stats.B.rep + '/' + stats.B.n + '). ' +
         'Der Nowcast überschreibt die offenen Wahlbezirke <em>nicht</em> mit dem bisherigen ' +
-        'Rohstand, sondern lässt ihnen ihr Lean (2016 + Swing) plus die gelernte Korrektur. ';
+        'Rohstand, sondern lässt ihnen die Ausgangslage (' + lastYear +
+        ' + Swing) plus die gelernte Korrektur. ';
       if (diffs.length) {
         html += 'Größte Abweichungen zum Rohstand: ' + diffs.slice(0, 3).map(function (x) {
           return partyShort(x.p) + ' <strong>' + fmtPp(x.d) + '</strong>';
@@ -1591,6 +1681,177 @@
     });
   }
 
+  function geoCandidates() {
+    if (state.land === 'st') {
+      return ['ltw_wahlkreise_st_simple.geojson', 'ltw_wahlkreise_st.geojson'];
+    }
+    if (state.land === 'mv') return ['ltw_wahlkreise_mv.geojson'];
+    if (state.land === 'be') return ['ltw_wahlkreise_be.geojson'];
+    return [];
+  }
+
+  function ensureGeo(cb) {
+    if (state.geo) { cb(state.geo); return; }
+    if (state.geo === false) { cb(null); return; }
+    if (state._geoLoading) { state._geoWait = cb; return; }
+    var files = geoCandidates();
+    if (!files.length) { state.geo = false; cb(null); return; }
+    state._geoLoading = true;
+    var i = 0;
+    function next() {
+      if (i >= files.length) {
+        state._geoLoading = false;
+        state.geo = false;
+        cb(null);
+        return;
+      }
+      fetch(dataUrl(files[i])).then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      }).then(function (g) {
+        state._geoLoading = false;
+        state.geo = g;
+        cb(g);
+        if (state._geoWait) { var w = state._geoWait; state._geoWait = null; w(g); }
+      }).catch(function () {
+        i += 1;
+        next();
+      });
+    }
+    next();
+  }
+
+  function ringPath(ring, proj) {
+    return ring.map(function (pt, i) {
+      var xy = proj(pt[0], pt[1]);
+      return (i === 0 ? 'M' : 'L') + xy[0].toFixed(1) + ' ' + xy[1].toFixed(1);
+    }).join(' ') + ' Z';
+  }
+
+  function geomPath(geom, proj) {
+    if (!geom) return '';
+    if (geom.type === 'Polygon') {
+      return (geom.coordinates || []).map(function (r) { return ringPath(r, proj); }).join(' ');
+    }
+    if (geom.type === 'MultiPolygon') {
+      return (geom.coordinates || []).map(function (poly) {
+        return (poly || []).map(function (r) { return ringPath(r, proj); }).join(' ');
+      }).join(' ');
+    }
+    return '';
+  }
+
+  function geomCentroid(geom) {
+    var ring = null;
+    if (geom && geom.type === 'Polygon') ring = geom.coordinates && geom.coordinates[0];
+    else if (geom && geom.type === 'MultiPolygon') {
+      var best = null;
+      var bestN = 0;
+      (geom.coordinates || []).forEach(function (poly) {
+        var r = poly && poly[0];
+        if (r && r.length > bestN) { best = r; bestN = r.length; }
+      });
+      ring = best;
+    }
+    if (!ring || !ring.length) return null;
+    var sx = 0, sy = 0, n = 0;
+    ring.forEach(function (pt) {
+      if (!pt || pt.length < 2) return;
+      sx += pt[0]; sy += pt[1]; n += 1;
+    });
+    return n ? [sx / n, sy / n] : null;
+  }
+
+  function featWkrId(props) {
+    if (!props) return '';
+    var raw = props.wkr != null ? props.wkr : (props.WKR != null ? props.WKR : props.id);
+    return String(raw == null ? '' : raw);
+  }
+
+  function renderMap() {
+    var svg = $('wb-map');
+    var cap = $('wb-map-caption');
+    var block = $('wb-map-block');
+    if (!svg || !block) return;
+    if (state.land === 'be') {
+      block.hidden = true;
+      return;
+    }
+    block.hidden = false;
+    var st = steps();
+    if (!st.length) return;
+    var s = st[Math.min(state.step, st.length - 1)];
+    var races = collectWkrRaces(s);
+    var byId = {};
+    races.forEach(function (x) { byId[String(x.id)] = x; });
+    ensureGeo(function (geo) {
+      if (!geo || !geo.features) {
+        svg.innerHTML = '';
+        if (cap) cap.textContent = 'Wahlkreis-GeoJSON nicht auf dem Preview (ltw_wahlkreise_' + state.land + '.geojson).';
+        return;
+      }
+      var feats = geo.features;
+      var minLon = Infinity, minLat = Infinity, maxLon = -Infinity, maxLat = -Infinity;
+      function walk(c) {
+        if (!c) return;
+        if (typeof c[0] === 'number') {
+          minLon = Math.min(minLon, c[0]); maxLon = Math.max(maxLon, c[0]);
+          minLat = Math.min(minLat, c[1]); maxLat = Math.max(maxLat, c[1]);
+          return;
+        }
+        c.forEach(walk);
+      }
+      feats.forEach(function (f) { walk(f.geometry && f.geometry.coordinates); });
+      var meanLat = (minLat + maxLat) / 2;
+      var kx = Math.cos(meanLat * Math.PI / 180);
+      var pad = 18;
+      var vbW = 640, vbH = 780;
+      var dx = (maxLon - minLon) * kx;
+      var dy = maxLat - minLat;
+      var sxy = Math.min((vbW - 2 * pad) / Math.max(dx, 1e-6), (vbH - 2 * pad) / Math.max(dy, 1e-6));
+      function proj(lon, lat) {
+        return [
+          pad + (lon - minLon) * kx * sxy,
+          pad + (maxLat - lat) * sxy
+        ];
+      }
+      var paths = [];
+      var labels = [];
+      feats.forEach(function (f) {
+        var id = featWkrId(f.properties);
+        var x = byId[id] || { id: id, label: unitLabel('wkr', id), party: null, called: false, likely: false, r: {} };
+        var d = geomPath(f.geometry, proj);
+        if (!d) return;
+        var col = x.party ? (PARTY_COLORS[x.party] || '#888') : '#c8c8c8';
+        var frac = (x.r && x.r.frac_reported) || 0;
+        var fillOp = x.called ? 0.92 : (x.likely ? 0.55 : (0.18 + 0.55 * frac));
+        var active = state.scope === 'wkr' && String(state.unit) === String(id);
+        var parts = shortWkrLabel(x.label, id);
+        var title = (parts.rest ? (parts.num + ' ' + parts.rest) : ('WK ' + parts.num)) +
+          (x.party ? ' · ' + partyShort(x.party) : '') +
+          (x.called ? ' · Call' : (x.likely ? ' · wahrscheinlich' : ' · offen'));
+        paths.push('<path data-wkr-link="' + escapeHtml(id) + '" class="' +
+          (active ? 'is-active' : '') + '" d="' + d + '" fill="' + col +
+          '" fill-opacity="' + fillOp.toFixed(2) + '"><title>' + escapeHtml(title) + '</title></path>');
+        var c = geomCentroid(f.geometry);
+        if (c) {
+          var xy = proj(c[0], c[1]);
+          var fill = (x.called && x.party && x.party !== 'fdp') ? '#fff' : '#1a1a1a';
+          labels.push('<text class="wb-map-label" x="' + xy[0].toFixed(1) + '" y="' +
+            xy[1].toFixed(1) + '" fill="' + fill + '">' +
+            escapeHtml(parts.num) + '</text>');
+        }
+      });
+      svg.innerHTML = '<g>' + paths.join('') + '</g><g>' + labels.join('') + '</g>';
+      bindWkrLinks(svg);
+      if (cap) {
+        var nCalled = races.filter(function (x) { return x.called; }).length;
+        cap.textContent = nCalled + ' von ' + races.length +
+          ' Wahlkreisen gecallt · Deckkraft = ausgezählte Wahlbezirke im Kreis.';
+      }
+    });
+  }
+
   function hexToRgb(hex) {
     var h = String(hex || '').replace('#', '');
     if (h.length === 3) {
@@ -1615,11 +1876,11 @@
   }
 
   function shortWkrLabel(label, id) {
-    var s = String(label || '');
-    var m = s.match(/WK\s*(\d+)/i);
+    var s = String(label || '').trim();
+    var m = s.match(/^(?:WK\s*)?(\d+)\s*[·.•\-–]?\s*(.*)$/i);
     var num = m ? m[1] : String(id);
-    var rest = s.replace(/^WK\s*\d+\s*[·.•\-–]?\s*/i, '').trim();
-    if (rest.length > 22) rest = rest.slice(0, 20) + '…';
+    var rest = (m && m[2] ? m[2] : '').trim();
+    if (!rest || rest === num) rest = '';
     return { num: num, rest: rest };
   }
 
@@ -1639,11 +1900,15 @@
       (x.party ? ' · ' + partyShort(x.party) : '') +
       (tier === 'called' ? ' · Call' : (tier === 'likely' ? ' · wahrscheinlich' : ' · offen'));
     var active = state.scope === 'wkr' && String(state.unit) === String(x.id);
+    var nameHtml = parts.rest
+      ? '<span class="wb-wkr-tile-name">' + escapeHtml(parts.rest) + '</span>'
+      : '';
     return '<button type="button" class="wb-wkr-tile wb-wkr-tile-' + tier +
       (active ? ' is-active' : '') +
       '" data-wkr-link="' + x.id + '" data-search="' + escapeHtml(wkrSearchHaystack(x)) +
       '" style="' + style + '" title="' + tip + '">' +
       '<span class="wb-wkr-tile-num">' + escapeHtml(parts.num) + '</span>' +
+      nameHtml +
       '</button>';
   }
 
@@ -2008,7 +2273,9 @@
       if (!wonByParty[p]) wonByParty[p] = {};
       wonByParty[p][uid] = true;
     });
-    var order = ['cdu', 'spd', 'gruene', 'linke', 'afd', 'fdp'];
+    var order = ['cdu', 'spd', 'gruene', 'linke', 'afd', 'fdp', 'bsw'].filter(function (p) {
+      return roster[p];
+    });
     if (state.partyFocus && order.indexOf(state.partyFocus) >= 0) {
       order = [state.partyFocus];
     }
@@ -2841,8 +3108,11 @@
           : '—';
         var active = state.unit && String(state.unit) === String(u.id)
           ? ' class="wb-row-active"' : '';
+        var nm = shortWkrLabel(u.label, u.id);
+        var wkCell = escapeHtml(nm.num) +
+          (nm.rest ? ' ' + escapeHtml(nm.rest) : '');
         return '<tr' + active + ' data-wkr-link="' + u.id + '" style="cursor:pointer;">' +
-          '<td>WK\u00a0' + escapeHtml(String(u.id).padStart(2, '0')) + '</td>' +
+          '<td>' + wkCell + '</td>' +
           '<td>' + act.n_reported + '/' + act.n_total + '</td>' +
           '<td style="text-align:right;">' + fmtInt(act.gueltig) + '</td>' +
           '<td style="text-align:right;">' +
@@ -3001,11 +3271,18 @@
 
     var note = $('wb-scenario-note');
     if (note) {
-      note.textContent = state.land === 'be'
-        ? 'Meldefluss: AfS-Zeiten'
-        : (state.land === 'st'
-          ? 'Meldefluss: simuliert (StaLA Live-CSV ab Wahlabend 2026)'
-          : 'Meldefluss: simuliert (LAIV Live-CSV ab ~19 Uhr 2026)');
+      if (isLivePage() || /2026/.test(String((state.data && state.data.election) || ''))) {
+        var liveMeta = (state.data && state.data.live) || {};
+        note.textContent = liveMeta.result_kind_label
+          ? ('StaLA: ' + liveMeta.result_kind_label)
+          : 'Meldefluss: StaLA Live-CSV';
+      } else if (state.land === 'be') {
+        note.textContent = 'Meldefluss: AfS-Zeiten';
+      } else if (state.land === 'st') {
+        note.textContent = 'Meldefluss: simuliert (StaLA Live-CSV ab Wahlabend 2026)';
+      } else {
+        note.textContent = 'Meldefluss: simuliert (LAIV Live-CSV ab ~19 Uhr 2026)';
+      }
     }
 
     var landLabel = (state.data && state.data.state_label)
@@ -3053,11 +3330,15 @@
         if (reg) lead = reg.direct_pred || reg.leader_pred;
         var uLead = (lead && v.uncertainty) ? v.uncertainty[lead] : null;
         $('wb-stat').innerHTML =
-          '<div>Anteilsfehler in diesem WK: <strong>' + fmtNum(v.mae_nowcast, 2) + '\u00a0PP</strong>' +
-            ' <span class="wb-art">naiv ' + fmtNum(v.mae_naive, 2) + '\u00a0PP</span></div>' +
+          (v.mae_nowcast != null
+            ? '<div>Anteilsfehler in diesem WK: <strong>' + fmtNum(v.mae_nowcast, 2) + '\u00a0PP</strong>' +
+              ' <span class="wb-art">naiv ' + fmtNum(v.mae_naive, 2) + '\u00a0PP</span></div>'
+            : '') +
           (lead
-            ? '<div>Führung <strong>' + partyShort(lead) + '</strong>: ' +
-              fmtPct(v.nowcast[lead]) +
+            ? '<div>Führung <strong>' + partyShort(lead) + '</strong> (Erst): ' +
+              fmtPct((reg && reg.erst ? reg.erst[lead] : null) != null
+                ? (reg.erst[lead])
+                : v.nowcast[lead]) +
               (uLead != null ? ' ±\u00a0' + fmtNum(uLead, 1) + '\u00a0PP' : '') +
               (reg && reg.margin != null
                 ? ' · Marge ' + fmtNum(reg.margin, 1) +
@@ -3117,21 +3398,31 @@
         .sort(function (a, b) {
           return (v.nowcast[b] || 0) - (v.nowcast[a] || 0);
         })
-        .slice(0, 3)
         .map(function (p) {
           var u = (v.uncertainty || {})[p];
           return partyShort(p) + '\u00a0' + fmtNum(v.nowcast[p], 1) +
             (u != null ? '±' + fmtNum(u, 1) : '');
         })
         .join(' · ');
+      var mixLive = s.mix_live != null ? s.mix_live : s.learn_weight;
+      var mixPrior = s.mix_prior != null ? s.mix_prior : (mixLive != null ? 1 - mixLive : null);
       $('wb-stat').innerHTML =
         '<div><strong>Zweitstimme-Nowcast</strong> ' + top + '</div>' +
-        '<div>Lerngewicht <strong>' +
-          (s.learn_weight != null ? fmtNum(s.learn_weight, 2) : '—') +
-          '</strong> · Repräsentativität <strong>' +
-          (s.representativeness != null ? fmtNum(s.representativeness, 2) : '—') +
-          '</strong>' +
-          ' <span class="wb-art">· MAE/Treffer unter Eval</span></div>';
+        '<div>' +
+          (mixLive != null
+            ? 'Mischung <strong>' + Math.round(mixLive * 100) + '\u00a0%</strong> Live-Auszählung · ' +
+              '<strong>' + Math.round((mixPrior != null ? mixPrior : 0) * 100) +
+              '\u00a0%</strong> zweitstimme.org-Prognose'
+            : 'Lerngewicht <strong>' +
+              (s.learn_weight != null ? fmtNum(s.learn_weight, 2) : '—') +
+              '</strong>') +
+          (s.representativeness != null
+            ? ' · Repräsentativität <strong>' + fmtNum(s.representativeness, 2) + '</strong>'
+            : '') +
+          (isLivePage()
+            ? ''
+            : ' <span class="wb-art">· MAE/Treffer unter Eval</span>') +
+          '</div>';
     }
 
     var labels = state.data.party_labels || {};
@@ -3164,6 +3455,16 @@
         '<tr><td>±</td>' + pmCells + '</tr>';
     }
 
+    var landUncTxt = uncLandNote(s);
+    var shareNote = $('wb-share-note');
+    if (shareNote) {
+      shareNote.textContent = 'Linie = Nowcast. ' + landUncTxt;
+    }
+    var uncNote = $('wb-unc-note');
+    if (uncNote) {
+      uncNote.textContent = landUncTxt;
+    }
+
     $('wb-foot').textContent =
       ((state.data.model && state.data.model.description) || '') +
       ' Ebene: ' + (SCOPE_LABELS[state.scope] || state.scope) + '.' +
@@ -3179,6 +3480,7 @@
     renderCoverage();
     renderActual();
     renderEval();
+    renderMap();
     drawShareChart();
     if (state.scope === 'wkr') drawWkrRaceCharts();
     if (state.scope === 'zweit') drawChart();
@@ -3273,6 +3575,114 @@
     }
   }
 
+  function renderLiveStatus() {
+    var el = $('wb-live-status');
+    if (!el) return;
+    var live = (state.data && state.data.live) || null;
+    var root = $('wahlabend-root');
+    var n = steps().length;
+    if (root) {
+      if (isLivePage() && n <= 1) root.setAttribute('data-wb-single-step', '1');
+      else root.removeAttribute('data-wb-single-step');
+    }
+    if (!live && !isLivePage()) {
+      el.hidden = true;
+      el.textContent = '';
+      return;
+    }
+    el.hidden = false;
+    if (!live) {
+      el.textContent = 'Live-Datei noch nicht veröffentlicht — zeige Replay, bis StaLA liefert.';
+      return;
+    }
+    var ist = live.ist_wb;
+    var soll = live.soll_wb;
+    var wbLine;
+    if (ist != null && soll != null && Number(soll) > 0) {
+      wbLine = '<strong>' + ist + '</strong> von <strong>' + soll +
+        '</strong> Wahlbezirken ausgezählt';
+    } else if (ist != null) {
+      wbLine = '<strong>' + ist + '</strong> Wahlbezirke ausgezählt' +
+        (Number(soll) === 0 ? ' <span class="wb-art">(Soll noch nicht gemeldet)</span>' : '');
+    } else {
+      wbLine = 'Wahlbezirke: —';
+    }
+    var mixLive = live.mix_live;
+    if (mixLive == null) {
+      var stNow = steps();
+      var last = stNow.length ? stNow[Math.min(state.step, stNow.length - 1)] : null;
+      mixLive = last && last.mix_live != null ? last.mix_live : (last && last.learn_weight);
+    }
+    var mixPrior = live.mix_prior;
+    if (mixPrior == null && mixLive != null) mixPrior = 1 - mixLive;
+    var mixLine = (mixLive != null)
+      ? ('<strong>' + Math.round(mixLive * 100) + '\u00a0%</strong> Live-Auszählung · ' +
+        '<strong>' + Math.round((mixPrior || 0) * 100) +
+        '\u00a0%</strong> zweitstimme.org-Prognose')
+      : '';
+    var gen = (state.data && state.data.generated_at) || null;
+    var stamp = gen ? formatBerlin(gen) : '';
+    var runBit = live.run_url
+      ? (' · <a href="' + live.run_url + '" rel="noopener noreferrer">GitHub Action</a>')
+      : (live.run_id ? ' · GitHub Action' : '');
+    var kind = live.result_kind_label || live.result_kind || '';
+    var bits = [];
+    bits.push('<div class="wb-live-count">' + wbLine + '</div>');
+    if (stamp) {
+      bits.push('<div>Stand dieser Version: <strong>' + stamp + '</strong>' + runBit + '</div>');
+    }
+    if (mixLine) bits.push('<div>Mischung: ' + mixLine + '</div>');
+    if (kind) bits.push('<div class="wb-art">' + kind + '</div>');
+    el.innerHTML = bits.join('');
+  }
+
+  function applyPayload(data, keepView) {
+    state.data = data;
+    state._precinctMap = null;
+    applyPartyOrderFromData(data);
+    var ids = Object.keys(data.scenarios || {});
+    if (ids.indexOf('live') >= 0) state.scenario = 'live';
+    else if (ids.indexOf('actual_times') >= 0) state.scenario = 'actual_times';
+    else if (ids.indexOf('random') >= 0) state.scenario = 'random';
+    else state.scenario = ids[0] || 'random';
+    if (!keepView) {
+      state.scope = 'zweit';
+      state.unit = (data.geo_units && data.geo_units.land && data.geo_units.land[0])
+        ? data.geo_units.land[0].id
+        : (state.land === 'be' ? 'BE' : state.land.toUpperCase());
+      state.partyFocus = null;
+    }
+    var n = steps().length;
+    var slider = $('wb-slider');
+    var liveish = isLivePage() || /2026/.test(String(data.election || ''));
+    if (slider) {
+      slider.max = String(Math.max(0, n - 1));
+      if (liveish) {
+        slider.value = String(Math.max(0, n - 1));
+      } else if (!keepView) {
+        slider.value = String(Math.min(10, Math.max(0, n - 1)));
+      } else {
+        slider.value = String(Math.min(Number(slider.value) || 0, Math.max(0, n - 1)));
+      }
+      state.step = Number(slider.value);
+    }
+    renderLiveStatus();
+    if (!state._bound) {
+      bind();
+      state._bound = true;
+    }
+    renderStep();
+  }
+
+  function fetchNowcast(name) {
+    var url = dataUrl(name);
+    if (isLivePage()) url += (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
   function init() {
     if (!$('wahlabend-root')) return;
     state.land = landFromQuery();
@@ -3287,32 +3697,37 @@
         window.location.href = url.toString();
       });
     });
-    fetch(dataUrl(replayFileForLand(state.land)))
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
+    var primary = replayFileForLand(state.land);
+    fetchNowcast(primary)
+      .then(function (data) { return { data: data, fallback: false }; })
+      .catch(function (err) {
+        if (!isLivePage() || primary === 'wahlabend_nowcast_st.json') throw err;
+        return fetchNowcast('wahlabend_nowcast_st.json').then(function (data) {
+          return { data: data, fallback: true };
+        });
       })
-      .then(function (data) {
-        state.data = data;
-        state._precinctMap = null;
-        var ids = Object.keys(data.scenarios || {});
-        if (ids.indexOf('actual_times') >= 0) state.scenario = 'actual_times';
-        else if (ids.indexOf('random') >= 0) state.scenario = 'random';
-        else state.scenario = ids[0] || 'random';
-        state.scope = 'zweit';
-        state.unit = (data.geo_units && data.geo_units.land && data.geo_units.land[0])
-          ? data.geo_units.land[0].id
-          : (state.land === 'be' ? 'BE' : state.land.toUpperCase());
-        state.partyFocus = null;
-        var n = steps().length;
-        var slider = $('wb-slider');
-        if (slider) {
-          slider.max = String(Math.max(0, n - 1));
-          slider.value = String(Math.min(10, Math.max(0, n - 1)));
-          state.step = Number(slider.value);
+      .then(function (pack) {
+        applyPayload(pack.data, false);
+        if (pack.fallback) {
+          var slider = $('wb-slider');
+          if (slider) {
+            slider.value = '0';
+            state.step = 0;
+            renderStep();
+          }
+          var el = $('wb-live-status');
+          if (el) {
+            el.hidden = false;
+            el.textContent = 'Live-Nowcast-Datei noch nicht auf dem Preview — zeige 2021-Replay als Platzhalter (Stand 0\u00a0%).';
+          }
         }
-        bind();
-        renderStep();
+        if (isLivePage()) {
+          window.setInterval(function () {
+            fetchNowcast(replayFileForLand(state.land))
+              .then(function (next) { applyPayload(next, true); })
+              .catch(function () { /* keep last good snapshot */ });
+          }, 60000);
+        }
       })
       .catch(function (err) {
         var stat = $('wb-stat');

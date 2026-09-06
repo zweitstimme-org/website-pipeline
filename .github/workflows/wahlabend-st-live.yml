@@ -1,0 +1,90 @@
+name: Sachsen-Anhalt live nowcast
+
+# Polls StaLA's in-place result CSVs and publishes nowcast JSON to gh-pages.
+# Browser cannot fetch wahlergebnisse.sachsen-anhalt.de (no CORS).
+# Preview page: /preview/sachsen-anhalt/
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wahlabend-st-live
+  cancel-in-progress: true
+
+jobs:
+  nowcast:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pipeline
+        uses: actions/checkout@v4
+
+      - name: Fetch StaLA CSVs
+        run: bash scripts/fetch_st_live.sh
+
+      - name: Install numpy
+        run: python3 -m pip install --quiet numpy
+
+      - name: Checkout gh-pages (previous live JSON)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-site
+
+      - name: Run live nowcast
+        run: |
+          mkdir -p output/st_live
+          PREV=""
+          if [ -f gh-pages-site/data/wahlabend_nowcast_st_live.json ]; then
+            cp gh-pages-site/data/wahlabend_nowcast_st_live.json output/wahlabend_nowcast_st_live.json
+            PREV="--prev output/wahlabend_nowcast_st_live.json"
+          fi
+          python3 code/wahlabend_st_live.py ${PREV}
+          cp -a sachsen-anhalt/wahlabend/live/. output/st_live/ || true
+
+      - name: Archive live CSVs
+        uses: actions/upload-artifact@v4
+        with:
+          name: st-live-csv-${{ github.run_id }}
+          path: sachsen-anhalt/wahlabend/live
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Publish JSON + CSV snapshots to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER_NAME: zweitstimme-pipeline-bot
+          GIT_USER_EMAIL: pipeline@zweitstimme.org
+        run: |
+          set -euo pipefail
+          git -C gh-pages-site config user.name "${GIT_USER_NAME}"
+          git -C gh-pages-site config user.email "${GIT_USER_EMAIL}"
+          mkdir -p gh-pages-site/data/st_live/snapshots
+          if [ -f output/wahlabend_nowcast_st_live.json ]; then
+            cp output/wahlabend_nowcast_st_live.json gh-pages-site/data/
+          fi
+          if [ -d sachsen-anhalt/wahlabend/live ]; then
+            find sachsen-anhalt/wahlabend/live -maxdepth 1 -type f \( -name '*.csv' -o -name '*.jsonl' \) \
+              -exec cp {} gh-pages-site/data/st_live/ \;
+            if [ -d sachsen-anhalt/wahlabend/live/snapshots ]; then
+              # Timestamp dirs are unique; append manifest so earlier polls stay.
+              find sachsen-anhalt/wahlabend/live/snapshots -mindepth 1 -maxdepth 1 -type d \
+                -exec cp -a {} gh-pages-site/data/st_live/snapshots/ \;
+              if [ -f sachsen-anhalt/wahlabend/live/snapshots/manifest.jsonl ]; then
+                cat sachsen-anhalt/wahlabend/live/snapshots/manifest.jsonl \
+                  >> gh-pages-site/data/st_live/snapshots/manifest.jsonl || true
+              fi
+            fi
+          fi
+          git -C gh-pages-site add data/wahlabend_nowcast_st_live.json data/st_live || true
+          if git -C gh-pages-site diff --staged --quiet; then
+            echo "No live nowcast change."
+            exit 0
+          fi
+          git -C gh-pages-site commit -m "chore(pages): ST live nowcast + CSV snapshot"
+          git -C gh-pages-site pull --rebase --autostash origin gh-pages || true
+          git -C gh-pages-site push origin HEAD:gh-pages

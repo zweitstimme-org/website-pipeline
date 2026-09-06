@@ -6,7 +6,7 @@ PY ?= python3
 OUTPUT_DIR := $(REPO_ROOT)/output
 VENV_DIR ?= .venv
 
-.PHONY: all deps stimmung election-dates display-mode state-forecast district-forecast mv-district-forecast federal-forecast wahlabend-fetch wahlabend-nowcast wahlabend-ltw publish sync-mock status clean help
+.PHONY: all deps stimmung election-dates display-mode state-forecast district-forecast mv-district-forecast federal-forecast wahlabend-fetch wahlabend-nowcast wahlabend-ltw wahlabend-st-live publish sync-mock status clean help
 
 all: stimmung display-mode
 
@@ -55,6 +55,11 @@ wahlabend-ltw-fetch:
 
 wahlabend-ltw: wahlabend-ltw-fetch
 	$(PY) code/wahlabend_ltw_nowcast.py --states st,mv
+
+# Live ST nowcast from current StaLA CSV (same URL, updated after 18:00)
+wahlabend-st-live:
+	bash scripts/fetch_st_live.sh
+	$(PY) code/wahlabend_st_live.py
 
 district-forecast:
 	$(PY) code/prepare_district_data.py --state all
@@ -116,6 +121,7 @@ help:
 	@echo "  district-forecast    - BE/ST/MV district model + parliament size + candidate entry"
 	@echo "  mv-district-forecast - MV only (alias)"
 	@echo "  federal-forecast - run federal model skeleton"
+	@echo "  wahlabend-st-live    - fetch StaLA CSV + live ST nowcast JSON"
 	@echo "  publish         - stimmung + push JSON to website-source"
 	@echo "  sync-mock       - stimmung + copy JSON to website-mock for local preview"
 	@echo "  status          - show output file status"
