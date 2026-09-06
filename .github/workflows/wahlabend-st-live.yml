@@ -3,6 +3,9 @@ name: Sachsen-Anhalt live nowcast
 # Polls StaLA's in-place result CSVs and publishes nowcast JSON to gh-pages.
 # Browser cannot fetch wahlergebnisse.sachsen-anhalt.de (no CORS).
 # Preview page: /preview/sachsen-anhalt/
+#
+# GITHUB_TOKEN pushes do not trigger other workflows, so we deploy Pages here
+# (same pattern as Daily Stimmung / State Forecasts).
 
 on:
   schedule:
@@ -11,6 +14,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: wahlabend-st-live
@@ -19,6 +24,9 @@ concurrency:
 jobs:
   nowcast:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages_deployment.outputs.page_url }}
     steps:
       - name: Checkout pipeline
         uses: actions/checkout@v4
@@ -82,9 +90,21 @@ jobs:
           fi
           git -C gh-pages-site add data/wahlabend_nowcast_st_live.json data/st_live || true
           if git -C gh-pages-site diff --staged --quiet; then
-            echo "No live nowcast change."
-            exit 0
+            echo "No live nowcast change on gh-pages branch (still deploying Pages)."
+          else
+            git -C gh-pages-site commit -m "chore(pages): ST live nowcast + CSV snapshot"
+            git -C gh-pages-site pull --rebase --autostash origin gh-pages || true
+            git -C gh-pages-site push origin HEAD:gh-pages
           fi
-          git -C gh-pages-site commit -m "chore(pages): ST live nowcast + CSV snapshot"
-          git -C gh-pages-site pull --rebase --autostash origin gh-pages || true
-          git -C gh-pages-site push origin HEAD:gh-pages
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages-site
+
+      - name: Deploy to GitHub Pages
+        id: pages_deployment
+        uses: actions/deploy-pages@v4
