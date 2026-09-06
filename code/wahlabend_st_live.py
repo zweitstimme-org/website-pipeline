@@ -693,11 +693,22 @@ def parse_gemeinden_csv(path: Path) -> dict[str, dict]:
     return out
 
 
-HALLE_AGS = "15002000"
-HALLE_LIVE_JSON = REPO / "sachsen-anhalt" / "wahlabend" / "live" / "halle_wbz_2026.json"
-HALLE_BASE_JSON = REPO / "sachsen-anhalt" / "wahlabend" / "raw" / "halle_wbz_2021.json"
-# Halle presentation party labels -> internal codes (rest -> others)
-HALLE_PARTY = {
+_WBZ_DIR = REPO / "sachsen-anhalt" / "wahlabend"
+# Cities with own Elect-iT live portals (per-Stimmbezirk pages): AGS -> files
+CITY_WBZ = {
+    "15002000": {
+        "city": "halle",
+        "live": _WBZ_DIR / "live" / "halle_wbz_2026.json",
+        "base": _WBZ_DIR / "raw" / "halle_wbz_2021.json",
+    },
+    "15003000": {
+        "city": "magdeburg",
+        "live": _WBZ_DIR / "live" / "magdeburg_wbz_2026.json",
+        "base": _WBZ_DIR / "raw" / "magdeburg_wbz_2021.json",
+    },
+}
+# City presentation party labels -> internal codes (rest -> others)
+CITY_PARTY = {
     "cdu": "cdu",
     "afd": "afd",
     "die linke": "linke",
@@ -711,37 +722,48 @@ HALLE_PARTY = {
 }
 
 
-def _halle_counts(parties: dict) -> tuple[dict[str, float], float]:
+def _city_counts(parties: dict) -> tuple[dict[str, float], float]:
     counts = {p: 0.0 for p in PARTIES}
     for name, v in (parties or {}).items():
         z = v.get("zweit")
         if z is None:
             continue
-        counts[HALLE_PARTY.get(name.strip().lower(), "others")] += float(z)
+        counts[CITY_PARTY.get(name.strip().lower(), "others")] += float(z)
     return counts, sum(counts.values())
 
 
-def apply_halle_subunits(
+def apply_city_subunits(
     gem_live: dict[str, dict], gem21: dict[str, dict]
 ) -> tuple[dict[str, dict], dict[str, dict], dict]:
-    """Split Halle into its Stimmbezirke using the city's own live portal.
+    """Split portal cities (Halle, Magdeburg) into their Stimmbezirke.
 
-    Halle (~10% of the state, counted late) publishes per-Stimmbezirk results
-    that StaLA does not. Each 2026 Stimmbezirk id matches 2021, so within-city
-    counting composition (Neustadt vs Paulusviertel ...) is corrected by the
-    same estimator that handles the 218 Gemeinden. Brief exists only city-wide
-    in Halle's portal -> one pseudo-unit with the 2021 Brief baseline.
-    Falls back to the StaLA Gemeinde row when the scrape is missing/behind.
+    Both cities (~22% of the state, counted late) publish per-Stimmbezirk
+    results that StaLA does not. 2026 Stimmbezirk ids match 2021, so
+    within-city counting composition (Neustadt vs Paulusviertel ...) is
+    corrected by the same estimator that handles the 218 Gemeinden. Brief is
+    only city-wide attributable -> one pseudo-unit per city with the 2021
+    Brief baseline. Falls back to the StaLA Gemeinde row per city when the
+    portal scrape is missing or behind.
     """
+    all_diag: dict = {}
+    for ags, cfg in CITY_WBZ.items():
+        gem_live, gem21, diag = _apply_one_city(gem_live, gem21, ags, cfg)
+        all_diag[cfg["city"]] = diag
+    return gem_live, gem21, all_diag
+
+
+def _apply_one_city(
+    gem_live: dict[str, dict], gem21: dict[str, dict], city_ags: str, cfg: dict
+) -> tuple[dict[str, dict], dict[str, dict], dict]:
     diag: dict = {"used": False}
-    if HALLE_AGS not in gem_live or HALLE_AGS not in gem21:
-        diag["reason"] = "no Halle gemeinde row"
+    if city_ags not in gem_live or city_ags not in gem21:
+        diag["reason"] = "no gemeinde row for city"
         return gem_live, gem21, diag
     try:
-        live_doc = json.loads(HALLE_LIVE_JSON.read_text(encoding="utf-8"))
-        base_doc = json.loads(HALLE_BASE_JSON.read_text(encoding="utf-8"))
+        live_doc = json.loads(cfg["live"].read_text(encoding="utf-8"))
+        base_doc = json.loads(cfg["base"].read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        diag["reason"] = f"halle files unavailable: {exc}"[:120]
+        diag["reason"] = f"files unavailable: {exc}"[:120]
         return gem_live, gem21, diag
     lu = live_doc.get("units") or {}
     bu = base_doc.get("units") or {}
@@ -752,13 +774,13 @@ def apply_halle_subunits(
         if unit.get("art") != "U" or uid not in bu or bu[uid].get("art") != "U":
             continue
         b = bu[uid]
-        b_counts, b_g = _halle_counts(b.get("parties"))
+        b_counts, b_g = _city_counts(b.get("parties"))
         if b_g <= 0:
             continue
-        key = f"{HALLE_AGS}:{uid}"
+        key = f"{city_ags}:{uid}"
         sub_base[key] = {"name": b.get("name", uid), "gueltig": b_g, "shares": _shares(b_counts)}
         if unit.get("counted"):
-            c, g = _halle_counts(unit.get("parties"))
+            c, g = _city_counts(unit.get("parties"))
             sub_live[key] = {"name": unit.get("name", uid), "soll": 1, "ist": 1, "gueltig": g, "counts": c}
         else:
             sub_live[key] = {
@@ -768,13 +790,13 @@ def apply_halle_subunits(
                 "gueltig": 0.0,
                 "counts": {p: 0.0 for p in PARTIES},
             }
-    # Brief: city-wide pseudo-unit (2021: 36 Bezirke, 2026: 60 - no id match)
+    # Brief: city-wide pseudo-unit (Bezirk ids/counts changed since 2021)
     b_counts = {p: 0.0 for p in PARTIES}
     b_g = 0.0
     for uid, b in bu.items():
         if b.get("art") != "B":
             continue
-        c, g = _halle_counts(b.get("parties"))
+        c, g = _city_counts(b.get("parties"))
         b_g += g
         for p in PARTIES:
             b_counts[p] += c[p]
@@ -785,25 +807,26 @@ def apply_halle_subunits(
     for u in lu.values():
         if u.get("art") != "B" or not u.get("counted"):
             continue
-        c, g = _halle_counts(u.get("parties"))
+        c, g = _city_counts(u.get("parties"))
         l_g += g
         for p in PARTIES:
             l_counts[p] += c[p]
     if b_g > 0 and n_b > 0:
-        key = f"{HALLE_AGS}:brief"
-        sub_base[key] = {"name": "Halle Briefwahl", "gueltig": b_g, "shares": _shares(b_counts)}
-        sub_live[key] = {"name": "Halle Briefwahl", "soll": n_b, "ist": n_b_cnt, "gueltig": l_g, "counts": l_counts}
-    if len(sub_base) < 100:
-        diag["reason"] = f"only {len(sub_base)} halle units matched"
+        key = f"{city_ags}:brief"
+        label = f"{cfg['city'].title()} Briefwahl"
+        sub_base[key] = {"name": label, "gueltig": b_g, "shares": _shares(b_counts)}
+        sub_live[key] = {"name": label, "soll": n_b, "ist": n_b_cnt, "gueltig": l_g, "counts": l_counts}
+    if len(sub_base) < 80:
+        diag["reason"] = f"only {len(sub_base)} units matched"
         return gem_live, gem21, diag
-    # Authority: use the source with more counted Zweit votes for Halle
-    halle_scraped_g = sum(v["gueltig"] for v in sub_live.values())
-    stala_g = gem_live[HALLE_AGS]["gueltig"]
-    if halle_scraped_g < stala_g:
-        diag["reason"] = f"portal behind StaLA ({int(halle_scraped_g)} < {int(stala_g)} votes)"
+    # Authority: use the source with more counted Zweit votes for this city
+    scraped_g = sum(v["gueltig"] for v in sub_live.values())
+    stala_g = gem_live[city_ags]["gueltig"]
+    if scraped_g < stala_g:
+        diag["reason"] = f"portal behind StaLA ({int(scraped_g)} < {int(stala_g)} votes)"
         return gem_live, gem21, diag
-    out_live = {k: v for k, v in gem_live.items() if k != HALLE_AGS}
-    out_base = {k: v for k, v in gem21.items() if k != HALLE_AGS}
+    out_live = {k: v for k, v in gem_live.items() if k != city_ags}
+    out_base = {k: v for k, v in gem21.items() if k != city_ags}
     out_live.update(sub_live)
     out_base.update(sub_base)
     diag.update(
@@ -811,7 +834,7 @@ def apply_halle_subunits(
             "used": True,
             "n_units": len(sub_base),
             "n_counted": int(live_doc.get("n_counted") or 0),
-            "scraped_gueltig": int(halle_scraped_g),
+            "scraped_gueltig": int(scraped_g),
             "stala_gueltig": int(stala_g),
             "generated_at": live_doc.get("generated_at"),
         }
@@ -1647,7 +1670,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
     live = parse_stala_csv(csv_path)
     gem_live = parse_gemeinden_csv(csv_path.parent / GEM_CSV_NAME)
     gem_baseline = load_gem_baseline()
-    gem_live, gem_baseline, halle_diag = apply_halle_subunits(gem_live, gem_baseline)
+    gem_live, gem_baseline, city_diag = apply_city_subunits(gem_live, gem_baseline)
     rng = np.random.default_rng(20260906)
     step = build_step(
         panel,
@@ -1663,7 +1686,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
         gem_live=gem_live,
         gem_baseline=gem_baseline,
     )
-    step["halle"] = halle_diag or None
+    step["city_wbz"] = city_diag or None
     prev = None
     if prev_path and prev_path.exists():
         try:

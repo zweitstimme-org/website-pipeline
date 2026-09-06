@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Scrape Halle (Saale) per-Stimmbezirk election results.
+"""Scrape per-Stimmbezirk election results from city portals (Elect iT).
 
-Halle publishes its own live presentation (wahlergebnisse.halle.de) with one
-static HTML page per Stimmbezirk (Urne) and Briefwahlbezirk. The state feed
-(StaLA) only goes down to Gemeinde level, so this is the sole live source of
-within-Halle counting composition (~10% of the state's voters, counted late).
+Halle and Magdeburg publish their own live presentations (identical
+"Wahl-Abwicklungs-System" by Elect iT: static HTML, one page per Stimmbezirk /
+Briefwahlbezirk plus an area-index JSON). The state feed (StaLA) only goes
+down to Gemeinde level, so these are the sole live sources of within-city
+counting composition (together ~22% of the state's voters, counted late).
 
-2021 archive uses the SAME Stimmbezirk ids -> --election LTW2021 builds the
-baseline file. Party names are stored raw; mapping happens in the nowcast.
+Both portals keep an LTW2021 archive with (mostly) stable Stimmbezirk ids ->
+--election LTW2021 builds the baseline files. Party names are stored raw;
+mapping happens in the nowcast.
 """
 
 from __future__ import annotations
@@ -22,10 +24,21 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
-BASE = "https://wahlergebnisse.halle.de"
-IDX = {
-    "LTW2026": "idx_ergebnisse_gebiet_auswahl_7281729.json",
-    "LTW2021": "idx_ergebnisse_gebiet_auswahl_163691.json",
+CITIES = {
+    "halle": {
+        "base": "https://wahlergebnisse.halle.de",
+        "idx": {
+            "LTW2026": "idx_ergebnisse_gebiet_auswahl_7281729.json",
+            "LTW2021": "idx_ergebnisse_gebiet_auswahl_163691.json",
+        },
+    },
+    "magdeburg": {
+        "base": "https://wahlergebnisse.magdeburg.de",
+        "idx": {
+            "LTW2026": "idx_ergebnisse_gebiet_auswahl_10209262.json",
+            "LTW2021": "idx_ergebnisse_gebiet_auswahl_371507.json",
+        },
+    },
 }
 UA = "Mozilla/5.0 (compatible; zweitstimme-nowcast/1.0)"
 TIMEOUT = 12
@@ -87,13 +100,21 @@ def parse_page(html: str) -> dict | None:
     p.feed(html)
     parties: dict[str, dict] = {}
     totals: dict[str, int] = {}
-    # Summary rows at the bottom of the party table (not parties)
-    summary = {
-        "wahlberechtigte": "wber",
-        "wähler": "waehler",
-        "ungültige stimmen": "ungueltig",
-        "gültige stimmen": "gueltig",
-    }
+    # Summary rows at the bottom of the party table (not parties). Labels vary
+    # by city: Halle "Wähler", Magdeburg "Wähler/Wählerinnen" etc. -> prefixes.
+    summary_prefix = (
+        ("wahlberechtigte", "wber"),
+        ("wähler", "waehler"),
+        ("ungültige", "ungueltig"),
+        ("gültige", "gueltig"),
+    )
+
+    def _summary_key(label: str) -> str | None:
+        low = label.strip().lower()
+        for pref, key in summary_prefix:
+            if low.startswith(pref):
+                return key
+        return None
     for tb in p.tables:
         if not tb:
             continue
@@ -103,7 +124,7 @@ def parse_page(html: str) -> dict | None:
                 if len(row) < 6 or not row[0] or row[0] == "Partei":
                     continue
                 erst, zweit = _int(row[-4]), _int(row[-2])
-                key = summary.get(row[0].strip().lower())
+                key = _summary_key(row[0])
                 if key:
                     totals[f"{key}_erst"] = erst
                     totals[f"{key}_zweit"] = zweit
@@ -139,9 +160,10 @@ def parse_page(html: str) -> dict | None:
     return out
 
 
-def run(election: str, out: Path, workers: int = 8) -> int:
-    base = f"{BASE}/{election}"
-    idx = json.loads(_get(f"{base}/{IDX[election]}"))["suchindex"]
+def run(city: str, election: str, out: Path, workers: int = 8) -> int:
+    cfg = CITIES[city]
+    base = f"{cfg['base']}/{election}"
+    idx = json.loads(_get(f"{base}/{cfg['idx'][election]}"))["suchindex"]
     units = []
     for e in idx:
         url = e["url"]
@@ -160,13 +182,16 @@ def run(election: str, out: Path, workers: int = 8) -> int:
             return u["id"], rec
         if res is not None:
             rec.update(res)
-            rec["counted"] = True
+            # Halle marks uncounted pages "Kein Ergebniseingang"; Magdeburg
+            # publishes zero-filled tables instead -> counted means real votes.
+            rec["counted"] = bool(res.get("gueltig_zweit") or res.get("gueltig_erst"))
         return u["id"], rec
 
     with ThreadPoolExecutor(max_workers=workers) as ex:
         results = dict(ex.map(fetch, units))
     n_counted = sum(1 for r in results.values() if r["counted"])
     payload = {
+        "city": city,
         "election": election,
         "source": base,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -176,25 +201,34 @@ def run(election: str, out: Path, workers: int = 8) -> int:
     }
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-    print(f"halle {election}: {n_counted}/{len(results)} units counted -> {out}")
+    print(f"{city} {election}: {n_counted}/{len(results)} units counted -> {out}")
     return 0
 
 
 def main() -> None:
     repo = Path(__file__).resolve().parents[1]
     ap = argparse.ArgumentParser()
-    ap.add_argument("--election", default="LTW2026", choices=list(IDX))
-    ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--city", default="all", choices=["all", *CITIES])
+    ap.add_argument("--election", default="LTW2026", choices=["LTW2026", "LTW2021"])
+    ap.add_argument("--out", type=Path, default=None, help="only valid with a single --city")
     args = ap.parse_args()
-    out = args.out
-    if out is None:
-        d = repo / "sachsen-anhalt" / "wahlabend"
-        out = (
-            d / "live" / "halle_wbz_2026.json"
-            if args.election == "LTW2026"
-            else d / "raw" / "halle_wbz_2021.json"
-        )
-    sys.exit(run(args.election, out))
+    cities = list(CITIES) if args.city == "all" else [args.city]
+    d = repo / "sachsen-anhalt" / "wahlabend"
+    rc = 0
+    for city in cities:
+        out = args.out
+        if out is None or len(cities) > 1:
+            out = (
+                d / "live" / f"{city}_wbz_2026.json"
+                if args.election == "LTW2026"
+                else d / "raw" / f"{city}_wbz_2021.json"
+            )
+        try:
+            rc |= run(city, args.election, out)
+        except Exception as exc:  # noqa: BLE001 - one city must not block the other
+            print(f"WARN {city} scrape failed: {exc}", file=sys.stderr)
+            rc |= 1
+    sys.exit(rc)
 
 
 if __name__ == "__main__":
