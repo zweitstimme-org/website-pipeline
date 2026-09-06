@@ -36,8 +36,8 @@ jobs:
       - name: Fetch StaLA CSVs
         run: bash scripts/fetch_st_live.sh
 
-      - name: Fetch Halle Stimmbezirke (city portal, non-fatal)
-        run: python3 code/halle_wbz_fetch.py || echo "WARN halle scrape failed"
+      - name: Fetch Halle + Magdeburg Stimmbezirke (city portals, non-fatal)
+        run: python3 code/city_wbz_fetch.py || echo "WARN city scrape failed"
 
       - name: Install numpy
         run: python3 -m pip install --quiet numpy
