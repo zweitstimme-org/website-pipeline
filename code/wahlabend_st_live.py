@@ -1025,6 +1025,75 @@ def brief_stats(live: dict) -> dict[str, dict]:
     return out
 
 
+# Statewide Brief minus Urne share gap 2021 (pp), from LT2021_WBZ.xlsx
+# (751,841 Urne / 311,856 Brief valid Zweitstimmen; Brief = 29.3% of votes).
+BRIEF_GAP_2021_PP = {
+    "cdu": 2.62,
+    "afd": -12.86,
+    "linke": 2.33,
+    "spd": 2.66,
+    "gruene": 4.37,
+    "fdp": 0.27,
+    "bsw": 0.0,
+    "others": 0.60,
+}
+BRIEF_SHARE_2021 = 0.293
+
+
+def brief_mean_correction(
+    stats: dict[str, dict],
+    nc_land: dict[str, float],
+    w_learn: float,
+) -> tuple[dict[str, float], dict]:
+    """Shift the Land nowcast for the Urne/Brief composition of open votes.
+
+    Counted votes are Urne-heavy early (Urne reports first), so the learned
+    surprise projects an Urne-flavored share onto ALL open votes - including
+    the still-uncounted Briefwahl, where e.g. the AfD historically runs ~13pp
+    below its Urne share. Correction per party = (Brief-minus-Urne gap) x
+    (Brief share of open votes minus Brief share of counted votes) x open
+    share x learn weight. The gap and the final Brief share blend live
+    observation with the 2021 baseline (weight = counted Brief fraction).
+    """
+    u, b = stats.get("U") or {}, stats.get("B") or {}
+    frac_u = min(1.0, float(u.get("frac") or 0.0))
+    frac_b = min(1.0, float(b.get("frac") or 0.0))
+    g_u, g_b = float(u.get("gueltig") or 0.0), float(b.get("gueltig") or 0.0)
+    if g_u + g_b <= 0 or w_learn <= 0:
+        return nc_land, {}
+    w_gap = min(frac_u, frac_b)
+    w_gap = w_gap / (w_gap + HALF_LIFE)
+    gap = {}
+    for p in PARTIES:
+        live_gap = None
+        if u.get("shares") and b.get("shares"):
+            live_gap = 100.0 * (b["shares"][p] - u["shares"][p])
+        prior_gap = BRIEF_GAP_2021_PP.get(p, 0.0)
+        gap[p] = (w_gap * live_gap + (1.0 - w_gap) * prior_gap) if live_gap is not None else prior_gap
+    # Final Brief share of all votes: live estimate blended with 2021
+    b_hat = BRIEF_SHARE_2021
+    if frac_u > 0.02 and frac_b > 0.02:
+        est_u, est_b = g_u / frac_u, g_b / frac_b
+        b_hat = w_gap * (est_b / (est_u + est_b + EPS)) + (1.0 - w_gap) * BRIEF_SHARE_2021
+    open_b = b_hat * (1.0 - frac_b)
+    open_u = (1.0 - b_hat) * (1.0 - frac_u)
+    open_tot = open_b + open_u
+    cnt_b = g_b / (g_u + g_b + EPS)
+    if open_tot <= 1e-9:
+        return nc_land, {}
+    mix_shift = open_b / open_tot - cnt_b
+    corr = {p: (gap[p] / 100.0) * mix_shift * open_tot * w_learn for p in PARTIES}
+    out = _shares({p: max(0.0, nc_land[p] + corr[p]) for p in PARTIES})
+    diag = {
+        "b_hat": round(b_hat, 4),
+        "mix_shift": round(mix_shift, 4),
+        "w_gap": round(w_gap, 4),
+        "gap_pp": {p: round(gap[p], 2) for p in PARTIES},
+        "corr_pp": {p: round(100.0 * corr[p], 2) for p in PARTIES},
+    }
+    return out, diag
+
+
 def brief_unc_floor(stats: dict[str, dict]) -> tuple[dict[str, float], dict]:
     """Extra pp uncertainty for Urne/Brief composition of the open votes.
 
@@ -1520,10 +1589,18 @@ def build_step(
             gem_diag["used"] = False
             gem_diag["reason"] = f"stale: gem ist {int(gem_ist)} < 0.8 x land ist {int(land_ist)}"
     unc = diag["uncertainty"]
-    # Urne/Brief composition risk of the still-open votes (live U/B rows);
-    # added in quadrature so the band cannot collapse while Brief lags.
+    # Urne/Brief composition of the still-open votes (live U/B rows):
+    # 1) mean correction (counted is Urne-heavy; Brief votes lean differently),
+    # 2) uncertainty floor in quadrature so the band cannot collapse meanwhile.
     b_stats = brief_stats(live)
+    w_learn = float(
+        (gem_diag.get("learn_weight") if nowcast_source == "gemeinden" else None)
+        or diag["learn_weight"]
+    )
+    nc_land, b_corr_diag = brief_mean_correction(b_stats, nc_land, w_learn)
     b_floor, b_diag = brief_unc_floor(b_stats)
+    if b_corr_diag:
+        b_diag = {**(b_diag or {}), "mean_corr": b_corr_diag}
     unc = {
         p: round(math.sqrt(float(unc[p]) ** 2 + float(b_floor.get(p, 0.0)) ** 2), 2)
         for p in PARTIES
