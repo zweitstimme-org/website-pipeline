@@ -3677,7 +3677,7 @@
   function fetchNowcast(name) {
     var url = dataUrl(name);
     if (isLivePage()) url += (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
-    return fetch(url).then(function (r) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
