@@ -69,6 +69,22 @@ for guess in Ergebnisse_Wahlbezirke_LT_2026.csv Ergebnisse_WBZ_LT_2026.csv; do
     break
   fi
 done
+# Discover any CSVs newly linked on downloads.html (e.g. a WBZ file that
+# appears during the night under a name we did not guess).
+DISCOVERED="$(curl -fsSL -A "${UA}" --max-time 30 "https://wahlergebnisse.sachsen-anhalt.de/wahlen/lt26/downloads.html" 2>/dev/null \
+  | grep -oiE 'href="[^"]*\.csv"' \
+  | sed -E 's/^href="//i; s/"$//; s|^\./downloads/||; s|^.*/||' \
+  | sort -u || true)"
+for name in ${DISCOVERED}; do
+  case "${name}" in
+    Ergebnisse_Land_RKR_WKR_LT_2026.csv|Ergebnisse_Gemeinden_LT_2026.csv) continue ;;
+  esac
+  if [[ -f "${SNAP}/${name}" ]]; then
+    continue
+  fi
+  echo "NEW file linked on downloads.html: ${name}"
+  fetch "${name}" 0
+done
 if ls "${SNAP}"/*.csv >/dev/null 2>&1; then
   (cd "${SNAP}" && sha256sum -- *.csv > sha256sums.txt)
 else
