@@ -960,6 +960,43 @@ def live_precincts(panel: dict[str, dict], live: dict) -> list[dict]:
     return out
 
 
+def city_precinct_rows() -> list[dict]:
+    """Counted Halle/Magdeburg Stimmbezirke as individual Rohstand rows."""
+    out: list[dict] = []
+    for ags, cfg in CITY_WBZ.items():
+        try:
+            doc = json.loads(cfg["live"].read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        for uid, u in (doc.get("units") or {}).items():
+            if not u.get("counted"):
+                continue
+            zweit = {p: 0.0 for p in PARTIES}
+            erst = {p: 0.0 for p in PARTIES}
+            for name, v in (u.get("parties") or {}).items():
+                code = CITY_PARTY.get(name.strip().lower(), "others")
+                if v.get("zweit") is not None:
+                    zweit[code] += float(v["zweit"])
+                if v.get("erst") is not None:
+                    erst[code] += float(v["erst"])
+            out.append(
+                {
+                    "id": f"{cfg['city'][:2]}-{uid}",
+                    "wkr": _wkr_id(u.get("wkr")) if u.get("wkr") else None,
+                    "art": u.get("art") or "U",
+                    "name": u.get("name") or uid,
+                    "bezirk": cfg["city"],
+                    "gueltig": int(u.get("gueltig_zweit") or 0),
+                    "gueltig_erst": int(u.get("gueltig_erst") or 0),
+                    "wber": int(u.get("wber") or 0),
+                    "waehler": int(u.get("waehler") or 0),
+                    "counts": {p: int(round(zweit[p])) for p in PARTIES},
+                    "counts_erst": {p: int(round(erst[p])) for p in PARTIES},
+                }
+            )
+    return out
+
+
 def brief_stats(live: dict) -> dict[str, dict]:
     """Statewide Urne vs Brief counting state from the per-WKR U/B rows."""
     out: dict[str, dict] = {}
@@ -1789,7 +1826,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
                 else None
             ),
         },
-        "precincts": live_precincts(panel, live),
+        "precincts": live_precincts(panel, live) + city_precinct_rows(),
     }
     return payload
 
