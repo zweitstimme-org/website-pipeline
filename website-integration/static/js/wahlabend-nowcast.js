@@ -730,6 +730,31 @@
     stampLogo(ctx, cssW, cssH);
   }
 
+  /** Live: x = counted share (0–100 %). Replay: equal spacing by step. */
+  function xAlongNight(padL, plotW, st, i) {
+    if (isLivePage()) {
+      var f = (st[i] && st[i].frac_reported) || 0;
+      if (f < 0) f = 0;
+      if (f > 1) f = 1;
+      return padL + f * plotW;
+    }
+    return padL + (i / Math.max(1, st.length - 1)) * plotW;
+  }
+
+  function shadeRestOfNight(ctx, pad, plotW, h, st, ci) {
+    if (!isLivePage()) {
+      if (ci < st.length - 1) {
+        var xReplay = xAlongNight(pad.l, plotW, st, ci);
+        ctx.fillStyle = 'rgba(0,0,0,0.035)';
+        ctx.fillRect(xReplay, pad.t, pad.l + plotW - xReplay, h);
+      }
+      return;
+    }
+    var x = xAlongNight(pad.l, plotW, st, ci);
+    ctx.fillStyle = 'rgba(0,0,0,0.035)';
+    ctx.fillRect(x, pad.t, pad.l + plotW - x, h);
+  }
+
   function colorWithAlpha(hex, a) {
     var h = (hex || '#888').replace('#', '');
     if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
@@ -821,7 +846,7 @@
     var yMin = 0;
     var yMax = Math.max(10, Math.max.apply(null, vals.concat([0])) * 1.08);
 
-    function xAt(i) { return pad.l + (i / Math.max(1, n - 1)) * w; }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -835,6 +860,7 @@
     ctx.fillText('0\u00a0%', pad.l, cssH - 8);
     ctx.fillText('100\u00a0%', pad.l + w - 28, cssH - 8);
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
+    shadeRestOfNight(ctx, pad, w, h, st, ci);
 
     // Uncertainty ribbons + dashed ± envelopes (draw before solid lines)
     bandParties.forEach(function (p) {
@@ -1167,7 +1193,7 @@
     });
     var yMin = 0;
     var yMax = Math.max(15, Math.max.apply(null, vals.concat([0])) * 1.1);
-    function xAt(i) { return pad.l + (i / Math.max(1, n - 1)) * w; }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
     drawAxisFrame(ctx, pad, w, h, cssH, yMin, yMax, function (v) {
       return fmtNum(v, 0) + '\u00a0%';
@@ -1950,7 +1976,7 @@
     var yMin = Math.min.apply(null, vals) - 4;
     var yMax = Math.max.apply(null, vals) + 4;
 
-    function xAt(i) { return pad.l + (i / Math.max(1, nFull - 1)) * w; }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -1960,18 +1986,14 @@
     ctx.lineTo(pad.l + w, pad.t + h);
     ctx.stroke();
 
-    // Noch ausstehende Nacht rechts andeuten
-    if (ci < nFull - 1) {
-      ctx.fillStyle = 'rgba(0,0,0,0.035)';
-      ctx.fillRect(xAt(ci), pad.t, pad.l + w - xAt(ci), h);
-    }
+    shadeRestOfNight(ctx, pad, w, h, st, ci);
 
     ctx.fillStyle = '#888';
     ctx.font = '11px system-ui,sans-serif';
-    var x0 = clockOnly(st[0].clock, st[0].clock_source) ||
-      (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%');
-    var xEnd = clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
-      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%');
+    var x0 = isLivePage() ? '0\u00a0%' : (clockOnly(st[0].clock, st[0].clock_source) ||
+      (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%'));
+    var xEnd = isLivePage() ? '100\u00a0%' : (clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
+      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%'));
     ctx.fillText(x0, pad.l, cssH - 6);
     var xEndW = ctx.measureText(xEnd).width;
     ctx.fillText(xEnd, pad.l + w - xEndW, cssH - 6);
@@ -2095,7 +2117,7 @@
     var yMax = Math.max.apply(null, vals) + 1;
     if (!(yMax > yMin)) { yMin = 50; yMax = 80; }
 
-    function xAt(i) { return pad.l + (i / Math.max(1, nFull - 1)) * w; }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -2105,17 +2127,14 @@
     ctx.lineTo(pad.l + w, pad.t + h);
     ctx.stroke();
 
-    if (ci < nFull - 1) {
-      ctx.fillStyle = 'rgba(0,0,0,0.035)';
-      ctx.fillRect(xAt(ci), pad.t, pad.l + w - xAt(ci), h);
-    }
+    shadeRestOfNight(ctx, pad, w, h, st, ci);
 
     ctx.fillStyle = '#888';
     ctx.font = '11px system-ui,sans-serif';
-    var x0 = clockOnly(st[0].clock, st[0].clock_source) ||
-      (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%');
-    var xEnd = clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
-      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%');
+    var x0 = isLivePage() ? '0\u00a0%' : (clockOnly(st[0].clock, st[0].clock_source) ||
+      (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%'));
+    var xEnd = isLivePage() ? '100\u00a0%' : (clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
+      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%'));
     ctx.fillText(x0, pad.l, cssH - 6);
     ctx.fillText(xEnd, pad.l + w - ctx.measureText(xEnd).width, cssH - 6);
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);

@@ -1282,16 +1282,14 @@ def merge_history(prev: dict | None, step: dict) -> list[dict]:
         sc = (prev.get("scenarios") or {}).get("live") or (prev.get("scenarios") or {}).get("random")
         if sc:
             steps = list(sc.get("steps") or [])
-    key = (step.get("clock"), step.get("frac_reported"), step.get("n_reported"), json.dumps(step.get("nowcast"), sort_keys=True))
     if steps:
         last = steps[-1]
         last_key = (
             last.get("clock"),
             last.get("frac_reported"),
             last.get("n_reported"),
-            json.dumps(last.get("nowcast"), sort_keys=True),
         )
-        if last_key == key:
+        if last_key == (step.get("clock"), step.get("frac_reported"), step.get("n_reported")):
             steps[-1] = step
             return _stamp_p_start(steps)
     steps.append(step)
