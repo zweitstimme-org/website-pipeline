@@ -2,8 +2,8 @@
 """Reconcile display_mode.json with forecast files on disk.
 
 Stimmung jobs rebuild display_mode without forecast_*.json in output/, which
-would flip forecast_available to false. Also keep post-election forecasts on
-the homepage archive for ``forecast_archive_days`` (default 7).
+would flip forecast_available to false. Keep post-election forecasts in the
+live Vorhersagen block for ``forecast_archive_days`` (default 7), then archive.
 """
 from __future__ import annotations
 
@@ -25,12 +25,12 @@ def days_to(election_date: str, today: date) -> int | None:
         return None
 
 
-def in_live_window(days: int, window: int) -> bool:
-    return 0 < days <= window
+def in_live_window(days: int, window: int, archive_days: int) -> bool:
+    return -archive_days <= days <= window
 
 
 def in_archive_window(days: int, archive_days: int) -> bool:
-    return -archive_days <= days <= 0
+    return days < -archive_days
 
 
 def catalog_entry(
@@ -102,10 +102,10 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
     if federal:
         days = refresh_days(federal)
         has = (data_dir / "forecast_federal.json").exists()
-        if has and days is not None and in_live_window(days, window):
+        if has and days is not None and in_live_window(days, window, archive_days):
             federal["mode"] = "forecast"
             federal["forecast_available"] = True
-        elif not has:
+        elif not has or (days is not None and not in_live_window(days, window, archive_days)):
             federal["forecast_available"] = False
             if federal.get("mode") == "forecast":
                 federal["mode"] = "stimmung"
@@ -117,10 +117,10 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
             continue
         days = refresh_days(info)
         has = (data_dir / f"forecast_state_{code.lower()}.json").exists()
-        if has and days is not None and in_live_window(days, window):
+        if has and days is not None and in_live_window(days, window, archive_days):
             info["mode"] = "forecast"
             info["forecast_available"] = True
-        elif not has:
+        elif not has or (days is not None and not in_live_window(days, window, archive_days)):
             info["forecast_available"] = False
             if info.get("mode") == "forecast":
                 info["mode"] = "stimmung"
@@ -142,6 +142,9 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
                 if days is None or not in_archive_window(days, archive_days):
                     continue
                 meta = election_meta(calendar, code.upper())
+                cal_ed = str(meta.get("election_date") or "")
+                if cal_ed and cal_ed != ed:
+                    continue
                 info = states.get(code.upper()) or {}
                 key = f"{code}_{ed}"
                 catalog[key] = catalog_entry(
@@ -166,6 +169,9 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
             if days is None or not in_archive_window(days, archive_days):
                 continue
             meta = election_meta(calendar, None)
+            cal_ed = str(meta.get("election_date") or "")
+            if cal_ed and cal_ed != ed:
+                continue
             key = f"federal_{ed}"
             catalog[key] = catalog_entry(
                 key=key,
@@ -181,64 +187,44 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
                 forecast_file=f"archive/{path.name}",
             )
 
-    def add_live(key: str, entry: dict) -> None:
-        if key not in catalog:
-            catalog[key] = entry
-
+    # Live forecast files still on disk stay in Vorhersagen through the grace period.
     for path in sorted(data_dir.glob("forecast_state_??.json")):
         m = STATE_LIVE.match(path.name)
         if not m:
             continue
         code = m.group(1).upper()
-        info = states.get(code) or {}
+        info = states.get(code) if isinstance(states.get(code), dict) else {}
         meta = election_meta(calendar, code)
         ed = info.get("election_date") or meta.get("election_date")
         if not ed:
             continue
         days = days_to(str(ed), today)
-        if days is None or not in_archive_window(days, archive_days):
+        if days is None or not in_live_window(days, window, archive_days):
             continue
-        key = f"{code.lower()}_{ed}"
-        add_live(
-            key,
-            catalog_entry(
-                key=key,
-                scope="state",
-                state_code=code,
-                election_date=str(ed),
-                election_name=info.get("election_name") or meta.get("election_name"),
-                date_is_estimated=bool(
-                    info.get("date_is_estimated", meta.get("date_is_estimated"))
-                ),
-                forecast_file=path.name,
-            ),
-        )
+        merged = dict(info)
+        merged["mode"] = "forecast"
+        merged["forecast_available"] = True
+        merged["election_date"] = str(ed)
+        merged["days_to_election"] = days
+        if meta.get("election_name") and not merged.get("election_name"):
+            merged["election_name"] = meta.get("election_name")
+        if "date_is_estimated" not in merged and "date_is_estimated" in meta:
+            merged["date_is_estimated"] = bool(meta.get("date_is_estimated"))
+        states[code] = merged
+    dm["states"] = states
 
     live_fed = data_dir / "forecast_federal.json"
-    if live_fed.is_file():
+    if live_fed.is_file() and isinstance(federal, dict):
         meta = election_meta(calendar, None)
         ed = federal.get("election_date") or meta.get("election_date")
         if ed:
             days = days_to(str(ed), today)
-            if days is not None and in_archive_window(days, archive_days):
-                key = f"federal_{ed}"
-                add_live(
-                    key,
-                    catalog_entry(
-                        key=key,
-                        scope="federal",
-                        state_code=None,
-                        election_date=str(ed),
-                        election_name=federal.get("election_name")
-                        or meta.get("election_name"),
-                        date_is_estimated=bool(
-                            federal.get(
-                                "date_is_estimated", meta.get("date_is_estimated")
-                            )
-                        ),
-                        forecast_file="forecast_federal.json",
-                    ),
-                )
+            if days is not None and in_live_window(days, window, archive_days):
+                federal["mode"] = "forecast"
+                federal["forecast_available"] = True
+                federal["election_date"] = str(ed)
+                federal["days_to_election"] = days
+                dm["federal"] = federal
 
     filtered = []
     for entry in catalog.values():
@@ -246,6 +232,17 @@ def reconcile(data_dir: Path, today: date | None = None) -> dict:
         days = days_to(ed, today)
         if days is None or not in_archive_window(days, archive_days):
             continue
+        scope = str(entry.get("scope") or "")
+        if scope == "state":
+            meta = election_meta(calendar, entry.get("state_code"))
+            cal_ed = str(meta.get("election_date") or "")
+            if cal_ed and cal_ed != ed:
+                continue
+        elif scope == "federal":
+            meta = election_meta(calendar, None)
+            cal_ed = str(meta.get("election_date") or "")
+            if cal_ed and cal_ed != ed:
+                continue
         rel = str(entry.get("forecast_file") or "")
         if not rel or not (data_dir / rel).is_file():
             continue

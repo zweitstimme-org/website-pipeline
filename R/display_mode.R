@@ -151,8 +151,9 @@ archive_forecast_file_field <- function(scope, state_code = NULL, election_date)
   TRUE
 }
 
-in_homepage_archive_window <- function(days, archive_days = FORECAST_ARCHIVE_DAYS) {
-  !is.na(days) && days <= 0 && days >= -archive_days
+in_live_forecast_window <- function(days, archive_days = FORECAST_ARCHIVE_DAYS,
+                                    window_days = FORECAST_WINDOW_DAYS) {
+  !is.na(days) && days >= -archive_days && days <= window_days
 }
 
 maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
@@ -162,12 +163,11 @@ maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   }
 
   days <- days_until(election_date, today)
-  # Election day: copy into archive (keep live files for Wahlkreis/Einzug).
-  # After election day: move live files into archive.
-  if (days > 0) {
+  # Stay live through FORECAST_ARCHIVE_DAYS after the election, then freeze.
+  if (days >= -FORECAST_ARCHIVE_DAYS) {
     return(NULL)
   }
-  remove_active <- days < 0
+  remove_active <- TRUE
 
   scope <- entry$scope
   state_code <- entry$state_code
@@ -265,15 +265,15 @@ build_display_mode <- function(calendar = NULL, output_dir = OUTPUT_DIR,
     scope <- entry$scope
     state_code <- entry$state_code
 
-    if (days <= 0) {
+    if (days < -FORECAST_ARCHIVE_DAYS) {
       archived <- maybe_archive_forecast(entry, today, output_dir)
-      if (!is.null(archived) && in_homepage_archive_window(days)) {
+      if (!is.null(archived)) {
         archive_forecasts[[length(archive_forecasts) + 1]] <- archived
       }
       next
     }
 
-    within_window <- days <= FORECAST_WINDOW_DAYS
+    within_window <- in_live_forecast_window(days)
     has_forecast <- forecast_file_exists(scope, state_code, output_dir)
 
     mode_info <- list(
