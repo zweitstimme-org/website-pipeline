@@ -1549,6 +1549,12 @@ def build_step(
 
     soll = _num(land_row.get("Soll.Wahlbezirke"))
     ist = _num(land_row.get("Ist.Wahlbezirke"))
+    # City portals (Halle/Magdeburg) often run ahead of the StaLA counter;
+    # show the larger precinct count so the page reflects what the model uses.
+    if nowcast_source == "gemeinden":
+        ist = max(ist, float(gem_diag.get("ist") or 0))
+        if soll <= 0:
+            soll = float(gem_diag.get("soll") or 0)
     frac_wb = (ist / soll) if soll > 0 else diag["frac_votes"]
     turnout = turnout_nowcast(panel, land_row, live["wkr"], frac_wb)
     entry_mc = night_entry_mc(
