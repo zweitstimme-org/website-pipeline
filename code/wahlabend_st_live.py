@@ -1532,35 +1532,58 @@ def nowcast_wkrs(
     return nc, diag
 
 
-def turnout_nowcast(panel, live_land, live_wkr, reported_frac: float) -> dict:
+VOTERS_2021 = 1_079_045  # B.Wähler, LTW 2021 final
+WBER_2026 = 1_690_000  # Wahlberechtigte 2026 (StaLA: "rund 1,7 Mio", ~1.69M)
+
+
+def turnout_nowcast(
+    panel,
+    live_land,
+    live_wkr,
+    reported_frac: float,
+    tr: float = 1.0,
+    n_complete: int = 0,
+) -> dict:
+    """Turnout nowcast.
+
+    The raw counted ratio (Wähler/Wahlberechtigte of counted precincts)
+    UNDERSTATES turnout mid-count: Urne precinct registers include the
+    Briefwähler, whose votes sit in still-open Brief precincts. Main
+    estimator instead: 2021 voters x volume ratio from FULLY counted
+    Gemeinden (their Brief is in), over the 2026 electorate. The raw ratio
+    takes over once (nearly) everything is counted.
+    """
     prior = 60.3
     wber = _num(live_land.get("A.Wahlberechtigte"))
     waehler = _num(live_land.get("B.Wähler"))
-    if wber > 0 and waehler > 0:
-        naive = 100.0 * waehler / wber
-        # StaLA semantics mid-count are ambiguous: A may be the full
-        # electorate (~1.79M in 2021) while B covers only counted WBZ.
-        # If A looks complete, scale counted voters by the reported share.
-        if wber > 1_500_000 and 0.02 < reported_frac < 0.99:
-            naive = min(100.0, 100.0 * (waehler / reported_frac) / wber)
-        w = reported_frac / (reported_frac + 0.08) if reported_frac > 0 else 0.0
-        nc = prior + (naive - prior) * w
-        unc = 0.0 if reported_frac >= 0.999 else round(5.0 * (1.0 - reported_frac), 2)
+    naive = 100.0 * waehler / wber if wber > 0 and waehler > 0 else None
+    # Endgame: registers ~complete -> the raw ratio is the truth
+    if naive is not None and reported_frac >= 0.985 and wber > 1_500_000:
         return {
-            "nowcast": round(float(np.clip(nc, 0, 100)), 2),
+            "nowcast": round(naive, 2),
             "naive": round(naive, 2),
             "prior": prior,
             "truth": None,
-            "uncertainty": unc,
+            "uncertainty": 0.0 if reported_frac >= 0.999 else 0.5,
             "frac_wber_reported": round(reported_frac, 4),
             "abs_err": None,
         }
+    est_tr = 100.0 * (VOTERS_2021 * tr) / WBER_2026
+    w = n_complete / (n_complete + 4.0)
+    nc = prior + (est_tr - prior) * w
+    # Floor 2.5: complete Gemeinden are small/rural early; their volume ratio
+    # may not transfer 1:1 to the cities.
+    unc = round(max(2.5, 7.0 * (1.0 - w)), 2)
     return {
-        "nowcast": prior,
-        "naive": prior,
+        "nowcast": round(float(np.clip(nc, 0, 100)), 2),
+        "naive": round(naive, 2) if naive is not None else prior,
+        "naive_note": "Urne-only (Briefwähler fehlen im Zähler)",
         "prior": prior,
+        "est_volume": round(est_tr, 2),
+        "tr": round(tr, 4),
+        "n_complete_gem": n_complete,
         "truth": None,
-        "uncertainty": 5.0,
+        "uncertainty": unc,
         "frac_wber_reported": round(reported_frac, 4),
         "abs_err": None,
     }
@@ -1717,7 +1740,14 @@ def build_step(
         if soll <= 0:
             soll = float(gem_diag.get("soll") or 0)
     frac_wb = (ist / soll) if soll > 0 else diag["frac_votes"]
-    turnout = turnout_nowcast(panel, land_row, live["wkr"], frac_wb)
+    turnout = turnout_nowcast(
+        panel,
+        land_row,
+        live["wkr"],
+        frac_wb,
+        tr=tr,
+        n_complete=int(tr_diag.get("n_complete") or 0),
+    )
     entry_mc = night_entry_mc(
         _pct(nc_land),
         unc,
