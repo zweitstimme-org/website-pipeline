@@ -1,6 +1,6 @@
 ---
 title: "Wie funktioniert unser Wahlabend-Nowcast?"
-date: 2026-08-10T12:00:00+02:00
+date: 2026-09-06T16:30:00+02:00
 draft: false
 ---
 
@@ -117,14 +117,16 @@ draft: false
 
 Zwischen 18 Uhr und dem endgültigen Ergebnis kommt die Auszählung **stückweise**: zuerst einzelne Wahlbezirke, oft Zweitstimme und Wahlbeteiligung früher als die Erststimme. Der **Wahlabend-Nowcast** schätzt daraus laufend, wo die Wahl landet — Anteile, Beteiligung, Direktmandate, Einzug und Parlamentsgröße — **ohne** auf den letzten Wahlbezirk zu warten.
 
-Die aktuelle Vorschau ist ein **Replay**: Berlin = Abgeordnetenhauswahl 2023; Sachsen-Anhalt und Mecklenburg-Vorpommern = Landtagswahl 2021 (L1 = 2016). Am echten Abend 2026 ersetzen die Live-Feeds der Landesstatistik denselben Mechanismus.
+Die **Replay-Vorschau** unter `/preview/wahlabend/` bleibt Berlin = Abgeordnetenhauswahl 2023 und ST/MV = Landtagswahl 2021 (L1 = 2016). Der Rest dieses Textes beschreibt **diesen** Mechanismus (Wahlbezirke, AfS-Zeiten, Nachbarn).
+
+**Heute (LTW Sachsen-Anhalt 2026)** läuft ein schmalerer Live-Nowcast unter `/preview/sachsen-anhalt/`: Solange StaLA nicht zählt, ist die Seite die **Vorwahlprognose von zweitstimme.org**. Sobald Zwischenergebnisse da sind, werden gemeldete Einheiten festgeschrieben. StaLA liefert derzeit Land/Kreis/**41 Wahlkreise**, keine Wahlbezirk-CSV — der Live-Nowcast sitzt deshalb auf den 41 WK, nicht auf ~2600 WB. Erststimme = dieselbe [Wahlkreis-Regression](/blog/posts/district-forecast-methodology/) wie vor der Wahl (**ohne Kandidateneffekte**). ST hat nur Landeslisten (kein Berliner Bezirkslisten-Split, keine Grundmandatsklausel für den Listeneinzug).
 
 ### Was der Nowcast beantwortet — und was nicht
 
 | | **Vor der Wahl** | **Wahlabend-Nowcast** |
 |---|---|---|
 | Frage | Wie fällt die Wahl aus, wenn heute gewählt würde? | Was sagen die **schon gemeldeten** Bezirke über den Rest? |
-| Daten | Umfragen + Historie | Gemeldete Wahlbezirke + Ausgangslage |
+| Daten | Umfragen + Historie | Gemeldete Einheiten (WB im Replay; 41 WK in ST 2026 live) + Ausgangslage |
 | Unsicherheit | Modell-Intervall der Prognose | Band, das mit der Auszählung **schrumpft** |
 | „Wahr“-Linien | — | Nur in der **Replay-Vorschau** (Endstand bekannt) |
 
@@ -161,7 +163,7 @@ Die aktuelle Vorschau ist ein **Replay**: Berlin = Abgeordnetenhauswahl 2023; Sa
       <div class="meth-pipeline-text">Land, Listen, WK-Calls, Größe, Beteiligung</div>
     </li>
   </ol>
-  <p class="meth-fig-cap">Gemeldete Bezirke werden <strong>festgeschrieben</strong> (kein „Zurückschätzen“). Nur der Rest wird fortgeschrieben.</p>
+  <p class="meth-fig-cap">Replay-Pipeline (Wahlbezirke). Gemeldete Einheiten werden <strong>festgeschrieben</strong> (kein „Zurückschätzen“). Nur der Rest wird fortgeschrieben. ST-Live 2026: dieselben Schritte auf 41 Wahlkreisen, ohne Bezirk×Art-Nachbarn.</p>
 </div>
 
 ---
@@ -191,7 +193,7 @@ Vor der ersten Meldung braucht jeder Wahlbezirk eine Erwartung.
 2. **Vorwahl-Ziel π₀:** landesweite Erwartung vor der Wahl (Umfragen / [Landesprognose](/blog/posts/state-forecast-methodology/)).
 3. **Proportionaler Swing:** Jeder Bezirk wird so verschoben, dass das Aggregat π₀ trifft — ohne die relative Struktur der Bezirke zu zerstören.
 
-Für die **Erststimme** kommt ein zusätzlicher Schritt: Übergang von Zweit- zu Erststimme aus dem [Wahlkreis-Modell](/blog/posts/district-forecast-methodology/) (historische Erst/Zweit-Beziehung), nicht einfach „Zweitstimme = Direktmandat“.
+Für die **Erststimme** kommt ein zusätzlicher Schritt: Übergang von Zweit- zu Erststimme aus dem [Wahlkreis-Modell](/blog/posts/district-forecast-methodology/) (Zweitprognose + LTW-2021-Erst, **ohne Kandidateneffekte**; 0 wo kein Direktkandidat). Nicht einfach „Zweitstimme = Direktmandat“ und nicht Zweit plus 2021-Gap.
 
 <div class="meth-formula">
 Prior<sub>i</sub> = Swing( Historie<sub>i</sub> → π₀ )<br>
@@ -240,11 +242,10 @@ Gemeldete Bezirke bleiben unverändert. Aggregate (Land, Bezirk, Wahlkreis) sind
 
 ## 4. Unsicherheitsband
 
-Das ±-Band ist ein **indikatives Intervall** (Ziel roughly ~80 % Coverage im Replay), keine Garantie.
+Das ±-Band ist ein **indikatives Intervall**, keine Garantie.
 
-Es schrumpft mit dem noch offenen Stimmenanteil und wird durch Residuenstreuung und Auswahlrisiko etwas angepasst. Über die Nacht wird das Band **monoton**: Es darf mit fortschreitender Auszählung nicht wieder breiter werden.
-
-Solange ein Wahlkreis lokal kaum gemeldet hat, bleibt ein **Prior-Floor** — sonst würde das Band zu früh kollabieren, während der Punktwert noch fast nur der Ausgangslage folgt.
+- **Replay (Berlin):** Ziel roughly ~80 % Coverage. Schrumpft mit dem offenen Stimmenanteil; über die Nacht **monoton** (wird nicht wieder breiter). Solange ein WK lokal kaum gemeldet hat, bleibt ein Prior-Floor.
+- **Live ST 2026:** Zwei verschiedene Bänder. Landes-± = Intervall der zweitstimme.org-**Landesprognose** (ca. 83 %), mal offener Stimmenanteil. Wahlkreis-± (Direktmandat) = Band der **Wahlkreis-Regression** (ca. 95 %), nicht dasselbe wie das Landesband; schrumpft mit dem offenen Anteil **in diesem Kreis**. Vor der ersten Meldung ist das Band die volle Prognose (100 % Vorwahl, 0 % Live).
 
 ---
 
@@ -272,7 +273,7 @@ In der Replay-Eval zählen wir Fehl-Calls hart: Call-Partei ≠ Erststimmen-Sieg
 Berlin meldet oft **Wahlbeteiligung und Zweitstimme** früh. Der Beteiligungs-Nowcast ist deshalb Teil der **Szenarien**-Ansicht.
 
 - **Wahrheit / Ziel:** Summe Wählende ÷ Summe Wahlberechtigte (stadtweit).  
-- **Letzte Wahl:** punktierte Referenzlinie (amtliches Endergebnis; im Replay AGH 2016 / LTW 2016).  
+- **Letzte Wahl:** punktierte Referenzlinie (amtliches Endergebnis; im Replay AGH 2016 / LTW 2016; **ST live 2026:** LTW 2021).  
 - **Besonderheit Briefwahl:** Viele Briefwahlbezirke haben in den Tabellen `Wahlberechtigte = 0` (Berechtigte sitzen auf der Urne). Wir zählen sie über erwartete Wählende aus der Historie mit, sonst unterschätzt man die Beteiligung dramatisch.  
 - **Update:** Faktor „gemeldete Wählende / erwartete Wählende“ (geschrumpft), angewandt auf die noch offenen Bezirke.
 
@@ -283,8 +284,8 @@ Berlin meldet oft **Wahlbeteiligung und Zweitstimme** früh. Der Beteiligungs-No
 Aus dem laufenden Zweitstimmen-Nowcast und dem Unsicherheitsband ziehen wir Monte-Carlo-Züge:
 
 - **Politische Szenarien** (stärkste Kraft, Mehrheiten, 5 %-Hürde, …) mit Wahrscheinlichkeit; P ≥ 50 % heißt nur „tritt eher ein“, kein Call.  
-- **Einzug:** 5 % oder mindestens ein Direktmandat; CDU/SPD/Linke über **Bezirkslisten**, übrige große Parteien über **Landesliste**.  
-- **Parlamentsgröße:** Berliner Formel (Grundmandate + Ausgleich) auf den Nowcast-Zügen → Median und p10–p90 über die Nacht. Punktierte Linie = letzte Wahl (amtliche Sitzzahl).
+- **Einzug:** Berlin: 5 % oder mindestens ein Direktmandat; CDU/SPD/Linke über **Bezirkslisten**, übrige über Landesliste. **Sachsen-Anhalt:** nur Landeslisten, Hare/Niemeyer, **keine** Grundmandatsklausel für den Listeneinzug.  
+- **Parlamentsgröße:** Berlin: Grundmandate + Ausgleich. ST: Hare/Niemeyer mit Ausgleich auf die 41 Direktmandate. Median und p10–p90 über die Nacht. Punktierte Linie = letzte Wahl (amtliche Sitzzahl).
 
 Details zur Vorwahl-Logik von Direktmandaten und Größe: [Wahlkreis-Vorhersage](/blog/posts/district-forecast-methodology/), [Landesprognose](/blog/posts/state-forecast-methodology/).
 
@@ -292,30 +293,30 @@ Details zur Vorwahl-Logik von Direktmandaten und Größe: [Wahlkreis-Vorhersage]
 
 ## 8. Was die Vorschau zeigt
 
-Die Oberfläche unter `/preview/wahlabend/` hat vier Ebenen:
+- Replay: `/preview/wahlabend/` (BE/ST/MV 2021/2023).  
+- Live ST 2026 (intern): `/preview/sachsen-anhalt/`.
 
-1. **Zweitstimme** — Anteile ± Band über die Nacht  
-2. **Szenarien** — Beteiligung, politische Szenarien, Parlamentsgröße  
-3. **Listen** — wer kommt rein (Landes- vs. Bezirksliste)  
-4. **Wahlkreise** — Erststimmen-Rennen, Wahrscheinlich/Call  
+Vier Ebenen: **Zweitstimme** ± Band · **Szenarien** · **Listen** · **Wahlkreise** (Erststimmen-Rennen, Wahrscheinlich/Call).
 
-Gestrichelte **„Wahr“**-Linien und Treffer-Tabellen sind **Replay-Eval**. Am echten Wahlabend fehlen sie — dann zählt nur der Nowcast gegen den noch unbekannten Endstand.
+Gestrichelte **„Wahr“**-Linien und Treffer-Tabellen sind **Replay-Eval**. Am echten Wahlabend fehlen sie.
 
 ---
 
 ## 9. Grenzen und nächste Schritte
 
-- **In-Sample-Replay:** Kalibrierung und Demo laufen bisher auf AGH 2023. Echter Out-of-sample-Test: Backtest mit BTW 2025-`_W_`.  
+- **In-Sample-Replay:** Kalibrierung und Demo laufen bisher auf AGH 2023.  
+- **ST 2026 live:** Noch keine WBZ-CSV — Nowcast auf 41 WK. Stretch an unveränderten WB-IDs 2016/2021 und Gemeinde-Näherung sind vorbereitet, greifen erst mit Wahlbezirk-Meldungen. BSW hatte 2016/2021 keine Geographie: Dummy = Landesanteil, proportional von den anderen; Erst 0 ohne Direktkandidat.  
 - **Meldezeiten:** Eingefrorene `_W_`-Zeiten ≠ zuverlässige Live-Chronologie.  
-- **Kein amtliches Hochrechnungsprodukt:** Wir ersetzen nicht die AfS; wir ordnen Teilstände ein.  
-- **Kandidierenden-Effekte** am Abend sind begrenzt (Namen/Listen zur Orientierung; Call basiert auf Stimmen-Nowcast).  
-- **π₀ live:** Soll die aktuelle [Landesprognose](/blog/posts/state-forecast-methodology/) sein (Stand = Modellrechnung, Letzte Umfrage = jüngste einbezogene Umfrage), nicht ein Einfrieren auf den Wahltag-Kalender.
+- **Kein amtliches Hochrechnungsprodukt:** Wir ersetzen nicht AfS/StaLA; wir ordnen Teilstände ein.  
+- **Keine Kandidateneffekte** im Stimmenmodell (Namen nur zur Orientierung; Call aus Erststimmen-Nowcast).  
+- **π₀ live:** aktuelle [Landesprognose](/blog/posts/state-forecast-methodology/), nicht eingefroren auf den Wahltag-Kalender.
 
 ---
 
 ## Weiterlesen
 
-- [Vorschau Wahlabend-Nowcast](/preview/wahlabend/)  
+- [Vorschau Wahlabend-Nowcast (Replay)](/preview/wahlabend/)  
+- [Sachsen-Anhalt 2026 Live (intern)](/preview/sachsen-anhalt/)  
 - [Wie funktioniert die Landtagswahl-Vorhersage?](/blog/posts/state-forecast-methodology/)  
 - [Wie funktioniert die Wahlkreis-Vorhersage?](/blog/posts/district-forecast-methodology/)  
 - [FAQ](/faq)

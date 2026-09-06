@@ -1,0 +1,30 @@
+{{/*
+  Stronger banner for confidential election-night pages.
+*/}}
+<style>
+.preview-confidential {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid #8a1f1f;
+  border-left: 4px solid #8a1f1f;
+  background: #fdecea;
+  color: #3b0d0d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.preview-confidential strong {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+}
+.preview-confidential span { color: #5c1a1a; }
+</style>
+<aside class="preview-confidential" role="status" aria-label="Vertraulichkeitshinweis">
+  <strong>Confidential preview — do not share</strong>
+  <span>Vertrauliche interne Vorschau. Bitte nicht weitergeben, nicht verlinken, nicht veröffentlichen.</span>
+</aside>

@@ -31,6 +31,7 @@ for f in \
   "${REPO_ROOT}"/output/forecast_candidate_entry.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_replay.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_st.json \
+  "${REPO_ROOT}"/output/wahlabend_nowcast_st_live.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_mv.json \
   "${REPO_ROOT}"/output/ltw_wahlkreise_*.geojson \
   "${REPO_ROOT}"/output/display_mode.json \
@@ -65,7 +66,8 @@ python3 "${REPO_ROOT}/scripts/build_forecast_api.py" \
 for state_geo in \
   "${REPO_ROOT}/berlin/geo/ltw_wahlkreise_be.geojson" \
   "${REPO_ROOT}/mecklenburg-vorpommern/geo/ltw_wahlkreise_mv.geojson" \
-  "${REPO_ROOT}/sachsen-anhalt/geo/ltw_wahlkreise_st.geojson"
+  "${REPO_ROOT}/sachsen-anhalt/geo/ltw_wahlkreise_st.geojson" \
+  "${REPO_ROOT}/sachsen-anhalt/geo/ltw_wahlkreise_st_simple.geojson"
 do
   base="$(basename "${state_geo}")"
   if [[ -f "${state_geo}" && ! -f "${MOCK_DIR}/static/data/${base}" ]]; then
@@ -146,6 +148,16 @@ if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahl
   mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahlabend-preview.html" \
     "${MOCK_DIR}/themes/PaperMod/layouts/_default/wahlabend-preview.html"
+fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahlabend-st.html" ]]; then
+  mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/_default"
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/_default/wahlabend-st.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/_default/wahlabend-st.html"
+fi
+if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/confidential_notice.html" ]]; then
+  mkdir -p "${MOCK_DIR}/themes/PaperMod/layouts/partials"
+  cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/confidential_notice.html" \
+    "${MOCK_DIR}/themes/PaperMod/layouts/partials/confidential_notice.html"
 fi
 if [[ -f "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/polymarket_compare.html" ]]; then
   cp "${REPO_ROOT}/website-integration/themes/PaperMod/layouts/partials/polymarket_compare.html" \

@@ -28,10 +28,9 @@ fetch "${ST_RAW}/lt16dat2.csv" "${ST_BASE}/lt16/erg/csv/lt16dat2.csv"
 fetch "${ST_RAW}/LT2016_GEM.csv" "${ST_BASE}/lt16/erg/csv/LT2016_GEM.csv"
 fetch "${ST_RAW}/LT2016_WBZ.xlsx" "${ST_BASE}/lt16/erg/csv/LT2016_WBZ.xlsx"
 
-# Night feed (Leerdateien ab 2. Augusthälfte 2026; live Zwischenergebnisse am Wahltag)
-# Documented landing: …/lt26/downloads.html — filenames TBD when StaLA publishes empties.
-mkdir -p "${ST_RAW}/live"
-echo "ST live dir ready → ${ST_RAW}/live (poll …/lt26/downloads.html on election night)"
+# Night feed: same URLs, overwritten after 18:00 (Ergebnisart L→Z→V).
+# https://wahlergebnisse.sachsen-anhalt.de/wahlen/lt26/downloads.html
+bash "${ROOT}/scripts/fetch_st_live.sh" || echo "ST live fetch skipped"
 
 # --- Mecklenburg-Vorpommern (LAIV) ---
 # Prefer copies from LTWMeckPom raw-data if present; else leave hooks for LAIV 2026 CSVs.

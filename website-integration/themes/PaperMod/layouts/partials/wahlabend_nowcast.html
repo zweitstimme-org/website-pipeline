@@ -478,11 +478,14 @@
 }
 .wb-wkr-tile {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 0 0 2.05rem;
-  min-height: 1.85rem;
-  padding: 0.2rem 0.1rem;
+  flex: 0 0 auto;
+  min-width: 5.4rem;
+  max-width: 7.2rem;
+  min-height: 2.35rem;
+  padding: 0.28rem 0.35rem;
   border: 1.5px solid #ddd;
   border-radius: 5px;
   background: #fff;
@@ -490,16 +493,16 @@
   cursor: pointer;
   font: inherit;
   text-align: center;
-  line-height: 1.1;
-  white-space: nowrap;
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  line-height: 1.15;
+  transition: transform 0.08s ease;
 }
 .wb-wkr-tile:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-color: #888;
 }
 .wb-wkr-tile.is-active {
-  box-shadow: 0 0 0 2px #1a1a1a;
+  outline: 2px solid #1a1a1a;
+  outline-offset: 1px;
   transform: translateY(-1px);
 }
 .wb-subnav .wb-wkr-tiles { margin-top: 0.1rem; }
@@ -512,11 +515,21 @@
   font-weight: 650;
 }
 .wb-wkr-tile-num {
-  font-size: 0.8rem;
-  font-weight: 650;
+  font-size: 0.78rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   white-space: nowrap;
+}
+.wb-wkr-tile-name {
+  font-size: 0.62rem;
+  font-weight: 550;
+  line-height: 1.15;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .wb-wkr-tile-legend {
   display: flex;
@@ -646,21 +659,95 @@
   color: #444;
   margin: 0 0 0.4rem;
 }
+.wb-wrap[data-wb-lock-land] .wb-land-tabs { display: none; }
+.wb-wrap[data-wb-live="1"] .wb-eval-block,
+.wb-wrap[data-wb-live="1"] [data-wb-replay-eval] { display: none; }
+.wb-wrap[data-wb-live="1"][data-wb-single-step="1"] .wb-slider-row { display: none; }
+.wb-live-status {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #f7f7f7;
+  font-size: 0.86rem;
+  color: #333;
+  line-height: 1.45;
+}
+.wb-live-status:empty { display: none; }
+.wb-live-count { font-size: 1.05rem; margin: 0 0 0.2rem; }
+.wb-live-status a { text-decoration: underline; }
+.wb-map-block { max-width: 920px; margin: 1.35rem 0 0; }
+.wb-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fafafa;
+  border: 1px solid var(--border, #e6e6e6);
+  border-radius: 10px;
+}
+.wb-map path {
+  stroke: #fff;
+  stroke-width: 0.8;
+  cursor: pointer;
+}
+.wb-map path.is-active { stroke: #111; stroke-width: 1.8; }
+.wb-map-label {
+  font-size: 7.5px;
+  font-weight: 650;
+  pointer-events: none;
+  text-anchor: middle;
+}
 </style>
 
-<div class="wb-wrap" id="wahlabend-root">
+{{- $lockLand := .Params.lockLand | default "" -}}
+{{- $liveMode := .Params.liveMode | default false -}}
+<div class="wb-wrap" id="wahlabend-root"
+     {{- if $lockLand }} data-wb-lock-land="{{ $lockLand }}"{{ end -}}
+     {{- if $liveMode }} data-wb-live="1"{{ end -}}>
+  {{ if not $lockLand }}
   <div class="wb-land-tabs" role="tablist" aria-label="Land">
     <button type="button" class="wb-sub-btn" data-wb-land="st">Sachsen-Anhalt</button>
     <button type="button" class="wb-sub-btn" data-wb-land="be">Berlin</button>
     <button type="button" class="wb-sub-btn" data-wb-land="mv">Mecklenburg-Vorpommern</button>
   </div>
+  {{ end }}
+  <p class="wb-live-status" id="wb-live-status" hidden></p>
   <details class="wb-coverage" style="margin-top:0.5rem;">
     <summary>Was ist das? · Methodik (kurz)</summary>
+    {{ if $liveMode }}
+    <p class="wb-coverage-meta" style="margin-bottom:0.5rem;">
+      <strong>Erster Entwurf · intern, bitte nicht teilen.</strong>
+    </p>
+    <p class="wb-coverage-meta" style="margin-bottom:0.5rem;">
+      Solange StaLA noch nicht zählt, ist das die <strong>Vorwahlprognose von
+      zweitstimme.org</strong>. Sobald Live-Ergebnisse da sind, werden gezählte
+      Einheiten festgehalten und der Rest aus 2016/2021 plus dem bisherigen
+      Swing projiziert.
+    </p>
+    <p class="wb-coverage-meta" style="margin-bottom:0.35rem;"><strong>Was wir tun</strong></p>
+    <ul class="wb-coverage-meta" style="margin:0 0 0.65rem; padding-left:1.15rem;">
+      <li>Bereits ausgezählte Wahlbezirke werden nicht geschätzt und gehen ohne Fehlerintervall ein.</li>
+      <li>Ausgangslage für den Rest: LTW 2021, ausgerichtet auf die Vorwahl-Prognose von zweitstimme.org. Vor der ersten Meldung ist der Nowcast diese Prognose (100&nbsp;%).</li>
+      <li>Direktmandat (Erststimme) kommt aus derselben Wahlkreis-Regression wie auf zweitstimme.org: Zweitprognose plus LTW-2021-Erst, <strong>ohne Kandidateneffekte</strong>. Wer in einem Kreis nicht antritt, bekommt Erst 0. Das ± im Kreis ist das Regressionsband dieses Wahlkreises (ca. 95 %), nicht das Landesband; es schrumpft, sobald der Kreis zählt.</li>
+      <li>Wie stark lokale Abweichungen bleiben, kalibrieren wir nur an Wahlbezirken, die 2016 und 2021 dieselbe Nummer in derselben Gemeinde und dieselbe Art (Urne/Brief) haben.</li>
+      <li>Wo diese Historie fehlt: Näherung über das Gemeindeergebnis derselben Art (AGS × Urne/Brief) — sobald Wahlbezirke einzeln gemeldet werden.</li>
+      <li>Solange keine Live-Ergebnisse da sind, steht hier die <strong>Vorwahlprognose von zweitstimme.org</strong> (Land und 41 Wahlkreise). Nowcast erst, wenn StaLA zählt.</li>
+      <li><strong>BSW:</strong> 2016/2021 keine Wahlbezirke. In Wahlkreisen ohne BSW-Zweit in der Prognose setzen wir den Landesanteil ein und nehmen ihn proportional von allen anderen Parteien (kein Linke/AfD-Korrelationsmodell). Erststimme 0, wo BSW keinen Direktkandidaten hat.</li>
+    </ul>
+    <p class="wb-coverage-meta" style="margin-bottom:0.35rem;">
+      Amtliche Dateien:
+      <a href="https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Wahlergebnisse/LTW2016/LT2016_WBZ.xlsx" rel="noopener noreferrer">LTW 2016 WB</a> ·
+      <a href="https://statistik.sachsen-anhalt.de/fileadmin/Bibliothek/Landesaemter/StaLa/startseite/Themen/Wahlen/Wahlergebnisse/LTW2021/LT2021_WBZ.xlsx" rel="noopener noreferrer">LTW 2021 WB</a> ·
+      Live 2026:
+      <a href="https://wahlergebnisse.sachsen-anhalt.de/wahlen/lt26/downloads.html" rel="noopener noreferrer">StaLA Downloads</a>.
+    </p>
+    {{ else }}
     <p class="wb-coverage-meta" style="margin-bottom:0.35rem;">
       Replay der letzten Landtagswahl / AGH mit L1-Historie und Swing aus gemeldeten
       Wahlbezirken. ST/MV = LTW&nbsp;2021 ← 2016; Berlin = AGH&nbsp;2023.
       Live-Feeds 2026: StaLA Downloads (ST), AfS (BE), LAIV CSV mit Zeitstempel (MV).
     </p>
+    {{ end }}
     <p class="wb-coverage-meta" style="margin-bottom:0;">
       Ausführlich:
       <a href="{{ "blog/posts/wahlabend-nowcast-methodology/" | relURL }}">Wie funktioniert unser Wahlabend-Nowcast?</a>
@@ -675,7 +762,7 @@
       <button type="button" class="wb-scope-btn" data-scope="wkr">Wahlkreise</button>
     </div>
     <div id="wb-subnav" class="wb-subnav"></div>
-    <div>
+    <div class="wb-slider-row">
       <label for="wb-slider">Zeitpunkt <span id="wb-frac-label">—</span></label>
       <input id="wb-slider" type="range" min="0" max="39" value="10" step="1" />
     </div>
@@ -691,14 +778,6 @@
   <div id="wb-wkr-why"></div>
 
   <div data-lage-only>
-    <p class="wb-lage-h">Wahlbeteiligung</p>
-    <p class="wb-coverage-meta">
-      Nowcast aus gemeldeten WBs + L1-Rest (oft mit Zweitstimme zuerst verfügbar).
-      Band = ± Unsicherheit; Endstand erst wenn Land voll ausgezählt.
-      Punktierte Linie = letzte Wahl (amtliches Endergebnis).
-    </p>
-    <canvas id="wb-chart-turnout" class="wb-chart" width="900" height="180"></canvas>
-
     <p class="wb-lage-h">Szenario-Wahrscheinlichkeiten</p>
     <p class="wb-coverage-meta">
       Aktuelle Nowcast-P und Wkt vor Auszählungsbeginn.
@@ -706,6 +785,14 @@
       Treffer vs. Wahrheit unter Eval.
     </p>
     <div class="wb-scen-panel" id="wb-scenarios"></div>
+
+    <p class="wb-lage-h">Wahlbeteiligung</p>
+    <p class="wb-coverage-meta">
+      Nowcast aus gemeldeten WBs + L1-Rest (oft mit Zweitstimme zuerst verfügbar).
+      Band = ± Unsicherheit; Endstand erst wenn Land voll ausgezählt.
+      Punktierte Linie = letzte Wahl (amtliches Endergebnis).
+    </p>
+    <canvas id="wb-chart-turnout" class="wb-chart" width="900" height="180"></canvas>
 
     <p class="wb-lage-h">Parlamentsgröße</p>
     <p class="wb-coverage-meta">
@@ -770,7 +857,7 @@
     <div id="wb-actual"></div>
   </details>
 
-  <p class="wb-tier" data-zweit-only>Replay-Eval <span style="font-weight:500;text-transform:none;letter-spacing:0;">(nur Vorschau)</span></p>
+  <p class="wb-tier" data-zweit-only data-wb-replay-eval>Replay-Eval <span style="font-weight:500;text-transform:none;letter-spacing:0;">(nur Vorschau)</span></p>
 
   <details class="wb-coverage wb-eval-block" id="wb-eval-root" data-zweit-only>
     <summary>Treffer &amp; Genauigkeit</summary>
@@ -817,6 +904,17 @@
   </details>
 
   <p class="wb-meta" id="wb-foot" style="margin-top:1rem;"></p>
+  <div class="wb-map-block" id="wb-map-block">
+    <p class="wb-lage-h">Karte der Wahlkreise</p>
+    <p class="wb-coverage-meta">
+      Farbe = Call bzw. führende Partei (mit Namen). Deckkraft = Anteil schon
+      ausgezählter Wahlbezirke in diesem Kreis. Klick öffnet den Wahlkreis.
+      Landesweite Wahlbezirk-Polygone veröffentlicht StaLA nicht — das ist die
+      feinste Karte, die wir zeichnen können.
+    </p>
+    <svg id="wb-map" class="wb-map" viewBox="0 0 640 780" role="img" aria-label="Wahlkreiskarte Sachsen-Anhalt"></svg>
+    <p class="wb-meta" id="wb-map-caption" style="margin:0.35rem 0 0;"></p>
+  </div>
   <p class="wb-meta" style="margin-top:0.35rem;">
     Methodik:
     <a href="{{ "blog/posts/wahlabend-nowcast-methodology/" | relURL }}">Wie funktioniert unser Wahlabend-Nowcast?</a>

@@ -46,7 +46,8 @@ for f in \
   "${OUTPUT_DIR}/current_stimmung.json" \
   "${OUTPUT_DIR}/party_order.json" \
   "${OUTPUT_DIR}/polls_supplement.json" \
-  "${OUTPUT_DIR}/forecast_federal.json"
+  "${OUTPUT_DIR}/forecast_federal.json" \
+  "${OUTPUT_DIR}/wahlabend_nowcast_st_live.json"
 do
   [[ -f "$f" ]] || continue
   cp "$f" "${TMP}/data/"
