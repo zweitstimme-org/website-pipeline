@@ -33,6 +33,13 @@ HALF_LIFE = 0.05
 Z83 = 1.37
 # Monte Carlo draws for scenario probs / seat sim (was 64: +-6pp MC noise)
 N_MC = 2000
+# Common (across-WK) Erst deviation per party in the seat MC, pp. The Erst
+# regression's own uncertainty (coefficient draws) shifts ALL Wahlkreise of a
+# party together, which is what creates Überhang sweeps. Calibrated so the
+# pre-count size distribution matches parliament_size_sim.py / the published
+# forecast_parliament_size.json (P(oh)~0.2, size p90 89). Decays with the
+# open share of each WK as results come in.
+ERST_COMMON_SD = 4.5
 
 PARTY_LABELS = {
     "cdu": "CDU",
@@ -807,6 +814,8 @@ def night_entry_mc(
     xpct = x * 100.0
     nc = np.array([float(nc_land_pct.get(p, 0.0)) for p in PARTIES])
     delta = xpct - nc  # statewide swing per draw, pp
+    # Erst-model uncertainty: common across WKs per party (see ERST_COMMON_SD)
+    eta = rng.normal(0.0, ERST_COMMON_SD, size=(n_draws, len(PARTIES)))
     pidx = {p: i for i, p in enumerate(PARTIES)}
     race_list = list(races.values())
     winners = np.empty((n_draws, len(race_list)), dtype=np.int16)
@@ -815,9 +824,9 @@ def night_entry_mc(
         if r["open"] <= 1e-3:
             winners[:, j] = ia if r["margin"] >= 0 else ib
             continue
-        swing = (delta[:, ia] - delta[:, ib]) * float(r["open"])
+        swing = (delta[:, ia] - delta[:, ib] + eta[:, ia] - eta[:, ib]) * float(r["open"])
         var_sw = float(np.var(swing))
-        sig_local = math.sqrt(max(float(r["sigma"]) ** 2 - var_sw, 0.01))
+        sig_local = math.sqrt(max(float(r["sigma"]) ** 2 - var_sw, 0.25))
         m = float(r["margin"]) + swing + rng.normal(0.0, sig_local, size=n_draws)
         winners[:, j] = np.where(m > 0.0, ia, ib)
     sizes: list[int] = []
@@ -841,9 +850,13 @@ def night_entry_mc(
         arr = np.asarray(vals)
         return [int(np.percentile(arr, 10)), int(np.percentile(arr, 50)), int(np.percentile(arr, 90))]
 
+    sz = np.asarray(sizes)
     return {
         "n_draws": n_draws,
         "size": q(sizes),
+        "size_mean": round(float(sz.mean()), 1),
+        "size_p95": int(np.percentile(sz, 95)),
+        "p_size_gt_base": round(float((sz > 83).mean()), 3),
         "seats": {p: q(seats_acc[p]) for p in MAIN},
         "directs": directs,
         "list_seats": {p: q(list_acc[p]) for p in MAIN},

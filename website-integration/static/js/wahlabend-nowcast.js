@@ -3431,7 +3431,12 @@
             : '')) +
         (size
           ? '<div>Größe jetzt: <strong>' + size[1] + '</strong> Sitze ' +
-            '<span class="wb-art">(p10 ' + size[0] + ' – p90 ' + size[2] + ')</span>' +
+            '<span class="wb-art">(p10 ' + size[0] + ' – p90 ' + size[2] +
+            (s.entry_mc && s.entry_mc.p_size_gt_base != null && s.entry_mc.p_size_gt_base > 0.005
+              ? ' · Vergrößerung: ' + Math.round(s.entry_mc.p_size_gt_base * 100) + '\u00a0%' +
+                (s.entry_mc.size_p95 != null ? ', p95 ' + s.entry_mc.size_p95 : '')
+              : '') +
+            ')</span>' +
             lastSizeTxt + '</div>'
           : (lastEl && lastEl.parliament_size != null
             ? '<div>Parlamentsgröße letzte Wahl (' + lastElectionShort(lastEl) +
