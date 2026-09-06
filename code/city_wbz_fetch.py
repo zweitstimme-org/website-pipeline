@@ -18,6 +18,7 @@ import argparse
 import json
 import re
 import sys
+import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
@@ -41,13 +42,21 @@ CITIES = {
     },
 }
 UA = "Mozilla/5.0 (compatible; zweitstimme-nowcast/1.0)"
-TIMEOUT = 12
+TIMEOUT = 25
+RETRIES = 3
 
 
 def _get(url: str) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-        return r.read().decode("utf-8", errors="replace")
+    last: Exception | None = None
+    for attempt in range(RETRIES):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                return r.read().decode("utf-8", errors="replace")
+        except Exception as exc:  # noqa: BLE001 - portals get slow on election night
+            last = exc
+            time.sleep(1.5 * (attempt + 1))
+    raise last  # type: ignore[misc]
 
 
 class _Tables(HTMLParser):
