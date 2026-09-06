@@ -2909,10 +2909,21 @@
   }
 
   function reportedSet(s) {
+    var set = {};
+    if (isLivePage()) {
+      var by = (s && s.by_wkr) || {};
+      Object.keys(by).forEach(function (wid) {
+        var r = by[wid] || {};
+        if ((r.frac_reported || 0) > 0 || (r.n_reported || 0) > 0) set[wid] = true;
+      });
+      ((state.data && state.data.precincts) || []).forEach(function (p) {
+        if ((p.gueltig || 0) > 0 || (p.gueltig_erst || 0) > 0) set[p.id] = true;
+      });
+      return set;
+    }
     var b = scenarioBundle();
     var order = (b && b.reporting_order) || (state.data && state.data.reporting_order) || [];
     var n = s.n_reported || 0;
-    var set = {};
     for (var i = 0; i < n && i < order.length; i++) set[order[i]] = true;
     return set;
   }
@@ -3006,7 +3017,8 @@
   }
 
   function actualSummaryCards(act, label) {
-    var wbTxt = act.n_reported + '/' + act.n_total + ' WB';
+    var unit = isLivePage() ? 'WK' : 'WB';
+    var wbTxt = act.n_reported + '/' + act.n_total + ' ' + unit;
     var gueltigTxt = fmtInt(act.gueltig);
     if (act.gueltig_total > act.gueltig) {
       gueltigTxt += ' <span class="wb-art">von ' + fmtInt(act.gueltig_total) + '</span>';
@@ -3070,10 +3082,17 @@
     var s = st[Math.min(state.step, st.length - 1)];
     var reported = reportedSet(s);
     if (!hasPrecinctCounts()) {
-      el.innerHTML =
-        '<p class="wb-meta">Absolute Stimmen fehlen im JSON — Replay neu generieren ' +
-        '(<code>python3 code/wahlabend_nowcast.py</code> bzw. LTW-Skript).</p>';
+      el.innerHTML = isLivePage()
+        ? '<p class="wb-meta">Noch keine Wahlkreis-Rohstimmen in dieser Datei. ' +
+          'Sobald StaLA Wahlkreise zählt, erscheinen hier die absoluten Stimmen — ohne Nowcast.</p>'
+        : ('<p class="wb-meta">Absolute Stimmen fehlen im JSON — Replay neu generieren ' +
+          '(<code>python3 code/wahlabend_nowcast.py</code> bzw. LTW-Skript).</p>');
       return;
+    }
+    var meta = $('wb-actual-meta');
+    if (meta && isLivePage()) {
+      meta.textContent =
+        'Absolute Stimmen und Wahlbeteiligung nur aus bereits gemeldeten Wahlkreisen — ohne Nowcast. Keine Wahlbezirk-CSV bisher.';
     }
 
     var all = state.data.precincts || [];
@@ -3147,10 +3166,13 @@
     var list = precinctsFiltered();
     var tree = groupTree(list);
     var nRep = countReported(list, reported);
+    var unitWord = isLivePage() ? 'Wahlkreisen' : 'Wahlbezirken';
     meta.textContent =
-      nRep + ' von ' + list.length + ' Wahlbezirken im gewählten Gebiet gemeldet' +
-      ' (Land: ' + s.n_reported + '/' + s.n_total + '). Urne = W, Brief = B. ' +
-      'Wahlkreise und Wahlbezirke erst nach Aufklappen.';
+      nRep + ' von ' + list.length + ' ' + unitWord + ' im gewählten Gebiet gemeldet' +
+      ' (Land: ' + s.n_reported + '/' + s.n_total + '). ' +
+      (isLivePage()
+        ? 'Einheiten = 41 Wahlkreise (keine WBZ-CSV bisher).'
+        : 'Urne = W, Brief = B. Wahlkreise und Wahlbezirke erst nach Aufklappen.');
 
     if (!list.length) {
       body.innerHTML = '<p class="wb-meta">Keine Wahlbezirksdaten geladen.</p>';
