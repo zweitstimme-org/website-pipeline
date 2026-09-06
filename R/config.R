@@ -19,6 +19,9 @@ STATE_FUNDAMENTALS_FILE <- file.path(DATA_DIR, "state_fundamentals.json")
 STATE_ELECTION_RESULTS_FILE <- file.path(DATA_DIR, "state-election-results.csv")
 
 FORECAST_WINDOW_DAYS <- as.integer(Sys.getenv("FORECAST_WINDOW_DAYS", "90"))
+# Keep the last pre-election forecast on the homepage archive this many days
+# after election day (inclusive of the election). Files stay archived after that.
+FORECAST_ARCHIVE_DAYS <- as.integer(Sys.getenv("FORECAST_ARCHIVE_DAYS", "7"))
 STIMMUNG_HISTORY_DAYS <- as.integer(Sys.getenv("STIMMUNG_HISTORY_DAYS", "3650"))
 
 # Kalman fallback defaults (used when calibration has too few poll pairs, or when

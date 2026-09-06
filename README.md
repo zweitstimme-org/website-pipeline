@@ -64,7 +64,7 @@ Outputs land in `output/`:
 | `stimmung_states.json` | Same for all 16 Länder |
 | `current_stimmung.json` | Latest values + trends |
 | `election_calendar.json` | Upcoming federal + state elections |
-| `display_mode.json` | Whether to show forecast or Stimmung per scope; `archive.forecasts` lists past model runs |
+| `display_mode.json` | Whether to show forecast or Stimmung per scope; `archive.forecasts` lists homepage archive runs (7 days after election) |
 | `forecast_state_*.json` | State model forecasts (within 90 days of election) |
 | `archive/forecast_*.json` | Frozen pre-election forecasts after election day |
 | `forecast_federal.json` | Zweitstimme federal forecast (when wired) |
@@ -79,7 +79,7 @@ Outputs land in `output/`:
 | `fetch_polls.R` | Paginated fetch from `/v2/polls` |
 | `kalman.R` | 1D random-walk Kalman filter + RTS smoother |
 | `run_stimmung.R` | Main orchestrator |
-| `display_mode.R` | Election calendar, 90-day forecast window, auto-archive after election day |
+| `display_mode.R` | Election calendar, 90-day forecast window, homepage archive for 7 days after election |
 
 Each Stimmung run **estimates** Kalman `q` (process) and `r` (measurement) from the polls for that scope via `calibrate_kalman_qr()` in `R/kalman.R`: on consecutive days with observations, regress squared differences of daily party means on day gap and `1/n_i+1/n_j` (`E[(ȳ_j−ȳ_i)²] = q·gap + r·(1/n_i+1/n_j)`), matching the filter’s daily-mean observation model. Fallbacks (`q=0.1`/`r=1.0` federal, `q=0.05`/`r=1.5` states) apply when pairs are too few or an estimate is non-positive; disable with `CALIBRATE_KALMAN=false`. Estimated values are written into JSON metadata. The pipeline uses the **RTS smoother** for historical curves; the headline current value uses the last smoothed point (identical to the filtered estimate at the final time step).
 
@@ -107,6 +107,7 @@ Environment variables:
 | `USE_SMOOTHER` | `true` | Use RTS smoother for display series |
 | `STIMMUNG_HISTORY_DAYS` | `3650` | History depth |
 | `FORECAST_WINDOW_DAYS` | `90` | Days before election to serve forecasts |
+| `FORECAST_ARCHIVE_DAYS` | `7` | Days after election to keep the last forecast on the homepage archive |
 | `FEDERAL_ELECTION_DATE` | `2029-02-25` | Next Bundestagswahl (manual until API has dates) |
 | `PARTY_ACTIVITY_WINDOW_DAYS` | `90` | Trailing window for party activity |
 | `PARTY_ACTIVITY_MIN_K` | `5` | Minimum polls in the activity window |

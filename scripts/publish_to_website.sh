@@ -141,56 +141,9 @@ copy_forecast_if_newer "${OUTPUT_DIR}/forecast_federal_draws.json" \
 # Stimmung jobs rebuild display_mode without forecast_*.json in output/, which
 # would flip forecast_available to false and omit Vorhersagen from the Hugo HTML.
 # Reconcile against forecast files that remain (or were just copied) in static/data.
+# Also keep post-election forecasts on the homepage archive for 7 days.
 if [[ -f "${DATA_TARGET}/display_mode.json" ]]; then
-  python3 - "${DATA_TARGET}" <<'PY'
-import json, sys
-from datetime import date
-from pathlib import Path
-
-data_dir = Path(sys.argv[1])
-dm_path = data_dir / "display_mode.json"
-dm = json.loads(dm_path.read_text())
-window = int(dm.get("forecast_window_days") or 90)
-today = date.today()
-
-def within_window(info):
-    ed = info.get("election_date")
-    if not ed:
-        return False
-    try:
-        days = (date.fromisoformat(ed) - today).days
-    except ValueError:
-        return False
-    info["days_to_election"] = days
-    return 0 <= days <= window
-
-federal = dm.get("federal") or {}
-if federal:
-    has = (data_dir / "forecast_federal.json").exists()
-    if has and within_window(federal):
-        federal["mode"] = "forecast"
-        federal["forecast_available"] = True
-    elif not has:
-        federal["forecast_available"] = False
-        if federal.get("mode") == "forecast":
-            federal["mode"] = "stimmung"
-    dm["federal"] = federal
-
-states = dm.get("states") or {}
-for code, info in list(states.items()):
-    has = (data_dir / f"forecast_state_{code.lower()}.json").exists()
-    if has and within_window(info):
-        info["mode"] = "forecast"
-        info["forecast_available"] = True
-    elif not has:
-        info["forecast_available"] = False
-        if info.get("mode") == "forecast":
-            info["mode"] = "stimmung"
-    states[code] = info
-dm["states"] = states
-dm_path.write_text(json.dumps(dm, indent=2, ensure_ascii=False) + "\n")
-print("Reconciled display_mode forecast_available with static/data/*.json")
-PY
+  python3 "${REPO_ROOT}/scripts/reconcile_display_mode.py" "${DATA_TARGET}"
 fi
 
 # Hugo reads data/display_mode.json at build time to include or omit Vorhersage

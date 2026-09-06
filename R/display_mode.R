@@ -92,17 +92,32 @@ archive_forecast_file_field <- function(scope, state_code = NULL, election_date)
   paste0("archive/forecast_state_", tolower(state_code), "_", election_date, ".json")
 }
 
-.archive_move <- function(active_path, archive_path) {
+.archive_copy <- function(active_path, archive_path) {
   if (!file.exists(active_path)) {
     return(FALSE)
   }
   dir.create(dirname(archive_path), recursive = TRUE, showWarnings = FALSE)
   file.copy(active_path, archive_path, overwrite = TRUE)
+  TRUE
+}
+
+.archive_move <- function(active_path, archive_path) {
+  if (!.archive_copy(active_path, archive_path)) {
+    return(FALSE)
+  }
   file.remove(active_path)
   TRUE
 }
 
-.archive_state_slice <- function(active_path, archive_path, state_code) {
+.archive_transfer <- function(active_path, archive_path, remove) {
+  if (isTRUE(remove)) {
+    .archive_move(active_path, archive_path)
+  } else {
+    .archive_copy(active_path, archive_path)
+  }
+}
+
+.archive_state_slice <- function(active_path, archive_path, state_code, remove = TRUE) {
   if (!file.exists(active_path)) {
     return(FALSE)
   }
@@ -124,6 +139,9 @@ archive_forecast_file_field <- function(scope, state_code = NULL, election_date)
   )
   dir.create(dirname(archive_path), recursive = TRUE, showWarnings = FALSE)
   jsonlite::write_json(slice, archive_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
+  if (!isTRUE(remove)) {
+    return(TRUE)
+  }
   payload$states[[code]] <- NULL
   if (length(payload$states) == 0) {
     file.remove(active_path)
@@ -133,6 +151,10 @@ archive_forecast_file_field <- function(scope, state_code = NULL, election_date)
   TRUE
 }
 
+in_homepage_archive_window <- function(days, archive_days = FORECAST_ARCHIVE_DAYS) {
+  !is.na(days) && days <= 0 && days >= -archive_days
+}
+
 maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   election_date <- entry$election_date
   if (is.null(election_date) || !nzchar(election_date)) {
@@ -140,9 +162,12 @@ maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   }
 
   days <- days_until(election_date, today)
-  if (days >= 0) {
+  # Election day: copy into archive (keep live files for Wahlkreis/Einzug).
+  # After election day: move live files into archive.
+  if (days > 0) {
     return(NULL)
   }
+  remove_active <- days < 0
 
   scope <- entry$scope
   state_code <- entry$state_code
@@ -157,39 +182,45 @@ maybe_archive_forecast <- function(entry, today, output_dir = OUTPUT_DIR) {
   dir.create(archive_dir, recursive = TRUE, showWarnings = FALSE)
 
   if (!is.null(active_path) && file.exists(active_path)) {
-    .archive_move(active_path, archive_path)
+    .archive_transfer(active_path, archive_path, remove_active)
   }
 
   if (identical(scope, "bund")) {
-    .archive_move(
+    .archive_transfer(
       file.path(output_dir, "forecast_districts.json"),
-      file.path(archive_dir, paste0("forecast_districts_", election_date, ".json"))
+      file.path(archive_dir, paste0("forecast_districts_", election_date, ".json")),
+      remove_active
     )
-    .archive_move(
+    .archive_transfer(
       file.path(output_dir, "forecast_federal_draws.json"),
-      file.path(archive_dir, paste0("forecast_federal_", election_date, "_draws.json"))
+      file.path(archive_dir, paste0("forecast_federal_", election_date, "_draws.json")),
+      remove_active
     )
   }
 
   if (!identical(scope, "bund") && !is.null(state_code)) {
     code_lower <- tolower(state_code)
-    .archive_move(
+    .archive_transfer(
       file.path(output_dir, paste0("forecast_state_", code_lower, "_draws.json")),
-      file.path(archive_dir, paste0("forecast_state_", code_lower, "_", election_date, "_draws.json"))
+      file.path(archive_dir, paste0("forecast_state_", code_lower, "_", election_date, "_draws.json")),
+      remove_active
     )
-    .archive_move(
+    .archive_transfer(
       file.path(output_dir, paste0("forecast_districts_", code_lower, ".json")),
-      file.path(archive_dir, paste0("forecast_districts_", code_lower, "_", election_date, ".json"))
+      file.path(archive_dir, paste0("forecast_districts_", code_lower, "_", election_date, ".json")),
+      remove_active
     )
     .archive_state_slice(
       file.path(output_dir, "forecast_candidate_entry.json"),
       file.path(archive_dir, paste0("forecast_candidate_entry_", code_lower, "_", election_date, ".json")),
-      state_code
+      state_code,
+      remove = remove_active
     )
     .archive_state_slice(
       file.path(output_dir, "forecast_parliament_size.json"),
       file.path(archive_dir, paste0("forecast_parliament_", code_lower, "_", election_date, ".json")),
-      state_code
+      state_code,
+      remove = remove_active
     )
   }
 
@@ -234,9 +265,9 @@ build_display_mode <- function(calendar = NULL, output_dir = OUTPUT_DIR,
     scope <- entry$scope
     state_code <- entry$state_code
 
-    if (days < 0) {
+    if (days <= 0) {
       archived <- maybe_archive_forecast(entry, today, output_dir)
-      if (!is.null(archived)) {
+      if (!is.null(archived) && in_homepage_archive_window(days)) {
         archive_forecasts[[length(archive_forecasts) + 1]] <- archived
       }
       next
@@ -269,6 +300,7 @@ build_display_mode <- function(calendar = NULL, output_dir = OUTPUT_DIR,
   payload <- list(
     last_update = format(Sys.time(), "%Y-%m-%dT%H:%M:%OS"),
     forecast_window_days = FORECAST_WINDOW_DAYS,
+    forecast_archive_days = FORECAST_ARCHIVE_DAYS,
     federal = federal_mode,
     states = state_modes,
     archive = list(forecasts = archive_forecasts)
