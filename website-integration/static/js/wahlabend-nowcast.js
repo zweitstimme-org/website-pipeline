@@ -1471,8 +1471,8 @@
       '<p class="wb-chart-label">P(Führung hält) · Wahrscheinlich / Call</p>' +
       '<canvas id="wb-chart-prob" class="wb-chart wb-chart-prob" width="900" height="160"></canvas>' +
       '<p class="wb-meta" style="margin:0.25rem 0 0;">' +
-        'Blau = Partei wahrscheinlich (auch ohne WK-Meldung); Grün = harter Call. ' +
-        'Slider oben bewegt den Zeitpunkt (blaue Linie).' +
+        'Blau = Partei wahrscheinlich (auch ohne WK-Meldung); Grün = harter Call.' +
+        (isLivePage() ? '' : ' Slider oben bewegt den Zeitpunkt (blaue Linie).') +
       '</p>';
 
     // Draw after layout so clientWidth is correct
@@ -2226,9 +2226,12 @@
       var isVisible = direct ? (shown <= hi + 3) : (rank <= hi + 3);
       if (!isVisible) { hidden++; return; }
       shown++;
-      // AGH2023-Replay: keine Personennamen (2026-CSV wäre anachronistisch)
+      // Replay (AGH 2023 / LTW 2021): no 2026 names. Live ST 2026: real Landesliste.
+      var showName = isLivePage() && e.name && !e.ph;
       rows.push('<tr><td>' + e.pos + '</td><td>' +
-        nameHtml({ name: 'Listenplatz ' + e.pos, is_placeholder: true }) +
+        nameHtml(showName
+          ? { name: e.name, is_placeholder: false }
+          : { name: 'Listenplatz ' + e.pos, is_placeholder: true }) +
         '</td><td>' + cell + '</td></tr>');
     });
     var more = hidden ? '<p class="wb-art" style="margin:0.25rem 0 0;">… ' + hidden + ' weitere Plätze (draußen)</p>' : '';
@@ -2730,6 +2733,7 @@
           'vs. Wahrheit.</p>'));
     body.querySelectorAll('tr[data-step]').forEach(function (tr) {
       tr.addEventListener('click', function () {
+        if (isLivePage()) return; // live: always the latest poll
         var i = Number(tr.getAttribute('data-step'));
         state.step = i;
         var slider = $('wb-slider');
@@ -3541,6 +3545,7 @@
     var slider = $('wb-slider');
     if (slider) {
       slider.addEventListener('input', function (e) {
+        if (isLivePage()) return; // live: always the latest poll
         state.step = Number(e.target.value);
         renderStep();
       });
