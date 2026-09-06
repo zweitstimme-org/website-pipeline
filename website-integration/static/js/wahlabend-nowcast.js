@@ -1971,7 +1971,7 @@
     var x0 = clockOnly(st[0].clock, st[0].clock_source) ||
       (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%');
     var xEnd = clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
-      (Math.round((st[nFull - 1].frac_reported || 1) * 100) + '\u00a0%');
+      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%');
     ctx.fillText(x0, pad.l, cssH - 6);
     var xEndW = ctx.measureText(xEnd).width;
     ctx.fillText(xEnd, pad.l + w - xEndW, cssH - 6);
@@ -2115,7 +2115,7 @@
     var x0 = clockOnly(st[0].clock, st[0].clock_source) ||
       (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%');
     var xEnd = clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
-      (Math.round((st[nFull - 1].frac_reported || 1) * 100) + '\u00a0%');
+      (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%');
     ctx.fillText(x0, pad.l, cssH - 6);
     ctx.fillText(xEnd, pad.l + w - ctx.measureText(xEnd).width, cssH - 6);
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
