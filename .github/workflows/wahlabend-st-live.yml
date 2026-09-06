@@ -19,7 +19,9 @@ permissions:
 
 concurrency:
   group: wahlabend-st-live
-  cancel-in-progress: true
+  # Never cancel a run mid-publish: StaLA fetches can take minutes on
+  # election night; extra dispatches queue instead.
+  cancel-in-progress: false
 
 jobs:
   nowcast:
