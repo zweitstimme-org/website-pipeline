@@ -615,6 +615,176 @@ def parse_stala_csv(path: Path) -> dict:
     }
 
 
+GEM_CSV_NAME = "Ergebnisse_Gemeinden_LT_2026.csv"
+GEM_BASELINE_2021 = REPO / "sachsen-anhalt" / "wahlabend" / "raw" / "lt21dat2.csv"
+
+# 2021 Gemeinde CSV party columns by prefix (cp1252; order differs from 2026:
+# 2021 F05=GRÜNE/F06=FDP vs 2026 F05=FDP/F06=GRÜNE).
+GEM21_PREFIX = {
+    "cdu": "F01",
+    "afd": "F02",
+    "linke": "F03",
+    "spd": "F04",
+    "gruene": "F05",
+    "fdp": "F06",
+}
+
+
+def load_gem_baseline(path: Path = GEM_BASELINE_2021) -> dict[str, dict]:
+    """2021 Gemeinde results (final): AGS -> gueltig + Zweit shares."""
+    if not path.exists():
+        return {}
+    with path.open(newline="", encoding="cp1252") as f:
+        rows = list(csv.DictReader(f, delimiter=";"))
+    if not rows:
+        return {}
+    cols = list(rows[0].keys())
+    key_col = next((c for c in cols if "sseln" in c), None)  # Schlüsselnummer
+    g_col = next((c for c in cols if c.startswith("F - G")), None)
+    party_col = {
+        p: next((c for c in cols if c.startswith(pref)), None)
+        for p, pref in GEM21_PREFIX.items()
+    }
+    out: dict[str, dict] = {}
+    for r in rows:
+        if (r.get("Satzart") or "").strip() != "GEM" or not key_col:
+            continue
+        ags = (r.get(key_col) or "").strip()
+        gueltig = _num(r.get(g_col)) if g_col else 0.0
+        if not ags or gueltig <= 0:
+            continue
+        counts = {p: (_num(r.get(c)) if c else 0.0) for p, c in party_col.items()}
+        counts["bsw"] = 0.0
+        counts["others"] = max(0.0, gueltig - sum(counts.values()))
+        out[ags] = {
+            "name": (r.get("Name") or "").strip(),
+            "gueltig": gueltig,
+            "shares": _shares(counts),
+        }
+    return out
+
+
+def parse_gemeinden_csv(path: Path) -> dict[str, dict]:
+    """Live 2026 Gemeinden CSV: AGS -> Summe-row counting state + Zweit counts."""
+    if not path.exists():
+        return {}
+    try:
+        with path.open(newline="", encoding="utf-8-sig") as f:
+            rows = list(csv.DictReader(f, delimiter=";"))
+    except (OSError, csv.Error):
+        return {}
+    out: dict[str, dict] = {}
+    for row in rows:
+        if (row.get("Satzart") or "").strip() != "GEM":
+            continue
+        if (row.get("Wahllokal") or "").strip() != "":
+            continue  # Summe row only (U/B handled statewide by brief_stats)
+        ags = (row.get("Schlüsselnummer") or "").strip()
+        if not ags:
+            continue
+        counts, gueltig = row_counts(row, ZWEIT_COL)
+        out[ags] = {
+            "name": (row.get("Name") or "").strip(),
+            "soll": _num(row.get("Soll.Wahlbezirke")),
+            "ist": _num(row.get("Ist.Wahlbezirke")),
+            "gueltig": gueltig,
+            "counts": counts,
+        }
+    return out
+
+
+def gem_land_nowcast(
+    gem_live: dict[str, dict],
+    gem21: dict[str, dict],
+    land_prior: dict[str, float],
+) -> tuple[dict[str, float] | None, dict]:
+    """Composition-corrected statewide Zweit nowcast from the 218 Gemeinden.
+
+    Per-Gemeinde prior = 2021 shares + uniform swing to the statewide prior.
+    Surprise = counted-vote-weighted deviation of observed shares from these
+    LOCAL priors, so early-reporting rural Gemeinden do not bias the state
+    estimate (the WK aggregate can, when a WK's counted part is atypical).
+    Open votes per Gemeinde = 2021 volume x live volume ratio, projected with
+    prior + shrunk surprise. Returns (None, diag) when unusable.
+    """
+    diag: dict = {"used": False}
+    if not gem_live or not gem21:
+        diag["reason"] = "missing gemeinde live/baseline data"
+        return None, diag
+    matched = [a for a in gem_live if a in gem21]
+    match_rate = len(matched) / max(1, len(gem_live))
+    diag["n_gem"] = len(gem_live)
+    diag["n_matched"] = len(matched)
+    if match_rate < 0.9:
+        diag["reason"] = f"AGS match rate {match_rate:.2f} < 0.9"
+        return None, diag
+    tot21 = sum(gem21[a]["gueltig"] for a in matched) + EPS
+    land21 = {
+        p: sum(gem21[a]["gueltig"] * gem21[a]["shares"][p] for a in matched) / tot21
+        for p in PARTIES
+    }
+    swing = {p: land_prior[p] - land21[p] for p in PARTIES}
+    prior_g = {
+        a: _shares({p: max(0.0, gem21[a]["shares"][p] + swing[p]) for p in PARTIES})
+        for a in matched
+    }
+
+    reported: list[str] = []
+    frac_g: dict[str, float] = {}
+    for a in matched:
+        g = gem_live[a]
+        f = (g["ist"] / g["soll"]) if g["soll"] > 0 else 0.0
+        if f <= 0 and g["gueltig"] > 0:
+            # votes but stale Ist counter: estimate from 2021 volume, never lock
+            f = min(0.98, g["gueltig"] / max(1.0, gem21[a]["gueltig"]))
+        frac_g[a] = min(1.0, f)
+        if g["gueltig"] > 0:
+            reported.append(a)
+    diag["n_gem_reported"] = len(reported)
+    if not reported:
+        diag["reason"] = "no gemeinde has counted votes"
+        return None, diag
+
+    cnt_tot = sum(gem_live[a]["gueltig"] for a in reported) + EPS
+    surprise = {}
+    for p in PARTIES:
+        surprise[p] = (
+            sum(
+                gem_live[a]["gueltig"]
+                * (gem_live[a]["counts"][p] / max(EPS, gem_live[a]["gueltig"]) - prior_g[a][p])
+                for a in reported
+            )
+            / cnt_tot
+        )
+    # Live volume ratio 2026/2021 from reported parts (turnout drift), guarded.
+    exp_cnt = sum(frac_g[a] * gem21[a]["gueltig"] for a in reported)
+    vol_ratio = (cnt_tot / exp_cnt) if exp_cnt > 50 else 1.0
+    vol_ratio = float(np.clip(vol_ratio, 0.5, 2.0))
+    frac_votes = sum(gem21[a]["gueltig"] * frac_g[a] for a in matched) / tot21
+    w = frac_votes / (frac_votes + HALF_LIFE)
+
+    proj = {p: 0.0 for p in PARTIES}
+    for a in matched:
+        g = gem_live[a]
+        open_vol = max(0.0, (1.0 - frac_g[a]) * gem21[a]["gueltig"] * vol_ratio)
+        open_sh = _shares({p: max(0.0, prior_g[a][p] + w * surprise[p]) for p in PARTIES})
+        for p in PARTIES:
+            proj[p] += g["counts"][p] + open_vol * open_sh[p]
+    nc = _shares(proj)
+    diag.update(
+        {
+            "used": True,
+            "frac_votes": round(frac_votes, 4),
+            "learn_weight": round(w, 4),
+            "vol_ratio": round(vol_ratio, 4),
+            "surprise": {p: round(surprise[p] * 100, 3) for p in PARTIES},
+            "ist": int(sum(gem_live[a]["ist"] for a in gem_live)),
+            "soll": int(sum(gem_live[a]["soll"] for a in gem_live)),
+        }
+    )
+    return nc, diag
+
+
 def live_precincts(panel: dict[str, dict], live: dict) -> list[dict]:
     """One UI 'precinct' per Wahlkreis so Rohstand can show StaLA counts."""
     wkrs = live.get("wkr") or {}
@@ -1131,6 +1301,8 @@ def build_step(
     prior_unc_pp: dict[str, float] | None = None,
     wk_unc_pp: dict[str, dict[str, float]] | None = None,
     state_draws: np.ndarray | None = None,
+    gem_live: dict[str, dict] | None = None,
+    gem_baseline: dict[str, dict] | None = None,
 ) -> dict:
     land_row = live["land"]
     nc, diag = nowcast_wkrs(
@@ -1146,6 +1318,21 @@ def build_step(
         p: sum(panel[w]["gueltig_l1"] * nc[w]["nowcast"][p] for w in panel) / total_g
         for p in PARTIES
     }
+    # Gemeinde-level composition-corrected Land nowcast (finer than WK: knows
+    # WHICH municipalities inside each WK have reported). Used when the
+    # Gemeinden CSV is fresh enough vs the WKR file; otherwise WK aggregate.
+    nowcast_source = "wkr"
+    gem_nc, gem_diag = gem_land_nowcast(gem_live or {}, gem_baseline or {}, land_prior)
+    if gem_nc is not None:
+        land_ist = _num(land_row.get("Ist.Wahlbezirke"))
+        gem_ist = float(gem_diag.get("ist") or 0)
+        fresh = land_ist <= 0 or gem_ist >= 0.8 * land_ist
+        if fresh:
+            nc_land = gem_nc
+            nowcast_source = "gemeinden"
+        else:
+            gem_diag["used"] = False
+            gem_diag["reason"] = f"stale: gem ist {int(gem_ist)} < 0.8 x land ist {int(land_ist)}"
     unc = diag["uncertainty"]
     # Urne/Brief composition risk of the still-open votes (live U/B rows);
     # added in quadrature so the band cannot collapse while Brief lags.
@@ -1248,7 +1435,9 @@ def build_step(
         "mix_live": diag.get("mix_live"),
         "mix_prior": diag.get("mix_prior"),
         "representativeness": None,
-        "surprise": diag["surprise"],
+        "surprise": gem_diag["surprise"] if nowcast_source == "gemeinden" else diag["surprise"],
+        "nowcast_source": nowcast_source,
+        "gemeinden": gem_diag or None,
         "uncertainty": unc,
         "turnout": turnout,
         "by_wkr": wkr_out,
@@ -1330,6 +1519,8 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
     prior, erst_prior, bsw_direkt = district_priors(dist_fc, panel, land_prior)
     wk_unc = district_wk_unc_pp(dist_fc)
     live = parse_stala_csv(csv_path)
+    gem_live = parse_gemeinden_csv(csv_path.parent / GEM_CSV_NAME)
+    gem_baseline = load_gem_baseline()
     rng = np.random.default_rng(20260906)
     step = build_step(
         panel,
@@ -1342,6 +1533,8 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
         prior_unc_pp=prior_unc,
         wk_unc_pp=wk_unc,
         state_draws=state_draws,
+        gem_live=gem_live,
+        gem_baseline=gem_baseline,
     )
     prev = None
     if prev_path and prev_path.exists():
@@ -1362,7 +1555,7 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
             "turnout": 60.3,
             "parliament_size": 97,
         },
-        "baseline": "π₀ = Landesprognose + WK-Zweit; Live = StaLA WKR-CSV",
+        "baseline": "π₀ = Landesprognose + WK-Zweit; Live = StaLA WKR- + Gemeinde-CSV",
         "parties": list(PARTIES),
         "party_labels": PARTY_LABELS,
         "n_precincts": int(step["n_total"] or len(panel)),
@@ -1372,9 +1565,12 @@ def run(csv_path: Path, prev_path: Path | None) -> dict:
         "prior_uncertainty_pp": prior_unc,
         "model": {
             "description": (
-                "Sachsen-Anhalt 2026 Live-Nowcast: StaLA Wahlkreis-CSV "
-                "(Zwischenergebnisse nach 18 Uhr) + Vorwahl-Prognose. "
-                "Zweit = WK-Prognose; Erst = dieselbe WK-Regression "
+                "Sachsen-Anhalt 2026 Live-Nowcast: StaLA Wahlkreis- und "
+                "Gemeinde-CSV (Zwischenergebnisse nach 18 Uhr) + Vorwahl-Prognose. "
+                "Landes-Zweit = Gemeinde-Nowcast (218 Gemeinden, Überraschung "
+                "gegen lokale Priors aus LTW 2021 + Uniform-Swing — korrigiert, "
+                "WELCHE Gemeinden schon gezählt haben; Fallback WK-Aggregat). "
+                "WK-Zweit = WK-Prognose; Erst = dieselbe WK-Regression "
                 "(Zweit + LTW 2021, ohne Kandidateneffekte; 0 ohne Direktkandidat). "
                 "BSW ohne Historie: Landesanteil, proportional "
                 "von allen anderen; Erst 0 wo kein Direktkandidat. "

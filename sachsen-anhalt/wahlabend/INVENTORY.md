@@ -13,8 +13,8 @@ Landing: [lt26/downloads](https://wahlergebnisse.sachsen-anhalt.de/wahlen/lt26/d
 
 | Datei | Rolle |
 |--------|--------|
-| `Ergebnisse_Land_RKR_WKR_LT_2026.csv` | Land / Kreise / **41 WK** (U, B, Summe). Das ist der Live-Nowcast-Input. |
-| `Ergebnisse_Gemeinden_LT_2026.csv` | Gemeinden (gleiche Spalten) |
+| `Ergebnisse_Land_RKR_WKR_LT_2026.csv` | Land / Kreise / **41 WK** (U, B, Summe). Input für Erst/WK/Sitze. |
+| `Ergebnisse_Gemeinden_LT_2026.csv` | **218 Gemeinden** (gleiche Spalten). Input für den Landes-Zweit-Nowcast: Überraschung gegen lokale Priors (LTW 2021 `lt21dat2.csv` + Uniform-Swing) korrigiert die Auszähl-Komposition (Land vor Stadt). Fallback: WK-Aggregat, wenn Gemeinde-Datei fehlt/veraltet (< 0,8 × Land-Ist). |
 | `DSB_LT_2026.pdf` | Datensatzbeschreibung Land/WK/Kreis/Gemeinde |
 | `DSB_WBZ_LT_2026.pdf` | Datensatzbeschreibung **Wahlbezirke** — CSV noch nicht verlinkt (404) |
 
