@@ -155,7 +155,9 @@ def parse_page(html: str) -> dict | None:
         return None
     g_z = totals.pop("gueltig_zweit", None)
     g_e = totals.pop("gueltig_erst", None)
+    m = re.search(r"Wahlkreis (\d+)\s*[-–]", html)
     out = {
+        "wkr": m.group(1) if m else None,
         "parties": parties,
         "gueltig_zweit": g_z if g_z is not None else sum(v["zweit"] or 0 for v in parties.values()),
         "gueltig_erst": g_e if g_e is not None else sum(v["erst"] or 0 for v in parties.values()),
