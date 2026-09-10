@@ -4,7 +4,7 @@
 Zweit: proportional swing from last election to statewide posterior draws
 (`forecast_state_*_draws.json`; fallback: independent normals from the 5/6 interval).
 Erst: OLS  resp_E ~ resp_Z + res_l1_E + no_cand_l1  (coefs in data/district_model_coefs.json).
-When STATE_CONFIG marks candidates_complete (ST), parties without a Direktkandidat
+When STATE_CONFIG marks candidates_complete (ST, BE), parties without a Direktkandidat
 are set to 0 Erststimme and the remainder is renormalized to 100%.
 """
 
@@ -103,6 +103,8 @@ STATE_CONFIG = {
         "panel_source": "berlin/agh23_be_abs.csv (AGH 2023 remapped to 2026 WKs)",
         "l1_label": "2023",
         "candidates": REPO / "berlin" / "candidates" / "direktkandidaten_2026.csv",
+        # Official Musterstimmzettel: missing (party, WK) = no Direktkandidat.
+        "candidates_complete": True,
     },
 }
 

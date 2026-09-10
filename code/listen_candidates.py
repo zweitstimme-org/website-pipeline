@@ -63,7 +63,7 @@ STATE_DIRS = {
 }
 # Official Bewerberverzeichnis: missing (party, WK) = no Direktkandidat.
 # Keep in sync with district_forecast.STATE_CONFIG[*]["candidates_complete"].
-DIREKT_COMPLETE = frozenset({"ST"})
+DIREKT_COMPLETE = frozenset({"ST", "BE"})
 
 LIST_FIELDS = [
     "party",
@@ -472,6 +472,41 @@ def _load_seed_csv(path: Path, *, bezirk: str | None = None) -> dict[int, dict]:
     return out
 
 
+def _load_be_official_list_tops(
+    party: str, list_type: str, bezirk: str | None
+) -> dict[int, dict]:
+    """Musterstimmzettel first-five names; overwrites party-site harvest."""
+    path = STATE_DIRS["BE"] / "official" / "list_tops.csv"
+    if not path.exists():
+        return {}
+    out: dict[int, dict] = {}
+    with path.open(newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if (r.get("party") or "").strip() != party:
+                continue
+            if (r.get("list_type") or "").strip() != list_type:
+                continue
+            row_bez = (r.get("bezirk") or "").strip()
+            if list_type == "bezirk":
+                if not bezirk or row_bez != bezirk:
+                    continue
+            elif row_bez:
+                continue
+            try:
+                pos = int(r["list_pos"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            name = clean_person_name(r.get("name") or "")
+            if not name:
+                continue
+            src = public_source_url(r.get("source") or "") or (
+                "https://www.berlin.de/wahlen/wahlen/berliner-wahlen-2026/"
+                "wahllokalsuche/artikel.1701445.php"
+            )
+            out[pos] = {"name": name, "source": src}
+    return out
+
+
 def _known_list_slots(
     state: str,
     party: str,
@@ -490,8 +525,14 @@ def _known_list_slots(
         known.update(
             _load_seed_csv(lists_dir / f"{party}_bezirk.csv", bezirk=bezirk)
         )
-        if not known:
-            known.update(_load_seed_csv(lists_dir / f"{party}_{bezirk}.csv"))
+        # Per-Bezirk seed overwrites the combined harvest (AGH vs BVV mix-ups).
+        known.update(_load_seed_csv(lists_dir / f"{party}_{bezirk}.csv"))
+
+    # Official Musterstimmzettel tops (first 5) overwrite party-site harvest.
+    # Stops BVV lists (e.g. Linke TS) from replacing the AGH Bezirksliste.
+    if state == "BE":
+        for pos, info in _load_be_official_list_tops(party, list_type, bezirk).items():
+            known[pos] = info
 
     # HTML / ad-hoc fallbacks fill gaps only
     def _fill(extra: dict[int, dict]) -> None:
@@ -510,25 +551,6 @@ def _known_list_slots(
                     / "raw"
                     / "bezirk2"
                     / "cdu-sz-k2.html"
-                )
-            }
-        )
-    if state == "BE" and party == "afd" and list_type == "landes":
-        _fill(
-            {
-                pos: {
-                    "name": name,
-                    "source": "https://www.rbb24.de/politik/beitrag/2025/10/berlin-afd-parteitag-kandidaten-wahl-abgeordnetenhaus.html",
-                }
-                for pos, name in enumerate(
-                    [
-                        "Kristin Brinker",
-                        "Thorsten Bertram",
-                        "Robert Wiedenhaupt",
-                        "Felix Streeck",
-                        "Alexander Kohler",
-                    ],
-                    1,
                 )
             }
         )

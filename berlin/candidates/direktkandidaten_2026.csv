@@ -1,217 +1,352 @@
 wkr,party,partei,name,source
+1,afd,AfD,Sabine Schüler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,bsw,BSW,Sven Diedrich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,cdu,CDU/CSU,Monika Trautmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
 1,fdp,FDP,Dr. Maren Jasper-Winter,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 1,gruene,GRÜNE,Silke Gebel,https://gruene-mitte.de/wahl-2026
 1,linke,LINKE,Anna Eiling,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
-1,spd,SPD,Stanislav Klimovich,https://spd.berlin/kandidatinnen/
+1,spd,SPD,Dr. Stanislav Klimovich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+2,afd,AfD,Jens-Hermann Priegnitz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,bsw,BSW,Sevim Dağdelen,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,cdu,CDU/CSU,Lucas Schaal,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
 2,fdp,FDP,Eren Güvercin,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 2,gruene,GRÜNE,Katja Zimmermann,https://gruene-mitte.de/wahl-2026
-2,linke,LINKE,Leo Diederich,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
+2,linke,LINKE,Leonard Diederich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
 2,spd,SPD,Nadine Riez,https://spd.berlin/kandidatinnen/
+3,afd,AfD,Steffen Lent,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,bsw,BSW,Erdinç Kardaşlar,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,cdu,CDU/CSU,Sylvia Ganz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
 3,fdp,FDP,Gabriele Cocozza,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 3,gruene,GRÜNE,Jian Omar,https://gruene-mitte.de/wahl-2026
 3,linke,LINKE,Tobias Schulze,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
 3,spd,SPD,Lucy Merle Demers,https://spd.berlin/kandidatinnen/
+4,afd,AfD,Eduard Müller,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,bsw,BSW,Dunya El Amrani,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,cdu,CDU/CSU,Sven Fervers,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
 4,fdp,FDP,Beatrice Höllen,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 4,gruene,GRÜNE,Taylan Kurt,https://gruene-mitte.de/wahl-2026
-4,linke,LINKE,Jacky Sanehy,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
+4,linke,LINKE,Jacqueline Sanehy,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
 4,spd,SPD,Federico Quadrelli,https://spd.berlin/kandidatinnen/
+5,afd,AfD,Julian Adrat,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,bsw,BSW,Jean-Marie Ayikpe,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,cdu,CDU/CSU,Sven Nico Rissmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
 5,fdp,FDP,Dr. Bettina von Seyfried,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 5,gruene,GRÜNE,Alexandra Bendzko,https://gruene-mitte.de/wahl-2026
-5,linke,LINKE,Andreas Umgelter,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
+5,linke,LINKE,Dr. Andreas Umgelter,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
 5,spd,SPD,Mathias Schulz,https://spd.berlin/kandidatinnen/
+6,afd,AfD,Adam Gołkontt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,bsw,BSW,Faruk Čeliković,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,cdu,CDU/CSU,Michael Kühl,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
 6,fdp,FDP,Bastian Roet,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 6,gruene,GRÜNE,Tuba Bozkurt,https://gruene-mitte.de/wahl-2026
 6,linke,LINKE,Martha Kleedörfer,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
 6,spd,SPD,Susanne Fischer,https://spd.berlin/kandidatinnen/
+7,afd,AfD,Volker Seefeldt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,bsw,BSW,Martin Hantke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,cdu,CDU/CSU,Daniela Fritz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
 7,fdp,FDP,Franz Teresiak,https://www.fdp-mitte.berlin/person-overview/kandidierende-fuer-die-agh-wahl-2026
 7,gruene,GRÜNE,Tarek Massalme,https://gruene-mitte.de/wahl-2026
 7,linke,LINKE,Deike Janssen,https://www.dielinke-berlin-mitte.de/berlin-wahlen-2026/agh-wahl/
-7,spd,SPD,Maja Lasić,https://spd.berlin/kandidatinnen/
-8,gruene,GRÜNE,Kübra Beydaş,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
+7,spd,SPD,Dr. Maja Lasić,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+8,afd,AfD,Gerhard Zaucker,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,bsw,BSW,Manaf Hassan,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,cdu,CDU/CSU,Kurt Wansner,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,fdp,FDP,Jörg Höhn,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,gruene,GRÜNE,Kübra Beydaș,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
 8,linke,LINKE,Elif Eralp,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 8,spd,SPD,Sevim Aydin,https://spd.berlin/kandidatinnen/
+9,afd,AfD,Andreas Klaus,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,bsw,BSW,Simin Falsafi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,cdu,CDU/CSU,Dr. Timur Husein,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,fdp,FDP,Matthias Morrkopf-Widlok,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
 9,gruene,GRÜNE,Katrin Schmidberger,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 9,linke,LINKE,Michael Efler,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
-9,spd,SPD,Britt Schlünz,https://spd.berlin/kandidatinnen/
+9,spd,SPD,Dr. Britt Schlünz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+10,afd,AfD,Christof Meuren,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,bsw,BSW,Mertcan Yıldız,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,cdu,CDU/CSU,Max Kindler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,fdp,FDP,Johannes Dallheimer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
 10,gruene,GRÜNE,Enad Altaweel,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
-10,linke,LINKE,Kerstin Wolter,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
+10,linke,LINKE,Kerstin Wolter-Ehling,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
 10,spd,SPD,Sven Heinemann,https://spd.berlin/kandidatinnen/
+11,afd,AfD,Frank Scheermesser,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,bsw,BSW,Faruh Tursunov,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,cdu,CDU/CSU,Marita Fabeck,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,fdp,FDP,Arlett Weckowski,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
 11,gruene,GRÜNE,Antje Kapek,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 11,linke,LINKE,Damiano Valgolio,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 11,spd,SPD,Thomas Giebel,https://spd.berlin/kandidatinnen/
+12,afd,AfD,Christopher John Peter,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,bsw,BSW,Björn Jarkowski,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,cdu,CDU/CSU,Björn Schlesiger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,fdp,FDP,Roman-Francesco Rogat,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
 12,gruene,GRÜNE,Vasili Franco,https://gruene-xhain.de/die-gruenen-xhain-nominieren-direktkandidatinnen-fuer-die-abgeordnetenhauswahl-2026/
 12,linke,LINKE,Ekkehard Spiegel,https://www.dielinke-friedrichshain-kreuzberg.de/wahlen/berlin-2026/
 12,spd,SPD,Steffen Opitz,https://spd.berlin/kandidatinnen/
+13,afd,AfD,Christian Buchholz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,bsw,BSW,Andreas Kübler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
 13,cdu,CDU/CSU,Johannes Kraft,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 13,fdp,FDP,Stefan Andresen,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 13,gruene,GRÜNE,Bettina Jarasch,https://gruene-pankow.de/team-agh26/
 13,linke,LINKE,Maxi Häber,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 13,spd,SPD,Rona Tietje,https://spd.berlin/kandidatinnen/
+14,afd,AfD,Jan-Philip Streeck,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,bsw,BSW,Oliver Nevi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
 14,cdu,CDU/CSU,Lars Bocian,https://www.cdupankownord.de/Unsere-Kandidaten_p_35.html
 14,fdp,FDP,David Sittner,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 14,gruene,GRÜNE,Sebastian Kascha,https://gruene-pankow.de/team-agh26/
 14,linke,LINKE,Coco Aglibut,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 14,spd,SPD,Torsten Hofer,https://spd.berlin/kandidatinnen/
+15,afd,AfD,Hanno Bachmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,bsw,BSW,Kathrin Radke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,cdu,CDU/CSU,Dr. Antje Tölle,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
 15,fdp,FDP,Maria Wandel,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 15,gruene,GRÜNE,Oda Hassepaß,https://gruene-pankow.de/team-agh26/
 15,linke,LINKE,Christian Zebisch,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 15,spd,SPD,Paul Krüger,https://spd.berlin/kandidatinnen/
+16,afd,AfD,Herbert Mohr,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,bsw,BSW,Josephine Thyrêt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
 16,cdu,CDU/CSU,Dirk Stettner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
-16,fdp,FDP,Pablo Puente Gamero,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
+16,fdp,FDP,Dr. Pablo Puente Gamero,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
 16,gruene,GRÜNE,Friedrich Ehrhardt,https://gruene-pankow.de/team-agh26/
-16,linke,LINKE,Devran Basbolat,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
+16,linke,LINKE,Devran Bașbolat,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
 16,spd,SPD,Dennis Buchner,https://spd.berlin/kandidatinnen/
+17,afd,AfD,Daniel Krüger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,bsw,BSW,Erwin Liedke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
 17,cdu,CDU/CSU,Denise Bittner,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 17,fdp,FDP,Oliver Simon,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 17,gruene,GRÜNE,Louis Krüger,https://gruene-pankow.de/team-agh26/
 17,linke,LINKE,Enja Springob,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 17,spd,SPD,Arne Gröschel,https://spd.berlin/kandidatinnen/
+18,afd,AfD,Dr. Christoph Schweer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,bsw,BSW,Frank Barsch,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,cdu,CDU/CSU,Stephan Lenz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
 18,fdp,FDP,Ruven Gastel,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 18,gruene,GRÜNE,Dr. Sunčica Klaas,https://gruene-pankow.de/team-agh26/
 18,linke,LINKE,Maria Bigos,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 18,spd,SPD,Linda Vierecke,https://spd.berlin/kandidatinnen/
+19,afd,AfD,Martin Kellner,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,bsw,BSW,Kim Reichelt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,cdu,CDU/CSU,Sabrina Hohl,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
 19,fdp,FDP,David Fischer,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 19,gruene,GRÜNE,Can Aru,https://gruene-pankow.de/team-agh26/
 19,linke,LINKE,Niklas Schrader,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 19,spd,SPD,Annette Unger,https://spd.berlin/kandidatinnen/
+20,afd,AfD,Falk Rodig,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,bsw,BSW,Oliver Berger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,cdu,CDU/CSU,Alexander Meyer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
 20,fdp,FDP,Maja Pfister,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 20,gruene,GRÜNE,Daniela Billig,https://gruene-pankow.de/team-agh26/
 20,linke,LINKE,Gloria Viagra,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 20,spd,SPD,Heiko Kretschmer,https://spd.berlin/kandidatinnen/
+21,afd,AfD,Frank Behnke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,bsw,BSW,Jobst Bürkle,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
 21,cdu,CDU/CSU,David Paul,https://www.cdupankow.de/Fuer-das-Abgeordnetenhaus_p_127.html
 21,fdp,FDP,Julius Grottke,https://www.fdp-pankow.de/pressemitteilung-kandidatinnen-und-kandidaten-der-fdp-pankow-fuer-die-berliner-wahlen-2026
 21,gruene,GRÜNE,Dr. Oliver Jütting,https://gruene-pankow.de/team-agh26/
 21,linke,LINKE,Maximilian Schirmer,https://www.die-linke-pankow.de/partei/hauptversammlung/vertreterinnenversammlung-zur-agh-wahl-2026/
 21,spd,SPD,Tino Schopf,https://spd.berlin/kandidatinnen/
+22,afd,AfD,Marc Vallendar,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,bsw,BSW,Tereza Schebsdat,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
 22,cdu,CDU/CSU,Vivien-Nathalie Keilbar,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
-22,gruene,GRÜNE,Jana Eva Brix,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
+22,fdp,FDP,Nicolas Wollschlaeger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,gruene,GRÜNE,Jana Brix,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
 22,linke,LINKE,Niklas Schenker,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
-22,spd,SPD,Nico Kaufmann,https://spd.berlin/kandidatinnen/
+22,spd,SPD,Nicola Aleksander Kaufmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
 23,afd,AfD,Dr. Hugh Bronson,https://www.afd-charlottenburg-wilmersdorf.online/direktkandidaten-abgeordnetenhaus
+23,bsw,BSW,Norbert Lasert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
 23,cdu,CDU/CSU,Ariturel Hack,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
+23,fdp,FDP,Fabian Pfeil,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
 23,gruene,GRÜNE,Corinna Balkow,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
-23,linke,LINKE,Dr. Enrico Brehm,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
+23,linke,LINKE,Enrico Brehm,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
 23,spd,SPD,Clemens Wilhelm Brandt,https://spd.berlin/kandidatinnen/
-24,afd,AfD,Thomas Marten,https://www.afd-charlottenburg-wilmersdorf.online/direktkandidaten-abgeordnetenhaus
+24,afd,AfD,Martin Kohler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,bsw,BSW,Philippe Gouverneur,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
 24,cdu,CDU/CSU,Kevin Steuer,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
-24,gruene,GRÜNE,Petra Vandrey,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
+24,fdp,FDP,Mark Hamilton,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,gruene,GRÜNE,Dr. Petra Vandrey,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
 24,linke,LINKE,Frederike-Sophie Gronde-Brunner,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
-24,spd,SPD,Kian Niroomand,https://spd.berlin/kandidatinnen/
+24,spd,SPD,Dr. Kian Niroomand,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+25,afd,AfD,Thomas Marten,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,bsw,BSW,Nguyen Thuy Dung,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
 25,cdu,CDU/CSU,Aldona Niemczyk,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
+25,fdp,FDP,Dr. Felix Recke-Friedrich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
 25,gruene,GRÜNE,Christoph Wapler,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
 25,linke,LINKE,Felix Städler,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
 25,spd,SPD,Timur Sarić,https://spd.berlin/kandidatinnen/
+26,afd,AfD,Stefan Paege,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,bsw,BSW,Dmitrij Dementev,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
 26,cdu,CDU/CSU,Sandra Khalatbari,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
+26,fdp,FDP,Christoph Meyer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
 26,gruene,GRÜNE,Anna Melnik,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
 26,linke,LINKE,Kyla Grigoleit,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
-26,spd,SPD,Claudia Buẞ,https://spd.berlin/kandidatinnen/
+26,spd,SPD,Dr. Claudia Buß,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+27,afd,AfD,Tobias Gall,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,bsw,BSW,Christian Matthias Schuchert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
 27,cdu,CDU/CSU,Peer Mock-Stümer,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
+27,fdp,FDP,Sarah Saber-Coad,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
 27,gruene,GRÜNE,Jakob Zimmer,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
 27,linke,LINKE,Sonja Radde,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
-27,spd,SPD,Ann-Kathrin Biewener,https://spd.berlin/kandidatinnen/
+27,spd,SPD,Dr. Ann-Kathrin Biewener,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+28,afd,AfD,Andreas Quint,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,bsw,BSW,Shayan Ahmadi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
 28,cdu,CDU/CSU,Dr. Felor Badenberg,https://www.cdu-charlottenburg-wilmersdorf.de/Kandidaten_p_31.html
-28,gruene,GRÜNE,Isabel Blecher,https://gruene-cw.de/wahlen-2026/unser-team-fuer-das-abgeordnetenhaus-2026/
+28,fdp,FDP,Dr. Martin Lutzenberger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,gruene,GRÜNE,Dr. Isabel Blecher,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
 28,linke,LINKE,Johannes Kolleck,https://www.dielinke-charlottenburg-wilmersdorf.de/wahlen-2026-unsere-kandidierenden/
 28,spd,SPD,Florian Dörstelmann,https://spd.berlin/kandidatinnen/
+29,afd,AfD,Tommy Tabor,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,bsw,BSW,Dr. Viola Radke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
 29,cdu,CDU/CSU,Bettina Meißner,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html
+29,fdp,FDP,Daniel Maurer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
 29,gruene,GRÜNE,Doreen Frowitter,https://gruene-spandau.de/wahl-2026/
-29,linke,LINKE,Isabella Sander,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/
+29,linke,LINKE,Isabella-Marie Sander,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
 29,spd,SPD,Sebahat Atli,https://spd.berlin/kandidatinnen/
+30,afd,AfD,Andreas Otti,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,bsw,BSW,Jochen Anders,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
 30,cdu,CDU/CSU,Dr. Ersin Nas,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html
 30,gruene,GRÜNE,Maurice Lange,https://gruene-spandau.de/wahl-2026/
 30,linke,LINKE,Ender Atakul,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/
 30,spd,SPD,Raed Saleh,https://spd.berlin/kandidatinnen/
+31,afd,AfD,Christian Müller,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,bsw,BSW,Christian Haß,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
 31,cdu,CDU/CSU,Kerstin Brauner,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html
+31,fdp,FDP,Leonardo Eshraghi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
 31,gruene,GRÜNE,Gollaleh Ahmadi,https://gruene-spandau.de/wahl-2026/
 31,linke,LINKE,Thomas Wulfes,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/
 31,spd,SPD,Stephan Machulik,https://spd.berlin/kandidatinnen/
+32,afd,AfD,Robert Mickley,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,bsw,BSW,Cornelius Gellert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
 32,cdu,CDU/CSU,Heiko Melzer,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html
+32,fdp,FDP,Dominik Hamann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
 32,gruene,GRÜNE,Leif Sporleder,https://gruene-spandau.de/wahl-2026/
-32,linke,LINKE,Hanna Krüger,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/
+32,linke,LINKE,Hanna Lena Krüger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
 32,spd,SPD,Marco Rumza,https://spd.berlin/kandidatinnen/
+33,afd,AfD,Frithjof Porsch,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,bsw,BSW,Peyman Rezvani,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
 33,cdu,CDU/CSU,Kai Wegner,https://www.cdu-spandau.de/presse/lokal/292/Wahl-Parteitag-der-CDU-Spandau-Kai-Wegner-auf-Platz-Eins-.html
+33,fdp,FDP,Paul Fresdorf,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
 33,gruene,GRÜNE,Dara Kossok-Spieß,https://gruene-spandau.de/wahl-2026/
 33,linke,LINKE,Fritz Stephan,https://www.die-linke-spandau.de/berlin-bezahlbar-machen/kandidierende-fuers-agh/
 33,spd,SPD,Susanne Drescher,https://spd.berlin/kandidatinnen/
+34,afd,AfD,Dr. Kristin Brinker,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,bsw,BSW,Sabine Zimmer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
 34,cdu,CDU/CSU,Dr. Claudia Wein,https://www.cdusz.de/ueber-uns/kandidaten2026/
-34,fdp,FDP,Katarina Concu,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
+34,fdp,FDP,Katharina Concu,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
 34,gruene,GRÜNE,Tonka Wojahn,https://gruene-suedwest.de/im-bezirk/kanditeam/
 34,linke,LINKE,Marcus Otto,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
 34,spd,SPD,Franziska Grün,https://spd.berlin/kandidatinnen/
+35,afd,AfD,Yasmin Estenried,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,bsw,BSW,Jonathan Farner,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
 35,cdu,CDU/CSU,Tom Cywinski,https://www.cdusz.de/ueber-uns/kandidaten2026/
 35,fdp,FDP,Dominique Bobeck,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
 35,gruene,GRÜNE,Daniel Eliasson,https://gruene-suedwest.de/im-bezirk/kanditeam/
 35,linke,LINKE,Franziska Brychcy,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
 35,spd,SPD,Steffen Krach,https://spd.berlin/kandidatinnen/
+36,afd,AfD,Peer Döhnert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,bsw,BSW,Andreas Heidloff,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
 36,cdu,CDU/CSU,Jens Hoffmann,https://www.cdusz.de/ueber-uns/kandidaten2026/
 36,fdp,FDP,Jan Trommershausen,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
 36,gruene,GRÜNE,Rena Peterson,https://gruene-suedwest.de/im-bezirk/kanditeam/
-36,linke,LINKE,Dennis Egginger-Gonzalez,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
+36,linke,LINKE,Dr. Dennis Egginger-Gonzalez,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
 36,spd,SPD,Martin Matz,https://spd.berlin/kandidatinnen/
+37,afd,AfD,Hans-Jürgen Georgi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,bsw,BSW,Anja Wirbel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
 37,cdu,CDU/CSU,Cornelia Seibeld,https://www.cdusz.de/ueber-uns/kandidaten2026/
 37,fdp,FDP,Mathia Specht-Habbel,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
 37,gruene,GRÜNE,Klara Ruhl,https://gruene-suedwest.de/im-bezirk/kanditeam/
 37,linke,LINKE,Mathias Gruner,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
 37,spd,SPD,Carolyn Macmillan,https://spd.berlin/kandidatinnen/
+38,afd,AfD,Frank Päßler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,bsw,BSW,Wladimir Evdokimov,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
 38,cdu,CDU/CSU,Marco Hahnfeld,https://www.cdusz.de/ueber-uns/kandidaten2026/
 38,fdp,FDP,Karoline Preisler,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
-38,gruene,GRÜNE,Kostas Kosmas,https://gruene-suedwest.de/im-bezirk/kanditeam/
+38,gruene,GRÜNE,Dr. Konstantinos Kosmas,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
 38,linke,LINKE,Kevin Kreis,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
 38,spd,SPD,Mirjam Golm,https://spd.berlin/kandidatinnen/
+39,afd,AfD,Jonas Hammermeister,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,bsw,BSW,Nicolai Röschert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
 39,cdu,CDU/CSU,Christoph Wegener,https://www.cdusz.de/ueber-uns/kandidaten2026/
 39,fdp,FDP,Tobias Bauschke,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
 39,gruene,GRÜNE,Michael Gaedicke,https://gruene-suedwest.de/im-bezirk/kanditeam/
 39,linke,LINKE,Lara Wiebelt,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
-39,spd,SPD,Ina Czyborra,https://spd.berlin/kandidatinnen/
+39,spd,SPD,Dr. Ina Czyborra,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+40,afd,AfD,Volker Graffstädt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,bsw,BSW,Saskia Moser,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
 40,cdu,CDU/CSU,Stephan Standfuß,https://www.cdusz.de/ueber-uns/kandidaten2026/
-40,fdp,FDP,Henning Krumrey,https://www.fdp-steglitz-zehlendorf.de/berlin-geht-besser
+40,fdp,FDP,Hanns-Henning Krumrey,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
 40,gruene,GRÜNE,Silke Lambeck,https://gruene-suedwest.de/im-bezirk/kanditeam/
-40,linke,LINKE,Bettina Günter,https://dielinke.berlin/start/det/news/unser-team-fuer-steglitz-zehlendorf-2026/
+40,linke,LINKE,Dr. Bettina Günter,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
 40,spd,SPD,Norbert Buchta,https://spd.berlin/kandidatinnen/
+41,afd,AfD,Christoph Schröter,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,bsw,BSW,Cajus Pietschmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
 41,cdu,CDU/CSU,Katharina Senge,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+41,fdp,FDP,Reinhard Frede,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
 41,gruene,GRÜNE,Sebastian Walter,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 41,linke,LINKE,Elisabeth Staudt,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 41,spd,SPD,Wiebke Neumann,https://spd.berlin/kandidatinnen/
+42,afd,AfD,Diana Alekseevna Kraft,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,bsw,BSW,Çiǧdem Görülü,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
 42,cdu,CDU/CSU,Katharina Kulina,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+42,fdp,FDP,Ruben Padberg,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
 42,gruene,GRÜNE,Martina Zander-Rade,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
-42,linke,LINKE,Asya Şenyüz,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
+42,linke,LINKE,Asya Șenyüz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
 42,spd,SPD,Michael Biel,https://spd.berlin/kandidatinnen/
+43,afd,AfD,André Heinze,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,bsw,BSW,Marvin Simmons,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
 43,cdu,CDU/CSU,Christian Schoeler,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+43,fdp,FDP,Marcel Schwemmlein,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
 43,gruene,GRÜNE,Christoph Störmer,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 43,linke,LINKE,Christophe Immer,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 43,spd,SPD,Orkan Özdemir,https://spd.berlin/kandidatinnen/
+44,afd,AfD,Miriam Rita Schroiff,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,bsw,BSW,Michael Farrherr,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
 44,cdu,CDU/CSU,Frank Luhmann,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+44,fdp,FDP,André Stammen,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
 44,gruene,GRÜNE,Aferdita Suka,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 44,linke,LINKE,Sarah Bremer,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 44,spd,SPD,Melanie Kühnemann-Grunow,https://spd.berlin/kandidatinnen/
+45,afd,AfD,Frank-Christian Hansel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,bsw,BSW,Dominik Reuther,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
 45,cdu,CDU/CSU,Roman Simon,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+45,fdp,FDP,Frank Röder,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
 45,gruene,GRÜNE,Dennis Matešković,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 45,linke,LINKE,Christoph Böltes,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 45,spd,SPD,Sebastian Schlüsselburg,https://spd.berlin/kandidatinnen/
+46,afd,AfD,Karsten Franck,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,bsw,BSW,Alexander King,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
 46,cdu,CDU/CSU,Scott Körber,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+46,fdp,FDP,Sergej Deines,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
 46,gruene,GRÜNE,Charlotte Kreft,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 46,linke,LINKE,Max Zahoransky von Worlik,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 46,spd,SPD,Oliver Schworck,https://spd.berlin/kandidatinnen/
+47,afd,AfD,Karl-Heinz Turban,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,bsw,BSW,Christina Brandt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
 47,cdu,CDU/CSU,Christian Zander,https://www.christian-zander.de/aktuelles/cdu-tempelhof-schoeneberg-hat-fuer-die-berlin-wahl-2026-nominiert/
+47,fdp,FDP,Axel Bering,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
 47,gruene,GRÜNE,Katharina Hild,https://gruene-ts.de/startschuss-fuer-die-wahl-zum-abgeordnetenhaus/
 47,linke,LINKE,Katharina Marg,https://www.dielinke-tempelhof-schoeneberg.de/wahlen/
 47,spd,SPD,Annette Hertlein,https://spd.berlin/kandidatinnen/
 48,afd,AfD,Tobias Bruns,https://neukoelln.afd.berlin/unsere-kandidaten/
+48,bsw,BSW,Wiebke Diehl,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
 48,cdu,CDU/CSU,Davide Annone,https://www.cdu-neukoelln.de/berlin-wahlen-2026
 48,gruene,GRÜNE,André Schulze,https://gruene-neukoelln.de/2025/11/08/gruene-neukoelln-stellen-direktkandidatinnen-fuer-die-berlinwahl-2026-auf/
-48,linke,LINKE,Vedi Emde,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
+48,linke,LINKE,Vanessa Emde,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
 48,spd,SPD,Anne Roever,https://spd.berlin/kandidatinnen/
 49,afd,AfD,Matthias Marquardt,https://neukoelln.afd.berlin/unsere-kandidaten/
-49,cdu,CDU/CSU,Büşra Karadag,https://www.cdu-neukoelln.de/berlin-wahlen-2026
+49,bsw,BSW,Dr. Michael Lüders,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,cdu,CDU/CSU,Büșra Karadaǧ,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
 49,gruene,GRÜNE,Bahar Haghanipour,https://gruene-neukoelln.de/2025/11/08/gruene-neukoelln-stellen-direktkandidatinnen-fuer-die-berlinwahl-2026-auf/
-49,linke,LINKE,Philipp Dehne,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
+49,linke,LINKE,Philipp-Martin Dehne,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
 49,spd,SPD,Charlotte Mende,https://spd.berlin/kandidatinnen/
 50,afd,AfD,Thomas Arhelger,https://neukoelln.afd.berlin/unsere-kandidaten/
+50,bsw,BSW,Nader Khalil,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
 50,cdu,CDU/CSU,Nimet Avci,https://www.cdu-neukoelln.de/berlin-wahlen-2026
 50,gruene,GRÜNE,Christina Hilmer-Benedict,https://gruene-neukoelln.de/2025/11/08/gruene-neukoelln-stellen-direktkandidatinnen-fuer-die-berlinwahl-2026-auf/
 50,linke,LINKE,Rouzbeh Taheri,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
 50,spd,SPD,Derya Çağlar,https://spd.berlin/kandidatinnen/
 51,afd,AfD,Robert Eschricht,https://neukoelln.afd.berlin/unsere-kandidaten/
+51,bsw,BSW,Christian Posselt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
 51,cdu,CDU/CSU,Christopher Förster,https://www.cdu-neukoelln.de/berlin-wahlen-2026
 51,gruene,GRÜNE,Philmon Ghirmai,https://gruene-neukoelln.de/2025/11/08/gruene-neukoelln-stellen-direktkandidatinnen-fuer-die-berlinwahl-2026-auf/
 51,linke,LINKE,Yurtsever Özdemir,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
@@ -222,113 +357,181 @@ wkr,party,partei,name,source
 52,linke,LINKE,Emmi Stiegler,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
 52,spd,SPD,Joachim Rahmann,https://spd.berlin/kandidatinnen/
 53,afd,AfD,Hendrik Pauli,https://neukoelln.afd.berlin/unsere-kandidaten/
+53,bsw,BSW,Christoph Lehmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
 53,cdu,CDU/CSU,Olaf Schenk,https://www.cdu-neukoelln.de/berlin-wahlen-2026
 53,gruene,GRÜNE,Asiye Bilir,https://gruene-neukoelln.de/2025/11/08/gruene-neukoelln-stellen-direktkandidatinnen-fuer-die-berlinwahl-2026-auf/
 53,linke,LINKE,Sybille Biermann,https://www.die-linke-neukoelln.de/berlin-wahlen-2026/unsere-listen/
 53,spd,SPD,Franziska Giffey,https://spd.berlin/kandidatinnen/
+54,afd,AfD,Noah Häbel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,bsw,BSW,Simone Ebertus,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
 54,cdu,CDU/CSU,Dustin Hoffmann,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
 54,gruene,GRÜNE,Catrin Wahlen,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
 54,linke,LINKE,Moritz Warnke,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 54,spd,SPD,Alexander Freier-Winterwerb,https://spd.berlin/kandidatinnen/
-55,cdu,CDU/CSU,Dr. med. Katrin Hegenscheid,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
+55,afd,AfD,Janine Paetzel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,bsw,BSW,Katja Sirotkin,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,cdu,CDU/CSU,Dr. Katrin Hegenscheid,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,fdp,FDP,Michael Maillinger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
 55,gruene,GRÜNE,Sven Dohnalek,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
 55,linke,LINKE,Lisa Pfitzmann,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 55,spd,SPD,Paul Bahlmann,https://spd.berlin/kandidatinnen/
+56,afd,AfD,Andreas Mehnert,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,bsw,BSW,Johannes Wullschläger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
 56,cdu,CDU/CSU,Lukas Vennemann,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
+56,fdp,FDP,Jeanot Franke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
 56,gruene,GRÜNE,Charlotte Steinmetz,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
 56,linke,LINKE,Fabian Ulrich,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 56,spd,SPD,Lars Düsterhöft,https://spd.berlin/kandidatinnen/
+57,afd,AfD,Alexander Bertram,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,bsw,BSW,Axel Seelig,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
 57,cdu,CDU/CSU,Stefan Evers,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
+57,fdp,FDP,Joachim Schmidt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
 57,gruene,GRÜNE,Willi Junga,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
 57,linke,LINKE,Lena Fries,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 57,spd,SPD,Ellen Haußdörfer,https://spd.berlin/kandidatinnen/
+58,afd,AfD,Denis Henkel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,bsw,BSW,Svend Simdorn,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
 58,cdu,CDU/CSU,Lisa Knack,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
+58,fdp,FDP,Dr. Claudius Weisensee,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
 58,gruene,GRÜNE,Henriette Spiering,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
 58,linke,LINKE,Loic Kliemann,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 58,spd,SPD,Robert Schaddach,https://spd.berlin/kandidatinnen/
+59,afd,AfD,Martin Trefzer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,bsw,BSW,Alina-Viviane Lindemann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
 59,cdu,CDU/CSU,Dr. Martin Sattelkau,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
-59,gruene,GRÜNE,Claudia Schlaak,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
+59,fdp,FDP,Stefan Förster,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,gruene,GRÜNE,Dr. Claudia Schlaak,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
 59,linke,LINKE,Eda Terkan,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
 59,spd,SPD,Sara Rüdiger,https://spd.berlin/kandidatinnen/
+60,afd,AfD,Christian Krüger,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,bsw,BSW,Heinz Werner,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
 60,cdu,CDU/CSU,Maik Penn,https://www.penn-tk.de/news/lokal/1242/Parteitag-der-CDU-Treptow-Koepenick-.html
 60,gruene,GRÜNE,Nikos Engel,https://gruene-treptow-koepenick.de/wahlen/gruene-treptow-koepenick-nominieren-kandidatinnen-fuer-die-wahl-zum-abgeordnetenhaus-2026/
-60,linke,LINKE,Hans Kromrey,https://www.dielinke-treptow-koepenick.de/politik/wahlen-agh-2026/
+60,linke,LINKE,Dr. Hans Kromrey,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
 60,spd,SPD,Dunja Wolff,https://spd.berlin/kandidatinnen/
 61,afd,AfD,Gunnar Lindemann,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+61,bsw,BSW,Rosemarie Voß,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,cdu,CDU/CSU,Susanne Gontard,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,fdp,FDP,Ingo Gering,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
 61,gruene,GRÜNE,Niclas Rother,https://www.gruenemahe.de/berliner-wahlen-2026/
 61,linke,LINKE,Björn Tielebein,https://dielinke-mahe.de/wahlen-2026/
 61,spd,SPD,Gordon Lemm,https://spd.berlin/kandidatinnen/
 62,afd,AfD,Anneliese Dummer,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+62,bsw,BSW,Enrico Wolf,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,cdu,CDU/CSU,Bernd Siggelkow,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,fdp,FDP,Konrad Klamann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
 62,gruene,GRÜNE,Benjamin Klettbach,https://www.gruenemahe.de/berliner-wahlen-2026/
 62,linke,LINKE,Sarah Bigall,https://dielinke-mahe.de/wahlen-2026/
 62,spd,SPD,Iris Spranger,https://spd.berlin/kandidatinnen/
 63,afd,AfD,Jeannette Auricht,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+63,bsw,BSW,Martin Rutsch,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,cdu,CDU/CSU,Robin Enderlein,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,fdp,FDP,Benjamin Dahler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
 63,gruene,GRÜNE,Chantal Münster,https://www.gruenemahe.de/berliner-wahlen-2026/
 63,linke,LINKE,Nadine Jüngling,https://dielinke-mahe.de/wahlen-2026/
 63,spd,SPD,Jeannette Shiferaw,https://spd.berlin/kandidatinnen/
 64,afd,AfD,Martin Koblischke,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+64,bsw,BSW,Robert Schneider,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,cdu,CDU/CSU,Johannes Martin,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,fdp,FDP,Anja Molnar,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
 64,gruene,GRÜNE,Pascal Grothe,https://www.gruenemahe.de/berliner-wahlen-2026/
 64,linke,LINKE,Markus Berg,https://dielinke-mahe.de/wahlen-2026/
-64,spd,SPD,Maria Geidel,https://spd.berlin/kandidatinnen/
+64,spd,SPD,Maria Geidel-Künne,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
 65,afd,AfD,Thomas Harder,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+65,bsw,BSW,Ina Seidel-Grothe,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,cdu,CDU/CSU,Katharina Günther-Wünsch,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,fdp,FDP,Peter Langer,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
 65,gruene,GRÜNE,Manuela Neubert,https://www.gruenemahe.de/berliner-wahlen-2026/
 65,linke,LINKE,Juliane Witt,https://dielinke-mahe.de/wahlen-2026/
-65,spd,SPD,Luise Lehmann,https://spd.berlin/kandidatinnen/
+65,spd,SPD,Dr. Luise Lehmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
 66,afd,AfD,Jörn Geißler,https://marzahn-hellersdorf.afd.berlin/unsere-direktkandidaten/
+66,bsw,BSW,Martin Mnich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,cdu,CDU/CSU,Alexander Herrmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,fdp,FDP,Dominik Sussmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
 66,gruene,GRÜNE,Gina Heinecke,https://www.gruenemahe.de/berliner-wahlen-2026/
 66,linke,LINKE,Steffen Ostehr,https://dielinke-mahe.de/wahlen-2026/
 66,spd,SPD,Jan Lehmann,https://spd.berlin/kandidatinnen/
 67,afd,AfD,Stephan Knaute,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
+67,bsw,BSW,Bastian Sieber,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
 67,cdu,CDU/CSU,Danny Freymark,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
+67,fdp,FDP,Christina Collin-Hoebel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
 67,gruene,GRÜNE,Tim Junge,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
 67,linke,LINKE,Christoph Harting,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
-67,spd,SPD,Uwe Heinecke,https://spd.berlin/kandidatinnen/
+67,spd,SPD,Klaus-Uwe Heinecke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
 68,afd,AfD,Marianne Kleinert,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
-68,cdu,CDU/CSU,Prof. Dr. Martin Pätzold,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
+68,bsw,BSW,Johann Geißler,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,cdu,CDU/CSU,Dr. Martin Pätzold,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,fdp,FDP,Rico Apitz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
 68,gruene,GRÜNE,Kristin Otto,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
 68,linke,LINKE,Toni Kraus,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
 68,spd,SPD,Stefan Schenck,https://spd.berlin/kandidatinnen/
 69,afd,AfD,Florian Beckert,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
+69,bsw,BSW,Sarah Klipphahn,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
 69,cdu,CDU/CSU,Dennis Haustein,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
+69,fdp,FDP,Philip Schmidt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
 69,gruene,GRÜNE,Evan Vosberg,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
 69,linke,LINKE,Claudia Engelmann,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
 69,spd,SPD,Marie Scharfenberg,https://spd.berlin/kandidatinnen/
 70,afd,AfD,Burkhard Knoll,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
+70,bsw,BSW,Jürgen Hofmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
 70,cdu,CDU/CSU,Lennart Birkenthal,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
+70,fdp,FDP,Dr. Batuhan Temiz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
 70,gruene,GRÜNE,Philipp Ahrens,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
 70,linke,LINKE,Antonio Leonhardt,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
 70,spd,SPD,Tamara Lüdke,https://spd.berlin/kandidatinnen/
 71,afd,AfD,Matthias Ebert,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
+71,bsw,BSW,Torsten Holze,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
 71,cdu,CDU/CSU,Sarah Ribbeck,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
-71,gruene,GRÜNE,Stefan Taschner,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
+71,fdp,FDP,Nora Zapf,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,gruene,GRÜNE,Dr. Stefan Taschner,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
 71,linke,LINKE,Hendrikje Klein,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
 71,spd,SPD,Marlon Bünck,https://spd.berlin/kandidatinnen/
 72,afd,AfD,Dietmar Drewes,https://lichtenberg.afd.berlin/unsere-kandidaten-fuer-das-abgeordnetenhaus-von-berlin-2026/
+72,bsw,BSW,Norman Wolf,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
 72,cdu,CDU/CSU,Lilia Usik,https://www.cdu-lichtenberg.de/artikel/geschlossen-und-entschlossen-cdu-lichtenberg-nominiert-kandidatinnen-und-kandidaten-fuer-die
+72,fdp,FDP,Joachim Schultheiß,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
 72,gruene,GRÜNE,Daniela Ehlers,https://gruene-lichtenberg.de/wahlen-zum-abgeordnetenhaus/
 72,linke,LINKE,Julia Behrens,https://www.die-linke-lichtenberg.de/wahlen/abgeordnetenhaus-2026/
 72,spd,SPD,René Pohle,https://spd.berlin/kandidatinnen/
+73,afd,AfD,Marc-Philipp Bernicke,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,bsw,BSW,Ömer Aydoǧan,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
 73,cdu,CDU/CSU,Burkard Dregger,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
+73,fdp,FDP,Peter Dietze-Felberg,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
 73,gruene,GRÜNE,Jelisaweta Kamm,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
 73,linke,LINKE,Pilar Caballero Alvarez,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
 73,spd,SPD,Bettina König,https://spd.berlin/kandidatinnen/
+74,afd,AfD,Christopher Marcel Wiedenhaupt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,bsw,BSW,Dr. Serkan Önel,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
 74,cdu,CDU/CSU,Felix Schönebeck,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
+74,fdp,FDP,Timo Bergemann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
 74,gruene,GRÜNE,Bogusz Schmidt,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
 74,linke,LINKE,Jessica Gerke,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
 74,spd,SPD,Laurence Stroedter,https://spd.berlin/kandidatinnen/
+75,afd,AfD,Dr. Ralf-Günther Conradi,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,bsw,BSW,Bernd Staege,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
 75,cdu,CDU/CSU,Niklas Graßelt,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
+75,fdp,FDP,Dr. Dieter Schramm,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
 75,gruene,GRÜNE,Marei Zylka,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
 75,linke,LINKE,Robert Irmscher,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
 75,spd,SPD,Samuel Märkt,https://spd.berlin/kandidatinnen/
+76,afd,AfD,Rolf Wiedenhaupt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,bsw,BSW,Hans-Hartmut Lenz,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
 76,cdu,CDU/CSU,Tomasz Klon,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
-76,gruene,GRÜNE,Dr. Georg Mensah,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
+76,fdp,FDP,David Jahn,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,gruene,GRÜNE,Georg Mensah,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
 76,linke,LINKE,Sophia-Marie Dietrich,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
 76,spd,SPD,Sven Meyer,https://spd.berlin/kandidatinnen/
+77,afd,AfD,Carsten Ubbelohde,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,bsw,BSW,Christiane Wiemann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
 77,cdu,CDU/CSU,Matea Krolo,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
+77,fdp,FDP,Andreas Otto,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
 77,gruene,GRÜNE,Nico Wanke,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
 77,linke,LINKE,Gülistan Erdil,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
 77,spd,SPD,Sevda Boyraci,https://spd.berlin/kandidatinnen/
+78,afd,AfD,Thomas Ruschin,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,bsw,BSW,Philipp Benjamin Erdmann,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
 78,cdu,CDU/CSU,Richard Gamp,https://www.cdu-reinickendorf.de/news/lokal/336/CDU-Reinickendorf-stellt-Kandidatinnen-und-Kandidaten-fuer-die-Berlin-Wahl-2026-auf.html
-78,gruene,GRÜNE,Klara Schedlich,https://gruene-reinickendorf.de/2025/11/17/ein-starkes-team-fuer-reinickendorf-buendnis90-die-gruenen-nominiert-seine-direktkandidierenden-fuer-die-berlinwahl-2026/
+78,fdp,FDP,Dr. Wilfried Bernhardt,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,gruene,GRÜNE,Klara Josephine Schedlich,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
 78,linke,LINKE,Ben Hennig,https://www.die-linke-reinickendorf.de/wahlen/berlin-2026/
-78,spd,SPD,Kai Kottenstede,https://spd.berlin/kandidatinnen/
+78,spd,SPD,Dr. Kai Kottenstede,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
