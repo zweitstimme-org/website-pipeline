@@ -1,0 +1,537 @@
+wkr,party,partei,name,bezirk,wk_local,source
+1,afd,AfD,Sabine Schüler,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,bsw,BSW,Sven Diedrich,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,cdu,CDU/CSU,Monika Trautmann,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,fdp,FDP,Dr. Maren Jasper-Winter,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,gruene,GRÜNE,Silke Gebel,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,linke,LINKE,Anna Eiling,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+1,spd,SPD,Dr. Stanislav Klimovich,01,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-1.pdf
+2,afd,AfD,Jens-Hermann Priegnitz,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,bsw,BSW,Sevim Dağdelen,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,cdu,CDU/CSU,Lucas Schaal,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,fdp,FDP,Eren Güvercin,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,gruene,GRÜNE,Katja Zimmermann,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,linke,LINKE,Leonard Diederich,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+2,spd,SPD,Nadine Riez,01,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-2.pdf
+3,afd,AfD,Steffen Lent,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,bsw,BSW,Erdinç Kardaşlar,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,cdu,CDU/CSU,Sylvia Ganz,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,fdp,FDP,Gabriele Cocozza,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,gruene,GRÜNE,Jian Omar,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,linke,LINKE,Tobias Schulze,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+3,spd,SPD,Lucy Merle Demers,01,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-3.pdf
+4,afd,AfD,Eduard Müller,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,bsw,BSW,Dunya El Amrani,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,cdu,CDU/CSU,Sven Fervers,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,fdp,FDP,Beatrice Höllen,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,gruene,GRÜNE,Taylan Kurt,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,linke,LINKE,Jacqueline Sanehy,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+4,spd,SPD,Federico Quadrelli,01,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-4.pdf
+5,afd,AfD,Julian Adrat,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,bsw,BSW,Jean-Marie Ayikpe,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,cdu,CDU/CSU,Sven Nico Rissmann,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,fdp,FDP,Dr. Bettina von Seyfried,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,gruene,GRÜNE,Alexandra Bendzko,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,linke,LINKE,Dr. Andreas Umgelter,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+5,spd,SPD,Mathias Schulz,01,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-5.pdf
+6,afd,AfD,Adam Gołkontt,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,bsw,BSW,Faruk Čeliković,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,cdu,CDU/CSU,Michael Kühl,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,fdp,FDP,Bastian Roet,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,gruene,GRÜNE,Tuba Bozkurt,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,linke,LINKE,Martha Kleedörfer,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+6,spd,SPD,Susanne Fischer,01,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-6.pdf
+7,afd,AfD,Volker Seefeldt,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,bsw,BSW,Martin Hantke,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,cdu,CDU/CSU,Daniela Fritz,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,fdp,FDP,Franz Teresiak,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,gruene,GRÜNE,Tarek Massalme,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,linke,LINKE,Deike Janssen,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+7,spd,SPD,Dr. Maja Lasić,01,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_01_Mitte_01-7.pdf
+8,afd,AfD,Gerhard Zaucker,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,bsw,BSW,Manaf Hassan,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,cdu,CDU/CSU,Kurt Wansner,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,fdp,FDP,Jörg Höhn,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,gruene,GRÜNE,Kübra Beydaș,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,linke,LINKE,Elif Eralp,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+8,spd,SPD,Sevim Aydin,02,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-1.pdf
+9,afd,AfD,Andreas Klaus,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,bsw,BSW,Simin Falsafi,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,cdu,CDU/CSU,Dr. Timur Husein,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,fdp,FDP,Matthias Morrkopf-Widlok,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,gruene,GRÜNE,Katrin Schmidberger,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,linke,LINKE,Michael Efler,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+9,spd,SPD,Dr. Britt Schlünz,02,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-2.pdf
+10,afd,AfD,Christof Meuren,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,bsw,BSW,Mertcan Yıldız,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,cdu,CDU/CSU,Max Kindler,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,fdp,FDP,Johannes Dallheimer,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,gruene,GRÜNE,Enad Altaweel,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,linke,LINKE,Kerstin Wolter-Ehling,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+10,spd,SPD,Sven Heinemann,02,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-3.pdf
+11,afd,AfD,Frank Scheermesser,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,bsw,BSW,Faruh Tursunov,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,cdu,CDU/CSU,Marita Fabeck,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,fdp,FDP,Arlett Weckowski,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,gruene,GRÜNE,Antje Kapek,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,linke,LINKE,Damiano Valgolio,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+11,spd,SPD,Thomas Giebel,02,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-4.pdf
+12,afd,AfD,Christopher John Peter,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,bsw,BSW,Björn Jarkowski,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,cdu,CDU/CSU,Björn Schlesiger,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,fdp,FDP,Roman-Francesco Rogat,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,gruene,GRÜNE,Vasili Franco,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,linke,LINKE,Ekkehard Spiegel,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+12,spd,SPD,Steffen Opitz,02,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_02_Friedrichshain-Kreuzberg_02-5.pdf
+13,afd,AfD,Christian Buchholz,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,bsw,BSW,Andreas Kübler,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,cdu,CDU/CSU,Johannes Kraft,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,fdp,FDP,Stefan Andresen,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,gruene,GRÜNE,Bettina Jarasch,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,linke,LINKE,Maxi Häber,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+13,spd,SPD,Rona Tietje,03,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-1.pdf
+14,afd,AfD,Jan-Philip Streeck,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,bsw,BSW,Oliver Nevi,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,cdu,CDU/CSU,Lars Bocian,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,fdp,FDP,David Sittner,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,gruene,GRÜNE,Sebastian Kascha,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,linke,LINKE,Coco Aglibut,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+14,spd,SPD,Torsten Hofer,03,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-2.pdf
+15,afd,AfD,Hanno Bachmann,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,bsw,BSW,Kathrin Radke,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,cdu,CDU/CSU,Dr. Antje Tölle,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,fdp,FDP,Maria Wandel,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,gruene,GRÜNE,Oda Hassepaß,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,linke,LINKE,Christian Zebisch,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+15,spd,SPD,Paul Krüger,03,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-3.pdf
+16,afd,AfD,Herbert Mohr,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,bsw,BSW,Josephine Thyrêt,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,cdu,CDU/CSU,Dirk Stettner,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,fdp,FDP,Dr. Pablo Puente Gamero,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,gruene,GRÜNE,Friedrich Ehrhardt,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,linke,LINKE,Devran Bașbolat,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+16,spd,SPD,Dennis Buchner,03,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-4.pdf
+17,afd,AfD,Daniel Krüger,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,bsw,BSW,Erwin Liedke,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,cdu,CDU/CSU,Denise Bittner,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,fdp,FDP,Oliver Simon,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,gruene,GRÜNE,Louis Krüger,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,linke,LINKE,Enja Springob,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+17,spd,SPD,Arne Gröschel,03,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-5.pdf
+18,afd,AfD,Dr. Christoph Schweer,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,bsw,BSW,Frank Barsch,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,cdu,CDU/CSU,Stephan Lenz,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,fdp,FDP,Ruven Gastel,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,gruene,GRÜNE,Dr. Sunčica Klaas,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,linke,LINKE,Maria Bigos,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+18,spd,SPD,Linda Vierecke,03,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-6.pdf
+19,afd,AfD,Martin Kellner,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,bsw,BSW,Kim Reichelt,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,cdu,CDU/CSU,Sabrina Hohl,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,fdp,FDP,David Fischer,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,gruene,GRÜNE,Can Aru,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,linke,LINKE,Niklas Schrader,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+19,spd,SPD,Annette Unger,03,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-7.pdf
+20,afd,AfD,Falk Rodig,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,bsw,BSW,Oliver Berger,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,cdu,CDU/CSU,Alexander Meyer,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,fdp,FDP,Maja Pfister,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,gruene,GRÜNE,Daniela Billig,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,linke,LINKE,Gloria Viagra,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+20,spd,SPD,Heiko Kretschmer,03,8,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-8.pdf
+21,afd,AfD,Frank Behnke,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,bsw,BSW,Jobst Bürkle,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,cdu,CDU/CSU,David Paul,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,fdp,FDP,Julius Grottke,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,gruene,GRÜNE,Dr. Oliver Jütting,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,linke,LINKE,Maximilian Schirmer,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+21,spd,SPD,Tino Schopf,03,9,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_03_Pankow_03-9.pdf
+22,afd,AfD,Marc Vallendar,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,bsw,BSW,Tereza Schebsdat,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,cdu,CDU/CSU,Vivien-Nathalie Keilbar,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,fdp,FDP,Nicolas Wollschlaeger,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,gruene,GRÜNE,Jana Brix,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,linke,LINKE,Niklas Schenker,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+22,spd,SPD,Nicola Aleksander Kaufmann,04,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-1.pdf
+23,afd,AfD,Dr. Hugh Bronson,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,bsw,BSW,Norbert Lasert,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,cdu,CDU/CSU,Ariturel Hack,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,fdp,FDP,Fabian Pfeil,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,gruene,GRÜNE,Corinna Balkow,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,linke,LINKE,Enrico Brehm,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+23,spd,SPD,Clemens Wilhelm Brandt,04,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-2.pdf
+24,afd,AfD,Martin Kohler,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,bsw,BSW,Philippe Gouverneur,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,cdu,CDU/CSU,Kevin Steuer,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,fdp,FDP,Mark Hamilton,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,gruene,GRÜNE,Dr. Petra Vandrey,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,linke,LINKE,Frederike-Sophie Gronde-Brunner,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+24,spd,SPD,Dr. Kian Niroomand,04,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-3.pdf
+25,afd,AfD,Thomas Marten,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,bsw,BSW,Nguyen Thuy Dung,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,cdu,CDU/CSU,Aldona Niemczyk,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,fdp,FDP,Dr. Felix Recke-Friedrich,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,gruene,GRÜNE,Christoph Wapler,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,linke,LINKE,Felix Städler,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+25,spd,SPD,Timur Sarić,04,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-4.pdf
+26,afd,AfD,Stefan Paege,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,bsw,BSW,Dmitrij Dementev,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,cdu,CDU/CSU,Sandra Khalatbari,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,fdp,FDP,Christoph Meyer,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,gruene,GRÜNE,Anna Melnik,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,linke,LINKE,Kyla Grigoleit,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+26,spd,SPD,Dr. Claudia Buß,04,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-5.pdf
+27,afd,AfD,Tobias Gall,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,bsw,BSW,Christian Matthias Schuchert,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,cdu,CDU/CSU,Peer Mock-Stümer,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,fdp,FDP,Sarah Saber-Coad,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,gruene,GRÜNE,Jakob Zimmer,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,linke,LINKE,Sonja Radde,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+27,spd,SPD,Dr. Ann-Kathrin Biewener,04,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-6.pdf
+28,afd,AfD,Andreas Quint,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,bsw,BSW,Shayan Ahmadi,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,cdu,CDU/CSU,Dr. Felor Badenberg,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,fdp,FDP,Dr. Martin Lutzenberger,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,gruene,GRÜNE,Dr. Isabel Blecher,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,linke,LINKE,Johannes Kolleck,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+28,spd,SPD,Florian Dörstelmann,04,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_04_Charlottenburg-Wilmersdorf_04-7.pdf
+29,afd,AfD,Tommy Tabor,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,bsw,BSW,Dr. Viola Radke,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,cdu,CDU/CSU,Bettina Meißner,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,fdp,FDP,Daniel Maurer,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,gruene,GRÜNE,Doreen Frowitter,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,linke,LINKE,Isabella-Marie Sander,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+29,spd,SPD,Sebahat Atli,05,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-1.pdf
+30,afd,AfD,Andreas Otti,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,bsw,BSW,Jochen Anders,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,cdu,CDU/CSU,Dr. Ersin Nas,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,gruene,GRÜNE,Maurice Lange,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,linke,LINKE,Ender Atakul,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+30,spd,SPD,Raed Saleh,05,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-2.pdf
+31,afd,AfD,Christian Müller,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,bsw,BSW,Christian Haß,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,cdu,CDU/CSU,Kerstin Brauner,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,fdp,FDP,Leonardo Eshraghi,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,gruene,GRÜNE,Gollaleh Ahmadi,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,linke,LINKE,Thomas Wulfes,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+31,spd,SPD,Stephan Machulik,05,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-3.pdf
+32,afd,AfD,Robert Mickley,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,bsw,BSW,Cornelius Gellert,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,cdu,CDU/CSU,Heiko Melzer,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,fdp,FDP,Dominik Hamann,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,gruene,GRÜNE,Leif Sporleder,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,linke,LINKE,Hanna Lena Krüger,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+32,spd,SPD,Marco Rumza,05,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-4.pdf
+33,afd,AfD,Frithjof Porsch,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,bsw,BSW,Peyman Rezvani,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,cdu,CDU/CSU,Kai Wegner,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,fdp,FDP,Paul Fresdorf,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,gruene,GRÜNE,Dara Kossok-Spieß,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,linke,LINKE,Fritz Stephan,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+33,spd,SPD,Susanne Drescher,05,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_05_Spandau_05-5.pdf
+34,afd,AfD,Dr. Kristin Brinker,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,bsw,BSW,Sabine Zimmer,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,cdu,CDU/CSU,Dr. Claudia Wein,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,fdp,FDP,Katharina Concu,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,gruene,GRÜNE,Tonka Wojahn,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,linke,LINKE,Marcus Otto,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+34,spd,SPD,Franziska Grün,06,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-1.pdf
+35,afd,AfD,Yasmin Estenried,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,bsw,BSW,Jonathan Farner,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,cdu,CDU/CSU,Tom Cywinski,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,fdp,FDP,Dominique Bobeck,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,gruene,GRÜNE,Daniel Eliasson,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,linke,LINKE,Franziska Brychcy,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+35,spd,SPD,Steffen Krach,06,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-2.pdf
+36,afd,AfD,Peer Döhnert,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,bsw,BSW,Andreas Heidloff,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,cdu,CDU/CSU,Jens Hoffmann,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,fdp,FDP,Jan Trommershausen,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,gruene,GRÜNE,Rena Peterson,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,linke,LINKE,Dr. Dennis Egginger-Gonzalez,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+36,spd,SPD,Martin Matz,06,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-3.pdf
+37,afd,AfD,Hans-Jürgen Georgi,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,bsw,BSW,Anja Wirbel,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,cdu,CDU/CSU,Cornelia Seibeld,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,fdp,FDP,Mathia Specht-Habbel,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,gruene,GRÜNE,Klara Ruhl,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,linke,LINKE,Mathias Gruner,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+37,spd,SPD,Carolyn Macmillan,06,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-4.pdf
+38,afd,AfD,Frank Päßler,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,bsw,BSW,Wladimir Evdokimov,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,cdu,CDU/CSU,Marco Hahnfeld,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,fdp,FDP,Karoline Preisler,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,gruene,GRÜNE,Dr. Konstantinos Kosmas,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,linke,LINKE,Kevin Kreis,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+38,spd,SPD,Mirjam Golm,06,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-5.pdf
+39,afd,AfD,Jonas Hammermeister,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,bsw,BSW,Nicolai Röschert,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,cdu,CDU/CSU,Christoph Wegener,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,fdp,FDP,Tobias Bauschke,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,gruene,GRÜNE,Michael Gaedicke,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,linke,LINKE,Lara Wiebelt,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+39,spd,SPD,Dr. Ina Czyborra,06,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-6.pdf
+40,afd,AfD,Volker Graffstädt,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,bsw,BSW,Saskia Moser,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,cdu,CDU/CSU,Stephan Standfuß,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,fdp,FDP,Hanns-Henning Krumrey,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,gruene,GRÜNE,Silke Lambeck,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,linke,LINKE,Dr. Bettina Günter,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+40,spd,SPD,Norbert Buchta,06,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_06_Steglitz-Zehlendorf_06-7.pdf
+41,afd,AfD,Christoph Schröter,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,bsw,BSW,Cajus Pietschmann,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,cdu,CDU/CSU,Katharina Senge,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,fdp,FDP,Reinhard Frede,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,gruene,GRÜNE,Sebastian Walter,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,linke,LINKE,Elisabeth Staudt,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+41,spd,SPD,Wiebke Neumann,07,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-1.pdf
+42,afd,AfD,Diana Alekseevna Kraft,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,bsw,BSW,Çiǧdem Görülü,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,cdu,CDU/CSU,Katharina Kulina,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,fdp,FDP,Ruben Padberg,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,gruene,GRÜNE,Martina Zander-Rade,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,linke,LINKE,Asya Șenyüz,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+42,spd,SPD,Michael Biel,07,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-2.pdf
+43,afd,AfD,André Heinze,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,bsw,BSW,Marvin Simmons,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,cdu,CDU/CSU,Christian Schoeler,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,fdp,FDP,Marcel Schwemmlein,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,gruene,GRÜNE,Christoph Störmer,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,linke,LINKE,Christophe Immer,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+43,spd,SPD,Orkan Özdemir,07,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-3.pdf
+44,afd,AfD,Miriam Rita Schroiff,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,bsw,BSW,Michael Farrherr,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,cdu,CDU/CSU,Frank Luhmann,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,fdp,FDP,André Stammen,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,gruene,GRÜNE,Aferdita Suka,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,linke,LINKE,Sarah Bremer,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+44,spd,SPD,Melanie Kühnemann-Grunow,07,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-4.pdf
+45,afd,AfD,Frank-Christian Hansel,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,bsw,BSW,Dominik Reuther,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,cdu,CDU/CSU,Roman Simon,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,fdp,FDP,Frank Röder,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,gruene,GRÜNE,Dennis Matešković,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,linke,LINKE,Christoph Böltes,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+45,spd,SPD,Sebastian Schlüsselburg,07,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-5.pdf
+46,afd,AfD,Karsten Franck,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,bsw,BSW,Alexander King,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,cdu,CDU/CSU,Scott Körber,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,fdp,FDP,Sergej Deines,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,gruene,GRÜNE,Charlotte Kreft,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,linke,LINKE,Max Zahoransky von Worlik,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+46,spd,SPD,Oliver Schworck,07,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-6.pdf
+47,afd,AfD,Karl-Heinz Turban,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,bsw,BSW,Christina Brandt,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,cdu,CDU/CSU,Christian Zander,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,fdp,FDP,Axel Bering,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,gruene,GRÜNE,Katharina Hild,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,linke,LINKE,Katharina Marg,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+47,spd,SPD,Annette Hertlein,07,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_07_Tempelhof-Schöneberg_07-7.pdf
+48,afd,AfD,Tobias Bruns,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+48,bsw,BSW,Wiebke Diehl,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+48,cdu,CDU/CSU,Davide Annone,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+48,gruene,GRÜNE,André Schulze,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+48,linke,LINKE,Vanessa Emde,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+48,spd,SPD,Anne Roever,08,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-1.pdf
+49,afd,AfD,Matthias Marquardt,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,bsw,BSW,Dr. Michael Lüders,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,cdu,CDU/CSU,Büșra Karadaǧ,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,gruene,GRÜNE,Bahar Haghanipour,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,linke,LINKE,Philipp-Martin Dehne,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+49,spd,SPD,Charlotte Mende,08,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-2.pdf
+50,afd,AfD,Thomas Arhelger,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+50,bsw,BSW,Nader Khalil,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+50,cdu,CDU/CSU,Nimet Avci,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+50,gruene,GRÜNE,Christina Hilmer-Benedict,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+50,linke,LINKE,Rouzbeh Taheri,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+50,spd,SPD,Derya Çağlar,08,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-3.pdf
+51,afd,AfD,Robert Eschricht,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+51,bsw,BSW,Christian Posselt,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+51,cdu,CDU/CSU,Christopher Förster,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+51,gruene,GRÜNE,Philmon Ghirmai,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+51,linke,LINKE,Yurtsever Özdemir,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+51,spd,SPD,Marcel Hopp,08,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-4.pdf
+52,afd,AfD,Julian Potthast,08,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-5.pdf
+52,cdu,CDU/CSU,Dr. Robbin Juhnke,08,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-5.pdf
+52,gruene,GRÜNE,Jan Stiermann,08,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-5.pdf
+52,linke,LINKE,Emmi Stiegler,08,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-5.pdf
+52,spd,SPD,Joachim Rahmann,08,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-5.pdf
+53,afd,AfD,Hendrik Pauli,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+53,bsw,BSW,Christoph Lehmann,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+53,cdu,CDU/CSU,Olaf Schenk,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+53,gruene,GRÜNE,Asiye Bilir,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+53,linke,LINKE,Sybille Biermann,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+53,spd,SPD,Franziska Giffey,08,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_08_Neukölln_08-6.pdf
+54,afd,AfD,Noah Häbel,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,bsw,BSW,Simone Ebertus,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,cdu,CDU/CSU,Dustin Hoffmann,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,gruene,GRÜNE,Catrin Wahlen,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,linke,LINKE,Moritz Warnke,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+54,spd,SPD,Alexander Freier-Winterwerb,09,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-1.pdf
+55,afd,AfD,Janine Paetzel,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,bsw,BSW,Katja Sirotkin,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,cdu,CDU/CSU,Dr. Katrin Hegenscheid,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,fdp,FDP,Michael Maillinger,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,gruene,GRÜNE,Sven Dohnalek,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,linke,LINKE,Lisa Pfitzmann,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+55,spd,SPD,Paul Bahlmann,09,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-2.pdf
+56,afd,AfD,Andreas Mehnert,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,bsw,BSW,Johannes Wullschläger,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,cdu,CDU/CSU,Lukas Vennemann,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,fdp,FDP,Jeanot Franke,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,gruene,GRÜNE,Charlotte Steinmetz,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,linke,LINKE,Fabian Ulrich,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+56,spd,SPD,Lars Düsterhöft,09,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-3.pdf
+57,afd,AfD,Alexander Bertram,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,bsw,BSW,Axel Seelig,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,cdu,CDU/CSU,Stefan Evers,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,fdp,FDP,Joachim Schmidt,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,gruene,GRÜNE,Willi Junga,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,linke,LINKE,Lena Fries,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+57,spd,SPD,Ellen Haußdörfer,09,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-4.pdf
+58,afd,AfD,Denis Henkel,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,bsw,BSW,Svend Simdorn,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,cdu,CDU/CSU,Lisa Knack,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,fdp,FDP,Dr. Claudius Weisensee,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,gruene,GRÜNE,Henriette Spiering,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,linke,LINKE,Loic Kliemann,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+58,spd,SPD,Robert Schaddach,09,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-5.pdf
+59,afd,AfD,Martin Trefzer,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,bsw,BSW,Alina-Viviane Lindemann,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,cdu,CDU/CSU,Dr. Martin Sattelkau,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,fdp,FDP,Stefan Förster,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,gruene,GRÜNE,Dr. Claudia Schlaak,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,linke,LINKE,Eda Terkan,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+59,spd,SPD,Sara Rüdiger,09,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-6.pdf
+60,afd,AfD,Christian Krüger,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,bsw,BSW,Heinz Werner,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,cdu,CDU/CSU,Maik Penn,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,gruene,GRÜNE,Nikos Engel,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,linke,LINKE,Dr. Hans Kromrey,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+60,spd,SPD,Dunja Wolff,09,7,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_09_Treptow-Köpenick_09-7.pdf
+61,afd,AfD,Gunnar Lindemann,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,bsw,BSW,Rosemarie Voß,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,cdu,CDU/CSU,Susanne Gontard,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,fdp,FDP,Ingo Gering,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,gruene,GRÜNE,Niclas Rother,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,linke,LINKE,Björn Tielebein,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+61,spd,SPD,Gordon Lemm,10,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-1.pdf
+62,afd,AfD,Anneliese Dummer,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,bsw,BSW,Enrico Wolf,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,cdu,CDU/CSU,Bernd Siggelkow,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,fdp,FDP,Konrad Klamann,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,gruene,GRÜNE,Benjamin Klettbach,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,linke,LINKE,Sarah Bigall,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+62,spd,SPD,Iris Spranger,10,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-2.pdf
+63,afd,AfD,Jeannette Auricht,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,bsw,BSW,Martin Rutsch,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,cdu,CDU/CSU,Robin Enderlein,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,fdp,FDP,Benjamin Dahler,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,gruene,GRÜNE,Chantal Münster,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,linke,LINKE,Nadine Jüngling,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+63,spd,SPD,Jeannette Shiferaw,10,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-3.pdf
+64,afd,AfD,Martin Koblischke,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,bsw,BSW,Robert Schneider,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,cdu,CDU/CSU,Johannes Martin,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,fdp,FDP,Anja Molnar,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,gruene,GRÜNE,Pascal Grothe,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,linke,LINKE,Markus Berg,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+64,spd,SPD,Maria Geidel-Künne,10,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-4.pdf
+65,afd,AfD,Thomas Harder,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,bsw,BSW,Ina Seidel-Grothe,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,cdu,CDU/CSU,Katharina Günther-Wünsch,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,fdp,FDP,Peter Langer,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,gruene,GRÜNE,Manuela Neubert,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,linke,LINKE,Juliane Witt,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+65,spd,SPD,Dr. Luise Lehmann,10,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-5.pdf
+66,afd,AfD,Jörn Geißler,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,bsw,BSW,Martin Mnich,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,cdu,CDU/CSU,Alexander Herrmann,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,fdp,FDP,Dominik Sussmann,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,gruene,GRÜNE,Gina Heinecke,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,linke,LINKE,Steffen Ostehr,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+66,spd,SPD,Jan Lehmann,10,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_10_Marzahn-Hellersdorf_10-6.pdf
+67,afd,AfD,Stephan Knaute,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,bsw,BSW,Bastian Sieber,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,cdu,CDU/CSU,Danny Freymark,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,fdp,FDP,Christina Collin-Hoebel,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,gruene,GRÜNE,Tim Junge,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,linke,LINKE,Christoph Harting,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+67,spd,SPD,Klaus-Uwe Heinecke,11,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-1.pdf
+68,afd,AfD,Marianne Kleinert,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,bsw,BSW,Johann Geißler,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,cdu,CDU/CSU,Dr. Martin Pätzold,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,fdp,FDP,Rico Apitz,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,gruene,GRÜNE,Kristin Otto,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,linke,LINKE,Toni Kraus,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+68,spd,SPD,Stefan Schenck,11,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-2.pdf
+69,afd,AfD,Florian Beckert,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,bsw,BSW,Sarah Klipphahn,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,cdu,CDU/CSU,Dennis Haustein,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,fdp,FDP,Philip Schmidt,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,gruene,GRÜNE,Evan Vosberg,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,linke,LINKE,Claudia Engelmann,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+69,spd,SPD,Marie Scharfenberg,11,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-3.pdf
+70,afd,AfD,Burkhard Knoll,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,bsw,BSW,Jürgen Hofmann,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,cdu,CDU/CSU,Lennart Birkenthal,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,fdp,FDP,Dr. Batuhan Temiz,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,gruene,GRÜNE,Philipp Ahrens,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,linke,LINKE,Antonio Leonhardt,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+70,spd,SPD,Tamara Lüdke,11,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-4.pdf
+71,afd,AfD,Matthias Ebert,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,bsw,BSW,Torsten Holze,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,cdu,CDU/CSU,Sarah Ribbeck,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,fdp,FDP,Nora Zapf,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,gruene,GRÜNE,Dr. Stefan Taschner,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,linke,LINKE,Hendrikje Klein,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+71,spd,SPD,Marlon Bünck,11,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-5.pdf
+72,afd,AfD,Dietmar Drewes,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,bsw,BSW,Norman Wolf,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,cdu,CDU/CSU,Lilia Usik,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,fdp,FDP,Joachim Schultheiß,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,gruene,GRÜNE,Daniela Ehlers,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,linke,LINKE,Julia Behrens,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+72,spd,SPD,René Pohle,11,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_11_Lichtenberg_11-6.pdf
+73,afd,AfD,Marc-Philipp Bernicke,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,bsw,BSW,Ömer Aydoǧan,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,cdu,CDU/CSU,Burkard Dregger,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,fdp,FDP,Peter Dietze-Felberg,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,gruene,GRÜNE,Jelisaweta Kamm,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,linke,LINKE,Pilar Caballero Alvarez,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+73,spd,SPD,Bettina König,12,1,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-1.pdf
+74,afd,AfD,Christopher Marcel Wiedenhaupt,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,bsw,BSW,Dr. Serkan Önel,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,cdu,CDU/CSU,Felix Schönebeck,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,fdp,FDP,Timo Bergemann,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,gruene,GRÜNE,Bogusz Schmidt,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,linke,LINKE,Jessica Gerke,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+74,spd,SPD,Laurence Stroedter,12,2,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-2.pdf
+75,afd,AfD,Dr. Ralf-Günther Conradi,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,bsw,BSW,Bernd Staege,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,cdu,CDU/CSU,Niklas Graßelt,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,fdp,FDP,Dr. Dieter Schramm,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,gruene,GRÜNE,Marei Zylka,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,linke,LINKE,Robert Irmscher,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+75,spd,SPD,Samuel Märkt,12,3,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-3.pdf
+76,afd,AfD,Rolf Wiedenhaupt,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,bsw,BSW,Hans-Hartmut Lenz,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,cdu,CDU/CSU,Tomasz Klon,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,fdp,FDP,David Jahn,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,gruene,GRÜNE,Georg Mensah,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,linke,LINKE,Sophia-Marie Dietrich,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+76,spd,SPD,Sven Meyer,12,4,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-4.pdf
+77,afd,AfD,Carsten Ubbelohde,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,bsw,BSW,Christiane Wiemann,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,cdu,CDU/CSU,Matea Krolo,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,fdp,FDP,Andreas Otto,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,gruene,GRÜNE,Nico Wanke,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,linke,LINKE,Gülistan Erdil,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+77,spd,SPD,Sevda Boyraci,12,5,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-5.pdf
+78,afd,AfD,Thomas Ruschin,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,bsw,BSW,Philipp Benjamin Erdmann,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,cdu,CDU/CSU,Richard Gamp,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,fdp,FDP,Dr. Wilfried Bernhardt,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,gruene,GRÜNE,Klara Josephine Schedlich,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,linke,LINKE,Ben Hennig,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf
+78,spd,SPD,Dr. Kai Kottenstede,12,6,https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_12_Reinickendorf_12-6.pdf

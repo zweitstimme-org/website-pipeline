@@ -1,0 +1,5 @@
+{
+  "wahllokalsuche": "https://www.berlin.de/wahlen/wahlen/berliner-wahlen-2026/wahllokalsuche/artikel.1701445.php",
+  "per_wk_pattern": "https://www.wahlen-berlin.de/wahlen/BE2026/wahllokalsuche/Stimmzettel/Muster_AGH_{bez}_{name}_{bez}-{wk}.pdf",
+  "note": "AGH Musterstimmzettel: all Direkt names + first 5 of each list. Not a full Bewerberverzeichnis."
+}

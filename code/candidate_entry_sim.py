@@ -534,7 +534,7 @@ def simulate_state(state: str, nsim: int | None, seed: int) -> dict:
                 "Listensitze, aber gewonnene Direktmandate bleiben. Fehlende Namen = Platzhalter."
             )
         ),
-        "sources_official": state == "ST",
+        "sources_official": state in ("ST", "BE"),
         "parties": parties_out,
     }
 
