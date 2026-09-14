@@ -256,6 +256,11 @@ if [[ -f "${INTEGRATION}/layouts/partials/extend_head.html" ]]; then
     "${WEBSITE_DIR}/layouts/partials/extend_head.html"
   echo "Synced extend_head.html (cookie-less hit pixel)"
 fi
+# Stimmung copies extend_head / home_info from git and has dropped the
+# evaluation banner before. Re-insert notices after those copies.
+python3 "${REPO_ROOT}/scripts/ensure_home_notices.py" \
+  --website-dir "${WEBSITE_DIR}" \
+  --integration "${INTEGRATION}"
 # Research / FAQ / blog-archive hub layouts.
 if [[ -d "${INTEGRATION}/layouts/_default" ]]; then
   mkdir -p "${WEBSITE_DIR}/layouts/_default"
