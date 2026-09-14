@@ -319,6 +319,12 @@ copy_content_dir "direktmandate"
 copy_content_dir "einzug"
 copy_content_dir "kandidat"
 
+# Stimmung copies Wahlkreise/Einzug UI from git main, which can still list a
+# frozen race (Sachsen-Anhalt 2026) as live. Strip those tiles after the copy.
+python3 "${REPO_ROOT}/scripts/ensure_frozen_forecast_pages.py" \
+  --website-dir "${WEBSITE_DIR}" \
+  --integration "${INTEGRATION}"
+
 # Preview-only: Polymarket comparison. Strip Wahlabend + map-only embed.
 rm -rf "${WEBSITE_DIR}/content/preview"
 mkdir -p "${WEBSITE_DIR}/content/preview/polymarket"
