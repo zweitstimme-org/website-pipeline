@@ -216,6 +216,13 @@ if [[ -d "${INTEGRATION}/static/js" ]]; then
       echo "Keep static/js/${base} (website-source has newer Wahlkreis stripe/seat UI)"
       continue
     fi
+    if [[ "${base}" == "candidate-entry.js" ]] \
+      && [[ -f "${dest}" ]] \
+      && rg -q 'const ARCHIVE_STATES' "${dest}" \
+      && ! rg -q 'const ARCHIVE_STATES' "${js}"; then
+      echo "Keep static/js/${base} (live already archived frozen ST)"
+      continue
+    fi
     cp "${js}" "${dest}"
   done
   # Wahlabend replay UI stays on the Pages mock only.
@@ -227,20 +234,52 @@ if [[ -d "${INTEGRATION}/static/images" ]]; then
   cp -r "${INTEGRATION}/static/images/." "${WEBSITE_DIR}/static/images/"
   echo "Synced static/images"
 fi
+# Never replace a live homepage/layout that already has editorial markers
+# (evaluation banner, media cards, merged Stimmung) with an older copy from
+# git main. Daily Stimmung / State Forecasts on main have wiped those twice.
+keep_live_if_src_missing_markers() {
+  local dest="$1"
+  local src="$2"
+  local label="$3"
+  shift 3
+  if [[ ! -f "${dest}" || ! -f "${src}" ]]; then
+    return 1
+  fi
+  local marker
+  for marker in "$@"; do
+    if rg -q --fixed-strings "${marker}" "${dest}" \
+      && ! rg -q --fixed-strings "${marker}" "${src}"; then
+      echo "Keep ${label} (live has ${marker}; integration copy does not)"
+      return 0
+    fi
+  done
+  return 1
+}
+
 if [[ -f "${INTEGRATION}/assets/css/extended/custom.css" ]]; then
-  mkdir -p "${WEBSITE_DIR}/assets/css/extended"
-  cp "${INTEGRATION}/assets/css/extended/custom.css" \
-    "${WEBSITE_DIR}/assets/css/extended/custom.css"
-  echo "Synced custom.css"
+  dest="${WEBSITE_DIR}/assets/css/extended/custom.css"
+  src="${INTEGRATION}/assets/css/extended/custom.css"
+  if keep_live_if_src_missing_markers "${dest}" "${src}" "custom.css" \
+      "home-eval-banner"; then
+    :
+  else
+    mkdir -p "${WEBSITE_DIR}/assets/css/extended"
+    cp "${src}" "${dest}"
+    echo "Synced custom.css"
+  fi
 fi
 
 if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" ]]; then
-  if integration_map_js_is_older_than_live; then
+  dest="${WEBSITE_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
+  src="${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html"
+  if keep_live_if_src_missing_markers "${dest}" "${src}" "home_info_de.html" \
+      "Morgenpost" "home_notices.html" "stimmung-section" "parseISODate"; then
+    :
+  elif integration_map_js_is_older_than_live; then
     echo "Keep home_info_de.html (paired with live Wahlkreis map UI)"
   else
     mkdir -p "${WEBSITE_DIR}/themes/PaperMod/layouts/partials"
-    cp "${INTEGRATION}/themes/PaperMod/layouts/partials/home_info_de.html" \
-      "${WEBSITE_DIR}/themes/PaperMod/layouts/partials/home_info_de.html"
+    cp "${src}" "${dest}"
     echo "Synced home_info_de.html"
   fi
 fi
@@ -251,11 +290,22 @@ if [[ -f "${INTEGRATION}/themes/PaperMod/layouts/_default/api-docs.html" ]]; the
   echo "Copied Forecast API Swagger layout"
 fi
 if [[ -f "${INTEGRATION}/layouts/partials/extend_head.html" ]]; then
-  mkdir -p "${WEBSITE_DIR}/layouts/partials"
-  cp "${INTEGRATION}/layouts/partials/extend_head.html" \
-    "${WEBSITE_DIR}/layouts/partials/extend_head.html"
-  echo "Synced extend_head.html (cookie-less hit pixel)"
+  dest="${WEBSITE_DIR}/layouts/partials/extend_head.html"
+  src="${INTEGRATION}/layouts/partials/extend_head.html"
+  if keep_live_if_src_missing_markers "${dest}" "${src}" "extend_head.html" \
+      "home-notices.js"; then
+    :
+  else
+    mkdir -p "${WEBSITE_DIR}/layouts/partials"
+    cp "${src}" "${dest}"
+    echo "Synced extend_head.html (cookie-less hit pixel)"
+  fi
 fi
+# Stimmung copies extend_head / home_info from git and has dropped the
+# evaluation banner before. Re-insert notices after those copies.
+python3 "${REPO_ROOT}/scripts/ensure_home_notices.py" \
+  --website-dir "${WEBSITE_DIR}" \
+  --integration "${INTEGRATION}"
 # Research / FAQ / blog-archive hub layouts.
 if [[ -d "${INTEGRATION}/layouts/_default" ]]; then
   mkdir -p "${WEBSITE_DIR}/layouts/_default"
@@ -287,6 +337,13 @@ copy_theme_file() {
     echo "Keep ${rel} (paired with live Wahlkreis map UI)"
     return 0
   fi
+  if [[ "${rel}" == "layouts/partials/district_forecast_map.html" ]] \
+    && [[ -f "${dest}" ]] \
+    && ! rg -q 'data-code="ST"' "${dest}" \
+    && rg -q 'data-code="ST"' "${src}"; then
+    echo "Keep ${rel} (live already dropped frozen ST tile)"
+    return 0
+  fi
   mkdir -p "$(dirname "${dest}")"
   cp "${src}" "${dest}"
   echo "Copied ${rel}"
@@ -313,6 +370,12 @@ copy_content_dir() {
 copy_content_dir "direktmandate"
 copy_content_dir "einzug"
 copy_content_dir "kandidat"
+
+# Stimmung copies Wahlkreise/Einzug UI from git main, which can still list a
+# frozen race (Sachsen-Anhalt 2026) as live. Strip those tiles after the copy.
+python3 "${REPO_ROOT}/scripts/ensure_frozen_forecast_pages.py" \
+  --website-dir "${WEBSITE_DIR}" \
+  --integration "${INTEGRATION}"
 
 # Preview-only: Polymarket comparison. Strip Wahlabend + map-only embed.
 rm -rf "${WEBSITE_DIR}/content/preview"

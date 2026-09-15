@@ -232,6 +232,12 @@ if [[ -f "${INT}/assets/css/extended/custom.css" ]]; then
   mkdir -p "${MOCK_DIR}/assets/css/extended"
   cp "${INT}/assets/css/extended/custom.css" "${MOCK_DIR}/assets/css/extended/custom.css"
 fi
+python3 "${REPO_ROOT}/scripts/ensure_home_notices.py" \
+  --website-dir "${MOCK_DIR}" \
+  --integration "${INT}"
+python3 "${REPO_ROOT}/scripts/ensure_frozen_forecast_pages.py" \
+  --website-dir "${MOCK_DIR}" \
+  --integration "${INT}"
 if [[ -d "${INT}/layouts/_default" ]]; then
   mkdir -p "${MOCK_DIR}/layouts/_default"
   for layout in forschung.html faq.html article.html posts-hub.html; do
