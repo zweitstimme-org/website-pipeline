@@ -12,6 +12,8 @@ import numpy as np
 
 from wahlabend_live_common import (
     PARTIES,
+    night_entry_mc,
+    union_history_payloads,
     _shares,
     blend_with_external,
     load_external,
@@ -210,6 +212,92 @@ class ExternalBlendTests(unittest.TestCase):
         steps = merge_history(prev, step)
         self.assertEqual([round(s["frac_reported"], 2) for s in steps], [0.0, 0.3, 0.63, 0.71])
         self.assertEqual(steps[0]["clock"], "19:12")
+
+    def test_union_history_keeps_earlier_writer_steps(self):
+        older = {
+            "scenarios": {
+                "live": {
+                    "steps": [
+                        {"clock": "17:52", "frac_reported": 0.0, "n_reported": 0},
+                        {"clock": "20:01", "frac_reported": 0.33, "n_reported": 1368},
+                    ]
+                }
+            }
+        }
+        newer = {
+            "scenarios": {
+                "live": {
+                    "steps": [
+                        {"clock": "20:47", "frac_reported": 0.71, "n_reported": 2923},
+                    ]
+                }
+            }
+        }
+        prev = union_history_payloads(older, newer)
+        steps = merge_history(prev, {"clock": "21:10", "frac_reported": 0.82, "n_reported": 3400})
+        self.assertEqual(
+            [round(s["frac_reported"], 2) for s in steps],
+            [0.0, 0.33, 0.71, 0.82],
+        )
+
+
+class BerlinListSeatsTests(unittest.TestCase):
+    def test_night_entry_mc_splits_bezirk_lists(self):
+        from parliament_size_sim import allocate_be
+
+        land = {
+            "cdu": 22.0, "spd": 13.0, "gruene": 12.0, "linke": 24.0,
+            "afd": 14.0, "fdp": 3.0, "bsw": 5.0, "others": 7.0,
+        }
+        unc = {p: 2.0 for p in PARTIES}
+        races = {
+            "1": {"a": "cdu", "b": "spd", "margin": 6.0, "sigma": 3.0, "open": 1.0},
+            "2": {"a": "linke", "b": "gruene", "margin": 10.0, "sigma": 3.0, "open": 1.0},
+        }
+        by_bez = {
+            "01": {**land, "cdu": 28.0, "linke": 18.0},
+            "02": {**land, "cdu": 16.0, "linke": 30.0},
+        }
+        mc = night_entry_mc(
+            land,
+            unc,
+            races,
+            np.random.default_rng(0),
+            allocate=lambda frac, dirs: allocate_be(frac, dirs),
+            base_seats=130,
+            n_draws=40,
+            by_bez_pct=by_bez,
+            wkr_bez={"1": "01", "2": "02"},
+            bezirk_parties={"cdu", "spd", "linke"},
+        )
+        self.assertIsInstance(mc["list_seats"]["cdu"], dict)
+        self.assertIn("01", mc["list_seats"]["cdu"])
+        self.assertEqual(len(mc["list_seats"]["cdu"]["01"]), 3)
+        self.assertIsInstance(mc["list_seats"]["afd"], list)
+        self.assertEqual(len(mc["list_seats"]["afd"]), 3)
+
+    def test_night_entry_mc_landes_without_bezirk(self):
+        from parliament_size_sim import allocate_mv
+
+        land = {
+            "cdu": 20.0, "spd": 24.0, "gruene": 8.0, "linke": 12.0,
+            "afd": 22.0, "fdp": 3.0, "bsw": 5.0, "others": 6.0,
+        }
+        unc = {p: 2.0 for p in PARTIES}
+        races = {
+            "1": {"a": "spd", "b": "afd", "margin": 3.0, "sigma": 3.0, "open": 1.0},
+        }
+        mc = night_entry_mc(
+            land,
+            unc,
+            races,
+            np.random.default_rng(1),
+            allocate=lambda frac, dirs: allocate_mv(frac, dirs),
+            base_seats=71,
+            n_draws=20,
+        )
+        self.assertIsInstance(mc["list_seats"]["spd"], list)
+        self.assertEqual(len(mc["list_seats"]["spd"]), 3)
 
 
 class AfsParserTests(unittest.TestCase):

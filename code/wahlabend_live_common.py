@@ -81,6 +81,7 @@ BEZ_NAMES = {
     "12": "Reinickendorf",
 }
 NAME_TO_BEZ = {v.lower(): k for k, v in BEZ_NAMES.items()}
+BE_BEZIRKSLISTE_PARTIES = frozenset({"cdu", "spd", "linke"})
 
 INSTITUTE_LABEL = {
     "infratest_dimap": "Infratest dimap",
@@ -896,6 +897,81 @@ def load_scenario_defs(state: str, *, hurdle: float = 0.05) -> list[dict]:
     return defs
 
 
+def forecast_scenario_p_start(state_fc: dict | None) -> dict[str, float]:
+    """Frozen pre-count P from yesterday's forecast_state_*.json (0–100)."""
+    items = ((state_fc or {}).get("scenarios") or {}).get("items") or []
+    out: dict[str, float] = {}
+    for it in items:
+        sid = it.get("id")
+        p = it.get("probability")
+        if sid is None or p is None:
+            continue
+        try:
+            out[str(sid)] = float(p)
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
+def hurdle_p_from_forecast_parties(
+    state_fc: dict | None, *, hurdle_pct: float = 5.0
+) -> dict[str, float]:
+    """P(share ≥ hurdle) from published fit/low/high when the item was omitted."""
+    out: dict[str, float] = {}
+    for row in (state_fc or {}).get("parties") or []:
+        raw = str(row.get("party_code") or "").strip().lower()
+        if not raw or raw in ("oth", "others"):
+            continue
+        try:
+            fit = float(row["fit"])
+            lo = float(row["low"])
+            hi = float(row["high"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        half = abs(hi - lo) / 2.0
+        sd = max(half / Z83, 0.15)
+        z = (float(hurdle_pct) - fit) / sd
+        p = 50.0 * (1.0 + math.erf(-z / math.sqrt(2.0)))
+        p = round(min(100.0, max(0.0, p)), 1)
+        for key in {raw, _scenario_party(raw)}:
+            if key in ("others", "oth"):
+                continue
+            out[f"above_hurdle_{key}"] = p
+    return out
+
+
+def scenario_p_from_draws(state_draws: np.ndarray | None, state: str) -> dict[str, float]:
+    """Evaluate scenario defs on the frozen posterior — no extra nowcast noise."""
+    if state_draws is None or len(state_draws) < 20:
+        return {}
+    defs = load_scenario_defs(state)
+    tot = state_draws.sum(axis=1, keepdims=True)
+    tot[tot <= 0.0] = 1.0
+    frac = state_draws / tot
+    n = int(frac.shape[0])
+    hits = {d["id"]: 0 for d in defs}
+    for i in range(n):
+        shares = {p: float(frac[i, j]) for j, p in enumerate(PARTIES)}
+        for d in defs:
+            if _eval_scenario(shares, d):
+                hits[d["id"]] += 1
+    return {d["id"]: round(100.0 * hits[d["id"]] / float(n), 1) for d in defs}
+
+
+def resolve_scenario_p_start(
+    state_fc: dict | None,
+    state_draws: np.ndarray | None,
+    state: str,
+) -> dict[str, float]:
+    """Published forecast items first; draws / interval fill missing ids."""
+    out = forecast_scenario_p_start(state_fc)
+    for sid, p in scenario_p_from_draws(state_draws, state).items():
+        out.setdefault(sid, p)
+    for sid, p in hurdle_p_from_forecast_parties(state_fc).items():
+        out.setdefault(sid, p)
+    return out
+
+
 def night_scenario_probs(
     nc_land_pct: dict[str, float],
     unc_pp: dict[str, float],
@@ -905,6 +981,7 @@ def night_scenario_probs(
     n_draws: int = N_MC,
     state_draws: np.ndarray | None = None,
     prior_unc_pp: dict[str, float] | None = None,
+    p_start_by_id: dict[str, float] | None = None,
 ) -> dict:
     defs = load_scenario_defs(state)
     hits = {d["id"]: 0 for d in defs}
@@ -917,13 +994,21 @@ def night_scenario_probs(
     items = []
     for d in defs:
         p_hat = hits[d["id"]] / float(n_draws)
+        p_now = round(p_hat * 100.0, 1)
+        if p_start_by_id is not None:
+            if d["id"] in p_start_by_id:
+                p_start = round(float(p_start_by_id[d["id"]]), 1)
+            else:
+                p_start = None
+        else:
+            p_start = p_now
         items.append(
             {
                 "id": d["id"],
                 "category": d["category"],
                 "label_de": d["label_de"],
-                "p": round(p_hat * 100.0, 1),
-                "p_start": round(p_hat * 100.0, 1),
+                "p": p_now,
+                "p_start": p_start,
                 "truth": None,
                 "call": p_hat >= 0.5,
                 "correct": None,
@@ -939,17 +1024,25 @@ def night_scenario_probs(
     }
 
 
-def _stamp_p_start(steps: list[dict]) -> list[dict]:
+def _stamp_p_start(
+    steps: list[dict], p_start_by_id: dict[str, float] | None = None
+) -> list[dict]:
+    """Freeze vor-Auszählung P. Prefer the published forecast map."""
     if not steps:
         return steps
-    start_items = (steps[0].get("scenario_probs") or {}).get("items") or []
-    start_p = {it["id"]: it["p"] for it in start_items if "id" in it and "p" in it}
+    frozen: dict[str, float] = {}
+    if p_start_by_id:
+        frozen.update({str(k): float(v) for k, v in p_start_by_id.items()})
+    else:
+        start_items = (steps[0].get("scenario_probs") or {}).get("items") or []
+        frozen = {
+            it["id"]: it["p"] for it in start_items if "id" in it and "p" in it
+        }
     for s in steps:
-        sp = s.get("scenario_probs") or {}
-        for it in sp.get("items") or []:
+        for it in (s.get("scenario_probs") or {}).get("items") or []:
             sid = it.get("id")
-            if sid in start_p:
-                it["p_start"] = start_p[sid]
+            if sid in frozen:
+                it["p_start"] = frozen[sid]
     return steps
 
 
@@ -1116,6 +1209,29 @@ def wkr_races(
     return races, wkr_out
 
 
+def _bez_id(value) -> str:
+    s = str(value or "").strip()
+    if not s or s == "?":
+        return ""
+    return s.zfill(2) if s.isdigit() else s
+
+
+def union_history_payloads(*payloads: dict | None) -> dict | None:
+    """Keep every unique count snapshot across writers / stale clones."""
+    steps: list[dict] = []
+    for prev in payloads:
+        if not prev:
+            continue
+        sc = (prev.get("scenarios") or {}).get("live") or (
+            prev.get("scenarios") or {}
+        ).get("random")
+        if sc:
+            steps.extend(list(sc.get("steps") or []))
+    if not steps:
+        return None
+    return {"scenarios": {"live": {"steps": _trim_progress_regressions(steps)}}}
+
+
 def night_entry_mc(
     nc_land_pct: dict[str, float],
     unc_pp: dict[str, float],
@@ -1127,18 +1243,38 @@ def night_entry_mc(
     n_draws: int = N_MC,
     state_draws: np.ndarray | None = None,
     prior_unc_pp: dict[str, float] | None = None,
+    by_bez_pct: dict[str, dict[str, float]] | None = None,
+    wkr_bez: dict[str, str] | None = None,
+    bezirk_parties: set[str] | frozenset[str] | None = None,
 ) -> dict:
+    """Monte Carlo over seats / list seats.
+
+    When ``by_bez_pct`` and ``bezirk_parties`` are set (Berlin CDU/SPD/Linke),
+    ``list_seats[p]`` is a per-Bezirk [p10, p50, p90] map so the Liste tab
+    can render Bezirkslisten. Other parties stay as a Landesliste triple.
+    """
+    from parliament_size_sim import allocate_be, hare_niemeyer
+
     directs = {p: 0 for p in MAIN}
     for r in races.values():
         if r["a"] in directs:
             directs[r["a"]] += 1
+    bez_parties = {p for p in (bezirk_parties or ()) if p in MAIN}
+    bez_ids = [_bez_id(b) for b in (by_bez_pct or {})]
+    bez_ids = [b for b in bez_ids if b]
+    use_bez = bool(bez_parties and bez_ids)
+    if use_bez:
+        bez_ids = sorted(set(bez_ids))
+        by_bez_n = {_bez_id(b): row for b, row in (by_bez_pct or {}).items() if _bez_id(b)}
+        wkr_bez_n = {str(w): _bez_id(b) for w, b in (wkr_bez or {}).items()}
     x = sample_land_draws(nc_land_pct, unc_pp, prior_unc_pp, state_draws, rng, n_draws)
     xpct = x * 100.0
     nc = np.array([float(nc_land_pct.get(p, 0.0)) for p in PARTIES])
     delta = xpct - nc
     eta = rng.normal(0.0, ERST_COMMON_SD, size=(n_draws, len(PARTIES)))
     pidx = {p: i for i, p in enumerate(PARTIES)}
-    race_list = list(races.values())
+    race_ids = list(races)
+    race_list = [races[wid] for wid in race_ids]
     winners = np.empty((n_draws, len(race_list)), dtype=np.int16)
     for j, r in enumerate(race_list):
         ia, ib = pidx[r["a"]], pidx[r["b"]]
@@ -1153,24 +1289,73 @@ def night_entry_mc(
     sizes: list[int] = []
     seats_acc: dict[str, list[int]] = {p: [] for p in MAIN}
     list_acc: dict[str, list[int]] = {p: [] for p in MAIN}
+    list_bez_acc: dict[str, dict[str, list[int]]] = (
+        {p: {b: [] for b in bez_ids} for p in bez_parties} if use_bez else {}
+    )
     for i in range(n_draws):
         frac = {p: float(x[i, pidx[p]]) for p in PARTIES}
+        draw = {p: float(xpct[i, pidx[p]]) for p in PARTIES}
         dirs = {p: 0 for p in MAIN}
+        dirs_bez: dict[str, dict[str, int]] = {p: {} for p in bez_parties} if use_bez else {}
         for j in range(len(race_list)):
             wp = PARTIES[winners[i, j]]
             if wp in dirs:
                 dirs[wp] += 1
-        alloc = allocate(frac, dirs)
+            if use_bez and wp in dirs_bez:
+                bid = wkr_bez_n.get(str(race_ids[j]), "")
+                if bid:
+                    dirs_bez[wp][bid] = dirs_bez[wp].get(bid, 0) + 1
+        if use_bez:
+            bez_votes = {}
+            for p in MAIN:
+                scale = draw[p] / max(float(nc_land_pct.get(p, 0.0)), EPS)
+                bez_votes[p] = {
+                    b: max(0.0, float((by_bez_n.get(b) or {}).get(p, 0.0)) * scale)
+                    for b in bez_ids
+                }
+            alloc = allocate_be(
+                frac,
+                dirs,
+                base=base_seats,
+                directs_by_bez=dirs_bez,
+                bez_votes=bez_votes,
+                bezirk_parties=bez_parties,
+            )
+        else:
+            alloc = allocate(frac, dirs)
         sizes.append(int(alloc["size"]))
         for p in MAIN:
             s_p = int(alloc["seats"].get(p, 0))
             seats_acc[p].append(s_p)
             list_acc[p].append(max(0, s_p - dirs.get(p, 0)))
+        if use_bez:
+            for p in bez_parties:
+                s_p = int(alloc["seats"].get(p, 0))
+                if s_p <= 0:
+                    for b in bez_ids:
+                        list_bez_acc[p][b].append(0)
+                    continue
+                scale = draw[p] / max(float(nc_land_pct.get(p, 0.0)), EPS)
+                votes = {
+                    b: max(0.0, float((by_bez_n.get(b) or {}).get(p, 0.0)) * scale)
+                    for b in bez_ids
+                }
+                bseats = hare_niemeyer(votes, s_p)
+                for b in bez_ids:
+                    list_bez_acc[p][b].append(
+                        max(0, int(bseats.get(b, 0)) - int(dirs_bez.get(p, {}).get(b, 0)))
+                    )
 
     def q(vals: list[int]) -> list[int]:
         arr = np.asarray(vals)
         return [int(np.percentile(arr, 10)), int(np.percentile(arr, 50)), int(np.percentile(arr, 90))]
 
+    list_seats: dict[str, object] = {}
+    for p in MAIN:
+        if use_bez and p in bez_parties:
+            list_seats[p] = {b: q(list_bez_acc[p][b]) for b in bez_ids}
+        else:
+            list_seats[p] = q(list_acc[p])
     sz = np.asarray(sizes)
     return {
         "n_draws": n_draws,
@@ -1180,7 +1365,7 @@ def night_entry_mc(
         "p_size_gt_base": round(float((sz > base_seats).mean()), 3),
         "seats": {p: q(seats_acc[p]) for p in MAIN},
         "directs": directs,
-        "list_seats": {p: q(list_acc[p]) for p in MAIN},
+        "list_seats": list_seats,
     }
 
 

@@ -45,7 +45,10 @@ from wahlabend_live_common import (
     map_party_columns,
     merge_history,
     night_entry_mc,
+    union_history_payloads,
     night_scenario_probs,
+    resolve_scenario_p_start,
+    _stamp_p_start,
     nowcast_wkrs,
     precinct_ist_soll,
     prior_uncertainty_pp,
@@ -380,6 +383,7 @@ def build_step(
     wk_unc,
     state_draws,
     external,
+    p_start_by_id=None,
 ) -> dict:
     live_wkr = dict(live.get("wkr") or {})
     source = "wkr"
@@ -466,6 +470,7 @@ def build_step(
         state="MV",
         state_draws=state_draws,
         prior_unc_pp=prior_unc,
+        p_start_by_id=p_start_by_id,
     )
     clock = live.get("clock") or datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
     return {
@@ -529,6 +534,7 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
         m = state_draws.mean(axis=0)
         land_prior = _shares({p: float(m[i]) for i, p in enumerate(PARTIES)})
     prior_unc = prior_uncertainty_pp(state_fc)
+    p_start_by_id = resolve_scenario_p_start(state_fc, state_draws, "MV")
     prior, erst_prior, bsw_direkt = district_priors(
         dist_fc, panel, land_prior, hist_key="shares_hist"
     )
@@ -551,6 +557,7 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
         wk_unc=wk_unc,
         state_draws=state_draws,
         external=external,
+        p_start_by_id=p_start_by_id,
     )
     prev = None
     if prev_path and prev_path.exists():
@@ -558,7 +565,8 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
             prev = json.loads(prev_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             prev = None
-    steps = merge_history(prev, step)
+    steps = merge_history(union_history_payloads(prev), step)
+    _stamp_p_start(steps, p_start_by_id)
     payload = {
         "election": "LTW2026",
         "state": "mv",
@@ -584,6 +592,7 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
         },
         "generated_at": github_now(),
         "prior_uncertainty_pp": prior_unc,
+        "scenario_p_start": p_start_by_id,
         "model": {
             "description": (
                 "Mecklenburg-Vorpommern LTW 2026 Live-Nowcast. Lokale Priors: "

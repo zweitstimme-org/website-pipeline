@@ -17,6 +17,7 @@ from pathlib import Path
 from parliament_size_sim import allocate_be
 from wahlabend_live_common import (
     AFS_2026_PXX,
+    BE_BEZIRKSLISTE_PARTIES,
     BEZ_NAMES,
     EPS,
     EXTERNAL_JSON,
@@ -50,6 +51,7 @@ from wahlabend_live_common import (
     map_party_columns,
     merge_history,
     night_entry_mc,
+    union_history_payloads,
     night_scenario_probs,
     nowcast_wkrs,
     precinct_ist_soll,
@@ -706,26 +708,6 @@ def build_step(
         external_turnout=(external or {}).get("turnout"),
     )
     races, wkr_out = wkr_races(panel, nc, wk_unc, prior_unc)
-    entry_mc = night_entry_mc(
-        _pct(nc_land),
-        unc,
-        races,
-        rng,
-        allocate=allocate_from_nowcast,
-        base_seats=130,
-        state_draws=state_draws,
-        prior_unc_pp=prior_unc,
-    )
-    scen = night_scenario_probs(
-        _pct(nc_land),
-        unc,
-        rng,
-        state="BE",
-        state_draws=state_draws,
-        prior_unc_pp=prior_unc,
-    )
-    clock = live.get("clock") or datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
-    kind = live.get("kind") or "empty"
     by_bez: dict[str, dict] = {}
     for wid, row in panel.items():
         bez = row.get("bezirk") or "?"
@@ -741,6 +723,29 @@ def build_step(
             "nowcast": _pct({p: slot[p] / g for p in PARTIES}),
             "label": BEZ_NAMES.get(bez, bez),
         }
+    entry_mc = night_entry_mc(
+        _pct(nc_land),
+        unc,
+        races,
+        rng,
+        allocate=allocate_from_nowcast,
+        base_seats=130,
+        state_draws=state_draws,
+        prior_unc_pp=prior_unc,
+        by_bez_pct={b: row["nowcast"] for b, row in bez_out.items()},
+        wkr_bez={wid: str(row.get("bezirk") or "") for wid, row in panel.items()},
+        bezirk_parties=BE_BEZIRKSLISTE_PARTIES,
+    )
+    scen = night_scenario_probs(
+        _pct(nc_land),
+        unc,
+        rng,
+        state="BE",
+        state_draws=state_draws,
+        prior_unc_pp=prior_unc,
+    )
+    clock = live.get("clock") or datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
+    kind = live.get("kind") or "empty"
     return {
         "frac_reported": round(frac_wb if soll else frac_v, 4),
         "n_reported": int(ist),
@@ -846,7 +851,7 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
             prev = json.loads(prev_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             prev = None
-    steps = merge_history(prev, step)
+    steps = merge_history(union_history_payloads(prev), step)
     hist_note = (
         f"WK-Historie: AGH2023"
         + (f" + BTW2025 ({len(alt)} WK)" if alt else " (BTW2025-Remap nicht geladen)")

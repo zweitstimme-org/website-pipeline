@@ -72,6 +72,7 @@ jobs:
           while true; do
             iteration=$((iteration + 1))
             echo "=== poll ${iteration} $(date -u +%H:%M:%SZ) ==="
+            git -C gh-pages-site pull --rebase --autostash origin gh-pages || true
             bash scripts/fetch_be_live.sh || echo "WARN BE fetch failed"
             bash scripts/fetch_mv_live.sh || echo "WARN MV fetch failed"
             if [ -f gh-pages-site/data/be_live/ankunft.json ] && [ ! -f berlin/wahlabend/live/ankunft.json ]; then
