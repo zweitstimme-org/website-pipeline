@@ -193,6 +193,24 @@ class ExternalBlendTests(unittest.TestCase):
         self.assertAlmostEqual(steps[-1]["frac_reported"], 0.63)
         self.assertLessEqual(steps[1]["uncertainty"]["afd"], steps[0]["uncertainty"]["afd"])
 
+    def test_merge_history_drops_mid_list_zero_when_new_counted(self):
+        prev = {
+            "scenarios": {
+                "live": {
+                    "steps": [
+                        {"clock": "19:12", "frac_reported": 0.0, "n_reported": 0, "nowcast": {"cdu": 5.2}},
+                        {"clock": "19:15", "frac_reported": 0.30, "n_reported": 500, "nowcast": {"cdu": 5.3}},
+                        {"clock": "17:52", "frac_reported": 0.0, "n_reported": 0, "nowcast": {"cdu": 5.2}},
+                        {"clock": "19:55", "frac_reported": 0.63, "n_reported": 1252, "nowcast": {"cdu": 5.4}},
+                    ]
+                }
+            }
+        }
+        step = {"clock": "20:05", "frac_reported": 0.71, "n_reported": 1400, "nowcast": {"cdu": 5.5}}
+        steps = merge_history(prev, step)
+        self.assertEqual([round(s["frac_reported"], 2) for s in steps], [0.0, 0.3, 0.63, 0.71])
+        self.assertEqual(steps[0]["clock"], "19:12")
+
 
 class AfsParserTests(unittest.TestCase):
     def test_pxx_and_awk_nummer(self):

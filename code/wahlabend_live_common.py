@@ -986,11 +986,16 @@ def _trim_progress_regressions(steps: list[dict]) -> list[dict]:
     """Keep a non-decreasing count path.
 
     Empty refetches must not sit after a counted snapshot — the UI shows
-    the last step, so a trailing 0 % row hides the nowcast.
+    the last step, so a trailing 0 % row hides the nowcast. Sort first so a
+    0 % row published in the middle of the night cannot draw a second fan.
     """
+    ordered = sorted(
+        list(steps or []),
+        key=lambda s: (_progress_key(s)[0], _progress_key(s)[1], str(s.get("clock") or "")),
+    )
     keep: list[dict] = []
     best = (-1.0, -1)
-    for s in steps:
+    for s in ordered:
         p = _progress_key(s)
         if keep and _same_progress(keep[-1], s):
             keep[-1] = s

@@ -429,8 +429,47 @@
 
   function steps() {
     var b = scenarioBundle();
-    if (b && b.steps && b.steps.length) return b.steps;
-    return (state.data && state.data.steps) || [];
+    var raw = (b && b.steps && b.steps.length)
+      ? b.steps
+      : ((state.data && state.data.steps) || []);
+    return sanitizeNightSteps(raw);
+  }
+
+  /** Live x = counted share: a 0 % step after a counted one draws a second fan. */
+  function sanitizeNightSteps(raw) {
+    var list = (raw || []).filter(Boolean).slice();
+    list.sort(function (a, b) {
+      var fa = Number(a.frac_reported) || 0;
+      var fb = Number(b.frac_reported) || 0;
+      if (fa !== fb) return fa - fb;
+      var na = Number(a.n_reported) || 0;
+      var nb = Number(b.n_reported) || 0;
+      if (na !== nb) return na - nb;
+      return String(a.clock || '').localeCompare(String(b.clock || ''));
+    });
+    var keep = [];
+    var bestF = -1;
+    var bestN = -1;
+    list.forEach(function (s) {
+      var f = Number(s.frac_reported) || 0;
+      var n = Number(s.n_reported) || 0;
+      if (keep.length) {
+        var last = keep[keep.length - 1];
+        var lf = Number(last.frac_reported) || 0;
+        var ln = Number(last.n_reported) || 0;
+        if (Math.abs(lf - f) < 1e-6 && ln === n) {
+          keep[keep.length - 1] = s;
+          return;
+        }
+      }
+      if (f < bestF - 1e-6 || (Math.abs(f - bestF) < 1e-6 && n < bestN)) return;
+      keep.push(s);
+      if (f > bestF + 1e-6 || n > bestN) {
+        bestF = f;
+        bestN = n;
+      }
+    });
+    return keep;
   }
 
   function unitLabel(scope, unitId) {
@@ -915,8 +954,8 @@
 
   function tvUncMap(kind, shares) {
     var hr = kind === 'hochrechnung';
-    var rmse = (hr ? 0.64 : 0.77) * 2.0;
-    var floor = hr ? 0.8 : 1.0;
+    var rmse = (hr ? 0.64 : 0.77) * 4.0;
+    var floor = hr ? 2.5 : 3.5;
     var z = 1.37;
     var varRef = 0.20 * 0.80;
     var out = {};
@@ -937,6 +976,17 @@
     return Object.keys(u).some(function (k) { return Number(u[k]) > 0; });
   }
 
+  function liftPartyUnc(row, floorMap) {
+    var u = Object.assign({}, row.uncertainty || {});
+    PARTIES_ORDER.forEach(function (p) {
+      var cur = Number(u[p]) || 0;
+      var fl = Number((floorMap || {})[p]) || 0;
+      if (fl > cur) u[p] = fl;
+    });
+    row.uncertainty = u;
+    row.uncertainty_pp = Math.max(Number(row.uncertainty_pp) || 0, medianUncPp(u));
+  }
+
   function fillMissingComparisonUnc(rows) {
     (rows || []).forEach(function (r) {
       if (!r) return;
@@ -949,10 +999,7 @@
         return;
       }
       if (r.kind === 'prognose' || r.kind === 'exit_avg' || r.kind === 'hochrechnung') {
-        if (rowHasPartyUnc(r)) return;
-        var tv = tvUncMap(r.kind, r.shares);
-        r.uncertainty = tv;
-        if (r.uncertainty_pp == null) r.uncertainty_pp = medianUncPp(tv);
+        liftPartyUnc(r, tvUncMap(r.kind, r.shares));
       }
     });
     return rows;
