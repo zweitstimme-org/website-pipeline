@@ -1,0 +1,14 @@
+{
+  "status": "skeleton",
+  "message": "Wire this runner to parameterized prediction-2025 once the next Bundestagswahl cycle begins. District forecast inputs (candidate CSV, GeoJSON, remapping tables) belong in federal-model/inputs/.",
+  "election_date": "2029-02-25",
+  "poll_source": "api",
+  "model_dir": "/mnt/cerfort/forecasts/prediction-2025",
+  "expected_outputs": ["forecast_federal.json", "pred_probabilities.json", "forecast_districts.json"],
+  "district_inputs": {
+    "candidates": "federal-model/inputs/btw_candidates.csv",
+    "geojson": "federal-model/inputs/wahlkreise.geojson",
+    "remapping": "federal-model/inputs/district_remapping.csv"
+  },
+  "last_update": "2026-07-15T15:14:10"
+}
