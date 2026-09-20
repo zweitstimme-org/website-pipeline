@@ -16,6 +16,7 @@ from wahlabend_live_common import (
     blend_with_external,
     load_external,
     merge_history,
+    read_csv_rows,
     turnout_mixture,
 )
 
@@ -184,6 +185,80 @@ class LiveScriptsSmokeTests(unittest.TestCase):
         self.assertEqual(payload["live"]["soll_wkr"], 36)
         self.assertIn("bsw", step["nowcast"])
         self.assertGreater(step["nowcast"]["bsw"], 0)
+
+
+LAIV_WK_CSV = """Wahl zum Landtag von Mecklenburg-Vorpommern am 20. September 2026
+Zwischenergebnis der Wahlkreise am 20.09.2026 um 19:15:49 Uhr - Stimmenanzahl der Parteien
+(c) Der Landeswahlleiter Mecklenburg-Vorpommern
+
+Berechnungsdatum;Ausgabe;Wahlkreis;Wahlkreisname/Land;Wahlbezirke insg.;Erf. Wahlbezirke;Wahlberechtigte;Wähler;Wahlbeteiligung;Erst-/Zweitstimme;Ungültige Stimmen;Gültige Stimmen;SPD;AfD;CDU;Die Linke;GRÜNE;FDP;BSW
+20.09.2026 19:15:49;A;1;Greifswald;60;3;1790;914;51,1;1;11;903;340;340;41;83;34;21;40
+20.09.2026 19:15:49;P;1;Greifswald;60;3;1790;914;51,1;1;1,2;98,8;37,7;37,7;4,5;9,2;3,8;2,3;4,4
+20.09.2026 19:15:49;A;1;Greifswald;60;3;1790;914;51,1;2;8;906;300;400;50;70;30;16;40
+20.09.2026 19:15:49;P;1;Greifswald;60;3;1790;914;51,1;2;0,9;99,1;33,1;44,2;5,5;7,7;3,3;1,8;4,4
+20.09.2026 19:15:49;A;2;Neubrandenburg I;50;0;0;0;x;1;0;0;0;0;0;0;0;0;0
+20.09.2026 19:15:49;P;2;Neubrandenburg I;50;0;0;0;x;1;0;0;0,0;0,0;0,0;0,0;0,0;0,0;0,0
+20.09.2026 19:15:49;A;2;Neubrandenburg I;50;0;0;0;x;2;0;0;0;0;0;0;0;0;0
+20.09.2026 19:15:49;P;2;Neubrandenburg I;50;0;0;0;x;2;0;0;0,0;0,0;0,0;0,0;0,0;0,0;0,0
+20.09.2026 19:15:49;A;99;Mecklenburg-Vorpommern;110;3;1790;914;51,1;2;8;906;300;400;50;70;30;16;40
+20.09.2026 19:15:49;P;99;Mecklenburg-Vorpommern;110;3;1790;914;51,1;2;0,9;99,1;33,1;44,2;5,5;7,7;3,3;1,8;4,4
+"""
+
+LAIV_WB_CSV = """Wahl zum Landtag von Mecklenburg-Vorpommern am 20. September 2026
+Zwischenergebnis der Wahlbezirke am 20.09.2026 um 19:15:49 Uhr - Stimmenanzahl der Parteien
+(c) Der Landeswahlleiter
+
+Berechnungsdatum;Ausgabe;Kreis;Kreisname;Wahlkreis;Wahlkreisname;Amt;Amtsname;Gemeinde;Gemeindename;Wahlbezirk;Wahlbezirksname;Wahlberechtigte;Wähler;Wahlbeteiligung;Erst-/Zweitstimme;Ungültige Stimmen;Gültige Stimmen;SPD;AfD;CDU;Die Linke;GRÜNE;FDP;BSW
+20.09.2026 19:15:49;A;3;Rostock;4;Rostock I;1;Rostock;13003000;Rostock;1;1/Rostock;0;0;x;2;0;0;0;0;0;0;0;0;0
+20.09.2026 19:15:49;P;3;Rostock;4;Rostock I;1;Rostock;13003000;Rostock;1;1/Rostock;0;0;x;2;0;0;0,0;0,0;0,0;0,0;0,0;0,0;0,0
+20.09.2026 19:15:49;A;7;Seenplatte;16;Neubrandenburg I;2;Amt;13071001;Alte Gemeinde;1;1/Dorf;400;280;70,0;2;4;276;80;120;20;18;10;8;20
+20.09.2026 19:15:49;P;7;Seenplatte;16;Neubrandenburg I;2;Amt;13071001;Alte Gemeinde;1;1/Dorf;400;280;70,0;2;1,4;98,6;29,0;43,5;7,2;6,5;3,6;2,9;7,2
+"""
+
+
+class LaivCsvParseTests(unittest.TestCase):
+    def _write(self, td: str, name: str, text: str) -> Path:
+        p = Path(td) / name
+        p.write_text(text, encoding="cp1252")
+        return p
+
+    def test_skips_wahlkreise_title_line(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = self._write(td, "l_wahlkreise.csv", LAIV_WK_CSV)
+            rows, cols = read_csv_rows(p)
+        self.assertIn("Wahlkreis", cols)
+        self.assertIn("SPD", cols)
+        self.assertGreaterEqual(len(rows), 4)
+
+    def test_wk_uses_absolute_zweit_and_erf_soll(self):
+        from wahlabend_mv_live import parse_laiv_units
+
+        with tempfile.TemporaryDirectory() as td:
+            p = self._write(td, "l_wahlkreise.csv", LAIV_WK_CSV)
+            wkr = parse_laiv_units(p, key_fields=("wahlkreis", "wk-nr", "wk"))
+        self.assertEqual(wkr["1"]["gueltig"], 906)
+        self.assertEqual(wkr["1"]["counts"]["afd"], 400)
+        self.assertEqual(wkr["1"]["counts"]["spd"], 300)
+        self.assertEqual(wkr["1"]["ist"], 3)
+        self.assertEqual(wkr["1"]["soll"], 60)
+        self.assertEqual(wkr["1"]["erst_gueltig"], 903)
+        self.assertEqual(wkr["2"]["gueltig"], 0)
+        self.assertEqual(wkr["2"]["soll"], 50)
+        self.assertEqual(wkr["99"]["ist"], 3)
+        self.assertEqual(wkr["99"]["soll"], 110)
+        self.assertIsNone(wkr["99"]["wkr"])
+
+    def test_precinct_keys_do_not_collide(self):
+        from wahlabend_mv_live import parse_laiv_units
+
+        with tempfile.TemporaryDirectory() as td:
+            p = self._write(td, "l_wahlbezirke.csv", LAIV_WB_CSV)
+            wb = parse_laiv_units(p, key_fields=("wahlbezirk", "wbz"))
+        self.assertEqual(len(wb), 2)
+        counted = [u for u in wb.values() if u["gueltig"] > 0]
+        self.assertEqual(len(counted), 1)
+        self.assertEqual(counted[0]["gueltig"], 276)
+        self.assertEqual(counted[0]["wkr"], "16")
 
 
 if __name__ == "__main__":

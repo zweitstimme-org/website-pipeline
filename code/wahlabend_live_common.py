@@ -1243,6 +1243,41 @@ def live_precincts(panel: dict[str, dict], live_wkr: dict[str, dict]) -> list[di
     return out
 
 
+def _csv_header_line(lines: list[str]) -> int:
+    """Index of the real delimiter-separated header, skipping LAIV titles.
+
+    LAIV files start with 'Zwischenergebnis der Wahlkreise …' — that line
+    contains 'wahlkreis' but is not a header. Require several delimited
+    fields plus a known column token.
+    """
+    tokens = (
+        "berechnungsdatum",
+        "ausgabe",
+        "adresse",
+        "gebietsart",
+        "wahlberecht",
+        "gültig",
+        "gueltig",
+        "p01",
+        ";spd;",
+        ";cdu;",
+        ";afd;",
+    )
+    start = 0
+    for i, line in enumerate(lines[:16]):
+        if not line or not line.strip():
+            continue
+        semi, comma = line.count(";"), line.count(",")
+        delim = ";" if semi >= comma else ","
+        if line.count(delim) < 3:
+            continue
+        low = f";{line.lower().replace(',', ';')};"
+        if any(tok in low or tok in line.lower() for tok in tokens):
+            return i
+        start = i
+    return start
+
+
 def read_csv_rows(path: Path) -> tuple[list[dict], list[str]]:
     """Read a CSV trying utf-8-sig then latin-1, comma then semicolon."""
     if not path.exists() or path.stat().st_size < 8:
@@ -1257,26 +1292,8 @@ def read_csv_rows(path: Path) -> tuple[list[dict], list[str]]:
             continue
     if text is None:
         return [], []
-    # Skip LAIV preamble rows that don't look like a header.
     lines = text.splitlines()
-    start = 0
-    for i, line in enumerate(lines[:12]):
-        low = line.lower()
-        if any(
-            x in low
-            for x in (
-                "wahlkreis",
-                "spd",
-                "cdu",
-                "adresse",
-                "gebietsart",
-                "p01",
-                "gültig",
-                "gueltig",
-            )
-        ):
-            start = i
-            break
+    start = _csv_header_line(lines)
     body = "\n".join(lines[start:])
     dialect_delim = ";" if body[:400].count(";") >= body[:400].count(",") else ","
     f = io.StringIO(body)

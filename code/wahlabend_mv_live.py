@@ -70,7 +70,7 @@ LAST_OFFICE_TURNOUT = 70.8  # LTW 2021
 RECENT_FEDERAL_TURNOUT = 80.0  # MV BTW 2025 (approx.)
 TURNOUT_PRIOR = 74.0
 # LTW 2021 replay precinct count; live LAIV Soll replaces this when present.
-EXPECTED_PRECINCTS = 1759
+EXPECTED_PRECINCTS = 1974
 
 KIND_LABEL = {
     "empty": "Noch keine Auszählung",
@@ -81,6 +81,11 @@ KIND_LABEL = {
 
 
 def _row_is_percent(row: dict) -> bool:
+    aus = str(row.get("Ausgabe") or "").strip().upper()
+    if aus == "P":
+        return True
+    if aus == "A":
+        return False
     blob = " ".join(str(v or "") for v in list(row.values())[:8]).lower()
     return "%" in blob or "prozent" in blob or "anteil" in blob
 
@@ -88,6 +93,8 @@ def _row_is_percent(row: dict) -> bool:
 def _row_wkr(row: dict) -> str | None:
     for k, v in row.items():
         lk = str(k).lower()
+        if "name" in lk or "bezeichnung" in lk:
+            continue
         if any(tok in lk for tok in ("wahlkreis", "wk-nr", "wk_nr", "wknr")) or lk in ("wk", "wk-nr"):
             s = str(v or "").strip()
             if not s or s in ("-", "."):
@@ -103,10 +110,60 @@ def _row_wkr(row: dict) -> str | None:
 
 
 def _row_is_erst(row: dict) -> bool:
+    for k, v in row.items():
+        lk = str(k).lower().replace("ü", "ue")
+        if "erst" in lk and "zweit" in lk:
+            s = str(v or "").strip()
+            if s in ("1", "1.0"):
+                return True
+            if s in ("2", "2.0"):
+                return False
     blob = " ".join(str(k) + " " + str(v or "") for k, v in list(row.items())[:12]).lower()
     if "zweit" in blob:
         return False
     return "erst" in blob
+
+
+def _col_is_name(lk: str) -> bool:
+    return "name" in lk or "bezeichnung" in lk
+
+
+def _unit_key(row: dict, key_fields: tuple[str, ...]) -> str | None:
+    """Stable unit id. Precinct numbers repeat across Gemeinden — prefix AGS."""
+    want_wb = any(f in ("wahlbezirk", "wbz", "wb-nr") for f in key_fields)
+    gem = wb = None
+    for k, v in row.items():
+        lk = str(k).lower()
+        if _col_is_name(lk):
+            continue
+        val = str(v or "").strip()
+        if not val or val in ("-", "."):
+            continue
+        if lk == "gemeinde" or (lk.startswith("gemeinde") and "amt" not in lk):
+            gem = val
+        elif "wahlbezirk" in lk:
+            wb = val
+    if want_wb:
+        if gem and wb:
+            return f"{gem}:{wb}"
+        if wb:
+            wkr = _row_wkr(row)
+            return f"{wkr}:{wb}" if wkr else wb
+    for k, v in row.items():
+        lk = str(k).lower()
+        if _col_is_name(lk):
+            continue
+        if any(f in lk for f in key_fields):
+            val = str(v or "").strip()
+            if val and val not in ("-", "."):
+                if "wahlkreis" in lk or lk == "wk":
+                    return _wkr_id(val)
+                return val
+    for k, v in row.items():
+        s = str(v or "").strip()
+        if s.isdigit() and 1 <= int(s) <= 99 and "wahlkreis" in str(k).lower() and not _col_is_name(str(k).lower()):
+            return str(int(s))
+    return None
 
 
 def parse_laiv_units(path: Path, *, key_fields: tuple[str, ...]) -> dict[str, dict]:
@@ -123,25 +180,9 @@ def parse_laiv_units(path: Path, *, key_fields: tuple[str, ...]) -> dict[str, di
     if not party_cols:
         return {}
 
-    def key_of(row: dict) -> str | None:
-        for k in list(row.keys()):
-            lk = str(k).lower()
-            if any(f in lk for f in key_fields):
-                val = str(row.get(k) or "").strip()
-                if val and val not in ("-", "."):
-                    if "wahlkreis" in lk or "wk" == lk:
-                        return _wkr_id(val)
-                    return val
-        # fallback: first numeric-looking cell
-        for k, v in row.items():
-            s = str(v or "").strip()
-            if s.isdigit() and 1 <= int(s) <= 99 and "wahlkreis" in str(k).lower():
-                return str(int(s))
-        return None
-
     grouped: dict[str, list[dict]] = {}
     for row in rows:
-        kid = key_of(row)
+        kid = _unit_key(row, key_fields)
         if not kid:
             continue
         grouped.setdefault(kid, []).append(row)
@@ -154,6 +195,7 @@ def parse_laiv_units(path: Path, *, key_fields: tuple[str, ...]) -> dict[str, di
         name = ""
         for row in recs:
             clock = clock or clock_from_fields(
+                row.get("Berechnungsdatum") or "",
                 row.get("Datum") or "",
                 row.get("Uhrzeit") or row.get("Zeit") or row.get("Zeitstempel") or "",
             )
@@ -163,6 +205,10 @@ def parse_laiv_units(path: Path, *, key_fields: tuple[str, ...]) -> dict[str, di
                     wber = max(wber, _num(v))
                 elif "wähler" in lk or "wählende" in lk:
                     waehler = max(waehler, _num(v))
+                elif "erf" in lk and "bezirk" in lk:
+                    ist = max(ist, _num(v))
+                elif "insg" in lk and "bezirk" in lk:
+                    soll = max(soll, _num(v))
                 elif "ist" in lk and "bezirk" in lk:
                     ist = max(ist, _num(v))
                 elif "soll" in lk and "bezirk" in lk:
@@ -178,9 +224,10 @@ def parse_laiv_units(path: Path, *, key_fields: tuple[str, ...]) -> dict[str, di
                 erst_abs = (counts, gueltig)
             else:
                 zweit_abs = (counts, gueltig)
-        if not zweit_abs:
-            continue
-        counts, gueltig = zweit_abs
+        if zweit_abs:
+            counts, gueltig = zweit_abs
+        else:
+            counts, gueltig = {p: 0.0 for p in PARTIES}, 0.0
         unit = {
             "counts": counts,
             "gueltig": gueltig,
@@ -203,7 +250,6 @@ def parse_laiv_live() -> dict:
     wkr_path = LIVE_DIR / "l_wahlkreise.csv"
     gem_path = LIVE_DIR / "l_gemeinden.csv"
     wb_path = LIVE_DIR / "l_wahlbezirke.csv"
-    # Also pick up whatever the fetch script saved.
     extras = list(LIVE_DIR.glob("*.csv"))
     wkr = parse_laiv_units(wkr_path, key_fields=("wahlkreis", "wk-nr", "wk_nr", "wk"))
     for p in extras:
@@ -217,12 +263,26 @@ def parse_laiv_live() -> dict:
             gem.update(parse_laiv_units(p, key_fields=("ags", "gemeinde", "schlüssel")))
         if "wahlbezirk" in n and p != wb_path:
             wb.update(parse_laiv_units(p, key_fields=("wahlbezirk", "wbz")))
+    land_unit = None
+    for k in list(wkr):
+        if k not in {str(i) for i in range(1, 37)}:
+            extra = wkr.pop(k)
+            land_unit = land_unit or extra
     land = {}
-    clock = None
-    ist = soll = 0.0
-    if wkr:
+    clock = (land_unit or {}).get("clock")
+    if land_unit and _num(land_unit.get("soll")) + _num(land_unit.get("gueltig")) > 0:
+        land = {
+            "counts": dict(land_unit.get("counts") or {p: 0.0 for p in PARTIES}),
+            "gueltig": _num(land_unit.get("gueltig")),
+            "wber": _num(land_unit.get("wber")),
+            "waehler": _num(land_unit.get("waehler")),
+            "ist": _num(land_unit.get("ist")),
+            "soll": _num(land_unit.get("soll")),
+        }
+        clock = clock or land_unit.get("clock")
+    elif wkr:
         land_counts = {p: 0.0 for p in PARTIES}
-        g = wber = waehler = 0.0
+        g = wber = waehler = ist = soll = 0.0
         for u in wkr.values():
             for p in PARTIES:
                 land_counts[p] += float(u["counts"].get(p, 0.0))
@@ -240,9 +300,13 @@ def parse_laiv_live() -> dict:
             "ist": ist,
             "soll": soll,
         }
-    kind = "empty"
-    if any(_num(u.get("gueltig")) > 0 for u in wkr.values()) or wb or gem:
-        kind = "Z"
+    has_votes = (
+        _num(land.get("gueltig")) > 0
+        or any(_num(u.get("gueltig")) > 0 for u in wkr.values())
+        or any(_num(u.get("gueltig")) > 0 for u in wb.values())
+        or any(_num(u.get("gueltig")) > 0 for u in gem.values())
+    )
+    kind = "Z" if has_votes else "empty"
     return {"land": land, "wkr": wkr, "gemeinden": gem, "wb": wb, "clock": clock, "kind": kind}
 
 
