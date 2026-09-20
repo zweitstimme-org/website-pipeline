@@ -105,6 +105,27 @@ class ExternalBlendTests(unittest.TestCase):
         self.assertEqual(len(steps), 1)
         self.assertEqual(steps[0]["nowcast"]["cdu"], 2)
 
+    def test_merge_history_keeps_counted_when_new_empty(self):
+        prev = {
+            "scenarios": {
+                "live": {
+                    "steps": [
+                        {
+                            "clock": "19:55",
+                            "frac_reported": 0.63,
+                            "n_reported": 1252,
+                            "nowcast": {"spd": 33.6},
+                        }
+                    ]
+                }
+            }
+        }
+        step = {"clock": "20:03", "frac_reported": 0.0, "n_reported": 0, "nowcast": {"spd": 35.9}}
+        steps = merge_history(prev, step)
+        self.assertEqual(len(steps), 1)
+        self.assertEqual(steps[0]["n_reported"], 1252)
+        self.assertEqual(steps[0]["nowcast"]["spd"], 33.6)
+
 
 class AfsParserTests(unittest.TestCase):
     def test_pxx_and_awk_nummer(self):

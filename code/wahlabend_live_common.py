@@ -955,6 +955,13 @@ def _step_progress(step: dict) -> tuple:
     return (frac_n, n_rep)
 
 
+def _n_reported(step: dict) -> int:
+    try:
+        return int(step.get("n_reported") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
 def merge_history(prev: dict | None, step: dict) -> list[dict]:
     steps = []
     if prev:
@@ -963,6 +970,9 @@ def merge_history(prev: dict | None, step: dict) -> list[dict]:
             steps = list(sc.get("steps") or [])
     if steps:
         last = steps[-1]
+        # A failed fetch / empty parse must not append after a counted snapshot.
+        if _n_reported(last) > 0 and _n_reported(step) <= 0:
+            return _stamp_p_start(steps)
         last_key = (last.get("clock"), last.get("frac_reported"), last.get("n_reported"))
         new_key = (step.get("clock"), step.get("frac_reported"), step.get("n_reported"))
         if last_key == new_key or _step_progress(last) == _step_progress(step):

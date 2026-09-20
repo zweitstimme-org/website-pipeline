@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Fetch Mecklenburg-Vorpommern LTW 2026 LAIV CSVs (WK / Gemeinde / WB).
-# Discovers current hrefs on the Ergebnisse page (names can differ from 2021).
+# Live files are on wahlen.mvnet.de; laiv-mv.de /dateien/ paths 404.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEST="${ROOT}/mecklenburg-vorpommern/wahlabend/live"
 SNAP_ROOT="${DEST}/snapshots"
 UA="${CURL_UA:-Mozilla/5.0 (compatible; zweitstimme-nowcast/1.0)}"
 PAGE="https://www.laiv-mv.de/Wahlen/Landtagswahlen/2026/Ergebnisse/"
+LIVE_HOST="https://wahlen.mvnet.de/"
+PAGE_LIVE="https://wahlen.mvnet.de/wahl/land"
 TS="$(date -u +%Y%m%dT%H%M%SZ)"
 SNAP="${SNAP_ROOT}/${TS}"
 mkdir -p "${DEST}" "${SNAP}"
@@ -54,27 +56,36 @@ PY
 }
 
 html="$(mktemp)"
-if ! curl -fsSL -A "${UA}" --max-time 45 -o "${html}" "${PAGE}"; then
-  echo "WARN: could not load LAIV Ergebnisse page" >&2
+if curl -fsSL -A "${UA}" --max-time 45 -o "${html}" "${PAGE_LIVE}"; then
+  :
+elif curl -fsSL -A "${UA}" --max-time 45 -o "${html}" "${PAGE}"; then
+  :
+else
+  echo "WARN: could not load LAIV / mvnet Ergebnisse page" >&2
   rm -f "${html}"
-  exit 0
+  html=""
 fi
 
-# Collect hrefs ending in .csv (absolute or site-relative).
-mapfile -t hrefs < <(python3 - "${html}" <<'PY'
+# Collect hrefs ending in .csv. Root-relative /dateien/... is on wahlen.mvnet.de.
+if [[ -n "${html}" ]]; then
+mapfile -t hrefs < <(python3 - "${html}" "${LIVE_HOST}" <<'PY'
 import re, sys, urllib.parse
 html = open(sys.argv[1], encoding="utf-8", errors="ignore").read()
-page = "https://www.laiv-mv.de/Wahlen/Landtagswahlen/2026/Ergebnisse/"
+base = sys.argv[2]
 hrefs = re.findall(r'href=["\']([^"\']+\.csv)["\']', html, flags=re.I)
 seen = set()
 for h in hrefs:
-    url = urllib.parse.urljoin(page, h.replace("&amp;", "&"))
+    raw = h.replace("&amp;", "&")
+    url = urllib.parse.urljoin(base, raw)
     if url not in seen:
         seen.add(url)
         print(url)
 PY
 )
-rm -f "${html}"
+  rm -f "${html}"
+else
+  hrefs=()
+fi
 
 if [[ ${#hrefs[@]} -eq 0 ]]; then
   echo "WARN: no CSV links on LAIV Ergebnisse page yet"
@@ -88,22 +99,21 @@ else
       *gemeinde*) out="l_gemeinden.csv" ;;
       *wahlkreis*) out="l_wahlkreise.csv" ;;
       *mandat*) out="l_mandate.csv" ;;
+      *wbt*|*wahlbeteil*) out="l_wbt.csv" ;;
     esac
     save_csv "${url}" "${out}"
   done
 fi
 
-# Known 2026 paths if the Ergebnisse page has no (or stale) hrefs yet.
+# Always refresh the known 2026 mvnet paths (laiv-mv.de /dateien/ is 404).
 for pair in \
-  "l_wahlbezirke.csv|https://www.laiv-mv.de/dateien/ergebnisse.2026/landtagswahl/csv/l_wahlbezirke.csv" \
-  "l_gemeinden.csv|https://www.laiv-mv.de/dateien/ergebnisse.2026/landtagswahl/csv/l_gemeinden.csv" \
-  "l_wahlkreise.csv|https://www.laiv-mv.de/dateien/ergebnisse.2026/landtagswahl/csv/l_wahlkreise.csv" \
-  "l_mandate.csv|https://www.laiv-mv.de/dateien/ergebnisse.2026/landtagswahl/csv/l_mandate.csv"
+  "l_wahlbezirke.csv|https://wahlen.mvnet.de/dateien/ergebnisse.2026/landtagswahl/csv/l_wahlbezirke.csv" \
+  "l_gemeinden.csv|https://wahlen.mvnet.de/dateien/ergebnisse.2026/landtagswahl/csv/l_gemeinden.csv" \
+  "l_wahlkreise.csv|https://wahlen.mvnet.de/dateien/ergebnisse.2026/landtagswahl/csv/l_wahlkreise.csv" \
+  "l_mandate.csv|https://wahlen.mvnet.de/dateien/ergebnisse.2026/landtagswahl/csv/l_mandate.csv"
 do
   out="${pair%%|*}"
   url="${pair#*|}"
-  if [[ ! -s "${DEST}/${out}" ]]; then
-    save_csv "${url}" "${out}"
-  fi
+  save_csv "${url}" "${out}"
 done
 echo "Done → ${DEST}"

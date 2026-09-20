@@ -77,6 +77,15 @@ jobs:
             if [ -f gh-pages-site/data/be_live/ankunft.json ] && [ ! -f berlin/wahlabend/live/ankunft.json ]; then
               cp gh-pages-site/data/be_live/ankunft.json berlin/wahlabend/live/ankunft.json || true
             fi
+            if [ -d gh-pages-site/data/mv_live ]; then
+              mkdir -p mecklenburg-vorpommern/wahlabend/live
+              for f in l_wahlkreise.csv l_gemeinden.csv l_wahlbezirke.csv l_mandate.csv l_wbt.csv; do
+                if [ ! -s "mecklenburg-vorpommern/wahlabend/live/${f}" ] && [ -s "gh-pages-site/data/mv_live/${f}" ]; then
+                  cp "gh-pages-site/data/mv_live/${f}" "mecklenburg-vorpommern/wahlabend/live/${f}" || true
+                  echo "seeded ${f} from gh-pages mv_live"
+                fi
+              done
+            fi
 
             git fetch origin main --depth 1 2>/dev/null || true
             git checkout origin/main -- data/wahlabend_external.json 2>/dev/null || true
