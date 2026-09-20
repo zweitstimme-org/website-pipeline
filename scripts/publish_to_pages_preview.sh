@@ -47,13 +47,20 @@ for f in \
   "${OUTPUT_DIR}/party_order.json" \
   "${OUTPUT_DIR}/polls_supplement.json" \
   "${OUTPUT_DIR}/forecast_federal.json" \
-  "${OUTPUT_DIR}/wahlabend_nowcast_st_live.json"
+  "${OUTPUT_DIR}/wahlabend_nowcast_st_live.json" \
+  "${OUTPUT_DIR}/wahlabend_nowcast_be_live.json" \
+  "${OUTPUT_DIR}/wahlabend_nowcast_mv_live.json"
 do
   [[ -f "$f" ]] || continue
   cp "$f" "${TMP}/data/"
   echo "  $(basename "$f")"
   copied=$((copied + 1))
 done
+if [[ -f "${REPO_ROOT}/data/wahlabend_external.json" ]]; then
+  cp "${REPO_ROOT}/data/wahlabend_external.json" "${TMP}/data/"
+  echo "  wahlabend_external.json"
+  copied=$((copied + 1))
+fi
 
 if [[ -f "${REPO_ROOT}/data/election_calendar.json" ]]; then
   cp "${REPO_ROOT}/data/election_calendar.json" "${TMP}/data/"

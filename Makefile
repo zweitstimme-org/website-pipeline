@@ -6,7 +6,7 @@ PY ?= python3
 OUTPUT_DIR := $(REPO_ROOT)/output
 VENV_DIR ?= .venv
 
-.PHONY: all deps stimmung election-dates display-mode state-forecast district-forecast mv-district-forecast federal-forecast wahlabend-fetch wahlabend-nowcast wahlabend-ltw wahlabend-st-live publish sync-mock status clean help
+.PHONY: all deps stimmung election-dates display-mode state-forecast district-forecast mv-district-forecast federal-forecast wahlabend-fetch wahlabend-nowcast wahlabend-ltw wahlabend-st-live wahlabend-be-live wahlabend-mv-live wahlabend-be-mv-live publish sync-mock status clean help
 
 all: stimmung display-mode
 
@@ -60,6 +60,16 @@ wahlabend-ltw: wahlabend-ltw-fetch
 wahlabend-st-live:
 	bash scripts/fetch_st_live.sh
 	$(PY) code/wahlabend_st_live.py
+
+wahlabend-be-live:
+	bash scripts/fetch_be_live.sh || true
+	$(PY) code/wahlabend_be_live.py
+
+wahlabend-mv-live:
+	bash scripts/fetch_mv_live.sh || true
+	$(PY) code/wahlabend_mv_live.py
+
+wahlabend-be-mv-live: wahlabend-be-live wahlabend-mv-live
 
 district-forecast:
 	$(PY) code/prepare_district_data.py --state all
@@ -122,6 +132,9 @@ help:
 	@echo "  mv-district-forecast - MV only (alias)"
 	@echo "  federal-forecast - run federal model skeleton"
 	@echo "  wahlabend-st-live    - fetch StaLA CSV + live ST nowcast JSON"
+	@echo "  wahlabend-be-live    - fetch AfS CSV + live Berlin nowcast JSON"
+	@echo "  wahlabend-mv-live    - fetch LAIV CSV + live MV nowcast JSON"
+	@echo "  wahlabend-be-mv-live - Berlin + MV live nowcast"
 	@echo "  publish         - stimmung + push JSON to website-source"
 	@echo "  sync-mock       - stimmung + copy JSON to website-mock for local preview"
 	@echo "  status          - show output file status"

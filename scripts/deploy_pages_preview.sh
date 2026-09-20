@@ -32,6 +32,9 @@ for f in \
   "${REPO_ROOT}"/output/wahlabend_nowcast_replay.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_st.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_st_live.json \
+  "${REPO_ROOT}"/output/wahlabend_nowcast_be_live.json \
+  "${REPO_ROOT}"/output/wahlabend_nowcast_mv_live.json \
+  "${REPO_ROOT}"/data/wahlabend_external.json \
   "${REPO_ROOT}"/output/wahlabend_nowcast_mv.json \
   "${REPO_ROOT}"/output/ltw_wahlkreise_*.geojson \
   "${REPO_ROOT}"/output/display_mode.json \

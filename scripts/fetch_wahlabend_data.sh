@@ -30,5 +30,7 @@ fetch DL_BE_AGH2023_Strukturdaten.xlsx \
   'https://wahlen-berlin.de/wahlen/BE2023/strukturdaten/DL_BE_AGH2023_Strukturdaten.xlsx'
 fetch Datenexport_AGH2023_Zweitstimme_W_BE.csv \
   'https://www.wahlen-berlin.de/wahlen/BE2023/AFSPRAES/agh/Datenexport_AGH2023_Zweitstimme_W_BE.csv'
+fetch DL_BE_BU2025.xlsx \
+  'https://www.wahlen-berlin.de/wahlen/BU2025/afspraes/DL/DL_BE_BU2025.xlsx'
 
 echo "Done → ${DEST}"

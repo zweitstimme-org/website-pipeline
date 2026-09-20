@@ -25,6 +25,8 @@ zweitstimme_intro.mp4
 **/candidates/raw/
 **/wahlabend/raw/
 sachsen-anhalt/wahlabend/live/
+berlin/wahlabend/live/
+mecklenburg-vorpommern/wahlabend/live/
 mecklenburg-vorpommern/LTWMeckPom/raw-data/
 
 # Local pipeline scratch (keep AW incumbents cache for offline CI)

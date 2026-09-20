@@ -1,0 +1,9 @@
+{
+  "be": {
+    "sources": []
+  },
+  "mv": {
+    "sources": []
+  },
+  "_comment": "Append Prognose/Hochrechnung rows on election night. Example: {\"kind\": \"prognose\", \"institute\": \"infratest_dimap\", \"publisher\": \"ARD\", \"time\": \"18:00\", \"shares\": {\"cdu\": 22.0, \"spd\": 16.0, \"gru\": 18.0, \"lin\": 19.0, \"afd\": 16.0, \"fdp\": 3.0, \"bsw\": 4.0}, \"turnout\": 68.0, \"uncertainty_pp\": 1.5}. Shares are percent (0-100). kind=prognose|hochrechnung|beteiligung."
+}
