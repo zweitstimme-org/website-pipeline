@@ -792,7 +792,7 @@
         haveKind[s.kind] = true;
       }
     });
-    return rows;
+    return fillMissingComparisonUnc(rows);
   }
 
   function canonParty(p) {
@@ -838,6 +838,8 @@
     var rows = [];
     var prior = first.prior || last.prior || {};
     var priorPct = sharesToPct(prior);
+    var t0 = first.turnout || last.turnout || {};
+    var fcUnc = forecastUncMap();
     if (Object.keys(priorPct).length) {
       rows.push({
         id: 'forecast',
@@ -845,6 +847,10 @@
         label: 'zweitstimme.org',
         short: 'zs.org',
         shares: priorPct,
+        uncertainty: fcUnc,
+        uncertainty_pp: fcUnc ? medianUncPp(fcUnc) : undefined,
+        turnout: t0.prior != null ? t0.prior : undefined,
+        turnout_unc: t0.prior != null ? 15 : undefined,
         axis: 'preamble'
       });
     }
@@ -880,6 +886,74 @@
         uncertainty_pp: s.uncertainty_pp,
         axis: 'preamble'
       });
+    });
+    return rows;
+  }
+
+  function forecastUncMap() {
+    var raw = (state.data && state.data.prior_uncertainty_pp) || {};
+    var out = {};
+    var any = false;
+    PARTIES_ORDER.forEach(function (p) {
+      var v = Number(raw[p]);
+      if (v > 0 && isFinite(v)) {
+        out[p] = v;
+        any = true;
+      }
+    });
+    return any ? out : null;
+  }
+
+  function medianUncPp(unc) {
+    var vals = Object.keys(unc || {}).map(function (p) { return Number(unc[p]); })
+      .filter(function (v) { return v > 0 && isFinite(v); })
+      .sort(function (a, b) { return a - b; });
+    if (!vals.length) return 0;
+    var mid = Math.floor(vals.length / 2);
+    return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
+  }
+
+  function tvUncMap(kind, shares) {
+    var hr = kind === 'hochrechnung';
+    var rmse = (hr ? 0.64 : 0.77) * 2.0;
+    var floor = hr ? 0.8 : 1.0;
+    var z = 1.37;
+    var varRef = 0.20 * 0.80;
+    var out = {};
+    PARTIES_ORDER.forEach(function (p) {
+      var share = Number((shares || {})[p] || 0);
+      if (share > 1.5) share /= 100;
+      share = Math.max(0, Math.min(0.99, share));
+      var pEff = Math.max(share, 0.02);
+      var scale = Math.sqrt(pEff * (1 - pEff) / varRef);
+      out[p] = Math.round(Math.max(floor, z * rmse * scale) * 10) / 10;
+    });
+    return out;
+  }
+
+  function rowHasPartyUnc(row) {
+    var u = row && row.uncertainty;
+    if (!u) return false;
+    return Object.keys(u).some(function (k) { return Number(u[k]) > 0; });
+  }
+
+  function fillMissingComparisonUnc(rows) {
+    (rows || []).forEach(function (r) {
+      if (!r) return;
+      if (r.kind === 'forecast') {
+        if (rowHasPartyUnc(r)) return;
+        var u = forecastUncMap();
+        if (!u) return;
+        r.uncertainty = u;
+        if (r.uncertainty_pp == null) r.uncertainty_pp = medianUncPp(u);
+        return;
+      }
+      if (r.kind === 'prognose' || r.kind === 'exit_avg' || r.kind === 'hochrechnung') {
+        if (rowHasPartyUnc(r)) return;
+        var tv = tvUncMap(r.kind, r.shares);
+        r.uncertainty = tv;
+        if (r.uncertainty_pp == null) r.uncertainty_pp = medianUncPp(tv);
+      }
     });
     return rows;
   }

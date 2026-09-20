@@ -15,6 +15,7 @@ from wahlabend_live_common import (
     _shares,
     blend_with_external,
     load_external,
+    load_scenario_defs,
     merge_history,
     read_csv_rows,
     turnout_mixture,
@@ -369,6 +370,15 @@ class LaivCsvParseTests(unittest.TestCase):
         self.assertEqual(len(counted), 1)
         self.assertEqual(counted[0]["gueltig"], 276)
         self.assertEqual(counted[0]["wkr"], "16")
+
+
+class MvHurdleScenarioTests(unittest.TestCase):
+    def test_mv_includes_cdu_above_5(self):
+        defs = load_scenario_defs("MV")
+        by_id = {d["id"]: d for d in defs}
+        self.assertIn("above_hurdle_cdu", by_id)
+        self.assertEqual(by_id["above_hurdle_cdu"]["party"], "cdu")
+        self.assertEqual(by_id["above_hurdle_cdu"]["label_de"], "CDU über 5%-Hürde")
 
 
 if __name__ == "__main__":

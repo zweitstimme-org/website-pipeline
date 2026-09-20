@@ -649,7 +649,8 @@ def load_external(state: str, path: Path | None = None) -> dict | None:
     label = _external_label(latest)
     unc = _num(latest.get("uncertainty_pp"))
     if unc <= 0:
-        unc = 0.8 if latest["kind"] == "hochrechnung" else 1.5
+        # Conservative ± vs historical TV RMSE (was 0.8 / 1.5).
+        unc = 1.6 if latest["kind"] == "hochrechnung" else 3.0
     return {
         "kind": latest["kind"],
         "label": label,
@@ -842,7 +843,7 @@ def load_scenario_defs(state: str, *, hurdle: float = 0.05) -> list[dict]:
                 "hurdle": hurdle,
             }
         )
-    default_hurdle = {"BE": ["fdp", "bsw"], "MV": ["fdp", "gru", "bsw"]}.get(st, ["fdp", "bsw"])
+    default_hurdle = {"BE": ["fdp", "bsw"], "MV": ["cdu", "fdp", "gru", "bsw"]}.get(st, ["fdp", "bsw"])
     for raw in cfg.get("above_hurdle_parties_by_state", {}).get(st, default_hurdle):
         p = _scenario_party(raw)
         if p not in known:

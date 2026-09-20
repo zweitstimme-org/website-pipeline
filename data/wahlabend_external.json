@@ -17,7 +17,7 @@
           "oth": 5.0
         },
         "turnout": 75.0,
-        "uncertainty_pp": 1.5,
+        "uncertainty_pp": 3.0,
         "note": "rbb liveticker 18:00 (Linke 24,5, CDU 20, AfD 16, Grüne 15, SPD 12, FDP 2,5, WB 75). BSW nicht genannt («bangen um 5 %»); 5,0 plus Sonstige 5,0 als Rest zu 100."
       },
       {
@@ -35,7 +35,7 @@
           "bsw": 5.0,
           "oth": 8.0
         },
-        "uncertainty_pp": 1.5,
+        "uncertainty_pp": 3.0,
         "note": "wahlrecht.de 18:00 FG Wahlen. FDP nicht ausgewiesen (in Sonstige)."
       },
       {

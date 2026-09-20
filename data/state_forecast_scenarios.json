@@ -69,7 +69,7 @@
   "above_hurdle_parties": ["fdp", "gru", "lin", "bsw"],
   "above_hurdle_parties_by_state": {
     "BE": ["fdp", "bsw"],
-    "MV": ["fdp", "gru", "bsw"],
+    "MV": ["cdu", "fdp", "gru", "bsw"],
     "ST": ["fdp", "gru", "spd", "bsw"]
   },
   "exclude_scenario_ids_by_state": {
