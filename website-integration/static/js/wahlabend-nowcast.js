@@ -36,14 +36,35 @@
     });
   }
 
+  function allowedLands() {
+    var root = $('wahlabend-root');
+    var raw = root && root.getAttribute('data-wb-lands');
+    if (raw) {
+      return String(raw).split(',').map(function (s) {
+        return s.trim().toLowerCase();
+      }).filter(function (s) { return s === 'st' || s === 'be' || s === 'mv'; });
+    }
+    return ['st', 'be', 'mv'];
+  }
+
+  function defaultLand() {
+    var root = $('wahlabend-root');
+    var d = root && root.getAttribute('data-wb-default-land');
+    if (d) d = String(d).toLowerCase();
+    var allowed = allowedLands();
+    if (d && allowed.indexOf(d) >= 0) return d;
+    return allowed[0] || 'st';
+  }
+
   function landFromQuery() {
     var root = $('wahlabend-root');
     var locked = root && root.getAttribute('data-wb-lock-land');
     if (locked) return String(locked).toLowerCase();
     var q = new URLSearchParams(window.location.search || '');
-    var s = (q.get('state') || q.get('land') || 'st').toLowerCase();
-    if (s === 'st' || s === 'mv' || s === 'be') return s;
-    return 'st';
+    var s = (q.get('state') || q.get('land') || '').toLowerCase();
+    var allowed = allowedLands();
+    if (s && allowed.indexOf(s) >= 0) return s;
+    return defaultLand();
   }
 
   function isLivePage() {
@@ -52,10 +73,18 @@
   }
 
   function replayFileForLand(land) {
+    if (isLivePage() && land === 'be') return 'wahlabend_nowcast_be_live.json';
+    if (isLivePage() && land === 'mv') return 'wahlabend_nowcast_mv_live.json';
     if (isLivePage() && land === 'st') return 'wahlabend_nowcast_st_live.json';
     if (land === 'st') return 'wahlabend_nowcast_st.json';
     if (land === 'mv') return 'wahlabend_nowcast_mv.json';
     return 'wahlabend_nowcast_replay.json';
+  }
+
+  function fallbackFileForLand(land) {
+    if (land === 'be') return 'wahlabend_nowcast_replay.json';
+    if (land === 'mv') return 'wahlabend_nowcast_mv.json';
+    return 'wahlabend_nowcast_st.json';
   }
 
   function applyPartyOrderFromData(data) {
@@ -730,29 +759,234 @@
     stampLogo(ctx, cssW, cssH);
   }
 
-  /** Live: x = counted share (0–100 %). Replay: equal spacing by step. */
-  function xAlongNight(padL, plotW, st, i) {
+  function comparisonRows() {
+    return (state.data && state.data.comparisons) || [];
+  }
+
+  function shareUnc(row, party) {
+    if (!row) return 0;
+    var u = row.uncertainty || {};
+    if (party && u[party] != null && isFinite(u[party])) return Number(u[party]);
+    var s = row.uncertainty_pp;
+    return (s != null && isFinite(s)) ? Number(s) : 0;
+  }
+
+  function drawVertSpan(ctx, x, yLoVal, yHiVal, yAt, color) {
+    if (!(yHiVal > yLoVal)) return;
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.2;
+    var yHi = yAt(yHiVal);
+    var yLo = yAt(yLoVal);
+    ctx.beginPath();
+    ctx.moveTo(x, yHi);
+    ctx.lineTo(x, yLo);
+    ctx.stroke();
+    var cap = 3.2;
+    ctx.beginPath();
+    ctx.moveTo(x - cap, yHi);
+    ctx.lineTo(x + cap, yHi);
+    ctx.moveTo(x - cap, yLo);
+    ctx.lineTo(x + cap, yLo);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawVertCI(ctx, x, yMid, u, yAt, color) {
+    if (!(u > 0)) return;
+    drawVertSpan(ctx, x, Math.max(0, yMid - u), yMid + u, yAt, color);
+  }
+
+  function preambleMarkers() {
+    if (!isLivePage()) return [];
+    var rank = { forecast: 0, prognose: 1, exit_avg: 1, hochrechnung: 2 };
+    var rows = comparisonRows().filter(function (r) {
+      return r && r.shares && (r.axis === 'preamble' || rank[r.kind] != null);
+    });
+    return rows.slice().sort(function (a, b) {
+      var da = (rank[a.kind] != null ? rank[a.kind] : 9) - (rank[b.kind] != null ? rank[b.kind] : 9);
+      if (da) return da;
+      return String(a.id || '').localeCompare(String(b.id || ''));
+    });
+  }
+
+  function preambleSlotKind(kind) {
+    if (kind === 'forecast') return 'forecast';
+    if (kind === 'prognose' || kind === 'exit_avg') return 'prognose';
+    if (kind === 'hochrechnung') return 'hochrechnung';
+    return null;
+  }
+
+  function preamblePublisher(m) {
+    var blob = String((m && (m.id || '')) + ' ' + (m.short || '') + ' ' + (m.label || '')).toLowerCase();
+    if (blob.indexOf('zdf') >= 0) return 'ZDF';
+    if (blob.indexOf('ard') >= 0) return 'ARD';
+    return (m && m.short) || '';
+  }
+
+  /** Forecast | Exit (ARD+ZDF) | HR (ARD+ZDF) — one x-tick per kind. */
+  function preambleSlots(markers) {
+    var groups = { forecast: [], prognose: [], hochrechnung: [] };
+    (markers || preambleMarkers()).forEach(function (r) {
+      var k = preambleSlotKind(r.kind);
+      if (k && groups[k]) groups[k].push(r);
+    });
+    var labels = { forecast: 'zs.org', prognose: 'Exit', hochrechnung: 'HR' };
+    return ['forecast', 'prognose', 'hochrechnung'].filter(function (k) {
+      return groups[k].length;
+    }).map(function (k) {
+      return { kind: k, label: labels[k], rows: groups[k] };
+    });
+  }
+
+  /** Land-level Δ applied to this WK so latest source sits on the 0 %-Nowcast. */
+  function swingShareMap(base, fromLand, toLand) {
+    var out = {};
+    var seen = {};
+    [base, fromLand, toLand].forEach(function (m) {
+      if (!m) return;
+      Object.keys(m).forEach(function (k) { seen[k] = true; });
+    });
+    Object.keys(seen).forEach(function (p) {
+      var v = (base[p] || 0) + (toLand[p] || 0) - (fromLand[p] || 0);
+      out[p] = v < 0 ? 0 : v;
+    });
+    return out;
+  }
+
+  function wkrPreambleMarkers(shareOfRegion) {
+    var land = preambleMarkers();
+    if (!land.length || !state.unit) return [];
+    var st = steps();
+    if (!st.length) return [];
+    var best = null;
+    var bestF = 2;
+    st.forEach(function (s) {
+      var r = (s.by_wkr && s.by_wkr[state.unit]) || {};
+      var f = r.frac_reported != null ? r.frac_reported : 1;
+      if (f < bestF) {
+        bestF = f;
+        best = r;
+      }
+    });
+    var base = shareOfRegion(best || {});
+    if (!base || !Object.keys(base).length) return [];
+    var latest = land[land.length - 1];
+    var from = (latest && latest.shares) || {};
+    return land.map(function (row) {
+      return Object.assign({}, row, {
+        shares: swingShareMap(base, from, row.shares || {})
+      });
+    });
+  }
+
+  function preambleWidthFrac(slots) {
+    var n = (slots || preambleSlots()).length;
+    if (!n) return 0;
+    // Extra room so the zs.org party-jitter (wide CIs) does not sit on Exit.
+    return Math.min(0.36, 0.11 + 0.08 * n);
+  }
+
+  function xAtPreamble(padL, plotW, k, slots) {
+    slots = slots || preambleSlots();
+    var n = slots.length;
+    var pre = preambleWidthFrac(slots) * plotW;
+    if (n <= 0) return padL;
+    var slotW = pre / n;
+    var x = padL + (k + 0.5) * slotW;
+    if (slots[k] && slots[k].kind === 'forecast') {
+      x -= Math.min(10, slotW * 0.22);
+    }
+    return x;
+  }
+
+  /** Same tick for ARD+ZDF; zs.org fans parties a few px so wide CIs stay readable. */
+  function preamblePointX(padL, plotW, slotIndex, rowIndex, partyIndex, nParties, slots) {
+    slots = slots || preambleSlots();
+    var slot = slots[slotIndex];
+    var x = xAtPreamble(padL, plotW, slotIndex, slots);
+    if (!slot) return x;
+    if (slot.kind === 'forecast' && nParties > 1) {
+      var span = Math.min(20, 3.4 * nParties);
+      return x + (partyIndex - (nParties - 1) / 2) * (span / (nParties - 1));
+    }
+    return x;
+  }
+
+  function drawPreambleDot(ctx, x, y, color, pub) {
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.2;
+    if (pub === 'ZDF') {
+      ctx.beginPath();
+      ctx.moveTo(x, y - 4.2);
+      ctx.lineTo(x + 4.2, y);
+      ctx.lineTo(x, y + 4.2);
+      ctx.lineTo(x - 4.2, y);
+      ctx.closePath();
+      ctx.fill();
+      return;
+    }
+    ctx.beginPath();
+    ctx.arc(x, y, 3.4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function countAxisOrigin(padL, plotW, opt) {
+    var pre = (opt && opt.preamble && isLivePage())
+      ? preambleWidthFrac(opt.slots)
+      : 0;
+    return padL + pre * plotW;
+  }
+
+  /** Live: x = counted share (0–100 %). Replay: equal spacing by step.
+      opt.preamble: leave a left strip for exit polls / Hochrechnung. */
+  function xAlongNight(padL, plotW, st, i, opt) {
+    var x0 = countAxisOrigin(padL, plotW, opt);
+    var countW = padL + plotW - x0;
     if (isLivePage()) {
       var f = (st[i] && st[i].frac_reported) || 0;
       if (f < 0) f = 0;
       if (f > 1) f = 1;
-      return padL + f * plotW;
+      return x0 + f * countW;
     }
     return padL + (i / Math.max(1, st.length - 1)) * plotW;
   }
 
-  function shadeRestOfNight(ctx, pad, plotW, h, st, ci) {
+  function shadeRestOfNight(ctx, pad, plotW, h, st, ci, opt) {
     if (!isLivePage()) {
       if (ci < st.length - 1) {
-        var xReplay = xAlongNight(pad.l, plotW, st, ci);
+        var xReplay = xAlongNight(pad.l, plotW, st, ci, opt);
         ctx.fillStyle = 'rgba(0,0,0,0.035)';
         ctx.fillRect(xReplay, pad.t, pad.l + plotW - xReplay, h);
       }
       return;
     }
-    var x = xAlongNight(pad.l, plotW, st, ci);
+    var x = xAlongNight(pad.l, plotW, st, ci, opt);
     ctx.fillStyle = 'rgba(0,0,0,0.035)';
     ctx.fillRect(x, pad.t, pad.l + plotW - x, h);
+  }
+
+  function drawPreambleAxis(ctx, pad, plotW, cssH, opt) {
+    if (!(opt && opt.preamble && isLivePage())) return;
+    var slots = opt.slots || preambleSlots();
+    if (!slots.length) return;
+    var x0 = countAxisOrigin(pad.l, plotW, opt);
+    ctx.strokeStyle = 'rgba(0,0,0,0.22)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(x0, pad.t);
+    ctx.lineTo(x0, pad.t + (cssH - pad.t - pad.b));
+    ctx.stroke();
+    ctx.fillStyle = '#666';
+    ctx.font = '10px system-ui,sans-serif';
+    slots.forEach(function (slot, k) {
+      var x = xAtPreamble(pad.l, plotW, k, slots);
+      var lab = slot.label;
+      var tw = ctx.measureText(lab).width;
+      ctx.fillText(lab, Math.max(pad.l, x - tw / 2), cssH - 8);
+    });
   }
 
   function colorWithAlpha(hex, a) {
@@ -776,15 +1010,180 @@
     return Math.sqrt(ul * ul + ur * ur);
   }
 
+  function ensureCompareChartDom() {
+    if ($('wb-chart-compare')) return;
+    var shares = $('wb-chart-shares');
+    if (!shares || !shares.parentNode) return;
+    var box = document.createElement('div');
+    box.innerHTML =
+      '<p class="wb-chart-label" id="wb-compare-label">Vergleich: Vorhersage, Exit-Polls, Nowcast</p>' +
+      '<div class="wb-legend" id="wb-compare-legend"></div>' +
+      '<canvas id="wb-chart-compare" class="wb-chart" width="900" height="250"></canvas>' +
+      '<p class="wb-meta" id="wb-compare-note" style="margin:0.15rem 0 1rem;">' +
+      'Punkte je Quelle auf einem X-Strich (ARD/ZDF nicht versetzt). ' +
+      'Nowcast rechts. Kappen = ±.</p>';
+    var anchor = $('wb-share-chart-label') || shares;
+    shares.parentNode.insertBefore(box, anchor);
+  }
+
+  /** zs.org | Exit (ARD+ZDF) | HR (ARD+ZDF) | Nowcast — Nowcast always last. */
+  function compareSlots() {
+    var groups = { forecast: [], prognose: [], hochrechnung: [], nowcast: [] };
+    comparisonRows().forEach(function (r) {
+      if (!r || !r.shares) return;
+      var k = r.kind === 'nowcast' ? 'nowcast' : preambleSlotKind(r.kind);
+      if (k && groups[k]) groups[k].push(r);
+    });
+    var labels = { forecast: 'zs.org', prognose: 'Exit', hochrechnung: 'HR', nowcast: 'Nowcast' };
+    return ['forecast', 'prognose', 'hochrechnung', 'nowcast'].filter(function (k) {
+      return groups[k].length;
+    }).map(function (k) {
+      return { kind: k, label: labels[k], rows: groups[k] };
+    });
+  }
+
+  function drawCompareChart() {
+    ensureCompareChartDom();
+    var canvas = $('wb-chart-compare');
+    var legend = $('wb-compare-legend');
+    var label = $('wb-compare-label');
+    var note = $('wb-compare-note');
+    if (!canvas) return;
+    var slots = compareSlots();
+    var hide = slots.length < 2 || (state.scope && state.scope !== 'zweit');
+    canvas.style.display = hide ? 'none' : '';
+    if (legend) legend.style.display = hide ? 'none' : '';
+    if (label) label.style.display = hide ? 'none' : '';
+    if (note) note.style.display = hide ? 'none' : '';
+    if (hide) return;
+
+    var series = [];
+    slots.forEach(function (slot) {
+      slot.rows.forEach(function (r) { series.push(r); });
+    });
+    var parties = PARTIES_ORDER.filter(function (p) {
+      return series.some(function (s) { return (s.shares[p] || 0) > 0.15; });
+    });
+    if (!parties.length) parties = PARTIES_ORDER.slice(0, 7);
+
+    if (legend) {
+      legend.innerHTML = parties.map(function (p) {
+        var c = PARTY_COLORS[p] || '#888';
+        return '<span><i style="background:' + c +
+          ';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>' +
+          partyShort(p) + '</span>';
+      }).join(' ') +
+        ' <span class="wb-art">· ARD ● · ZDF ◆ · hohl = zs.org · Rand = HR</span>';
+    }
+    if (label) {
+      label.textContent = 'Vergleich: Vorhersage, Exit-Polls' +
+        (slots.some(function (s) { return s.kind === 'hochrechnung'; }) ? ', Hochrechnung' : '') +
+        ', Nowcast';
+    }
+    if (note) {
+      note.textContent = 'Punkte je Quelle auf einem X-Strich (ARD/ZDF nicht versetzt). ' +
+        'Nowcast rechts. Kappen = ±.';
+    }
+
+    var ctx = canvas.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 900;
+    var cssH = 250;
+    canvas.width = Math.round(cssW * dpr);
+    canvas.height = Math.round(cssH * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssW, cssH);
+
+    var pad = { l: 36, r: 16, t: 12, b: 32 };
+    var w = cssW - pad.l - pad.r;
+    var h = cssH - pad.t - pad.b;
+    var yMax = 10;
+    series.forEach(function (s) {
+      parties.forEach(function (p) {
+        yMax = Math.max(yMax, (s.shares[p] || 0) + shareUnc(s, p));
+      });
+    });
+    yMax *= 1.12;
+    function yAt(v) { return pad.t + (1 - v / yMax) * h; }
+    function xAt(k) { return pad.l + (k + 0.5) * (w / slots.length); }
+
+    ctx.strokeStyle = '#ddd';
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, pad.t + h);
+    ctx.lineTo(pad.l + w, pad.t + h);
+    ctx.stroke();
+    ctx.fillStyle = '#888';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
+    ctx.fillText('0', 4, pad.t + h);
+
+    slots.forEach(function (slot, k) {
+      var x = xAt(k);
+      ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, pad.t);
+      ctx.lineTo(x, pad.t + h);
+      ctx.stroke();
+      ctx.fillStyle = '#444';
+      ctx.font = '11px system-ui,sans-serif';
+      var lab = slot.label;
+      var tw = ctx.measureText(lab).width;
+      ctx.fillText(lab, x - tw / 2, cssH - 8);
+
+      slot.rows.forEach(function (s) {
+        var pub = preamblePublisher(s);
+        parties.forEach(function (p) {
+          var val = s.shares[p] || 0;
+          if (!(val > 0.05) && s.kind !== 'nowcast' && s.kind !== 'forecast') return;
+          var col = PARTY_COLORS[p] || '#888';
+          var u = shareUnc(s, p);
+          if (u > 0) drawVertCI(ctx, x, val, u, yAt, 'rgba(20,20,20,0.55)');
+          ctx.globalAlpha = s.kind === 'forecast' ? 0.55 : 1;
+          if (s.kind === 'forecast') {
+            ctx.strokeStyle = col;
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.arc(x, yAt(val), 3.6, 0, Math.PI * 2);
+            ctx.stroke();
+          } else {
+            drawPreambleDot(ctx, x, yAt(val), col, pub);
+            if (s.kind === 'hochrechnung') {
+              ctx.strokeStyle = '#111';
+              ctx.lineWidth = 1.1;
+              ctx.beginPath();
+              if (pub === 'ZDF') {
+                ctx.moveTo(x, yAt(val) - 4.2);
+                ctx.lineTo(x + 4.2, yAt(val));
+                ctx.lineTo(x, yAt(val) + 4.2);
+                ctx.lineTo(x - 4.2, yAt(val));
+                ctx.closePath();
+              } else {
+                ctx.arc(x, yAt(val), 3.4, 0, Math.PI * 2);
+              }
+              ctx.stroke();
+            }
+          }
+          ctx.globalAlpha = 1;
+        });
+      });
+    });
+    stampLogo(ctx, cssW, cssH);
+  }
+
   function drawShareChart() {
     var canvas = $('wb-chart-shares');
     var legend = $('wb-share-legend');
     var label = $('wb-share-chart-label');
-    if (!canvas || !state.data || state.scope !== 'zweit') return;
+    if (!canvas || !state.data) return;
+    if (state.scope !== 'zweit' && !(state.scope === 'wkr' && state.unit)) return;
     var st = steps();
     if (!st.length) return;
     var ci = Math.min(state.step, st.length - 1);
-    var showTruth = isLandComplete(st[ci]);
+    var showTruth = state.scope === 'wkr'
+      ? isWkrComplete(st[ci], state.unit)
+      : isLandComplete(st[ci]);
     var views = st.map(viewForStep);
     var parties = PARTIES_ORDER.filter(function (p) {
       return views.some(function (v) {
@@ -808,7 +1207,11 @@
     if (label) {
       label.textContent = state.partyFocus
         ? partyShort(state.partyFocus) + ' — Zweitstimme über die Nacht (Nowcast ± Band)'
-        : 'Zweitstimme — Partei-Anteile über die Nacht (Nowcast ± Band)';
+        : (isLivePage()
+          ? (state.scope === 'wkr'
+            ? 'Zweitstimme in diesem WK — zs.org / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
+            : 'Zweitstimme — Exit-Polls / Hochrechnung, dann Nowcast 0–100\u00a0%')
+          : 'Zweitstimme — Partei-Anteile über die Nacht (Nowcast ± Band)');
     }
     if (legend) {
       legend.innerHTML = parties.map(function (p) {
@@ -817,7 +1220,10 @@
           ';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>' +
           partyShort(p) + '</span>';
       }).join(' ') +
-        ' <span class="wb-art">· Fläche + gestrichelte Kanten = ± Band</span>';
+        ' <span class="wb-art">· Fläche + gestrichelte Kanten = ± Band</span>' +
+        (isLivePage() && preambleSlots().length
+          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org (leicht versetzt), dann Exit ARD●/ZDF◆, dann HR</span>'
+          : '');
     }
 
     var ctx = canvas.getContext('2d');
@@ -830,7 +1236,12 @@
     ctx.clearRect(0, 0, cssW, cssH);
 
     var n = views.length;
-    var pad = { l: 36, r: 12, t: 16, b: 28 };
+    var preMarks = state.scope === 'wkr'
+      ? wkrPreambleMarkers(function (r) { return (r && r.nowcast) || {}; })
+      : preambleMarkers();
+    var preSlots = preambleSlots(preMarks);
+    var nightOpt = { preamble: isLivePage() && preSlots.length > 0, slots: preSlots };
+    var pad = { l: 36, r: 12, t: 16, b: nightOpt.preamble ? 38 : 28 };
     var w = cssW - pad.l - pad.r;
     var h = cssH - pad.t - pad.b;
     var vals = [];
@@ -842,11 +1253,16 @@
         vals.push(nc + u);
         if (showTruth && v.truth) vals.push(v.truth[p] || 0);
       });
+      preMarks.forEach(function (m) {
+        if (m.shares && m.shares[p] != null) {
+          vals.push(m.shares[p] + shareUnc(m, p));
+        }
+      });
     });
     var yMin = 0;
     var yMax = Math.max(10, Math.max.apply(null, vals.concat([0])) * 1.08);
 
-    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i, nightOpt); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -857,10 +1273,12 @@
     ctx.stroke();
     ctx.fillStyle = '#888';
     ctx.font = '11px system-ui,sans-serif';
-    ctx.fillText('0\u00a0%', pad.l, cssH - 8);
+    var x0 = countAxisOrigin(pad.l, w, nightOpt);
+    ctx.fillText('0\u00a0%', x0, cssH - 8);
     ctx.fillText('100\u00a0%', pad.l + w - 28, cssH - 8);
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
-    shadeRestOfNight(ctx, pad, w, h, st, ci);
+    shadeRestOfNight(ctx, pad, w, h, st, ci, nightOpt);
+    drawPreambleAxis(ctx, pad, w, cssH, nightOpt);
 
     // Uncertainty ribbons + dashed ± envelopes (draw before solid lines)
     bandParties.forEach(function (p) {
@@ -918,7 +1336,7 @@
         ctx.setLineDash([5, 4]);
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(pad.l, yAt(tv));
+        ctx.moveTo(x0, yAt(tv));
         ctx.lineTo(pad.l + w, yAt(tv));
         ctx.stroke();
         ctx.setLineDash([]);
@@ -927,15 +1345,28 @@
     }
 
     parties.forEach(function (p) {
-      ctx.strokeStyle = PARTY_COLORS[p] || '#888';
+      var col = PARTY_COLORS[p] || '#888';
+      ctx.strokeStyle = col;
       ctx.lineWidth = 2;
       ctx.beginPath();
+      var started = false;
       views.forEach(function (v, i) {
         var val = (v && v.nowcast) ? (v.nowcast[p] || 0) : 0;
         var x = xAt(i), y = yAt(val);
-        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        if (!started) { ctx.moveTo(x, y); started = true; }
+        else ctx.lineTo(x, y);
       });
       ctx.stroke();
+      var pi = parties.indexOf(p);
+      preSlots.forEach(function (slot, k) {
+        slot.rows.forEach(function (m, ri) {
+          if (!m.shares || m.shares[p] == null) return;
+          var x = preamblePointX(pad.l, w, k, ri, pi, parties.length, preSlots);
+          var val = m.shares[p];
+          drawVertCI(ctx, x, val, shareUnc(m, p), yAt, col);
+          drawPreambleDot(ctx, x, yAt(val), col, preamblePublisher(m));
+        });
+      });
     });
 
     var i = Math.min(state.step, n - 1);
@@ -1157,6 +1588,15 @@
         return (erstCur[b] || 0) - (erstCur[a] || 0);
       });
 
+    var preMarks = wkrPreambleMarkers(wkrErst);
+    var preSlots = preambleSlots(preMarks);
+    var nightOpt = { preamble: isLivePage() && preSlots.length > 0, slots: preSlots };
+    var raceLabel = $('wb-race-chart-label');
+    if (raceLabel) {
+      raceLabel.textContent = nightOpt.preamble
+        ? 'Erststimme — zs.org / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
+        : 'Erststimmen-Rennen über die Nacht';
+    }
     if (legend) {
       legend.innerHTML = parties.slice(0, 6).map(function (p) {
         var c = PARTY_COLORS[p] || '#888';
@@ -1166,7 +1606,10 @@
       }).join(' ') +
         (showTruth
           ? ' <span class="wb-art">· Band = ± (Fläche + Kante) · gestrichelt horizontal = Endstand</span>'
-          : ' <span class="wb-art">· Band = ± (Fläche + Kante)</span>');
+          : ' <span class="wb-art">· Band = ± (Fläche + Kante)</span>') +
+        (nightOpt.preamble
+          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org (leicht versetzt), dann Exit ARD●/ZDF◆, dann HR</span>'
+          : '');
     }
 
     // --- Race share chart ---
@@ -1179,7 +1622,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssW, cssH);
     var n = regions.length;
-    var pad = { l: 40, r: 12, t: 14, b: 26 };
+    var pad = { l: 40, r: 12, t: 14, b: nightOpt.preamble ? 38 : 26 };
     var w = cssW - pad.l - pad.r;
     var h = cssH - pad.t - pad.b;
     var vals = [];
@@ -1190,14 +1633,30 @@
         vals.push(nc + u);
       });
       if (showTruth && truth[p] != null) vals.push(truth[p]);
+      preMarks.forEach(function (m) {
+        if (m.shares && m.shares[p] != null) {
+          vals.push(m.shares[p] + shareUnc(m, p));
+        }
+      });
     });
     var yMin = 0;
     var yMax = Math.max(15, Math.max.apply(null, vals.concat([0])) * 1.1);
-    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i, nightOpt); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
-    drawAxisFrame(ctx, pad, w, h, cssH, yMin, yMax, function (v) {
-      return fmtNum(v, 0) + '\u00a0%';
-    });
+    var x0 = countAxisOrigin(pad.l, w, nightOpt);
+    ctx.strokeStyle = '#ddd';
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, pad.t + h);
+    ctx.lineTo(pad.l + w, pad.t + h);
+    ctx.stroke();
+    ctx.fillStyle = '#888';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.fillText('0\u00a0%', x0, cssH - 8);
+    ctx.fillText('100\u00a0%', pad.l + w - 28, cssH - 8);
+    ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
+    shadeRestOfNight(ctx, pad, w, h, st, ci, nightOpt);
+    drawPreambleAxis(ctx, pad, w, cssH, nightOpt);
 
     parties.forEach(function (p) {
       var c = PARTY_COLORS[p] || '#888';
@@ -1247,7 +1706,7 @@
         ctx.setLineDash([5, 4]);
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(pad.l, yAt(truth[p]));
+        ctx.moveTo(x0, yAt(truth[p]));
         ctx.lineTo(pad.l + w, yAt(truth[p]));
         ctx.stroke();
         ctx.setLineDash([]);
@@ -1265,6 +1724,16 @@
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
       ctx.stroke();
+      var pi = parties.indexOf(p);
+      preSlots.forEach(function (slot, k) {
+        slot.rows.forEach(function (m, ri) {
+          if (!m.shares || m.shares[p] == null) return;
+          var x = preamblePointX(pad.l, w, k, ri, pi, parties.length, preSlots);
+          var val = m.shares[p];
+          drawVertCI(ctx, x, val, shareUnc(m, p), yAt, PARTY_COLORS[p] || '#888');
+          drawPreambleDot(ctx, x, yAt(val), PARTY_COLORS[p] || '#888', preamblePublisher(m));
+        });
+      });
     });
 
     ctx.strokeStyle = '#5b7cfa';
@@ -1304,15 +1773,26 @@
     probCanvas.height = Math.round(cssH * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssW, cssH);
-    pad = { l: 40, r: 12, t: 12, b: 24 };
+    pad = { l: 40, r: 12, t: 12, b: nightOpt.preamble ? 36 : 24 };
     w = cssW - pad.l - pad.r;
     h = cssH - pad.t - pad.b;
     yMin = 0;
     yMax = 1;
     function yP(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
-    drawAxisFrame(ctx, pad, w, h, cssH, 0, 1, function (v) {
-      return Math.round(v * 100) + '\u00a0%';
-    });
+    var x0p = countAxisOrigin(pad.l, w, nightOpt);
+    ctx.strokeStyle = '#ddd';
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, pad.t + h);
+    ctx.lineTo(pad.l + w, pad.t + h);
+    ctx.stroke();
+    ctx.fillStyle = '#888';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.fillText('0\u00a0%', x0p, cssH - 6);
+    ctx.fillText('100\u00a0%', pad.l + w - 28, cssH - 6);
+    ctx.fillText('100\u00a0%', 4, pad.t + 10);
+    shadeRestOfNight(ctx, pad, w, h, st, ci, nightOpt);
+    drawPreambleAxis(ctx, pad, w, cssH, nightOpt);
 
     var thrLikely = (state.data && state.data.call_threshold) || 0.90;
     var thrCall = (state.data && state.data.hard_call_threshold) || 0.999;
@@ -1320,20 +1800,20 @@
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#5b7cfa';
     ctx.beginPath();
-    ctx.moveTo(pad.l, yP(thrLikely));
+    ctx.moveTo(x0p, yP(thrLikely));
     ctx.lineTo(pad.l + w, yP(thrLikely));
     ctx.stroke();
     ctx.strokeStyle = '#2e7d32';
     ctx.beginPath();
-    ctx.moveTo(pad.l, yP(thrCall));
+    ctx.moveTo(x0p, yP(thrCall));
     ctx.lineTo(pad.l + w, yP(thrCall));
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.font = '11px system-ui,sans-serif';
     ctx.fillStyle = '#5b7cfa';
-    ctx.fillText('wahrsch. ' + fmtNum(thrLikely * 100, 0) + '\u00a0%', pad.l + 4, yP(thrLikely) - 4);
+    ctx.fillText('wahrsch. ' + fmtNum(thrLikely * 100, 0) + '\u00a0%', x0p + 4, yP(thrLikely) - 4);
     ctx.fillStyle = '#2e7d32';
-    ctx.fillText('Call ' + fmtNum(thrCall * 100, 1) + '\u00a0%', pad.l + 4, yP(thrCall) + 12);
+    ctx.fillText('Call ' + fmtNum(thrCall * 100, 1) + '\u00a0%', x0p + 4, yP(thrCall) + 12);
 
     // shade: wahrscheinlich (blau) ab P≥thr, hart gecallt (grün) ab erster WK-Meldung
     var likelyStart = null;
@@ -1457,7 +1937,7 @@
       '<h3>Direktmandat · Erststimmen-Nowcast</h3>' +
       '<p class="wb-coverage-meta" style="margin:0 0 0.4rem;">' +
         'Führung und Zahlen hier sind <strong>Erststimme</strong> (Direktmandat). ' +
-        'Die Zweitstimme-Anteile stehen oben unter Zweitstimme.' +
+        'Die Zweitstimme in diesem WK steht im Chart darunter (gleiche Achse: zs.org, Exit, HR, dann 0–100&nbsp;%).' +
       '</p>' +
       '<div class="wb-wkr-hero">' +
         '<div class="wb-wkr-lead">' +
@@ -1491,7 +1971,7 @@
           '<dt>Auszählung WK</dt><dd>' + doneInfo + '</dd>' +
         '</dl></div>' +
       '</div>' +
-      '<p class="wb-chart-label">Erststimmen-Rennen über die Nacht</p>' +
+      '<p class="wb-chart-label" id="wb-race-chart-label">Erststimmen-Rennen über die Nacht</p>' +
       '<div class="wb-legend" id="wb-race-legend"></div>' +
       '<canvas id="wb-chart-race" class="wb-chart wb-chart-race" width="900" height="260"></canvas>' +
       '<p class="wb-chart-label">P(Führung hält) · Wahrscheinlich / Call</p>' +
@@ -1588,9 +2068,9 @@
     var s = st[Math.min(state.step, st.length - 1)];
     var r = (s.by_wkr && s.by_wkr[state.unit]) || {};
     var reported = reportedSet(s);
-    var plist = (state.data.precincts || []).filter(function (p) {
+    var plist = realPrecincts((state.data.precincts || []).filter(function (p) {
       return p.wkr === state.unit;
-    });
+    }));
     var stats = { W: { n: 0, rep: 0 }, B: { n: 0, rep: 0 } };
     plist.forEach(function (p) {
       var k = p.art === 'B' ? 'B' : 'W';
@@ -1938,6 +2418,19 @@
       '</button>';
   }
 
+  function comparisonSize(row) {
+    if (!row) return null;
+    var q = row.parliament_size;
+    if (Array.isArray(q) && q.length >= 3) {
+      return [Number(q[0]), Number(q[1]), Number(q[2])];
+    }
+    if (q != null && isFinite(q)) {
+      var v = Number(q);
+      return [v, v, v];
+    }
+    return null;
+  }
+
   function drawSizeChart() {
     var canvas = $('wb-chart-size');
     if (!canvas || state.scope !== 'lage') return;
@@ -1955,6 +2448,9 @@
     var sizeTruth = showTruth && inst && inst.parliament ? inst.parliament.size_truth : null;
     var lastEl = lastElectionRef();
     var lastSize = lastEl && lastEl.parliament_size != null ? lastEl.parliament_size : null;
+    var preMarks = preambleMarkers().filter(function (m) { return comparisonSize(m); });
+    var preSlots = preambleSlots(preMarks);
+    var nightOpt = { preamble: isLivePage() && preSlots.length > 0, slots: preSlots };
 
     var ctx = canvas.getContext('2d');
     var dpr = window.devicePixelRatio || 1;
@@ -1966,17 +2462,21 @@
     ctx.clearRect(0, 0, cssW, cssH);
 
     var nFull = st.length;
-    var pad = { l: 40, r: 12, t: 16, b: 24 };
+    var pad = { l: 40, r: 12, t: 16, b: nightOpt.preamble ? 36 : 24 };
     var w = cssW - pad.l - pad.r;
     var h = cssH - pad.t - pad.b;
     var vals = [];
     qs.forEach(function (q) { if (q) { vals.push(q[0], q[2]); } });
     if (sizeTruth != null) vals.push(sizeTruth);
     if (lastSize != null) vals.push(lastSize);
+    preMarks.forEach(function (m) {
+      var sq = comparisonSize(m);
+      if (sq) vals.push(sq[0], sq[2]);
+    });
     var yMin = Math.min.apply(null, vals) - 4;
     var yMax = Math.max.apply(null, vals) + 4;
 
-    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i, nightOpt); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -1986,15 +2486,17 @@
     ctx.lineTo(pad.l + w, pad.t + h);
     ctx.stroke();
 
-    shadeRestOfNight(ctx, pad, w, h, st, ci);
+    shadeRestOfNight(ctx, pad, w, h, st, ci, nightOpt);
+    drawPreambleAxis(ctx, pad, w, cssH, nightOpt);
 
     ctx.fillStyle = '#888';
     ctx.font = '11px system-ui,sans-serif';
+    var x0live = countAxisOrigin(pad.l, w, nightOpt);
     var x0 = isLivePage() ? '0\u00a0%' : (clockOnly(st[0].clock, st[0].clock_source) ||
       (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%'));
     var xEnd = isLivePage() ? '100\u00a0%' : (clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
       (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%'));
-    ctx.fillText(x0, pad.l, cssH - 6);
+    ctx.fillText(x0, isLivePage() ? x0live : pad.l, cssH - 6);
     var xEndW = ctx.measureText(xEnd).width;
     ctx.fillText(xEnd, pad.l + w - xEndW, cssH - 6);
     ctx.fillText(String(Math.round(yMax)), 6, pad.t + 10);
@@ -2047,6 +2549,15 @@
       if (!started2) { ctx.moveTo(xk, yk); started2 = true; } else ctx.lineTo(xk, yk);
     }
     ctx.stroke();
+    preSlots.forEach(function (slot, pk) {
+      slot.rows.forEach(function (m, ri) {
+        var sq = comparisonSize(m);
+        if (!sq) return;
+        var xp = preamblePointX(pad.l, w, pk, ri, 0, 1, preSlots);
+        drawVertSpan(ctx, xp, sq[0], sq[2], yAt, '#1a1a1a');
+        drawPreambleDot(ctx, xp, yAt(sq[1]), '#1a1a1a', preamblePublisher(m));
+      });
+    });
 
     // Aktueller Stand (nicht am rechten Achsenrand, solange Nacht offen)
     if (qs[ci]) {
@@ -2059,6 +2570,7 @@
       ctx.lineTo(xc, pad.t + h);
       ctx.stroke();
       ctx.setLineDash([]);
+      drawVertSpan(ctx, xc, qs[ci][0], qs[ci][2], yAt, '#1a1a1a');
       ctx.fillStyle = '#1a1a1a';
       ctx.beginPath();
       ctx.arc(xc, yAt(qs[ci][1]), 3.5, 0, Math.PI * 2);
@@ -2098,7 +2610,10 @@
     ctx.clearRect(0, 0, cssW, cssH);
 
     var nFull = st.length;
-    var pad = { l: 40, r: 12, t: 16, b: 24 };
+    var preMarks = preambleMarkers();
+    var preSlots = preambleSlots();
+    var nightOpt = { preamble: isLivePage() && preSlots.length > 0, slots: preSlots };
+    var pad = { l: 40, r: 12, t: 16, b: nightOpt.preamble ? 36 : 24 };
     var w = cssW - pad.l - pad.r;
     var h = cssH - pad.t - pad.b;
     var vals = [];
@@ -2113,11 +2628,16 @@
     var lastEl = lastElectionRef();
     var lastTo = lastEl && lastEl.turnout != null ? lastEl.turnout : null;
     if (lastTo != null) vals.push(lastTo);
+    preMarks.forEach(function (m) {
+      if (m.turnout == null) return;
+      var tu = m.turnout_unc != null ? m.turnout_unc : 0;
+      vals.push(m.turnout - tu, m.turnout + tu);
+    });
     var yMin = Math.min.apply(null, vals) - 1;
     var yMax = Math.max.apply(null, vals) + 1;
     if (!(yMax > yMin)) { yMin = 50; yMax = 80; }
 
-    function xAt(i) { return xAlongNight(pad.l, w, st, i); }
+    function xAt(i) { return xAlongNight(pad.l, w, st, i, nightOpt); }
     function yAt(v) { return pad.t + (1 - (v - yMin) / (yMax - yMin)) * h; }
 
     ctx.strokeStyle = '#ddd';
@@ -2127,15 +2647,17 @@
     ctx.lineTo(pad.l + w, pad.t + h);
     ctx.stroke();
 
-    shadeRestOfNight(ctx, pad, w, h, st, ci);
+    shadeRestOfNight(ctx, pad, w, h, st, ci, nightOpt);
+    drawPreambleAxis(ctx, pad, w, cssH, nightOpt);
 
     ctx.fillStyle = '#888';
     ctx.font = '11px system-ui,sans-serif';
+    var x0live = countAxisOrigin(pad.l, w, nightOpt);
     var x0 = isLivePage() ? '0\u00a0%' : (clockOnly(st[0].clock, st[0].clock_source) ||
       (Math.round((st[0].frac_reported || 0) * 100) + '\u00a0%'));
     var xEnd = isLivePage() ? '100\u00a0%' : (clockOnly(st[nFull - 1].clock, st[nFull - 1].clock_source) ||
       (Math.round((st[nFull - 1].frac_reported || 0) * 100) + '\u00a0%'));
-    ctx.fillText(x0, pad.l, cssH - 6);
+    ctx.fillText(x0, isLivePage() ? x0live : pad.l, cssH - 6);
     ctx.fillText(xEnd, pad.l + w - ctx.measureText(xEnd).width, cssH - 6);
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
     ctx.fillText(fmtNum(yMin, 0) + '\u00a0%', 4, pad.t + h);
@@ -2186,9 +2708,18 @@
       var tk = series[k];
       if (!tk || tk.nowcast == null) continue;
       var xk = xAt(k), yk = yAt(tk.nowcast);
-      if (!started2) { ctx.moveTo(xk, yk); started2 = true; } else ctx.lineTo(xk, yk);
+      if (!started2) { ctx.moveTo(xk, yk); started2 = true; }
+      else ctx.lineTo(xk, yk);
     }
     ctx.stroke();
+    preSlots.forEach(function (slot, pk) {
+      slot.rows.forEach(function (m, ri) {
+        if (m.turnout == null) return;
+        var xp = preamblePointX(pad.l, w, pk, ri, 0, 1, preSlots);
+        drawVertCI(ctx, xp, m.turnout, m.turnout_unc || 0, yAt, '#1a1a1a');
+        drawPreambleDot(ctx, xp, yAt(m.turnout), '#1a1a1a', preamblePublisher(m));
+      });
+    });
 
     var cur = series[ci];
     if (cur && cur.nowcast != null) {
@@ -2201,6 +2732,7 @@
       ctx.lineTo(xc, pad.t + h);
       ctx.stroke();
       ctx.setLineDash([]);
+      drawVertCI(ctx, xc, cur.nowcast, cur.uncertainty || 0, yAt, '#1a1a1a');
       ctx.fillStyle = '#1a1a1a';
       ctx.beginPath();
       ctx.arc(xc, yAt(cur.nowcast), 3.5, 0, Math.PI * 2);
@@ -2221,14 +2753,42 @@
   }
 
   function entryStatusHtml(rank, q) {
-    if (q && rank <= q[0]) return '<span class="wb-entry-status wb-in">sicher</span>';
-    if (q && rank <= q[2]) return '<span class="wb-entry-status wb-maybe">Wackelplatz</span>';
+    if (!q) return '<span class="wb-entry-status">—</span>';
+    if (rank <= q[0]) return '<span class="wb-entry-status wb-in">sicher</span>';
+    if (rank <= q[2]) return '<span class="wb-entry-status wb-maybe">Wackelplatz</span>';
     return '<span class="wb-entry-status wb-out">draußen</span>';
+  }
+
+  function usesBezirkListe(slot, listQ) {
+    if (listQ && !Array.isArray(listQ) && typeof listQ === 'object') return true;
+    if (slot && slot.list_type === 'bezirk') return true;
+    var hasBez = slot && slot.bezirk && Object.keys(slot.bezirk).length > 0;
+    var hasLand = slot && slot.landes && slot.landes.length > 0;
+    return !!(hasBez && !hasLand);
+  }
+
+  function bezirkListBody(slot, listQ, wonWkrs) {
+    var bezIds = Object.keys((slot && slot.bezirk) || {}).sort();
+    if (!bezIds.length) return '<p class="wb-meta">Keine Listendaten.</p>';
+    var perBez = listQ && !Array.isArray(listQ) && typeof listQ === 'object';
+    var body = bezIds.map(function (bid) {
+      var q = perBez ? (listQ[bid] || [0, 0, 0]) : null;
+      var seatTxt = q
+        ? (' — Listensitze ' + q[1] + ' <span class="wb-art">(p10 ' + q[0] +
+          ' – p90 ' + q[2] + ')</span>')
+        : '';
+      return '<details class="wb-cov-nest"><summary>' +
+        escapeHtml(unitLabel('bezirk', bid)) + seatTxt + '</summary>' +
+        entryListTable(slot.bezirk[bid], q, wonWkrs) + '</details>';
+    }).join('');
+    return '<p class="wb-coverage-meta">Bezirkslisten (keine Landesliste): Sitze ' +
+      'per Hare/Niemeyer auf die Bezirke (vereinfachte Suballokation). ' +
+      'Aufklappen für Listenplätze je Bezirk.</p>' + body;
   }
 
   function entryListTable(entries, q, wonWkrs) {
     if (!entries || !entries.length) return '<p class="wb-meta">Keine Listendaten.</p>';
-    var hi = q ? q[2] : 0;
+    var hi = q ? q[2] : Math.min(entries.length, 8);
     var rank = 0;
     var shown = 0;
     var hidden = 0;
@@ -2334,21 +2894,10 @@
       var bodyHtml;
       if (!slot) {
         bodyHtml = '<p class="wb-meta">Keine Listendaten für ' + partyShort(p) + '.</p>';
-      } else if (Array.isArray(listQ)) {
+      } else if (usesBezirkListe(slot, listQ)) {
+        bodyHtml = bezirkListBody(slot, listQ, wonWkrs);
+      } else if (Array.isArray(listQ) || (slot.landes && slot.landes.length)) {
         bodyHtml = entryListTable(slot.landes, listQ, wonWkrs);
-      } else if (listQ && typeof listQ === 'object' && hasBezirkslisten()) {
-        var bezIds = Object.keys(slot.bezirk || {}).sort();
-        bodyHtml = bezIds.map(function (bid) {
-          var q = listQ[bid] || [0, 0, 0];
-          return '<details class="wb-cov-nest"><summary>' +
-            escapeHtml(unitLabel('bezirk', bid)) +
-            ' — Listensitze ' + q[1] + ' <span class="wb-art">(p10 ' + q[0] +
-            ' – p90 ' + q[2] + ')</span></summary>' +
-            entryListTable(slot.bezirk[bid], q, wonWkrs) + '</details>';
-        }).join('');
-        bodyHtml = '<p class="wb-coverage-meta">Bezirkslisten (keine Landesliste): Sitze ' +
-          'per Hare/Niemeyer auf die Bezirke (vereinfachte Suballokation). ' +
-          'Aufklappen für Listenplätze je Bezirk.</p>' + bodyHtml;
       } else {
         bodyHtml = '<p class="wb-meta">Keine Listensitz-Quantile.</p>';
       }
@@ -2508,6 +3057,53 @@
     return (s && s.scenario_probs) || null;
   }
 
+  var forecastPStart = {};
+  var forecastPStartOfficial = false;
+
+  function ingestScenarioPStart(src, official) {
+    if (!src) return;
+    var items = src.scenarios && src.scenarios.items;
+    if (Array.isArray(items)) {
+      items.forEach(function (it) {
+        if (it && it.id != null && it.probability != null) {
+          var p = Number(it.probability);
+          if (isFinite(p)) forecastPStart[it.id] = p;
+        }
+      });
+    }
+    // Nowcast-computed scenario_p_start is often a washed-out MC around π₀
+    // (e.g. 56 % vs published 73 % for Linke-led R2G). Only fill gaps, and
+    // never overwrite values from forecast_state_*.json.
+    var map = src.scenario_p_start;
+    if (map && typeof map === 'object') {
+      Object.keys(map).forEach(function (id) {
+        var v = Number(map[id]);
+        if (!isFinite(v)) return;
+        if (official || forecastPStart[id] == null) forecastPStart[id] = v;
+      });
+    }
+    if (official) forecastPStartOfficial = true;
+  }
+
+  function scenarioPStartOf(it) {
+    if (it && it.id != null && forecastPStart[it.id] != null) return forecastPStart[it.id];
+    if (it && it.p_start != null) return it.p_start;
+    if (it && it.p_prior != null) return it.p_prior;
+    return null;
+  }
+
+  function loadForecastScenarioBaseline() {
+    if (!isLivePage() || !state.land) return;
+    fetch(dataUrl('forecast_state_' + state.land + '.json'), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (fc) {
+        if (!fc) return;
+        ingestScenarioPStart(fc, true);
+        renderScenarioProbs();
+      })
+      .catch(function () { /* keep stamped p_start */ });
+  }
+
   /** Soft lean from P≥50% — not a hard "Call". */
   function scenarioLeanTxt(it) {
     return it.call ? 'tritt eher ein' : 'tritt eher nicht ein';
@@ -2519,7 +3115,7 @@
 
   function scenarioRowHtml(it) {
     var leanCls = scenarioLeanCls(it);
-    var pStart = it.p_start != null ? it.p_start : it.p_prior;
+    var pStart = scenarioPStartOf(it);
     var line2 = '<span class="' + leanCls + '">' + scenarioLeanTxt(it) + '</span>';
     if (pStart != null) {
       line2 += ' · vor Auszählung ' + fmtNum(pStart, 0) + '\u00a0%';
@@ -2595,7 +3191,7 @@
         ? '<span class="wb-ok">richtig</span>'
         : '<span class="wb-bad">falsch</span>';
       var truthTxt = it.truth ? 'tritt ein' : 'tritt nicht ein';
-      var pStart = it.p_start != null ? it.p_start : it.p_prior;
+      var pStart = scenarioPStartOf(it);
       var line2 = '<span class="' + leanCls + '">' + scenarioLeanTxt(it) + '</span>' +
         ' · Wahr: ' + truthTxt;
       if (pStart != null) {
@@ -2773,6 +3369,9 @@
     document.querySelectorAll('[data-zweit-only]').forEach(function (el) {
       el.hidden = !isZweit;
     });
+    document.querySelectorAll('[data-zweit-or-wkr]').forEach(function (el) {
+      el.hidden = !(isZweit || (isWkr && state.unit));
+    });
     document.querySelectorAll('[data-lage-only]').forEach(function (el) {
       el.hidden = !isLage;
     });
@@ -2945,6 +3544,33 @@
     var n = s.n_reported || 0;
     for (var i = 0; i < n && i < order.length; i++) set[order[i]] = true;
     return set;
+  }
+
+  function isAggregatePrecinct(p) {
+    return !p || p.art === 'S' || (p.wkr != null && String(p.id) === String(p.wkr));
+  }
+
+  function realPrecincts(list) {
+    var raw = list || [];
+    var real = raw.filter(function (p) { return !isAggregatePrecinct(p); });
+    return real.length ? real : [];
+  }
+
+  function wkrWbCounts(wid) {
+    var st = steps();
+    var s = st.length ? st[Math.min(state.step, st.length - 1)] : null;
+    var r = ((s && s.by_wkr) || {})[wid] || {};
+    return {
+      n: Number(r.n_total) || 0,
+      rep: Number(r.n_reported) || 0
+    };
+  }
+
+  function precinctArtLabel(p) {
+    if (!p) return '';
+    if (p.art === 'B') return 'Brief';
+    if (isAggregatePrecinct(p)) return 'WK-Summe';
+    return 'Urne';
   }
 
   function precinctsFiltered() {
@@ -3184,14 +3810,20 @@
     var reported = reportedSet(s);
     var list = precinctsFiltered();
     var tree = groupTree(list);
-    var nRep = countReported(list, reported);
-    var unitWord = isLivePage() ? 'Wahlkreisen' : 'Wahlbezirken';
-    meta.textContent =
-      nRep + ' von ' + list.length + ' ' + unitWord + ' im gewählten Gebiet gemeldet' +
-      ' (Land: ' + s.n_reported + '/' + s.n_total + '). ' +
-      (isLivePage()
-        ? 'Einheiten = 41 Wahlkreise (keine WBZ-CSV bisher).'
-        : 'Urne = W, Brief = B. Wahlkreise und Wahlbezirke erst nach Aufklappen.');
+    var nWkr = (state.data && state.data.n_wkr) || 0;
+    var landWb = (s.n_total && nWkr && s.n_total > nWkr)
+      ? (s.n_reported + '/' + s.n_total + ' Wahlbezirke')
+      : (s.n_reported + '/' + s.n_total);
+    var realList = realPrecincts(list);
+    var usingWkStubs = isLivePage() && realList.length === 0 && nWkr > 0;
+    meta.textContent = usingWkStubs
+      ? ('Noch keine einzelnen Wahlbezirke gemeldet (Land: ' + landWb +
+        '). AfS/LAIV liefern erst WK-Summen; Urne/Brief kommen mit der Wahlbezirk-Datei.')
+      : (countReported(realList, reported) + ' von ' + realList.length +
+        ' Wahlbezirken im gewählten Gebiet gemeldet (Land: ' + landWb + '). ' +
+        (isLivePage()
+          ? 'Karten-Einheiten = Wahlkreise; Zähler = Wahlbezirke.'
+          : 'Urne = W, Brief = B. Wahlkreise und Wahlbezirke erst nach Aufklappen.'));
 
     if (!list.length) {
       body.innerHTML = '<p class="wb-meta">Keine Wahlbezirksdaten geladen.</p>';
@@ -3199,7 +3831,7 @@
     }
 
     if (state.scope === 'wkr') {
-      body.innerHTML = precinctTable(list, reported);
+      body.innerHTML = precinctTable(realPrecincts(list), reported, state.unit);
       return;
     }
 
@@ -3207,36 +3839,45 @@
     var html = '<div class="wb-cov-list">';
     bezirkIds.forEach(function (bid) {
       var wkrs = tree[bid].wkr;
-      var flat = [];
-      Object.keys(wkrs).forEach(function (w) {
-        flat = flat.concat(wkrs[w]);
-      });
-      var nr = countReported(flat, reported);
       var open = state.openBezirk[bid] ? ' open' : '';
       var wkrIds = Object.keys(wkrs).sort(function (a, b) {
         return Number(a) - Number(b);
       });
+      var bezRep = 0, bezTot = 0;
+      wkrIds.forEach(function (wid) {
+        var wb = wkrWbCounts(wid);
+        var pl = realPrecincts(wkrs[wid]);
+        if (wb.n) {
+          bezRep += wb.rep;
+          bezTot += wb.n;
+        } else {
+          bezRep += countReported(pl, reported);
+          bezTot += pl.length || wkrs[wid].length;
+        }
+      });
       html +=
         '<details class="wb-cov-nest" data-bez="' + bid + '"' + open + '>' +
         '<summary><strong>' + escapeHtml(unitLabel('bezirk', bid)) + '</strong> ' +
-        statusPill(nr, flat.length, 'Bezirk') + ' ' + progressBar(nr, flat.length) +
-        ' <span class="wb-art">' + nr + '/' + flat.length + '</span></summary>' +
+        statusPill(bezRep, bezTot, 'Bezirk') + ' ' + progressBar(bezRep, bezTot) +
+        ' <span class="wb-art">' + bezRep + '/' + bezTot + '</span></summary>' +
         '<div class="wb-cov-wkr" data-bez-body="' + bid + '">';
       wkrIds.forEach(function (wid) {
-        var pl = wkrs[wid];
-        var wr = countReported(pl, reported);
+        var pl = realPrecincts(wkrs[wid]);
+        var wb = wkrWbCounts(wid);
+        var wTot = wb.n || pl.length;
+        var wr = wb.n ? wb.rep : countReported(pl, reported);
         var wopen = state.openWkr[wid] ? ' open' : '';
         var call = wkrCalls()[wid] || {};
         var doneHint = '';
-        if (wr >= pl.length && completeWhen(call)) {
+        if (wTot && wr >= wTot && completeWhen(call)) {
           doneHint = ' <span class="wb-art">seit ' + completeWhen(call) + '</span>';
         }
         html +=
           '<details class="wb-cov-nest" data-wkr="' + wid + '" data-bez-parent="' + bid + '"' +
           wopen + '>' +
           '<summary>' + escapeHtml(unitLabel('wkr', wid)) + ' ' +
-          statusPill(wr, pl.length, 'WK') + ' ' + progressBar(wr, pl.length) +
-          ' <span class="wb-art">' + wr + '/' + pl.length + '</span>' + doneHint +
+          statusPill(wr, wTot, 'WK') + ' ' + progressBar(wr, wTot) +
+          ' <span class="wb-art">' + wr + '/' + wTot + '</span>' + doneHint +
           '</summary>' +
           '<div class="wb-cov-wb" data-wkr-body="' + wid + '"></div>' +
           '</details>';
@@ -3268,25 +3909,32 @@
     var slot = el.querySelector('[data-wkr-body="' + wid + '"]');
     if (!slot || slot.getAttribute('data-filled') === '1') return;
     var pl = (((tree[bid] || {}).wkr) || {})[wid] || [];
-    // If tree was from a previous filter, fall back to full list
     if (!pl.length) {
       pl = ((state.data && state.data.precincts) || []).filter(function (p) {
         return p.wkr === wid && (!bid || p.bezirk === bid);
       });
     }
-    slot.innerHTML = precinctTable(pl, reported);
+    slot.innerHTML = precinctTable(realPrecincts(pl), reported, wid);
     slot.setAttribute('data-filled', '1');
   }
 
-  function precinctTable(plist, reported) {
-    var rows = plist.slice().sort(function (a, b) {
-      if (a.art !== b.art) return a.art < b.art ? 1 : -1; // W before B? W < B so W first with >
+  function precinctTable(plist, reported, wid) {
+    var real = realPrecincts(plist || []);
+    if (!real.length) {
+      var wb = wkrWbCounts(wid);
+      var soll = wb.n ? String(wb.n) : '—';
+      return '<p class="wb-meta">Noch keine einzelnen Wahlbezirke (Urne/Brief) in diesem Kreis. ' +
+        'Bisher nur die Wahlkreis-Summe. Vorgesehen: <strong>' + soll +
+        '</strong> Wahlbezirke.</p>';
+    }
+    var rows = real.slice().sort(function (a, b) {
+      if (a.art !== b.art) return a.art < b.art ? 1 : -1;
       return a.id < b.id ? -1 : 1;
     }).map(function (p) {
       var done = !!reported[p.id];
       return '<tr>' +
         '<td>' + escapeHtml(p.id) +
-        ' <span class="wb-art">' + (p.art === 'B' ? 'Brief' : 'Urne') + '</span></td>' +
+        ' <span class="wb-art">' + precinctArtLabel(p) + '</span></td>' +
         '<td>' + statusPill(done ? 1 : 0, 1) + '</td></tr>';
     }).join('');
     return '<table class="wb-cov-table"><thead><tr>' +
@@ -3508,7 +4156,12 @@
     var landUncTxt = uncLandNote(s);
     var shareNote = $('wb-share-note');
     if (shareNote) {
-      shareNote.textContent = 'Linie = Nowcast. ' + landUncTxt;
+      shareNote.textContent = isLivePage()
+        ? ('Links von 0\u00a0%: Forecast, ARD/ZDF-Exit, Hochrechnung (±)' +
+          (state.scope === 'wkr' ? ', auf diesen WK übertragen' : '') +
+          '. Ab 0\u00a0%: Nowcast. ' +
+          (state.scope === 'wkr' ? uncWkrNote(((steps()[Math.min(state.step, steps().length - 1)] || {}).by_wkr || {})[state.unit] || {}) : landUncTxt))
+        : ('Linie = Nowcast. ' + landUncTxt);
     }
     var uncNote = $('wb-unc-note');
     if (uncNote) {
@@ -3532,6 +4185,7 @@
     renderEval();
     renderMap();
     drawShareChart();
+    drawCompareChart();
     if (state.scope === 'wkr') drawWkrRaceCharts();
     if (state.scope === 'zweit') drawChart();
     if (state.scope === 'lage') {
@@ -3541,6 +4195,7 @@
     // Re-draw once after layout so canvas width is correct (bands included)
     requestAnimationFrame(function () {
       drawShareChart();
+      drawCompareChart();
       if (state.scope === 'wkr') drawWkrRaceCharts();
       if (state.scope === 'zweit') drawChart();
       if (state.scope === 'lage') {
@@ -3598,6 +4253,7 @@
     }
     window.addEventListener('resize', function () {
       drawShareChart();
+      drawCompareChart();
       if (state.scope === 'wkr') drawWkrRaceCharts();
       if (state.scope === 'zweit') drawChart();
       if (state.scope === 'lage') {
@@ -3607,6 +4263,7 @@
     });
     window.addEventListener('zweitstimme-logo-ready', function () {
       drawShareChart();
+      drawCompareChart();
       if (state.scope === 'wkr') drawWkrRaceCharts();
       if (state.scope === 'zweit') drawChart();
       if (state.scope === 'lage') {
@@ -3646,8 +4303,13 @@
       el.textContent = 'Live-Datei noch nicht veröffentlicht — zeige Replay, bis StaLA liefert.';
       return;
     }
+    var nWkr = Number((state.data && state.data.n_wkr) || live.soll_wkr || 0);
+    var nPrecincts = Number((state.data && state.data.n_precincts) || 0);
     var ist = live.ist_wb;
     var soll = live.soll_wb;
+    if (nPrecincts > nWkr && (soll == null || Number(soll) <= nWkr)) {
+      soll = nPrecincts;
+    }
     var wbLine;
     if (ist != null && soll != null && Number(soll) > 0) {
       wbLine = '<strong>' + ist + '</strong> von <strong>' + soll +
@@ -3657,6 +4319,13 @@
         (Number(soll) === 0 ? ' <span class="wb-art">(Soll noch nicht gemeldet)</span>' : '');
     } else {
       wbLine = 'Wahlbezirke: —';
+    }
+    var istWkr = live.ist_wkr;
+    var sollWkr = live.soll_wkr != null ? live.soll_wkr : (nWkr || null);
+    if (sollWkr && Number(soll) !== Number(sollWkr)) {
+      wbLine += ' <span class="wb-art">· ' +
+        (istWkr != null ? istWkr : '0') + ' von ' + sollWkr +
+        ' Wahlkreisen mit Meldung</span>';
     }
     var mixLive = live.mix_live;
     if (mixLive == null) {
@@ -3684,12 +4353,16 @@
     }
     if (mixLine) bits.push('<div>Mischung: ' + mixLine + '</div>');
     if (kind) bits.push('<div class="wb-art">' + kind + '</div>');
+    var src = live.prediction_source_label || live.prediction_source;
+    if (src) bits.push('<div>Quelle der Vorhersage: <strong>' + src + '</strong></div>');
     el.innerHTML = bits.join('');
   }
 
   function applyPayload(data, keepView) {
     state.data = data;
     state._precinctMap = null;
+    ingestScenarioPStart(data, false);
+    if (!keepView || !forecastPStartOfficial) loadForecastScenarioBaseline();
     applyPartyOrderFromData(data);
     var ids = Object.keys(data.scenarios || {});
     if (ids.indexOf('live') >= 0) state.scenario = 'live';
@@ -3752,8 +4425,9 @@
     fetchNowcast(primary)
       .then(function (data) { return { data: data, fallback: false }; })
       .catch(function (err) {
-        if (!isLivePage() || primary === 'wahlabend_nowcast_st.json') throw err;
-        return fetchNowcast('wahlabend_nowcast_st.json').then(function (data) {
+        var fb = fallbackFileForLand(state.land);
+        if (!isLivePage() || primary === fb) throw err;
+        return fetchNowcast(fb).then(function (data) {
           return { data: data, fallback: true };
         });
       })
@@ -3769,7 +4443,7 @@
           var el = $('wb-live-status');
           if (el) {
             el.hidden = false;
-            el.textContent = 'Live-Nowcast-Datei noch nicht auf dem Preview — zeige 2021-Replay als Platzhalter (Stand 0\u00a0%).';
+            el.textContent = 'Live-Nowcast-Datei noch nicht auf dem Preview — zeige Replay als Platzhalter.';
           }
         }
         if (isLivePage()) {
@@ -3777,7 +4451,7 @@
             fetchNowcast(replayFileForLand(state.land))
               .then(function (next) { applyPayload(next, true); })
               .catch(function () { /* keep last good snapshot */ });
-          }, 60000);
+          }, 90000);
         }
       })
       .catch(function (err) {

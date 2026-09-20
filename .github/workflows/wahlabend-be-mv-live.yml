@@ -78,6 +78,7 @@ jobs:
             git fetch origin main --depth 1 2>/dev/null || true
             git checkout origin/main -- data/wahlabend_external.json 2>/dev/null || true
             python3 scripts/pick_wahlabend_external.py gh-pages-site/data/wahlabend_external.json data/wahlabend_external.json || true
+            python3 scripts/fetch_wahlabend_external.py data/wahlabend_external.json || echo "WARN wahlrecht scrape failed"
 
             PREV_BE=""
             PREV_MV=""

@@ -1,9 +1,201 @@
 {
   "be": {
-    "sources": []
+    "sources": [
+      {
+        "kind": "prognose",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:00",
+        "shares": {
+          "lin": 24.5,
+          "cdu": 20.0,
+          "afd": 16.0,
+          "gru": 15.0,
+          "spd": 12.0,
+          "fdp": 2.5,
+          "bsw": 5.0,
+          "oth": 5.0
+        },
+        "turnout": 75.0,
+        "uncertainty_pp": 1.5,
+        "note": "rbb liveticker 18:00 (Linke 24,5, CDU 20, AfD 16, Grüne 15, SPD 12, FDP 2,5, WB 75). BSW nicht genannt («bangen um 5 %»); 5,0 plus Sonstige 5,0 als Rest zu 100."
+      },
+      {
+        "kind": "prognose",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "18:00",
+        "shares": {
+          "cdu": 20.0,
+          "spd": 12.0,
+          "gru": 15.5,
+          "lin": 26.0,
+          "afd": 13.5,
+          "fdp": 0.0,
+          "bsw": 5.0,
+          "oth": 8.0
+        },
+        "uncertainty_pp": 1.5,
+        "note": "wahlrecht.de 18:00 FG Wahlen. FDP nicht ausgewiesen (in Sonstige)."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:28",
+        "shares": {
+          "cdu": 20.0,
+          "spd": 12.0,
+          "gru": 15.0,
+          "lin": 24.8,
+          "afd": 15.7,
+          "fdp": 2.4,
+          "bsw": 5.0,
+          "oth": 5.1
+        },
+        "note": "wahlrecht.de erste Hochrechnung ARD/Infratest 18:28."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "18:29",
+        "shares": {
+          "cdu": 20.0,
+          "spd": 12.0,
+          "gru": 15.4,
+          "lin": 25.8,
+          "afd": 13.8,
+          "fdp": 0.0,
+          "bsw": 5.0,
+          "oth": 8.0
+        },
+        "note": "wahlrecht.de erste Hochrechnung ZDF/FG Wahlen 18:29. FDP nicht ausgewiesen."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:56",
+        "shares": {
+          "cdu": 20.0,
+          "spd": 11.9,
+          "gru": 15.0,
+          "lin": 24.9,
+          "afd": 15.7,
+          "fdp": 2.5,
+          "bsw": 5.0,
+          "oth": 5.0
+        },
+        "note": "wahlrecht.de hochrechnung ARD 18:56."
+      }
+    ]
   },
   "mv": {
-    "sources": []
+    "sources": [
+      {
+        "kind": "prognose",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:00",
+        "shares": {
+          "spd": 35.5,
+          "afd": 37.0,
+          "cdu": 5.5,
+          "lin": 7.5,
+          "gru": 5.5,
+          "fdp": 1.2,
+          "bsw": 5.0,
+          "oth": 2.8
+        },
+        "note": "wahlrecht.de / NDR 18:00 Infratest dimap. FDP 1,2 und Sonstige 2,8 als Rest zu 100."
+      },
+      {
+        "kind": "prognose",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "18:00",
+        "shares": {
+          "spd": 36.5,
+          "afd": 38.0,
+          "cdu": 5.0,
+          "lin": 6.0,
+          "gru": 5.5,
+          "fdp": 1.0,
+          "bsw": 4.8,
+          "oth": 3.2
+        },
+        "note": "wahlrecht.de 18:00 FG Wahlen."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "18:27",
+        "shares": {
+          "spd": 36.3,
+          "afd": 37.8,
+          "cdu": 5.1,
+          "lin": 6.2,
+          "gru": 5.5,
+          "fdp": 1.0,
+          "bsw": 4.8,
+          "oth": 3.3
+        },
+        "note": "wahlrecht.de erste Hochrechnung ZDF/FG Wahlen 18:27."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:28",
+        "shares": {
+          "spd": 35.6,
+          "afd": 37.1,
+          "cdu": 5.4,
+          "lin": 7.4,
+          "gru": 5.5,
+          "fdp": 1.1,
+          "bsw": 5.0,
+          "oth": 2.9
+        },
+        "note": "wahlrecht.de erste Hochrechnung ARD/Infratest 18:28."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "18:51",
+        "shares": {
+          "spd": 35.5,
+          "afd": 37.3,
+          "cdu": 5.3,
+          "lin": 7.5,
+          "gru": 5.5,
+          "fdp": 1.1,
+          "bsw": 5.0,
+          "oth": 2.8
+        },
+        "note": "wahlrecht.de hochrechnung ARD 18:51."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "19:00",
+        "shares": {
+          "spd": 36.0,
+          "afd": 37.9,
+          "cdu": 5.2,
+          "lin": 6.6,
+          "gru": 5.4,
+          "fdp": 1.0,
+          "bsw": 4.8,
+          "oth": 3.2
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 19:00."
+      }
+    ]
   },
-  "_comment": "Append Prognose/Hochrechnung rows on election night. Example: {\"kind\": \"prognose\", \"institute\": \"infratest_dimap\", \"publisher\": \"ARD\", \"time\": \"18:00\", \"shares\": {\"cdu\": 22.0, \"spd\": 16.0, \"gru\": 18.0, \"lin\": 19.0, \"afd\": 16.0, \"fdp\": 3.0, \"bsw\": 4.0}, \"turnout\": 68.0, \"uncertainty_pp\": 1.5}. Shares are percent (0-100). kind=prognose|hochrechnung|beteiligung."
+  "_comment": "Prognose/Hochrechnung rows (percent 0-100). Live loop merges wahlrecht.de; kind=prognose|hochrechnung|beteiligung."
 }
