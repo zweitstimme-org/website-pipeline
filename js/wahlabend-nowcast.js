@@ -1385,18 +1385,16 @@
   }
 
   function ensureCompareChartDom() {
-    if ($('wb-chart-compare')) return;
-    var shares = $('wb-chart-shares');
-    if (!shares || !shares.parentNode) return;
-    var box = document.createElement('div');
-    box.innerHTML =
-      '<p class="wb-chart-label" id="wb-compare-label">Vergleich: Vorhersage, Exit-Polls, Nowcast</p>' +
-      '<div class="wb-legend" id="wb-compare-legend"></div>' +
-      '<canvas id="wb-chart-compare" class="wb-chart" width="900" height="250"></canvas>' +
-      '<p class="wb-meta" id="wb-compare-note" style="margin:0.15rem 0 1rem;">' +
-      'Punkte je Quelle leicht versetzt. Nowcast rechts. Kappen = ±.</p>';
-    var anchor = $('wb-share-chart-label') || shares;
-    shares.parentNode.insertBefore(box, anchor);
+    // Snapshot Vergleich chart was removed — keep only the night trajectory.
+    ['wb-compare-label', 'wb-compare-legend', 'wb-chart-compare', 'wb-compare-note'].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.style.display = 'none';
+      if (el.parentNode && el.parentNode !== document.body) {
+        var kids = el.parentNode.querySelectorAll('#wb-chart-compare, #wb-compare-label');
+        if (kids.length && !el.parentNode.id) el.parentNode.style.display = 'none';
+      }
+    });
   }
 
   /** zs.org | Exit (ARD+ZDF) | HR (ARD+ZDF) | Nowcast — Nowcast always last. */
@@ -1417,6 +1415,7 @@
 
   function drawCompareChart() {
     ensureCompareChartDom();
+    return;
     var canvas = $('wb-chart-compare');
     var legend = $('wb-compare-legend');
     var label = $('wb-compare-label');
@@ -2675,7 +2674,8 @@
     var cap = $('wb-map-caption');
     var block = $('wb-map-block');
     if (!svg || !block) return;
-    if (state.land === 'be') {
+    var show = state.scope === 'zweit' || state.scope === 'wkr';
+    if (!show) {
       block.hidden = true;
       return;
     }
@@ -3455,6 +3455,35 @@
 
   var forecastPStart = {};
   var forecastPStartOfficial = false;
+  var forecastPStartOfficialIds = {};
+
+  function ingestHurdlePFromParties(src) {
+    var rows = src && src.parties;
+    if (!Array.isArray(rows)) return;
+    rows.forEach(function (row) {
+      var raw = String((row && row.party_code) || '').toLowerCase();
+      if (!raw || raw === 'oth' || raw === 'others') return;
+      var fit = Number(row.fit);
+      var lo = Number(row.low);
+      var hi = Number(row.high);
+      if (!isFinite(fit) || !isFinite(lo) || !isFinite(hi)) return;
+      var sd = Math.max(Math.abs(hi - lo) / 2 / 1.37, 0.15);
+      var z = (5 - fit) / sd;
+      var p = 50 * (1 + erfApprox(-z / Math.SQRT2));
+      if (p < 0) p = 0;
+      if (p > 100) p = 100;
+      var aliases = [raw];
+      if (raw === 'gru') aliases.push('gruene');
+      if (raw === 'gruene') aliases.push('gru');
+      if (raw === 'lin') aliases.push('linke');
+      if (raw === 'linke') aliases.push('lin');
+      aliases.forEach(function (key) {
+        var id = 'above_hurdle_' + key;
+        if (forecastPStartOfficialIds[id]) return;
+        forecastPStart[id] = p;
+      });
+    });
+  }
 
   function ingestScenarioPStart(src, official) {
     if (!src) return;
@@ -3463,7 +3492,9 @@
       items.forEach(function (it) {
         if (it && it.id != null && it.probability != null) {
           var p = Number(it.probability);
-          if (isFinite(p)) forecastPStart[it.id] = p;
+          if (!isFinite(p)) return;
+          if (official || forecastPStart[it.id] == null) forecastPStart[it.id] = p;
+          if (official) forecastPStartOfficialIds[it.id] = true;
         }
       });
     }
@@ -3475,10 +3506,14 @@
       Object.keys(map).forEach(function (id) {
         var v = Number(map[id]);
         if (!isFinite(v)) return;
+        if (forecastPStartOfficialIds[id]) return;
         if (official || forecastPStart[id] == null) forecastPStart[id] = v;
       });
     }
-    if (official) forecastPStartOfficial = true;
+    if (official) {
+      ingestHurdlePFromParties(src);
+      forecastPStartOfficial = true;
+    }
   }
 
   function scenarioPStartOf(it) {
@@ -3512,6 +3547,14 @@
   function scenarioRowHtml(it) {
     var leanCls = scenarioLeanCls(it);
     var pStart = scenarioPStartOf(it);
+    var fromFc = it && it.id != null && forecastPStart[it.id] != null;
+    // A newly added scenario often stamps p_start = current p. After
+    // counting has started that is not "vor Auszählung".
+    if (!fromFc && pStart != null && it && it.p != null &&
+        Math.abs(Number(pStart) - Number(it.p)) < 0.51) {
+      var cur = (steps()[Math.min(state.step, Math.max(0, steps().length - 1))] || {});
+      if ((Number(cur.frac_reported) || 0) > 0.02) pStart = null;
+    }
     var line2 = '<span class="' + leanCls + '">' + scenarioLeanTxt(it) + '</span>';
     if (pStart != null) {
       line2 += ' · vor Auszählung ' + fmtNum(pStart, 0) + '\u00a0%';
@@ -3776,6 +3819,9 @@
     });
     document.querySelectorAll('[data-bezirk-only]').forEach(function (el) {
       el.hidden = true;
+    });
+    document.querySelectorAll('[data-wkr-only]').forEach(function (el) {
+      el.hidden = !(isZweit || isWkr);
     });
   }
 
