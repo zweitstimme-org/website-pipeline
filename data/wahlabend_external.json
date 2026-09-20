@@ -17,7 +17,7 @@
           "oth": 5.0
         },
         "turnout": 75.0,
-        "uncertainty_pp": 1.5,
+        "uncertainty_pp": 3.0,
         "note": "rbb liveticker 18:00 (Linke 24,5, CDU 20, AfD 16, Grüne 15, SPD 12, FDP 2,5, WB 75). BSW nicht genannt («bangen um 5 %»); 5,0 plus Sonstige 5,0 als Rest zu 100."
       },
       {
@@ -35,7 +35,7 @@
           "bsw": 5.0,
           "oth": 8.0
         },
-        "uncertainty_pp": 1.5,
+        "uncertainty_pp": 3.0,
         "note": "wahlrecht.de 18:00 FG Wahlen. FDP nicht ausgewiesen (in Sonstige)."
       },
       {
@@ -101,11 +101,9 @@
           "lin": 25.5,
           "afd": 13.9,
           "bsw": 5.0,
-          "oth": 8.2,
-          "fdp": 0.0
+          "oth": 8.2
         },
-        "note": "zdf wahltool hochrechnung 19:11.",
-        "turnout": 73.0
+        "note": "wahlrecht.de hochrechnung ZDF 19:11."
       },
       {
         "kind": "hochrechnung",
@@ -161,7 +159,7 @@
         "kind": "hochrechnung",
         "institute": "forschungsgruppe_wahlen",
         "publisher": "ZDF",
-        "time": "20:11",
+        "time": "20:10",
         "shares": {
           "cdu": 19.7,
           "spd": 11.8,
@@ -171,7 +169,7 @@
           "bsw": 5.2,
           "oth": 7.3
         },
-        "note": "wahlrecht.de hochrechnung ZDF 20:11."
+        "note": "wahlrecht.de hochrechnung ZDF 20:10."
       },
       {
         "kind": "hochrechnung",
@@ -188,6 +186,39 @@
           "oth": 7.7
         },
         "note": "wahlrecht.de hochrechnung ZDF 20:13."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "21:08",
+        "shares": {
+          "cdu": 19.2,
+          "spd": 12.0,
+          "gru": 14.3,
+          "lin": 24.9,
+          "afd": 15.8,
+          "bsw": 5.0,
+          "oth": 8.8
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 21:08."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "21:25",
+        "shares": {
+          "cdu": 19.0,
+          "spd": 12.1,
+          "gru": 14.4,
+          "lin": 25.3,
+          "afd": 16.3,
+          "fdp": 2.5,
+          "bsw": 4.8,
+          "oth": 5.6
+        },
+        "note": "wahlrecht.de hochrechnung ARD 21:25."
       }
     ]
   },
@@ -299,24 +330,6 @@
         "kind": "hochrechnung",
         "institute": "forschungsgruppe_wahlen",
         "publisher": "ZDF",
-        "time": "19:01",
-        "shares": {
-          "spd": 36.0,
-          "afd": 37.9,
-          "cdu": 5.2,
-          "lin": 6.5,
-          "gru": 5.4,
-          "fdp": 1.0,
-          "bsw": 4.8,
-          "oth": 3.2
-        },
-        "note": "zdf wahltool hochrechnung 19:01.",
-        "turnout": 78.0
-      },
-      {
-        "kind": "hochrechnung",
-        "institute": "forschungsgruppe_wahlen",
-        "publisher": "ZDF",
         "time": "19:26",
         "shares": {
           "spd": 35.9,
@@ -387,7 +400,7 @@
         "publisher": "ZDF",
         "time": "20:05",
         "shares": {
-          "spd": 35.9,
+          "spd": 35.7,
           "afd": 37.9,
           "cdu": 5.0,
           "lin": 6.5,
@@ -397,8 +410,25 @@
           "oth": 3.4
         },
         "note": "wahlrecht.de hochrechnung ZDF 20:05."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "21:05",
+        "shares": {
+          "spd": 35.7,
+          "afd": 37.9,
+          "cdu": 5.0,
+          "lin": 6.5,
+          "gru": 5.6,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.4
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 21:05."
       }
     ]
   },
-  "_comment": "Prognose/Hochrechnung rows (percent 0-100). Live loop merges wahlrecht.de plus latest ZDF wahltool; kind=prognose|hochrechnung|beteiligung."
+  "_comment": "Prognose/Hochrechnung rows (percent 0-100). Live loop merges wahlrecht.de; kind=prognose|hochrechnung|beteiligung."
 }
