@@ -318,6 +318,8 @@ def stamp(path: Path):
         return str(meta["last_update"])
     if isinstance(payload, dict) and payload.get("last_update"):
         return str(payload["last_update"])
+    if isinstance(payload, dict) and payload.get("generated_at"):
+        return str(payload["generated_at"])
     return None
 
 kept = 0
@@ -328,7 +330,14 @@ for remote in remote_dir.rglob("*.json"):
     remote_stamp = stamp(remote)
     local_stamp = stamp(dest) if dest.exists() else None
     # Keep remote when local is missing, unstamped, or older.
-    if (not dest.exists()) or (remote_stamp and (not local_stamp or remote_stamp > local_stamp)):
+    # Live nowcast JSON uses generated_at (not last_update); never let a
+    # Hugo rebuild drop the night trajectory for an unstamped local copy.
+    live_name = rel.name.startswith("wahlabend_nowcast_") and rel.name.endswith("_live.json")
+    if (
+        (not dest.exists())
+        or live_name
+        or (remote_stamp and (not local_stamp or remote_stamp > local_stamp))
+    ):
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(remote.read_bytes())
         kept += 1
@@ -373,6 +382,8 @@ def stamp_bytes(raw: bytes):
         return str(meta["last_update"])
     if payload.get("last_update"):
         return str(payload["last_update"])
+    if payload.get("generated_at"):
+        return str(payload["generated_at"])
     return None
 
 def stamp_path(path: Path):
