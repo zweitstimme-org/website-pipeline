@@ -1,0 +1,155 @@
+name: Berlin + MV live nowcast
+
+# Election night 20–21 Sep 2026 (CEST = UTC+2).
+# GitHub cron cannot run tighter than 5 minutes; AfS asks ≥ 2 minutes.
+# Two overlapping 6h jobs loop every 180s until 05:05 CEST.
+# Each push to gh-pages is followed by workflow_dispatch of "Deploy site
+# preview" so the Actions Pages site picks up new JSON (GITHUB_TOKEN pushes
+# do not trigger push workflows).
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 17:45 CEST Sunday
+    - cron: "45 15 20 9 *"
+    # 23:40 CEST Sunday → covers until ~05:40, script stops at 05:05
+    - cron: "40 21 20 9 *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: wahlabend-be-mv-live
+  cancel-in-progress: false
+
+env:
+  CUTOFF_UTC: "2026-09-21T03:05:00Z"
+  POLL_SECONDS: "180"
+
+jobs:
+  nowcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    environment:
+      name: github-pages
+      url: ${{ steps.pages_deployment.outputs.page_url }}
+    steps:
+      - name: Checkout pipeline
+        uses: actions/checkout@v4
+
+      - name: Install python deps
+        run: python3 -m pip install --quiet numpy openpyxl
+
+      - name: Fetch Berlin historical remaps (non-fatal)
+        run: bash scripts/fetch_wahlabend_data.sh || echo "WARN remap fetch failed"
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-site
+
+      - name: Poll live feeds until cutoff
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER_NAME: zweitstimme-pipeline-bot
+          GIT_USER_EMAIL: pipeline@zweitstimme.org
+        run: |
+          set -euo pipefail
+          git -C gh-pages-site config user.name "${GIT_USER_NAME}"
+          git -C gh-pages-site config user.email "${GIT_USER_EMAIL}"
+          mkdir -p output berlin/wahlabend/live mecklenburg-vorpommern/wahlabend/live
+
+          past_cutoff() {
+            python3 -c 'import os,sys; from datetime import datetime, timezone; cutoff=datetime.fromisoformat(os.environ["CUTOFF_UTC"].replace("Z","+00:00")); sys.exit(0 if datetime.now(timezone.utc)>=cutoff else 1)'
+          }
+
+          iteration=0
+          while true; do
+            iteration=$((iteration + 1))
+            echo "=== poll ${iteration} $(date -u +%H:%M:%SZ) ==="
+            bash scripts/fetch_be_live.sh || echo "WARN BE fetch failed"
+            bash scripts/fetch_mv_live.sh || echo "WARN MV fetch failed"
+
+            git fetch origin main --depth 1 2>/dev/null || true
+            git checkout origin/main -- data/wahlabend_external.json 2>/dev/null || true
+            python3 scripts/pick_wahlabend_external.py gh-pages-site/data/wahlabend_external.json data/wahlabend_external.json || true
+
+            PREV_BE=""
+            PREV_MV=""
+            if [ -f gh-pages-site/data/wahlabend_nowcast_be_live.json ]; then
+              cp gh-pages-site/data/wahlabend_nowcast_be_live.json output/wahlabend_nowcast_be_live.json
+              PREV_BE="--prev output/wahlabend_nowcast_be_live.json"
+            fi
+            if [ -f gh-pages-site/data/wahlabend_nowcast_mv_live.json ]; then
+              cp gh-pages-site/data/wahlabend_nowcast_mv_live.json output/wahlabend_nowcast_mv_live.json
+              PREV_MV="--prev output/wahlabend_nowcast_mv_live.json"
+            fi
+            python3 code/wahlabend_be_live.py ${PREV_BE} || echo "WARN BE nowcast failed"
+            python3 code/wahlabend_mv_live.py ${PREV_MV} || echo "WARN MV nowcast failed"
+
+            mkdir -p gh-pages-site/data/be_live/snapshots gh-pages-site/data/mv_live/snapshots
+            for f in output/wahlabend_nowcast_be_live.json output/wahlabend_nowcast_mv_live.json data/wahlabend_external.json; do
+              if [ -f "$f" ]; then
+                cp "$f" gh-pages-site/data/
+              fi
+            done
+            if [ -d berlin/wahlabend/live ]; then
+              find berlin/wahlabend/live -maxdepth 1 -type f -name '*.csv' \
+                -exec cp {} gh-pages-site/data/be_live/ \; || true
+              if [ -d berlin/wahlabend/live/snapshots ]; then
+                find berlin/wahlabend/live/snapshots -mindepth 1 -maxdepth 1 -type d \
+                  -exec cp -a {} gh-pages-site/data/be_live/snapshots/ \; || true
+                if [ -f berlin/wahlabend/live/snapshots/manifest.jsonl ]; then
+                  cat berlin/wahlabend/live/snapshots/manifest.jsonl \
+                    >> gh-pages-site/data/be_live/snapshots/manifest.jsonl || true
+                fi
+              fi
+            fi
+            if [ -d mecklenburg-vorpommern/wahlabend/live ]; then
+              find mecklenburg-vorpommern/wahlabend/live -maxdepth 1 -type f -name '*.csv' \
+                -exec cp {} gh-pages-site/data/mv_live/ \; || true
+              if [ -d mecklenburg-vorpommern/wahlabend/live/snapshots ]; then
+                find mecklenburg-vorpommern/wahlabend/live/snapshots -mindepth 1 -maxdepth 1 -type d \
+                  -exec cp -a {} gh-pages-site/data/mv_live/snapshots/ \; || true
+                if [ -f mecklenburg-vorpommern/wahlabend/live/snapshots/manifest.jsonl ]; then
+                  cat mecklenburg-vorpommern/wahlabend/live/snapshots/manifest.jsonl \
+                    >> gh-pages-site/data/mv_live/snapshots/manifest.jsonl || true
+                fi
+              fi
+            fi
+            git -C gh-pages-site add data/wahlabend_nowcast_be_live.json \
+              data/wahlabend_nowcast_mv_live.json data/wahlabend_external.json \
+              data/be_live data/mv_live || true
+            if git -C gh-pages-site diff --staged --quiet; then
+              echo "No live nowcast change on gh-pages."
+            else
+              git -C gh-pages-site commit -m "chore(pages): BE/MV live nowcast snapshot"
+              git -C gh-pages-site pull --rebase --autostash origin gh-pages || true
+              git -C gh-pages-site push origin HEAD:gh-pages || echo "WARN gh-pages push failed"
+              gh workflow run "Deploy site preview" --ref main || \
+                echo "WARN could not dispatch Pages deploy"
+            fi
+
+            if past_cutoff; then
+              echo "Past cutoff ${CUTOFF_UTC} — stopping poll loop."
+              break
+            fi
+            sleep "${POLL_SECONDS}"
+          done
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages-site
+
+      - name: Deploy to GitHub Pages
+        id: pages_deployment
+        uses: actions/deploy-pages@v4
