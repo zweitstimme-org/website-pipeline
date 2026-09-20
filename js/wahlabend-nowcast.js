@@ -2674,7 +2674,7 @@
     var cap = $('wb-map-caption');
     var block = $('wb-map-block');
     if (!svg || !block) return;
-    var show = state.scope === 'zweit' || state.scope === 'wkr';
+    var show = state.scope === 'wkr';
     if (!show) {
       block.hidden = true;
       return;
@@ -3821,7 +3821,7 @@
       el.hidden = true;
     });
     document.querySelectorAll('[data-wkr-only]').forEach(function (el) {
-      el.hidden = !(isZweit || isWkr);
+      el.hidden = !isWkr;
     });
   }
 
