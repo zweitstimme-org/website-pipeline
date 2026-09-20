@@ -262,6 +262,14 @@
     ctx.fillText(text, pad.l + 6, y - 4);
   }
 
+  /** Statewide list-vote threshold (Sperrklausel). Landtag / AGH: 5 %. */
+  function drawHurdleLine(ctx, pad, w, yAt, yMin, yMax) {
+    var h = 5;
+    if (yMin != null && !(h > yMin)) return;
+    if (yMax != null && !(h < yMax)) return;
+    drawHRef(ctx, pad, w, yAt, h, '5%-Hürde', '#888');
+  }
+
   /** German integer with thousands separator (1.234.567). */
   function fmtInt(x) {
     if (x == null || !isFinite(x)) return '—';
@@ -839,7 +847,7 @@
     });
   }
 
-  /** Land-level Δ applied to this WK so latest source sits on the 0 %-Nowcast. */
+  /** Land-level Δ applied to a WK forecast: dest = base + (toLand − fromLand). */
   function swingShareMap(base, fromLand, toLand) {
     var out = {};
     var seen = {};
@@ -854,11 +862,13 @@
     return out;
   }
 
-  function wkrPreambleMarkers(shareOfRegion) {
-    var land = preambleMarkers();
-    if (!land.length || !state.unit) return [];
+  function wkrForecastRow(uid) {
+    var fc = (state.data && state.data.wkr_forecast) || {};
+    return fc[String(uid != null ? uid : state.unit)] || null;
+  }
+
+  function earliestWkrRegion() {
     var st = steps();
-    if (!st.length) return [];
     var best = null;
     var bestF = 2;
     st.forEach(function (s) {
@@ -869,13 +879,116 @@
         best = r;
       }
     });
-    var base = shareOfRegion(best || {});
+    return best || {};
+  }
+
+  function erfApprox(x) {
+    var sign = x < 0 ? -1 : 1;
+    x = Math.abs(x);
+    var t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t -
+      0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return sign * y;
+  }
+
+  /** Same Normal-approx as live wkr_races (margin pp vs mean ±). */
+  function pLeadFromShares(shares, uncOf) {
+    var parties = PARTIES_ORDER.filter(function (p) { return p !== 'others'; });
+    var ranked = parties.slice().sort(function (a, b) {
+      return (shares[b] || 0) - (shares[a] || 0);
+    });
+    if (!ranked.length) {
+      return { leader: null, runner: null, margin: 0, p_lead: 0.5 };
+    }
+    if (ranked.length < 2) {
+      return { leader: ranked[0], runner: null, margin: shares[ranked[0]] || 0, p_lead: 1 };
+    }
+    var a = ranked[0];
+    var b = ranked[1];
+    var margin = (shares[a] || 0) - (shares[b] || 0);
+    var ua = uncOf ? uncOf(a) : 3;
+    var ub = uncOf ? uncOf(b) : 3;
+    if (!(ua > 0)) ua = 3;
+    if (!(ub > 0)) ub = 3;
+    var mu = 0.5 * (ua + ub);
+    var z = margin / (mu + 0.5);
+    var p = 0.5 * (1 + erfApprox(z / Math.SQRT2));
+    if (p > 1) p = 1;
+    if (p < 0) p = 0;
+    return { leader: a, runner: b, margin: margin, p_lead: p };
+  }
+
+  function preambleSlotLabel(row) {
+    if (!row) return '';
+    if (row.kind === 'forecast') return 'zs.org';
+    var pub = preamblePublisher(row);
+    if (row.kind === 'prognose' || row.kind === 'exit_avg') {
+      return pub ? ('Exit ' + pub) : 'Exit';
+    }
+    if (row.kind === 'hochrechnung') {
+      return pub ? (pub + ' HR') : 'HR';
+    }
+    return row.short || row.label || '';
+  }
+
+  function wkrPreambleLeadRows() {
+    var marks = wkrPreambleMarkers(wkrErst);
+    var fc = wkrForecastRow();
+    return marks.map(function (m) {
+      return Object.assign({ row: m, label: preambleSlotLabel(m) }, preambleLeadOf(m, fc));
+    });
+  }
+
+  function preambleLeadOf(m, fc) {
+    var thr = (state.data && state.data.call_threshold) || 0.90;
+    if (m && m.kind === 'forecast' && fc && fc.p_lead != null) {
+      var p0 = Number(fc.p_lead);
+      return {
+        leader: fc.direct_pred || fc.leader_pred || null,
+        runner: fc.runner_up || null,
+        margin: fc.margin,
+        p_lead: p0,
+        likely: !!fc.likely || p0 >= thr
+      };
+    }
+    var info = pLeadFromShares((m && m.shares) || {}, function (p) {
+      return shareUnc(m, p);
+    });
+    info.likely = info.p_lead >= thr;
+    return info;
+  }
+
+  /**
+   * WK preamble: zs.org is the frozen district forecast.
+   * Exit/HR = that forecast plus the land-level Δ vs zs.org.
+   * Never swing zs.org off the latest HR — that flipped close races
+   * (Mitte 7: Linke knapp voraus → Grüne klar voraus).
+   */
+  function wkrPreambleMarkers(shareOfRegion) {
+    var land = preambleMarkers();
+    if (!land.length || !state.unit) return [];
+    var st = steps();
+    if (!st.length) return [];
+    var fc = wkrForecastRow();
+    var base = fc ? shareOfRegion(fc) : shareOfRegion(earliestWkrRegion());
     if (!base || !Object.keys(base).length) return [];
+    var zsLand = null;
+    land.forEach(function (row) {
+      if (row.kind === 'forecast') zsLand = row.shares || {};
+    });
     var latest = land[land.length - 1];
-    var from = (latest && latest.shares) || {};
+    var fromOthers = zsLand && Object.keys(zsLand).length
+      ? zsLand
+      : ((latest && latest.shares) || {});
     return land.map(function (row) {
+      if (row.kind === 'forecast') {
+        return Object.assign({}, row, {
+          shares: Object.assign({}, base),
+          uncertainty: (fc && fc.uncertainty) || row.uncertainty
+        });
+      }
       return Object.assign({}, row, {
-        shares: swingShareMap(base, from, row.shares || {})
+        shares: swingShareMap(base, fromOthers, row.shares || {})
       });
     });
   }
@@ -900,17 +1013,24 @@
     return x;
   }
 
-  /** Same tick for ARD+ZDF; zs.org fans parties a few px so wide CIs stay readable. */
+  /** Fan overlapping dots a few px so CIs stay readable. */
+  function partyJitterX(x, partyIndex, nParties, rowIndex, nRows) {
+    if (nParties > 1) {
+      var span = Math.min(20, 3.4 * nParties);
+      x += (partyIndex - (nParties - 1) / 2) * (span / (nParties - 1));
+    }
+    if (nRows > 1) {
+      x += ((rowIndex || 0) - (nRows - 1) / 2) * 6;
+    }
+    return x;
+  }
+
   function preamblePointX(padL, plotW, slotIndex, rowIndex, partyIndex, nParties, slots) {
     slots = slots || preambleSlots();
     var slot = slots[slotIndex];
     var x = xAtPreamble(padL, plotW, slotIndex, slots);
     if (!slot) return x;
-    if (slot.kind === 'forecast' && nParties > 1) {
-      var span = Math.min(20, 3.4 * nParties);
-      return x + (partyIndex - (nParties - 1) / 2) * (span / (nParties - 1));
-    }
-    return x;
+    return partyJitterX(x, partyIndex, nParties, rowIndex, slot.rows.length);
   }
 
   function drawPreambleDot(ctx, x, y, color, pub) {
@@ -1020,8 +1140,7 @@
       '<div class="wb-legend" id="wb-compare-legend"></div>' +
       '<canvas id="wb-chart-compare" class="wb-chart" width="900" height="250"></canvas>' +
       '<p class="wb-meta" id="wb-compare-note" style="margin:0.15rem 0 1rem;">' +
-      'Punkte je Quelle auf einem X-Strich (ARD/ZDF nicht versetzt). ' +
-      'Nowcast rechts. Kappen = ±.</p>';
+      'Punkte je Quelle leicht versetzt. Nowcast rechts. Kappen = ±.</p>';
     var anchor = $('wb-share-chart-label') || shares;
     shares.parentNode.insertBefore(box, anchor);
   }
@@ -1073,7 +1192,7 @@
           ';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:0.35rem;"></i>' +
           partyShort(p) + '</span>';
       }).join(' ') +
-        ' <span class="wb-art">· ARD ● · ZDF ◆ · hohl = zs.org · Rand = HR</span>';
+        ' <span class="wb-art">· ARD ● · ZDF ◆ · hohl = zs.org · Rand = HR · grau gestrichelt = 5%-Hürde</span>';
     }
     if (label) {
       label.textContent = 'Vergleich: Vorhersage, Exit-Polls' +
@@ -1081,8 +1200,7 @@
         ', Nowcast';
     }
     if (note) {
-      note.textContent = 'Punkte je Quelle auf einem X-Strich (ARD/ZDF nicht versetzt). ' +
-        'Nowcast rechts. Kappen = ±.';
+      note.textContent = 'Punkte je Quelle leicht versetzt. Nowcast rechts. Kappen = ±.';
     }
 
     var ctx = canvas.getContext('2d');
@@ -1117,6 +1235,7 @@
     ctx.font = '11px system-ui,sans-serif';
     ctx.fillText(fmtNum(yMax, 0) + '\u00a0%', 4, pad.t + 10);
     ctx.fillText('0', 4, pad.t + h);
+    drawHurdleLine(ctx, pad, w, yAt, 0, yMax);
 
     slots.forEach(function (slot, k) {
       var x = xAt(k);
@@ -1138,29 +1257,33 @@
           var val = s.shares[p] || 0;
           if (!(val > 0.05) && s.kind !== 'nowcast' && s.kind !== 'forecast') return;
           var col = PARTY_COLORS[p] || '#888';
+          var px = partyJitterX(
+            x, parties.indexOf(p), parties.length,
+            slot.rows.indexOf(s), slot.rows.length
+          );
           var u = shareUnc(s, p);
-          if (u > 0) drawVertCI(ctx, x, val, u, yAt, 'rgba(20,20,20,0.55)');
+          if (u > 0) drawVertCI(ctx, px, val, u, yAt, 'rgba(20,20,20,0.55)');
           ctx.globalAlpha = s.kind === 'forecast' ? 0.55 : 1;
           if (s.kind === 'forecast') {
             ctx.strokeStyle = col;
             ctx.lineWidth = 1.4;
             ctx.beginPath();
-            ctx.arc(x, yAt(val), 3.6, 0, Math.PI * 2);
+            ctx.arc(px, yAt(val), 3.6, 0, Math.PI * 2);
             ctx.stroke();
           } else {
-            drawPreambleDot(ctx, x, yAt(val), col, pub);
+            drawPreambleDot(ctx, px, yAt(val), col, pub);
             if (s.kind === 'hochrechnung') {
               ctx.strokeStyle = '#111';
               ctx.lineWidth = 1.1;
               ctx.beginPath();
               if (pub === 'ZDF') {
-                ctx.moveTo(x, yAt(val) - 4.2);
-                ctx.lineTo(x + 4.2, yAt(val));
-                ctx.lineTo(x, yAt(val) + 4.2);
-                ctx.lineTo(x - 4.2, yAt(val));
+                ctx.moveTo(px, yAt(val) - 4.2);
+                ctx.lineTo(px + 4.2, yAt(val));
+                ctx.lineTo(px, yAt(val) + 4.2);
+                ctx.lineTo(px - 4.2, yAt(val));
                 ctx.closePath();
               } else {
-                ctx.arc(x, yAt(val), 3.4, 0, Math.PI * 2);
+                ctx.arc(px, yAt(val), 3.4, 0, Math.PI * 2);
               }
               ctx.stroke();
             }
@@ -1209,7 +1332,7 @@
         ? partyShort(state.partyFocus) + ' — Zweitstimme über die Nacht (Nowcast ± Band)'
         : (isLivePage()
           ? (state.scope === 'wkr'
-            ? 'Zweitstimme in diesem WK — zs.org / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
+            ? 'Zweitstimme in diesem WK — zs.org (Wahlkreisprognose) / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
             : 'Zweitstimme — Exit-Polls / Hochrechnung, dann Nowcast 0–100\u00a0%')
           : 'Zweitstimme — Partei-Anteile über die Nacht (Nowcast ± Band)');
     }
@@ -1221,8 +1344,9 @@
           partyShort(p) + '</span>';
       }).join(' ') +
         ' <span class="wb-art">· Fläche + gestrichelte Kanten = ± Band</span>' +
+        ' <span class="wb-art">· grau gestrichelt = 5%-Hürde</span>' +
         (isLivePage() && preambleSlots().length
-          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org (leicht versetzt), dann Exit ARD●/ZDF◆, dann HR</span>'
+          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org, Exit ARD●/ZDF◆, HR (Punkte versetzt)</span>'
           : '');
     }
 
@@ -1325,6 +1449,8 @@
       ctx.setLineDash([]);
     });
 
+    drawHurdleLine(ctx, pad, w, yAt, yMin, yMax);
+
     // Endstand nur wenn Land voll ausgezählt (nicht die ganze Nacht vorwegnehmen)
     var truth = showTruth && views[ci] && views[ci].truth;
     if (truth) {
@@ -1385,7 +1511,7 @@
       if (!v || !v.nowcast) return;
       var val = v.nowcast[p] || 0;
       var u = (v.uncertainty && v.uncertainty[p]) || 0;
-      var x = xAt(i);
+      var x = partyJitterX(xAt(i), parties.indexOf(p), parties.length);
       ctx.strokeStyle = PARTY_COLORS[p] || '#888';
       ctx.lineWidth = 1.5;
       if (u > 0) {
@@ -1594,7 +1720,7 @@
     var raceLabel = $('wb-race-chart-label');
     if (raceLabel) {
       raceLabel.textContent = nightOpt.preamble
-        ? 'Erststimme — zs.org / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
+        ? 'Erststimme — zs.org (Wahlkreisprognose) / Exit / Hochrechnung, dann Nowcast 0–100\u00a0%'
         : 'Erststimmen-Rennen über die Nacht';
     }
     if (legend) {
@@ -1608,7 +1734,7 @@
           ? ' <span class="wb-art">· Band = ± (Fläche + Kante) · gestrichelt horizontal = Endstand</span>'
           : ' <span class="wb-art">· Band = ± (Fläche + Kante)</span>') +
         (nightOpt.preamble
-          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org (leicht versetzt), dann Exit ARD●/ZDF◆, dann HR</span>'
+          ? ' <span class="wb-art">· links von 0&nbsp;% = zs.org-Wahlkreisprognose (nicht die Landes-Δ), dann Exit ARD●/ZDF◆, HR (Punkte versetzt)</span>'
           : '');
     }
 
@@ -1748,7 +1874,7 @@
       var r = regions[ci];
       var val = wkrErst(r)[p] || 0;
       var u = (r.uncertainty && r.uncertainty[p]) || 0;
-      var x = xAt(ci);
+      var x = partyJitterX(xAt(ci), parties.indexOf(p), parties.length);
       ctx.strokeStyle = PARTY_COLORS[p] || '#888';
       ctx.lineWidth = 1.5;
       if (u > 0) {
@@ -1841,6 +1967,23 @@
     });
     ctx.stroke();
 
+    var fcLead = wkrForecastRow();
+    preSlots.forEach(function (slot, k) {
+      slot.rows.forEach(function (m, ri) {
+        var info = preambleLeadOf(m, fcLead);
+        if (info.p_lead == null || !isFinite(info.p_lead)) return;
+        var xp = preamblePointX(pad.l, w, k, ri, 0, 1, preSlots);
+        var col = info.likely ? '#23508f' : '#1a1a1a';
+        if (info.leader && PARTY_COLORS[info.leader]) col = PARTY_COLORS[info.leader];
+        drawPreambleDot(ctx, xp, yP(info.p_lead), col, preamblePublisher(m));
+        ctx.fillStyle = col;
+        ctx.font = '10px system-ui,sans-serif';
+        var lab = fmtProb(info.p_lead);
+        var tw = ctx.measureText(lab).width;
+        ctx.fillText(lab, Math.max(pad.l, xp - tw / 2), Math.max(pad.t + 10, yP(info.p_lead) - 7));
+      });
+    });
+
     ctx.strokeStyle = '#5b7cfa';
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
@@ -1886,6 +2029,20 @@
     var runShare = runP ? erstNow[runP] : null;
     var runU = runP ? uncNow[runP] : null;
     var mU = marginUnc(region);
+    var srcLeads = isLivePage() ? wkrPreambleLeadRows() : [];
+    var srcLeadHtml = srcLeads.length
+      ? '<div class="wb-wkr-plead-src">' + srcLeads.map(function (x) {
+          var verdict = x.likely
+            ? '<span class="wb-wkr-plead-likely">wahrscheinlich</span>'
+            : '<span class="wb-art">offen</span>';
+          var who = x.leader ? partyShort(x.leader) : '';
+          return '<div class="wb-wkr-plead-row">' +
+            '<span class="wb-wkr-plead-src-k">' + escapeHtml(x.label) +
+              (who ? ' · ' + escapeHtml(who) : '') + '</span>' +
+            '<span class="wb-wkr-plead-src-v">' + fmtProb(x.p_lead) + '</span>' +
+            '<span class="wb-wkr-plead-src-t">' + verdict + '</span></div>';
+        }).join('') + '</div>'
+      : '';
 
     var roster = ((state.data && state.data.direkt_candidates_2026) || {})[String(state.unit)] || {};
     var extra = roster._extra || [];
@@ -1963,7 +2120,9 @@
         '<div class="wb-wkr-meta">' +
           '<div class="wb-wkr-plead">' +
             '<span class="wb-wkr-plead-k">P(Führung hält)</span>' +
-            '<span class="wb-wkr-plead-v">' + fmtProb(region.p_lead) + '</span>' +
+            '<span class="wb-wkr-plead-v">' + fmtProb(region.p_lead) +
+              '<span class="wb-wkr-plead-now">Nowcast</span></span>' +
+            srcLeadHtml +
           '</div>' +
           '<dl>' +
           '<dt>Call</dt><dd>' + callInfo + '</dd>' +
@@ -1978,6 +2137,9 @@
       '<canvas id="wb-chart-prob" class="wb-chart wb-chart-prob" width="900" height="160"></canvas>' +
       '<p class="wb-meta" style="margin:0.25rem 0 0;">' +
         'Blau = Partei wahrscheinlich (auch ohne WK-Meldung); Grün = harter Call.' +
+        (srcLeads.length
+          ? ' Links von 0&nbsp;%: zs.org-Wahlkreisprognose, Exit, HR (P und Farbe = führende Partei).'
+          : '') +
         (isLivePage() ? '' : ' Slider oben bewegt den Zeitpunkt (blaue Linie).') +
       '</p>';
 
@@ -3736,8 +3898,16 @@
     }
     var meta = $('wb-actual-meta');
     if (meta && isLivePage()) {
-      meta.textContent =
-        'Absolute Stimmen und Wahlbeteiligung nur aus bereits gemeldeten Wahlkreisen — ohne Nowcast. Keine Wahlbezirk-CSV bisher.';
+      var liveNote = ((state.data && state.data.live) || {}).wb_level_note;
+      if (liveNote) {
+        meta.textContent = 'Absolute Stimmen nur aus gemeldeten Wahlkreisen — ohne Nowcast. ' + liveNote;
+      } else if (state.land === 'mv') {
+        meta.textContent =
+          'Absolute Stimmen und Wahlbeteiligung nur aus bereits gemeldeten Wahlbezirken — ohne Nowcast.';
+      } else {
+        meta.textContent =
+          'Absolute Stimmen und Wahlbeteiligung nur aus bereits gemeldeten Wahlkreisen — ohne Nowcast. Keine Wahlbezirk-CSV bisher.';
+      }
     }
 
     var all = state.data.precincts || [];
@@ -3816,9 +3986,12 @@
       : (s.n_reported + '/' + s.n_total);
     var realList = realPrecincts(list);
     var usingWkStubs = isLivePage() && realList.length === 0 && nWkr > 0;
+    var noWbNote = ((state.data && state.data.live) || {}).wb_level_note;
     meta.textContent = usingWkStubs
-      ? ('Noch keine einzelnen Wahlbezirke gemeldet (Land: ' + landWb +
-        '). AfS/LAIV liefern erst WK-Summen; Urne/Brief kommen mit der Wahlbezirk-Datei.')
+      ? (noWbNote
+        ? (noWbNote + ' Auszählungsstand (Land): ' + landWb + '.')
+        : ('Noch keine einzelnen Wahlbezirke gemeldet (Land: ' + landWb +
+          '). AfS/LAIV liefern erst WK-Summen; Urne/Brief kommen mit der Wahlbezirk-Datei.'))
       : (countReported(realList, reported) + ' von ' + realList.length +
         ' Wahlbezirken im gewählten Gebiet gemeldet (Land: ' + landWb + '). ' +
         (isLivePage()
@@ -3964,11 +4137,16 @@
 
     var note = $('wb-scenario-note');
     if (note) {
+      var office = ({ be: 'AfS', st: 'StaLA', mv: 'LAIV' }[state.land] || 'Amt');
       if (isLivePage() || /2026/.test(String((state.data && state.data.election) || ''))) {
         var liveMeta = (state.data && state.data.live) || {};
-        note.textContent = liveMeta.result_kind_label
-          ? ('StaLA: ' + liveMeta.result_kind_label)
-          : 'Meldefluss: StaLA Live-CSV';
+        var kindBit = liveMeta.result_kind_label
+          ? (office + ': ' + liveMeta.result_kind_label)
+          : ('Meldefluss: ' + office + ' Live-CSV');
+        if (liveMeta.wb_level_note) {
+          kindBit += ' · keine einzelnen Wahlbezirke';
+        }
+        note.textContent = kindBit;
       } else if (state.land === 'be') {
         note.textContent = 'Meldefluss: AfS-Zeiten';
       } else if (state.land === 'st') {
@@ -4355,6 +4533,20 @@
     if (kind) bits.push('<div class="wb-art">' + kind + '</div>');
     var src = live.prediction_source_label || live.prediction_source;
     if (src) bits.push('<div>Quelle der Vorhersage: <strong>' + src + '</strong></div>');
+    var beNoWb = state.land === 'be' && live.wb_level !== 'wahlbezirke' &&
+      !(Number(live.n_wb_reported) > 0);
+    var wbNote = live.wb_level_note || (beNoWb
+      ? 'Berlin veröffentlicht in der Wahlnacht keine einzelnen Wahlbezirke. AfS liefert nur Aggregate (Land, Bezirk, Wahlkreis; _A_). Wahlbezirksergebnisse (_W_) kommen erst mit dem vorläufigen Ergebnis (ca. 01:30).'
+      : '');
+    if (wbNote) {
+      bits.push(
+        '<div class="wb-live-disclaimer">' + escapeHtml(wbNote) +
+        (state.land === 'be'
+          ? ' <a href="https://www.berlin.de/wahlen/pressemitteilungen/2026/pressemitteilung.1713317.php" rel="noopener noreferrer">AfS-Hinweis</a>.'
+          : '') +
+        '</div>'
+      );
+    }
     el.innerHTML = bits.join('');
   }
 

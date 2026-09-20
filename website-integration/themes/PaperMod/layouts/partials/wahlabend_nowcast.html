@@ -140,6 +140,7 @@
 #wb-chart-turnout.wb-chart { height: 200px; }
 #wb-chart-size.wb-chart { height: 220px; }
 #wb-chart-shares.wb-chart { height: 280px; }
+#wb-chart-compare.wb-chart { height: 250px; }
 .wb-range { font-variant-numeric: tabular-nums; color: #555; font-size: 0.85em; }
 .wb-legend { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.8rem; color: #555; margin-bottom: 0.75rem; }
 .wb-err { color: #b00020; }
@@ -301,7 +302,8 @@
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
-  max-width: 14rem;
+  max-width: 22rem;
+  width: 100%;
 }
 .wb-wkr-plead-k {
   font-size: 0.72rem;
@@ -314,6 +316,34 @@
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
 }
+.wb-wkr-plead-now {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #666;
+  vertical-align: middle;
+}
+.wb-wkr-plead-src {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+.wb-wkr-plead-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.45rem;
+  align-items: baseline;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+.wb-wkr-plead-src-k { color: #555; }
+.wb-wkr-plead-src-v { font-weight: 650; }
+.wb-wkr-plead-likely { color: #23508f; font-weight: 600; }
 .wb-wkr-hero dl {
   margin: 0;
   display: flex;
@@ -677,6 +707,15 @@
 .wb-live-status:empty { display: none; }
 .wb-live-count { font-size: 1.05rem; margin: 0 0 0.2rem; }
 .wb-live-status a { text-decoration: underline; }
+.wb-live-disclaimer {
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-left: 3px solid #c9a227;
+  background: #fff8e5;
+  color: #3d3d3d;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
 .wb-map-block { max-width: 920px; margin: 1.35rem 0 0; }
 .wb-map {
   display: block;
@@ -702,20 +741,55 @@
 
 {{- $lockLand := .Params.lockLand | default "" -}}
 {{- $liveMode := .Params.liveMode | default false -}}
+{{- $lands := .Params.lands -}}
+{{- $defaultLand := .Params.defaultLand | default "" -}}
 <div class="wb-wrap" id="wahlabend-root"
      {{- if $lockLand }} data-wb-lock-land="{{ $lockLand }}"{{ end -}}
+     {{- if $lands }} data-wb-lands="{{ delimit $lands "," }}"{{ end -}}
+     {{- if $defaultLand }} data-wb-default-land="{{ $defaultLand }}"{{ end -}}
      {{- if $liveMode }} data-wb-live="1"{{ end -}}>
   {{ if not $lockLand }}
   <div class="wb-land-tabs" role="tablist" aria-label="Land">
+    {{ if or (not $lands) (in $lands "st") }}
     <button type="button" class="wb-sub-btn" data-wb-land="st">Sachsen-Anhalt</button>
+    {{ end }}
+    {{ if or (not $lands) (in $lands "be") }}
     <button type="button" class="wb-sub-btn" data-wb-land="be">Berlin</button>
+    {{ end }}
+    {{ if or (not $lands) (in $lands "mv") }}
     <button type="button" class="wb-sub-btn" data-wb-land="mv">Mecklenburg-Vorpommern</button>
+    {{ end }}
   </div>
   {{ end }}
   <p class="wb-live-status" id="wb-live-status" hidden></p>
   <details class="wb-coverage" style="margin-top:0.5rem;">
     <summary>Was ist das? · Methodik (kurz)</summary>
-    {{ if $liveMode }}
+    {{ if and $liveMode $lands }}
+    <p class="wb-coverage-meta" style="margin-bottom:0.5rem;">
+      <strong>Intern, bitte nicht teilen.</strong>
+    </p>
+    <p class="wb-coverage-meta" style="margin-bottom:0.5rem;">
+      Vor der ersten Meldung ist das die <strong>Vorwahlprognose von
+      zweitstimme.org</strong>. Sobald eine 18-Uhr-Prognose oder Hochrechnung
+      in der Nachthook-Datei steht, ersetzt sie die Vorhersage und die
+      Szenarien. Gezählte Einheiten werden festgehalten; der Rest bekommt
+      geschrumpfte Überraschung aus gemeldeten Wahlkreisen/Wahlbezirken.
+    </p>
+    <p class="wb-coverage-meta" style="margin-bottom:0.35rem;"><strong>Was wir tun</strong></p>
+    <ul class="wb-coverage-meta" style="margin:0 0 0.65rem; padding-left:1.15rem;">
+      <li>Berlin: lokale Priors aus AGH&nbsp;2023 und BTW&nbsp;2025, umgeschlüsselt auf 2026-Wahlbezirke, ausgerichtet auf die Landesprognose. Live: nur AfS <code>_A_</code> (Land/Bezirk/WK). <strong>Einzelne Wahlbezirke veröffentlicht AfS in der Nacht nicht</strong> — <code>_W_</code> erst mit dem vorläufigen Ergebnis (ca.&nbsp;01:30).</li>
+      <li>Mecklenburg-Vorpommern: LTW&nbsp;2021-Wahlbezirke (plus BTW&nbsp;2025, wo zuordenbar) und LAIV-CSV (Wahlbezirk / Gemeinde / Wahlkreis).</li>
+      <li>Wahlbeteiligung startet mit einem <strong>breiten Band</strong> (Mischung letzte Landtagswahl vs. BTW&nbsp;2025), nicht mit der knappen 2021-Punktprognose wie in Sachsen-Anhalt.</li>
+      <li>Prognose/Hochrechnung: <code>data/wahlabend_external.json</code>, ergänzt aus wahlrecht.de. Mehrere 18-Uhr-Exit-Polls werden gemittelt und ersetzen π₀; offene Wahlkreise werden auf diese Landesmischung ausgerichtet. Hochrechnung sobald da. Mit steigendem Auszählanteil übernimmt der Nowcast.</li>
+      <li>Direktmandate aus der Wahlkreis-Regression (Zweit + L1-Erst, ohne Kandidateneffekte). Berlin: Bezirkslisten CDU/SPD/Linke; MV: nur Landeslisten, keine Grundmandatsklausel.</li>
+    </ul>
+    <p class="wb-coverage-meta" style="margin-bottom:0.35rem;">
+      Live-Quellen:
+      <a href="https://www.wahlen-berlin.de/wahlen/Be2026/AFSPRAES/agh/Datenexport_AGH2026_Zweitstimme_A_BE.csv" rel="noopener noreferrer">AfS Berlin _A_ (WK/Bezirk/Land)</a>
+      · <a href="https://www.berlin.de/wahlen/pressemitteilungen/2026/pressemitteilung.1713317.php" rel="noopener noreferrer">AfS: keine Wahlbezirke vor dem vorläufigen Ergebnis</a>
+      · <a href="https://www.laiv-mv.de/Wahlen/Landtagswahlen/2026/Ergebnisse/" rel="noopener noreferrer">LAIV MV Ergebnisse</a>.
+    </p>
+    {{ else if $liveMode }}
     <p class="wb-coverage-meta" style="margin-bottom:0.5rem;">
       <strong>Erster Entwurf · intern, bitte nicht teilen.</strong>
     </p>
@@ -781,7 +855,8 @@
   <div data-lage-only>
     <p class="wb-lage-h">Szenario-Wahrscheinlichkeiten</p>
     <p class="wb-coverage-meta">
-      Aktuelle Nowcast-P und Wkt vor Auszählungsbeginn.
+      Aktuelle Nowcast-P und Wkt vor Auszählungsbeginn
+      (zweitstimme.org-Forecast von gestern, nicht die 18-Uhr-Prognose).
       P&nbsp;≥&nbsp;50&nbsp;% = tritt eher ein (kein Call).
       Treffer vs. Wahrheit unter Eval.
     </p>
@@ -790,14 +865,17 @@
     <p class="wb-lage-h">Wahlbeteiligung</p>
     <p class="wb-coverage-meta">
       Nowcast aus gemeldeten WBs + L1-Rest (oft mit Zweitstimme zuerst verfügbar).
-      Band = ± Unsicherheit; Endstand erst wenn Land voll ausgezählt.
+      Kappe am aktuellen Punkt = ±; Fläche = Band über die Nacht.
+      Endstand erst wenn Land voll ausgezählt.
       Punktierte Linie = letzte Wahl (amtliches Endergebnis).
     </p>
     <canvas id="wb-chart-turnout" class="wb-chart" width="900" height="180"></canvas>
 
     <p class="wb-lage-h">Parlamentsgröße</p>
     <p class="wb-coverage-meta">
-      Kurve/Band nur bis jetzt; X-Achse bis Nachtende (MC p10–p90).
+      Kurve nur bis jetzt; X-Achse bis Nachtende.
+      Links von 0&nbsp;%: zweitstimme.org, Exit-Polls, Hochrechnung (wie bei der Wahlbeteiligung).
+      Kappe am aktuellen Punkt = MC p10–p90 (bei 0&nbsp;% oft nur ein Punkt, ohne Fläche).
       Endstand-Linie erst wenn Land voll ausgezählt.
       Punktierte Linie = letzte Wahl (amtliches Endergebnis).
       Wer einzieht: Tabs Listen / Wahlkreise.
@@ -806,11 +884,19 @@
   </div>
 
   <div data-zweit-only>
+  <p class="wb-chart-label" id="wb-compare-label">Vergleich: Vorhersage, Exit-Polls, Nowcast</p>
+  <div class="wb-legend" id="wb-compare-legend"></div>
+  <canvas id="wb-chart-compare" class="wb-chart" width="900" height="250"></canvas>
+  <p class="wb-meta" id="wb-compare-note" style="margin:0.15rem 0 1rem;">
+    Punkte je Quelle leicht versetzt. Nowcast rechts. Kappen = ±. Grau gestrichelt = 5%-Hürde.
+  </p>
+  </div>
+  <div data-zweit-or-wkr>
   <p class="wb-chart-label" id="wb-share-chart-label">Partei-Anteile (Nowcast ± Band)</p>
   <div class="wb-legend" id="wb-share-legend"></div>
   <canvas id="wb-chart-shares" class="wb-chart" width="900" height="280"></canvas>
   <p class="wb-meta" id="wb-share-note" style="margin:0.25rem 0 0.5rem;">
-    Linie = Nowcast, Band = ± Unsicherheit. Endstand-Linie erst wenn Land voll ausgezählt.
+    Links von 0&nbsp;%: zweitstimme.org, dann Exit ARD●/ZDF◆, dann Hochrechnung (Punkte versetzt). Ab 0&nbsp;%: Nowcast über die Auszählung. Grau gestrichelt = 5%-Hürde.
   </p>
   </div>
 
