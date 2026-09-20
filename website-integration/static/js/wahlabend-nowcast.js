@@ -131,9 +131,15 @@
     openBezirk: {},
     openWkr: {},
     showZeroScenarios: false,
-    wkrSearch: ''
+    wkrSearch: '',
+    external: null
   };
 
+  var PARTY_ALIAS = {
+    cdu: 'cdu', spd: 'spd', afd: 'afd', fdp: 'fdp', bsw: 'bsw',
+    gru: 'gruene', gruene: 'gruene', lin: 'linke', linke: 'linke',
+    oth: 'others', others: 'others'
+  };
 
   var PARTY_COLORS = {
     cdu: '#111111',
@@ -768,7 +774,114 @@
   }
 
   function comparisonRows() {
-    return (state.data && state.data.comparisons) || [];
+    var rows = ((state.data && state.data.comparisons) || []).slice();
+    var haveId = {};
+    var haveKind = {};
+    rows.forEach(function (r) {
+      if (!r) return;
+      if (r.id) haveId[r.id] = true;
+      if (r.kind) haveKind[r.kind] = true;
+    });
+    synthesizeComparisons().forEach(function (s) {
+      if (!s || !s.id || haveId[s.id]) return;
+      if (s.kind === 'forecast' && haveKind.forecast) return;
+      if (s.kind === 'prognose' || s.kind === 'exit_avg' ||
+          s.kind === 'hochrechnung' || s.kind === 'forecast') {
+        rows.push(s);
+        haveId[s.id] = true;
+        haveKind[s.kind] = true;
+      }
+    });
+    return rows;
+  }
+
+  function canonParty(p) {
+    return PARTY_ALIAS[String(p || '').toLowerCase()] || null;
+  }
+
+  function sharesToPct(shares) {
+    var out = {};
+    var sum = 0;
+    Object.keys(shares || {}).forEach(function (k) {
+      var p = canonParty(k);
+      var v = Number(shares[k]);
+      if (!p || !isFinite(v)) return;
+      out[p] = (out[p] || 0) + v;
+      sum += v;
+    });
+    if (sum > 0 && sum <= 1.5) {
+      Object.keys(out).forEach(function (p) {
+        out[p] = Math.round(out[p] * 1000) / 10;
+      });
+    }
+    return out;
+  }
+
+  function latestExternalPerPublisher(sources) {
+    var by = {};
+    (sources || []).forEach(function (s) {
+      var pub = String((s && (s.publisher || s.institute)) || '').trim();
+      if (!pub) return;
+      var prev = by[pub];
+      if (!prev || String(s.time || '') >= String(prev.time || '')) by[pub] = s;
+    });
+    return Object.keys(by).sort().map(function (k) { return by[k]; });
+  }
+
+  function synthesizeComparisons() {
+    var land = String(state.land || '').toLowerCase();
+    var block = (state.external && (state.external[land] || state.external[state.land])) || {};
+    var sources = block.sources || [];
+    var st = steps();
+    var first = st.length ? st[0] : {};
+    var last = st.length ? st[st.length - 1] : {};
+    var rows = [];
+    var prior = first.prior || last.prior || {};
+    var priorPct = sharesToPct(prior);
+    if (Object.keys(priorPct).length) {
+      rows.push({
+        id: 'forecast',
+        kind: 'forecast',
+        label: 'zweitstimme.org',
+        short: 'zs.org',
+        shares: priorPct,
+        axis: 'preamble'
+      });
+    }
+    latestExternalPerPublisher(sources.filter(function (s) {
+      return s && s.kind === 'prognose';
+    })).forEach(function (s) {
+      var pub = String(s.publisher || 'Exit');
+      rows.push({
+        id: 'prognose-' + pub.toLowerCase(),
+        kind: 'prognose',
+        label: 'Prognose ' + pub + (s.time ? ' ' + s.time : ''),
+        short: pub,
+        publisher: pub,
+        time: s.time,
+        shares: sharesToPct(s.shares),
+        uncertainty_pp: s.uncertainty_pp,
+        axis: 'preamble'
+      });
+    });
+    latestExternalPerPublisher(sources.filter(function (s) {
+      return s && s.kind === 'hochrechnung';
+    })).forEach(function (s) {
+      var pub = String(s.publisher || 'HR');
+      var t = String(s.time || '').replace(':', '');
+      rows.push({
+        id: 'hochrechnung-' + pub.toLowerCase() + (t ? '-' + t : ''),
+        kind: 'hochrechnung',
+        label: 'Hochrechnung ' + pub + (s.time ? ' ' + s.time : ''),
+        short: pub + ' HR',
+        publisher: pub,
+        time: s.time,
+        shares: sharesToPct(s.shares),
+        uncertainty_pp: s.uncertainty_pp,
+        axis: 'preamble'
+      });
+    });
+    return rows;
   }
 
   function shareUnc(row, party) {
@@ -4618,6 +4731,12 @@
     });
   }
 
+  function fetchExternal() {
+    return fetch(dataUrl('wahlabend_external.json'), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; });
+  }
+
   function init() {
     if (!$('wahlabend-root')) return;
     state.land = landFromQuery();
@@ -4633,16 +4752,21 @@
       });
     });
     var primary = replayFileForLand(state.land);
-    fetchNowcast(primary)
-      .then(function (data) { return { data: data, fallback: false }; })
-      .catch(function (err) {
-        var fb = fallbackFileForLand(state.land);
-        if (!isLivePage() || primary === fb) throw err;
-        return fetchNowcast(fb).then(function (data) {
-          return { data: data, fallback: true };
-        });
-      })
-      .then(function (pack) {
+    Promise.all([
+      fetchNowcast(primary)
+        .then(function (data) { return { data: data, fallback: false }; })
+        .catch(function (err) {
+          var fb = fallbackFileForLand(state.land);
+          if (!isLivePage() || primary === fb) throw err;
+          return fetchNowcast(fb).then(function (data) {
+            return { data: data, fallback: true };
+          });
+        }),
+      fetchExternal()
+    ])
+      .then(function (pair) {
+        var pack = pair[0];
+        if (pair[1]) state.external = pair[1];
         applyPayload(pack.data, false);
         if (pack.fallback) {
           var slider = $('wb-slider');
@@ -4659,9 +4783,13 @@
         }
         if (isLivePage()) {
           window.setInterval(function () {
-            fetchNowcast(replayFileForLand(state.land))
-              .then(function (next) { applyPayload(next, true); })
-              .catch(function () { /* keep last good snapshot */ });
+            Promise.all([
+              fetchNowcast(replayFileForLand(state.land)),
+              fetchExternal()
+            ]).then(function (pair) {
+              if (pair[1]) state.external = pair[1];
+              applyPayload(pair[0], true);
+            }).catch(function () { /* keep last good snapshot */ });
           }, 90000);
         }
       })

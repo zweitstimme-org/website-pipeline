@@ -700,10 +700,17 @@ def blend_with_external(
     blended = _shares(
         {p: (1.0 - w) * ext[p] + w * precinct_frac[p] for p in PARTIES}
     )
-    ext_unc = {p: float(external["uncertainty_pp"]) for p in PARTIES}
-    # Hochrechnung / Prognose tighter than pre-election; precinct unc takes over.
+    ext_unc = external.get("uncertainty")
+    if not isinstance(ext_unc, dict) or not ext_unc:
+        u0 = float(external.get("uncertainty_pp") or prior_unc.get("cdu", 2.3))
+        ext_unc = {p: u0 for p in PARTIES}
+    # Shrink the TV/HR band with the uncounted share. Do NOT mix in the
+    # pre-election prior (±4–8 pp): w hits ~0.5 at only 5 % counted, so
+    # that blend made Landes-± jump from ~0.8 to ~3 as soon as precincts
+    # arrived. Counted votes are known; remainder keeps the TV scale.
+    open_frac = max(0.0, 1.0 - float(frac_votes))
     unc = {
-        p: round((1.0 - w) * ext_unc[p] + w * float(precinct_unc.get(p, prior_unc.get(p, 2.3))), 2)
+        p: round(max(0.0, float(ext_unc.get(p, prior_unc.get(p, 2.3))) * open_frac), 2)
         for p in PARTIES
     }
     src = "nowcast" if w >= 0.55 else external["kind"]
@@ -962,24 +969,82 @@ def _n_reported(step: dict) -> int:
         return 0
 
 
+def _progress_key(step: dict) -> tuple[float, int]:
+    try:
+        frac = float(step.get("frac_reported") or 0.0)
+    except (TypeError, ValueError):
+        frac = 0.0
+    return (frac, _n_reported(step))
+
+
+def _same_progress(a: dict, b: dict) -> bool:
+    return _step_progress(a) == _step_progress(b) or _progress_key(a) == _progress_key(b)
+
+
+def _trim_progress_regressions(steps: list[dict]) -> list[dict]:
+    """Keep a non-decreasing count path.
+
+    Empty refetches must not sit after a counted snapshot — the UI shows
+    the last step, so a trailing 0 % row hides the nowcast.
+    """
+    keep: list[dict] = []
+    best = (-1.0, -1)
+    for s in steps:
+        p = _progress_key(s)
+        if keep and _same_progress(keep[-1], s):
+            keep[-1] = s
+            continue
+        if p < best:
+            continue
+        keep.append(s)
+        if p > best:
+            best = p
+    return keep
+
+
+def _monotonic_land_uncertainty(steps: list[dict]) -> list[dict]:
+    """Landes-± must not grow as more precincts arrive."""
+    prev_u: dict[str, float] | None = None
+    prev_p = (-1.0, -1)
+    for s in steps:
+        u = s.get("uncertainty")
+        if not isinstance(u, dict) or not u:
+            continue
+        p = _progress_key(s)
+        if prev_u and p > prev_p:
+            s["uncertainty"] = {
+                k: round(
+                    min(
+                        float(u.get(k, prev_u.get(k, 0.0))),
+                        float(prev_u.get(k, u.get(k, 0.0))),
+                    ),
+                    2,
+                )
+                for k in PARTIES
+            }
+        prev_u = s.get("uncertainty") if isinstance(s.get("uncertainty"), dict) else prev_u
+        prev_p = p
+    return steps
+
+
 def merge_history(prev: dict | None, step: dict) -> list[dict]:
     steps = []
     if prev:
         sc = (prev.get("scenarios") or {}).get("live") or (prev.get("scenarios") or {}).get("random")
         if sc:
             steps = list(sc.get("steps") or [])
+    steps = _trim_progress_regressions(steps)
     if steps:
         last = steps[-1]
-        # A failed fetch / empty parse must not append after a counted snapshot.
-        if _n_reported(last) > 0 and _n_reported(step) <= 0:
-            return _stamp_p_start(steps)
+        if _progress_key(step) < _progress_key(last):
+            return _stamp_p_start(_monotonic_land_uncertainty(steps))
         last_key = (last.get("clock"), last.get("frac_reported"), last.get("n_reported"))
         new_key = (step.get("clock"), step.get("frac_reported"), step.get("n_reported"))
-        if last_key == new_key or _step_progress(last) == _step_progress(step):
+        if last_key == new_key or _same_progress(last, step):
             steps[-1] = step
-            return _stamp_p_start(steps)
+            return _stamp_p_start(_monotonic_land_uncertainty(steps))
     steps.append(step)
-    return _stamp_p_start(steps)
+    return _stamp_p_start(_monotonic_land_uncertainty(_trim_progress_regressions(steps)))
 
 
 def _leader(sh: dict[str, float]) -> str:

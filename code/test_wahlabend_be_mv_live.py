@@ -69,6 +69,30 @@ class ExternalBlendTests(unittest.TestCase):
         self.assertEqual(meta["source"], "prognose")
         self.assertLess(bunc["cdu"], 2.0)
 
+    def test_uncertainty_shrinks_as_votes_arrive(self):
+        prior_unc = {p: 5.0 for p in PARTIES}
+        precinct = _shares({
+            "cdu": 0.18, "spd": 0.14, "gruene": 0.15, "linke": 0.20,
+            "afd": 0.18, "fdp": 0.03, "bsw": 0.05, "others": 0.07,
+        })
+        ext = {
+            "kind": "hochrechnung",
+            "label": "Hochrechnung ARD 19:57",
+            "frac": _shares({
+                "cdu": 0.191, "spd": 0.121, "gruene": 0.145, "linke": 0.253,
+                "afd": 0.162, "fdp": 0.025, "bsw": 0.05, "others": 0.053,
+            }),
+            "uncertainty_pp": 0.8,
+            "uncertainty": {p: 0.8 for p in PARTIES},
+        }
+        _, u0, _ = blend_with_external(precinct, prior_unc, 0.0, ext, prior_unc)
+        _, u1, _ = blend_with_external(precinct, prior_unc, 0.33, ext, prior_unc)
+        _, u2, _ = blend_with_external(precinct, prior_unc, 0.80, ext, prior_unc)
+        self.assertAlmostEqual(u0["linke"], 0.8, places=5)
+        self.assertLess(u1["linke"], u0["linke"])
+        self.assertLess(u2["linke"], u1["linke"])
+        self.assertLess(u1["linke"], 1.2)
+
     def test_load_external_picks_latest_hochrechnung(self):
         doc = {
             "be": {
@@ -125,6 +149,48 @@ class ExternalBlendTests(unittest.TestCase):
         self.assertEqual(len(steps), 1)
         self.assertEqual(steps[0]["n_reported"], 1252)
         self.assertEqual(steps[0]["nowcast"]["spd"], 33.6)
+
+    def test_merge_history_drops_empty_tail_already_in_prev(self):
+        prev = {
+            "scenarios": {
+                "live": {
+                    "steps": [
+                        {
+                            "clock": "19:12",
+                            "frac_reported": 0.0,
+                            "n_reported": 0,
+                            "nowcast": {"afd": 38},
+                            "uncertainty": {p: 0.8 for p in PARTIES},
+                        },
+                        {
+                            "clock": "19:55",
+                            "frac_reported": 0.63,
+                            "n_reported": 1252,
+                            "nowcast": {"afd": 42},
+                            "uncertainty": {p: 2.4 for p in PARTIES},
+                        },
+                        {
+                            "clock": "18:07",
+                            "frac_reported": 0.0,
+                            "n_reported": 0,
+                            "nowcast": {"afd": 37.9},
+                            "uncertainty": {p: 0.8 for p in PARTIES},
+                        },
+                    ]
+                }
+            }
+        }
+        empty = {
+            "clock": "20:10",
+            "frac_reported": 0.0,
+            "n_reported": 0,
+            "nowcast": {"afd": 37.9},
+            "uncertainty": {p: 0.8 for p in PARTIES},
+        }
+        steps = merge_history(prev, empty)
+        self.assertEqual([s["n_reported"] for s in steps], [0, 1252])
+        self.assertAlmostEqual(steps[-1]["frac_reported"], 0.63)
+        self.assertLessEqual(steps[1]["uncertainty"]["afd"], steps[0]["uncertainty"]["afd"])
 
 
 class AfsParserTests(unittest.TestCase):
