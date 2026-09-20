@@ -4536,8 +4536,27 @@
     var beNoWb = state.land === 'be' && live.wb_level !== 'wahlbezirke' &&
       !(Number(live.n_wb_reported) > 0);
     var wbNote = live.wb_level_note || (beNoWb
-      ? 'Berlin veröffentlicht in der Wahlnacht keine einzelnen Wahlbezirke. AfS liefert nur Aggregate (Land, Bezirk, Wahlkreis; _A_). Wahlbezirksergebnisse (_W_) kommen erst mit dem vorläufigen Ergebnis (ca. 01:30).'
+      ? 'AfS liefert nachts keine Stimmen je Wahlbezirk (_W_ bleibt 404). Die Präsentation zeigt aber die Ankunftstafel — welche Wahlbezirke gerade eingegangen sind — plus Ist/Soll je Gebiet.'
       : '');
+    var arrivals = live.ankunft_latest || [];
+    if (arrivals.length) {
+      bits.push(
+        '<div class="wb-ankunft">Zuletzt eingegangen: ' +
+        arrivals.slice(0, 8).map(function (a) {
+          var label = (a.id || '') + (a.name ? ' ' + a.name : '');
+          return '<span>' + escapeHtml(label) +
+            (a.time ? ' <span class="wb-art">' + escapeHtml(a.time) + '</span>' : '') +
+            '</span>';
+        }).join(' · ') +
+        (live.ankunft_source
+          ? ' <a href="' + live.ankunft_source + '" rel="noopener noreferrer">Ankunftstafel</a>'
+          : '') +
+        (Number(live.n_ankunft) > arrivals.length
+          ? ' <span class="wb-art">· ' + live.n_ankunft + ' seit Beginn der Aufzeichnung</span>'
+          : '') +
+        '</div>'
+      );
+    }
     if (wbNote) {
       bits.push(
         '<div class="wb-live-disclaimer">' + escapeHtml(wbNote) +

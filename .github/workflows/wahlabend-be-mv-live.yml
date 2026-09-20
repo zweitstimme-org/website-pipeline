@@ -74,6 +74,9 @@ jobs:
             echo "=== poll ${iteration} $(date -u +%H:%M:%SZ) ==="
             bash scripts/fetch_be_live.sh || echo "WARN BE fetch failed"
             bash scripts/fetch_mv_live.sh || echo "WARN MV fetch failed"
+            if [ -f gh-pages-site/data/be_live/ankunft.json ] && [ ! -f berlin/wahlabend/live/ankunft.json ]; then
+              cp gh-pages-site/data/be_live/ankunft.json berlin/wahlabend/live/ankunft.json || true
+            fi
 
             git fetch origin main --depth 1 2>/dev/null || true
             git checkout origin/main -- data/wahlabend_external.json 2>/dev/null || true
@@ -100,7 +103,7 @@ jobs:
               fi
             done
             if [ -d berlin/wahlabend/live ]; then
-              find berlin/wahlabend/live -maxdepth 1 -type f -name '*.csv' \
+              find berlin/wahlabend/live -maxdepth 1 -type f \( -name '*.csv' -o -name 'ankunft.json' -o -name 'afs_index.html' \) \
                 -exec cp {} gh-pages-site/data/be_live/ \; || true
               if [ -d berlin/wahlabend/live/snapshots ]; then
                 find berlin/wahlabend/live/snapshots -mindepth 1 -maxdepth 1 -type d \

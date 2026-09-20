@@ -112,10 +112,10 @@ class AfsParserTests(unittest.TestCase):
         from wahlabend_live_common import map_party_columns, AFS_2026_PXX
 
         cols = ["Adresse", "Gebietsart", "Gebietsname", "Nummer", "AnzWbez", "AusWbez",
-                "WberIns", "Waehler", "Gueltig", "P01", "P02", "P03", "P04", "P05", "P06", "P17"]
+                "WberIns", "Waehler", "Gueltig", "P01", "P02", "P03", "P04", "P05", "P06", "P24"]
         mapped = map_party_columns(cols, AFS_2026_PXX)
         self.assertEqual(mapped["cdu"], "P01")
-        self.assertEqual(mapped["bsw"], "P17")
+        self.assertEqual(mapped["bsw"], "P24")
 
         header = ";".join(cols)
         land = "GI9900;Bundesland;Berlin;00;2254;12;2450000;180000;175000;40000;28000;30000;32000;25000;5000;8000"
@@ -152,6 +152,29 @@ class AfsParserTests(unittest.TestCase):
         self.assertGreater(soll, 78)
         if parsed["kind"] != "empty":
             self.assertGreater(parsed["land"]["gueltig"], 0)
+
+    def test_ankunftstafel_ids(self):
+        from wahlabend_be_live import ankunft_to_addr, parse_ankunftstafel
+        from wahlabend_live_common import clock_from_fields
+
+        self.assertEqual(ankunft_to_addr("12404"), "12W404")
+        self.assertEqual(ankunft_to_addr("085E"), "08B5E")
+        html = """
+        <div class="card_header">Ankunftstafel</div>
+        <th data-sort="12404 - Grundschule in den Rollbergen">12404 - Grundschule</th>
+        <td><a href="ergebnisse_wahlkreis_1204.html">1204 - Reinickendorf 4</a></td>
+        <td data-sort="19:50">19:50</td>
+        <th data-sort="085E - Briefwahlzentrum Otto-Hahn-Schule">085E</th>
+        <td><a href="ergebnisse_wahlkreis_0805.html">0805 - Neukölln 5</a></td>
+        <td data-sort="19:50">19:50</td>
+        """
+        rows = parse_ankunftstafel(html)
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["id"], "12404")
+        self.assertEqual(rows[0]["addr"], "12W404")
+        self.assertEqual(rows[0]["awk"], "1204")
+        self.assertEqual(rows[1]["art"], "B")
+        self.assertEqual(clock_from_fields("26.09.20", "19:50:45"), "2026-09-20 19:50")
 
 
 class LiveScriptsSmokeTests(unittest.TestCase):

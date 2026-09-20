@@ -92,6 +92,118 @@ KIND_LABEL = {
     "A": "AfS-Abzug",
 }
 
+# AfS night feed is still _A_ only (_W_ stays 404). The HTML Präsentation
+# does publish an Ankunftstafel of arriving Wahlbezirke (names + WK, no votes).
+BE_WB_NIGHT_NOTE = (
+    "AfS liefert nachts keine Stimmen je Wahlbezirk (_W_ bleibt 404). "
+    "Die Präsentation zeigt aber die Ankunftstafel — welche Wahlbezirke "
+    "gerade eingegangen sind — plus Ist/Soll je Land, Bezirk und Wahlkreis. "
+    "Die Suchseite «Ergebnisse nach Wahlbezirk» öffnet AfS erst nach "
+    "vollständigem Eingang."
+)
+AFS_INDEX = "https://wahlen-berlin.de/wahlen/BE2026/Afspraes/agh/index.html"
+ANKUNFT_ROW_RE = re.compile(
+    r'data-sort="((?:\d{5}|\d{3}[A-Z]))\s+-\s+([^"]+)"'
+    r'[\s\S]{0,800}?'
+    r'ergebnisse_wahlkreis_(\d{4})\.html'
+    r'[\s\S]{0,400}?'
+    r'data-sort="(\d{1,2}:\d{2})"',
+    re.I,
+)
+
+
+def ankunft_to_addr(code: str) -> str:
+    """Präsentation IDs → AfS Adresse (12W404 / 08B5E)."""
+    s = str(code or "").strip().upper()
+    if re.fullmatch(r"\d{3}[A-Z]", s):
+        return f"{s[:2]}B{s[2]}{s[3]}"
+    if re.fullmatch(r"\d{5}", s):
+        return f"{s[:2]}W{s[2]}{s[3:]}"
+    return ""
+
+
+def _html_text(s: str) -> str:
+    return (
+        str(s or "")
+        .replace("&auml;", "ä")
+        .replace("&ouml;", "ö")
+        .replace("&uuml;", "ü")
+        .replace("&Auml;", "Ä")
+        .replace("&Ouml;", "Ö")
+        .replace("&Uuml;", "Ü")
+        .replace("&szlig;", "ß")
+        .replace("&amp;", "&")
+        .replace("&nbsp;", " ")
+        .replace("&quot;", '"')
+        .strip()
+    )
+
+
+def parse_ankunftstafel(html: str) -> list[dict]:
+    """Last arrivals from the AfS Präsentation Ankunftstafel (no vote counts)."""
+    awk_to_wkr = load_awk_to_wkr()
+    out: list[dict] = []
+    seen: set[str] = set()
+    for m in ANKUNFT_ROW_RE.finditer(html or ""):
+        code = m.group(1).strip().upper()
+        if code in seen:
+            continue
+        seen.add(code)
+        awk = m.group(3).strip()
+        out.append(
+            {
+                "id": code,
+                "name": _html_text(m.group(2)),
+                "awk": awk,
+                "wkr": awk_to_wkr.get(awk),
+                "addr": ankunft_to_addr(code),
+                "time": m.group(4).strip(),
+                "art": "B" if re.fullmatch(r"\d{3}[A-Z]", code) else "W",
+            }
+        )
+    return out
+
+
+def merge_ankunft(path: Path, arrivals: list[dict]) -> dict:
+    """Accumulate Ankunftstafel IDs across polls (the HTML only keeps ~10)."""
+    doc: dict = {}
+    if path.exists():
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            doc = {}
+    stations = dict(doc.get("stations") or {})
+    for rec in arrivals:
+        key = str(rec.get("id") or "")
+        if not key:
+            continue
+        prev = stations.get(key) or {}
+        stations[key] = {
+            **prev,
+            **rec,
+            "first_seen": prev.get("first_seen") or rec.get("time"),
+        }
+    out = {
+        "stations": stations,
+        "latest": arrivals,
+        "n": len(stations),
+        "source": AFS_INDEX,
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
+    return out
+
+
+def load_ankunft(live_dir: Path | None = None) -> dict:
+    html_path = (live_dir or LIVE_DIR) / "afs_index.html"
+    json_path = (live_dir or LIVE_DIR) / "ankunft.json"
+    arrivals: list[dict] = []
+    if html_path.exists():
+        arrivals = parse_ankunftstafel(
+            html_path.read_text(encoding="utf-8", errors="replace")
+        )
+    return merge_ankunft(json_path, arrivals)
+
 
 def _bezirk_of_name(name: str) -> str | None:
     s = str(name or "").strip().lower()
@@ -707,6 +819,7 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
         slot["erst_gueltig"] = unit.get("gueltig")
     wb = parse_afs_precincts(zweit_w, addr_to_wkr)
     wb_e = parse_afs_precincts(erst_w, addr_to_wkr)
+    ankunft = load_ankunft(LIVE_DIR)
     for addr, rec in wb_e.items():
         if addr in wb:
             wb[addr]["erst_counts"] = rec["counts"]
@@ -748,7 +861,10 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
             "turnout": LAST_OFFICE_TURNOUT,
             "parliament_size": 159,
         },
-        "baseline": f"π₀ = Landesprognose; {hist_note}; Live = AfS _A_/_W_",
+        "baseline": (
+            f"π₀ = Landesprognose; {hist_note}; Live = AfS _A_"
+            + ("/_W_" if wb else " + Ankunftstafel (keine _W_-Stimmen)")
+        ),
         "parties": list(PARTIES),
         "party_labels": PARTY_LABELS,
         "n_precincts": int(step["n_total"] or EXPECTED_PRECINCTS),
@@ -766,9 +882,11 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
                 "Berlin AGH 2026 Live-Nowcast. Lokale Priors: AGH 2023 und "
                 "BTW 2025 auf 2026-Wahlkreisen, ausgerichtet auf die "
                 "zweitstimme.org-Landesprognose. Live-Feed AfS _A_ "
-                "(Land/Bezirk/WK), _W_ sobald Wahlbezirke gemeldet werden. "
-                "18-Uhr-Prognose/Hochrechnung aus wahlabend_external.json "
-                "ersetzt π₀ und Szenarien, dann Mischung mit der Auszählung."
+                "(Land/Bezirk/WK) plus Ankunftstafel der Präsentation "
+                "(eingegangene Wahlbezirke ohne Stimmen). _W_-CSV erst mit "
+                "dem vorläufigen Ergebnis. 18-Uhr-Prognose/Hochrechnung aus "
+                "wahlabend_external.json ersetzt π₀ und Szenarien, dann "
+                "Mischung mit der Auszählung."
             )
         },
         "call_threshold": 0.90,
@@ -816,6 +934,11 @@ def run(prev_path: Path | None, external_path: Path | None) -> dict:
                 f"{AFS_BASES[0]}/Datenexport_AGH2026_Zweitstimme_A_BE.csv",
             ),
             "n_wb_reported": len(wb),
+            "wb_level": "wahlbezirke" if wb else "wkr",
+            "wb_level_note": None if wb else BE_WB_NIGHT_NOTE,
+            "n_ankunft": int(ankunft.get("n") or 0),
+            "ankunft_source": AFS_INDEX,
+            "ankunft_latest": ankunft.get("latest") or [],
         },
         "precincts": live_precincts(panel, live.get("wkr") or {})
         + [

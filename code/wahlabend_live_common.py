@@ -99,7 +99,7 @@ AFS_2026_PXX = {
     4: "linke",
     5: "afd",
     6: "fdp",
-    17: "bsw",
+    24: "bsw",  # DSB 2026: P17 is SGP; BSW is P24
 }
 
 AWK_MAP_PATH = REPO / "berlin" / "awk_wkr_map.json"
@@ -1391,6 +1391,8 @@ def clock_from_fields(*vals: str) -> str | None:
         "%Y-%m-%d %H:%M",
         "%d.%m.%Y %H:%M:%S",
         "%d.%m.%Y %H:%M",
+        "%y.%m.%d %H:%M:%S",
+        "%y.%m.%d %H:%M",
         "%y.%m.%d%H:%M:%S",
         "%d.%m.%y %H:%M:%S",
     ):

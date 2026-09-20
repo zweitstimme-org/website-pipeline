@@ -81,4 +81,28 @@ PY
 for f in "${FILES[@]}"; do
   fetch_one "${f}"
 done
+
+# Präsentation HTML: Ankunftstafel names counted stations (no _W_ votes).
+INDEX_URLS=(
+  "https://wahlen-berlin.de/wahlen/BE2026/Afspraes/agh/index.html"
+  "https://www.wahlen-berlin.de/wahlen/BE2026/AFSPRAES/agh/index.html"
+)
+idx_tmp="$(mktemp)"
+idx_ok=0
+for url in "${INDEX_URLS[@]}"; do
+  echo "GET ${url}"
+  if curl -fsSL -A "${UA}" -o "${idx_tmp}" --max-time 45 "${url}"; then
+    if grep -qi 'Ankunftstafel\|Ausgez' "${idx_tmp}"; then
+      cp -f "${idx_tmp}" "${DEST}/afs_index.html"
+      cp -f "${idx_tmp}" "${SNAP}/afs_index.html"
+      echo "  snap ${TS}/afs_index.html  $(wc -c < "${idx_tmp}" | tr -d ' ') B"
+      idx_ok=1
+      break
+    fi
+  fi
+done
+rm -f "${idx_tmp}"
+if [[ "${idx_ok}" != "1" ]]; then
+  echo "WARN: failed to fetch AfS Präsentation index" >&2
+fi
 echo "Done → ${DEST}"
