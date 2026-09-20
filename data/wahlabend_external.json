@@ -172,6 +172,22 @@
           "oth": 7.3
         },
         "note": "wahlrecht.de hochrechnung ZDF 20:11."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "20:13",
+        "shares": {
+          "cdu": 19.4,
+          "spd": 11.8,
+          "gru": 15.1,
+          "lin": 25.4,
+          "afd": 15.4,
+          "bsw": 5.2,
+          "oth": 7.7
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 20:13."
       }
     ]
   },
