@@ -1365,18 +1365,14 @@
   }
 
   function ensureCompareChartDom() {
-    if ($('wb-chart-compare')) return;
-    var shares = $('wb-chart-shares');
-    if (!shares || !shares.parentNode) return;
-    var box = document.createElement('div');
-    box.innerHTML =
-      '<p class="wb-chart-label" id="wb-compare-label">Vergleich: Vorhersage, Exit-Polls, Nowcast</p>' +
-      '<div class="wb-legend" id="wb-compare-legend"></div>' +
-      '<canvas id="wb-chart-compare" class="wb-chart" width="900" height="250"></canvas>' +
-      '<p class="wb-meta" id="wb-compare-note" style="margin:0.15rem 0 1rem;">' +
-      'Punkte je Quelle leicht versetzt. Nowcast rechts. Kappen = ±.</p>';
-    var anchor = $('wb-share-chart-label') || shares;
-    shares.parentNode.insertBefore(box, anchor);
+    ['wb-compare-label', 'wb-compare-legend', 'wb-chart-compare', 'wb-compare-note'].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.style.display = 'none';
+      if (el.parentNode && el.parentNode !== document.body && !el.parentNode.id) {
+        el.parentNode.style.display = 'none';
+      }
+    });
   }
 
   /** zs.org | Exit (ARD+ZDF) | HR (ARD+ZDF) | Nowcast — Nowcast always last. */
@@ -1397,6 +1393,7 @@
 
   function drawCompareChart() {
     ensureCompareChartDom();
+    return;
     var canvas = $('wb-chart-compare');
     var legend = $('wb-compare-legend');
     var label = $('wb-compare-label');
@@ -2675,7 +2672,8 @@
     var cap = $('wb-map-caption');
     var block = $('wb-map-block');
     if (!svg || !block) return;
-    if (state.land === 'be') {
+    var show = state.scope === 'zweit' || state.scope === 'wkr';
+    if (!show) {
       block.hidden = true;
       return;
     }
