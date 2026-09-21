@@ -40,6 +40,22 @@
       },
       {
         "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "00:08",
+        "shares": {
+          "cdu": 18.8,
+          "spd": 12.1,
+          "gru": 14.3,
+          "lin": 25.7,
+          "afd": 16.2,
+          "bsw": 4.7,
+          "oth": 8.2
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 00:08."
+      },
+      {
+        "kind": "hochrechnung",
         "institute": "infratest_dimap",
         "publisher": "ARD",
         "time": "18:28",
@@ -219,6 +235,88 @@
           "oth": 5.6
         },
         "note": "wahlrecht.de hochrechnung ARD 21:25."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "21:56",
+        "shares": {
+          "cdu": 19.2,
+          "spd": 12.0,
+          "gru": 14.3,
+          "lin": 25.1,
+          "afd": 15.8,
+          "bsw": 4.9,
+          "oth": 8.7
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 21:56."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "22:13",
+        "shares": {
+          "cdu": 18.9,
+          "spd": 12.1,
+          "gru": 14.3,
+          "lin": 25.5,
+          "afd": 16.1,
+          "fdp": 2.6,
+          "bsw": 4.7,
+          "oth": 5.8
+        },
+        "note": "wahlrecht.de hochrechnung ARD 22:13."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "22:22",
+        "shares": {
+          "cdu": 19.2,
+          "spd": 12.0,
+          "gru": 14.3,
+          "lin": 25.1,
+          "afd": 15.8,
+          "bsw": 4.9,
+          "oth": 8.7
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 22:22."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "22:57",
+        "shares": {
+          "cdu": 18.8,
+          "spd": 12.1,
+          "gru": 14.3,
+          "lin": 25.7,
+          "afd": 16.2,
+          "bsw": 4.7,
+          "oth": 8.2
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 22:57."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "23:02",
+        "shares": {
+          "cdu": 18.9,
+          "spd": 12.1,
+          "gru": 14.3,
+          "lin": 25.6,
+          "afd": 16.1,
+          "fdp": 2.6,
+          "bsw": 4.7,
+          "oth": 5.7
+        },
+        "note": "wahlrecht.de hochrechnung ARD 23:02."
       }
     ]
   },
@@ -427,6 +525,108 @@
           "oth": 3.4
         },
         "note": "wahlrecht.de hochrechnung ZDF 21:05."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "21:45",
+        "shares": {
+          "spd": 35.5,
+          "afd": 38.1,
+          "cdu": 5.0,
+          "lin": 6.5,
+          "gru": 5.6,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.4
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 21:45."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "21:47",
+        "shares": {
+          "spd": 35.4,
+          "afd": 38.3,
+          "cdu": 4.9,
+          "lin": 6.5,
+          "gru": 5.5,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.5
+        },
+        "note": "wahlrecht.de hochrechnung ARD 21:47."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "22:03",
+        "shares": {
+          "spd": 35.5,
+          "afd": 38.1,
+          "cdu": 4.9,
+          "lin": 6.5,
+          "gru": 5.6,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.5
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 22:03."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "22:13",
+        "shares": {
+          "spd": 35.4,
+          "afd": 38.3,
+          "cdu": 4.9,
+          "lin": 6.5,
+          "gru": 5.6,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.4
+        },
+        "note": "wahlrecht.de hochrechnung ARD 22:13."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "forschungsgruppe_wahlen",
+        "publisher": "ZDF",
+        "time": "22:20",
+        "shares": {
+          "spd": 35.5,
+          "afd": 38.1,
+          "cdu": 4.9,
+          "lin": 6.5,
+          "gru": 5.6,
+          "fdp": 1.0,
+          "bsw": 4.9,
+          "oth": 3.5
+        },
+        "note": "wahlrecht.de hochrechnung ZDF 22:20."
+      },
+      {
+        "kind": "hochrechnung",
+        "institute": "infratest_dimap",
+        "publisher": "ARD",
+        "time": "23:02",
+        "shares": {
+          "spd": 35.4,
+          "afd": 38.3,
+          "cdu": 4.9,
+          "lin": 6.5,
+          "gru": 5.7,
+          "fdp": 1.0,
+          "bsw": 4.8,
+          "oth": 3.4
+        },
+        "note": "wahlrecht.de hochrechnung ARD 23:02."
       }
     ]
   },
