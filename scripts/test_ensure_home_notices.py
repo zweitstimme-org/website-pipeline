@@ -68,6 +68,33 @@ class EnsureHomeNoticesTest(unittest.TestCase):
         self.assertTrue((self.website / "data" / "home_notices.json").is_file())
         self.assertTrue((self.website / "static" / "js" / "home-notices.js").is_file())
 
+    def test_keeps_live_banner_missing_from_integration(self):
+        ehn.ensure(self.website, self.integration)
+        live = {
+            "notices": [
+                {
+                    "id": "be-mv-2026-evaluation",
+                    "href": "blog/posts/be-mv-2026-evaluation/",
+                    "text": "Berlin und Mecklenburg-Vorpommern 2026: Evaluation der Vorhersagen",
+                }
+            ]
+        }
+        (self.website / "data" / "home_notices.json").write_text(
+            __import__("json").dumps(live) + "\n"
+        )
+        (self.website / "static" / "js").mkdir(parents=True, exist_ok=True)
+        (self.website / "static" / "js" / "home-notices.js").write_text(
+            "id: 'be-mv-2026-evaluation'\n"
+        )
+        actions = ehn.ensure(self.website, self.integration)
+        self.assertTrue(any("kept" in a and "home_notices.json" in a for a in actions))
+        kept = (self.website / "data" / "home_notices.json").read_text()
+        self.assertIn("be-mv-2026-evaluation", kept)
+        self.assertIn(
+            "be-mv-2026-evaluation",
+            (self.website / "static" / "js" / "home-notices.js").read_text(),
+        )
+
     def test_idempotent_when_already_present(self):
         ehn.ensure(self.website, self.integration)
         again = ehn.ensure(self.website, self.integration)

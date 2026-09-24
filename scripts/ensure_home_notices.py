@@ -13,6 +13,8 @@ copies and:
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -102,6 +104,44 @@ def _copy_if_exists(src: Path, dest: Path) -> bool:
     return True
 
 
+def _notice_ids_from_json(path: Path) -> set[str]:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    notices = data.get("notices") if isinstance(data, dict) else None
+    if not isinstance(notices, list):
+        return set()
+    return {
+        str(item["id"])
+        for item in notices
+        if isinstance(item, dict) and item.get("id")
+    }
+
+
+def _notice_ids_in_text(text: str) -> set[str]:
+    return set(re.findall(r'"id"\s*:\s*"([^"]+)"', text)) | set(
+        re.findall(r"\bid:\s*'([^']+)'", text)
+    )
+
+
+def _live_notices_are_newer(src: Path, dest: Path) -> bool:
+    """True when the live file names a banner the integration copy does not.
+
+    Daily Stimmung on git main still ships the expired Sachsen-Anhalt notice
+    and must not replace a later evaluation banner already on the site.
+    """
+    if not dest.is_file() or not src.is_file():
+        return False
+    if src.suffix == ".json":
+        live_ids = _notice_ids_from_json(dest)
+        incoming_ids = _notice_ids_from_json(src)
+    else:
+        live_ids = _notice_ids_in_text(dest.read_text(encoding="utf-8", errors="replace"))
+        incoming_ids = _notice_ids_in_text(src.read_text(encoding="utf-8", errors="replace"))
+    return bool(live_ids - incoming_ids)
+
+
 def copy_notice_files(integration: Path, website: Path) -> list[str]:
     actions = []
     files = [
@@ -111,6 +151,9 @@ def copy_notice_files(integration: Path, website: Path) -> list[str]:
         (integration / "static" / "js" / "home-notices.js", website / "static" / "js" / "home-notices.js"),
     ]
     for src, dest in files:
+        if dest.suffix in {".json", ".js"} and _live_notices_are_newer(src, dest):
+            actions.append(f"kept {dest.relative_to(website)} (live banner is newer)")
+            continue
         if _copy_if_exists(src, dest):
             actions.append(f"copied {dest.relative_to(website)}")
     return actions
