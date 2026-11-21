@@ -1,6 +1,6 @@
 {
   "api_version": "v2",
-  "generated_at": "2026-11-20T06:04:18",
+  "generated_at": "2026-11-21T06:03:30",
   "election": {
     "id": "ni_2027-09-26",
     "name": "Landtagswahl Niedersachsen",
@@ -10,7 +10,7 @@
     "date_is_estimated": false
   },
   "data": {
-    "as_of": "2026-11-20",
+    "as_of": "2026-11-21",
     "parties": {
       "CDU/CSU": 21.1,
       "AfD": 21,
@@ -65,9 +65,9 @@
     "trends": {
       "CDU/CSU": -0.2,
       "AfD": 0,
-      "SPD": 0.2,
+      "SPD": 0.1,
       "GRÜNE": 0,
-      "LINKE": -0.2,
+      "LINKE": -0.1,
       "BSW": null,
       "FDP": -0.1,
       "FW": null,
@@ -77,5 +77,5 @@
       "Sonstige": 0.3
     }
   },
-  "as_of": "2026-11-20"
+  "as_of": "2026-11-21"
 }
