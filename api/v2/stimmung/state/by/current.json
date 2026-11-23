@@ -1,6 +1,6 @@
 {
   "api_version": "v2",
-  "generated_at": "2026-11-22T06:03:21",
+  "generated_at": "2026-11-23T06:03:33",
   "election": {
     "id": "by_2028-10-15",
     "name": "Landtagswahl Bayern",
@@ -10,7 +10,7 @@
     "date_is_estimated": true
   },
   "data": {
-    "as_of": "2026-11-22",
+    "as_of": "2026-11-23",
     "parties": {
       "CDU/CSU": 36.5,
       "AfD": 20,
@@ -70,14 +70,14 @@
       "SPD": 0,
       "GRÜNE": 0,
       "LINKE": 0.1,
-      "BSW": 0.1,
+      "BSW": 0,
       "FDP": 0,
       "FW": -0.1,
       "SSW": null,
       "PIRATEN": null,
       "REP": null,
-      "Sonstige": 0.1
+      "Sonstige": 0.2
     }
   },
-  "as_of": "2026-11-22"
+  "as_of": "2026-11-23"
 }
