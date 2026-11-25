@@ -8,6 +8,10 @@ name: Deploy site preview
 # Daily data refresh (GitHub Actions → gh-pages data/):
 #   Daily Stimmung / State Forecasts call scripts/publish_to_pages_preview.sh
 # This workflow then publishes the gh-pages tree via Actions Pages.
+#
+# Pages source is GitHub Actions (Settings → Pages). Do not also enable
+# "Deploy from a branch": that starts pages-build-deployment on every
+# gh-pages push and the two deploys fail with "in progress deployment".
 
 on:
   workflow_dispatch:
@@ -20,16 +24,15 @@ permissions:
   id-token: write
 
 concurrency:
-  group: deploy-site-preview
-  cancel-in-progress: true
+  group: pages
+  # Do not cancel a deploy mid-flight. A cancelled actions/deploy-pages
+  # run can leave a Pages deployment in progress and block the next one.
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    name: Deploy prebuilt preview
+  build:
+    name: Upload prebuilt preview
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout gh-pages (prebuilt Hugo output)
         uses: actions/checkout@v4
@@ -40,10 +43,20 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
 
+  # deploy-pages lists artifacts as soon as it starts. In the same job as
+  # the upload, that list is often still empty (actions/deploy-pages#451).
+  deploy:
+    name: Deploy prebuilt preview
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

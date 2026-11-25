@@ -28,15 +28,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-preview-data
+  group: pages
   cancel-in-progress: false
 
 jobs:
   stimmung:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.pages_deployment.outputs.page_url }}
+    outputs:
+      deploy: ${{ steps.gate.outputs.run }}
     steps:
       - name: Checkout pipeline
         uses: actions/checkout@v4
@@ -121,14 +120,9 @@ jobs:
 
       - name: Upload Pages artifact
         if: steps.gate.outputs.run == 'true'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: gh-pages-site
-
-      - name: Deploy to GitHub Pages
-        if: steps.gate.outputs.run == 'true'
-        id: pages_deployment
-        uses: actions/deploy-pages@v4
 
       - name: Publish to website-source
         if: steps.gate.outputs.run == 'true'
@@ -148,3 +142,16 @@ jobs:
         if: steps.gate.outputs.run != 'true'
         run: |
           echo "Skipping Daily Stimmung: ${{ steps.gate.outputs.reason }}"
+
+  # Separate job so deploy-pages sees the artifact (same-job lookup races).
+  deploy:
+    needs: stimmung
+    if: needs.stimmung.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages_deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: pages_deployment
+        uses: actions/deploy-pages@v4

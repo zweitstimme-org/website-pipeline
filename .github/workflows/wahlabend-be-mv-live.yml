@@ -33,9 +33,6 @@ jobs:
   nowcast:
     runs-on: ubuntu-latest
     timeout-minutes: 360
-    environment:
-      name: github-pages
-      url: ${{ steps.pages_deployment.outputs.page_url }}
     steps:
       - name: Checkout pipeline
         uses: actions/checkout@v4
@@ -160,10 +157,17 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: gh-pages-site
 
+  deploy:
+    needs: nowcast
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages_deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: pages_deployment
         uses: actions/deploy-pages@v4
